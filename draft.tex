@@ -1,4 +1,4 @@
-\documentclass[prb,twocolumn,amsmath,longbibliography,amssymb,superscriptaddress]{revtex4-1}
+                       \documentclass[prb,twocolumn,amsmath,longbibliography,amssymb,superscriptaddress]{revtex4-1}
 
 \usepackage[pdftex]{graphics}
 \usepackage{graphicx}
@@ -36,16 +36,15 @@
 
 \section{Model}
 
-
-We will consider a modification of the model in the BDI class used in reference \cite{Song2014}, which shows a more interesting phase diagram and entanglement spectrum, given by the Hamiltonian
+As a starting point we consider the model in the BDI class used in reference \cite{Song2014} because it is the simplest model which supports topological phases with winding numbers $\nu = 0,1,2$. Additionaly, we include two symmetry breaking terms, $\kappa$ and $\kappa'$, to obtain an even richer phase diagram and show that our results are not limited to any topological class. The Hamiltonian is then given by
 \begin{align}
 H =& \sum_{i\alpha,j\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta} c_{j\beta} \\
 H_{ij} =& (m \sigma_x + \kappa \sigma_z)\delta_{ij}  + \frac{1}{2i}\kappa'\sigma_z (\delta_{i-j,1}-\delta_{i-j,-1})\\
 &+ \frac{1}{2} t \left[(\sigma_x + i \sigma_y)\delta_{i,j+1} + (\sigma_x - i \sigma_y) \delta_{i,j-1} \right] \\
-&+  \frac{1}{2} t' \left[(\sigma_x + i \sigma_y)\delta_{i,j+2} + (\sigma_x - i \sigma_y) \delta_{i,j-2} \right].
+&+  \frac{1}{2} t' \left[(\sigma_x + i \sigma_y)\delta_{i,j+2} + (\sigma_x - i \sigma_y) \delta_{i,j-2} \right],
 \label{bdi_model}
 \end{align}
-The corresponding Bloch Hamiltonian is given by
+with the corresponding Bloch Hamiltonian being
 \begin{align*}
 H(k)=&\mqty( \kappa + \kappa' \sin(k) & t' e^{i2k} + t e^{ik}+m \\t' e^{-i2k} + t e^{-ik}+m & -\kappa-\kappa' \sin(k)  ) \\
 =& (t' \cos(2k)+t\cos(k)+m)\sigma_x \\
@@ -57,19 +56,107 @@ For $\kappa = \kappa' = 0$ this Hamiltonian has the following symmetries
 &C = \sigma_z\mathcal{K} ; \quad &&C H(-k) C^{-1} = -H(k) \\
 &S = \sigma_z ; \quad &&S H(k)S^{-1} = -H(k) 
 \end{alignat*}
-and therefore it is in the BDI class, where the system has the phase diagram shown in Fig.\ref{bdi_phase_diagram} for $t=0,1$. In Fig.\ref{bdi20} we show a cut of the transition $\nu = 2 \rightarrow 0$ for different values of $\kappa,\kappa'$. For $\kappa \neq 0$ only $T$ is preserved and the system is in the trivial AI class, where the midgap states split and the system acquires a finite geometric phase. For $\kappa' \neq 0$ only $C$ is preserved and the system belongs now to the $D$ class. The $Z$ invariant transforms into a $Z_2$ invariant and the original $\nu = 2,0$ phases become equivalent. We observe split midgap states but the Berry phase is still quantized and vanishes for this cut.
-
+and therefore it is in the BDI class, where the system has the phase diagram shown in Fig.\ref{bdi_phase_diagram} for $t=0,1$. We also show cuts with the transitions $\nu = 2 \rightarrow 0$ and $\nu = 1 \rightarrow 2$ for different values of $\kappa,\kappa'$.  For $\kappa' \neq 0$ only $C$ is preserved and the system belongs now to the $D$ class. The $Z$ invariant transforms into a $Z_2$ invariant and the original $\nu = 2,0$ phases become equivalent. For $\kappa \neq 0$ only $T$ is preserved and the system is in the trivial AI class, where all zero-energy modes split.
 \begin{figure}[h!]
 \centering
-\subfloat[$t = 1$]{
+\makebox[0pt]{
+\subfloat[$t = 1,\kappa =\kappa'=0$]{
   \includegraphics[width=35mm]{bdit1}
 }
-\subfloat[$t=0$]{\includegraphics[width=35mm]{bdit0}
+\subfloat[$t=0,\kappa = \kappa'=0$]{\includegraphics[width=35mm]{bdit0}
 }
-\caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region.}
+}\hspace{0mm}
+
+\makebox[0pt]{
+\subfloat[$t = 1,t'=1,\kappa =\kappa'=0$]{
+  \includegraphics[width=35mm]{1_c.pdf}
+}
+\subfloat[$t=0,t'=1,\kappa = \kappa'=0$]{\includegraphics[width=35mm]{1_d.pdf}
+}
+}\hspace{0mm}
+
+\makebox[0pt]{
+\subfloat[$t = 1,t'=1$, $\kappa = 0,\kappa'=0.3$]{
+  \includegraphics[width=35mm]{1_f.pdf}
+}
+\subfloat[$t=0,t'=1$, $\kappa = 0.3,\kappa'=0$]{\includegraphics[width=35mm]{1_g.pdf}
+}
+}
+\caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for two different cuts in the phase diagram for different values of $\kappa,\kappa'$.}
 \label{bdi_phase_diagram}
 \end{figure}
 
+\section{Geometric phase and Entanglement spectrum}
+Consider a quadratic Hamiltonian in one dimension
+\begin{equation}
+\mathcal{H} = \sum_{ij,\alpha\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta}c_{j\beta}.
+\end{equation}
+We can obtain the single-particle eigenstates as
+\begin{align*}
+\sum_{j\beta}H_{ij,\alpha\beta} u^{p\mu}_{j\beta} = E_{p\mu} u_{i\alpha}^{p\mu},
+\end{align*}
+where $[U]_{j\beta,p\mu} = u^{p\mu}_{j\beta}$ is the unitary matrix that diagonalizes $H$. The polarization can be obtained as the many-body average of position operator, regularized for periodic boudnary conditions \carlos{resta}
+\begin{align*}
+\expval{X} = -\frac{L}{2\pi} \rm{ Im\, Ln }\bra{\Psi_0}e^{i \frac{2\pi}{L}\hat{X}}\ket{\Psi_0},
+\end{align*}
+where $\ket{\Psi_0}$ is the many-body ground state and $\hat{X}$ is the sum of all the single-particle position operators.
+Using that the ground state is a Slater determinant of the single-particle eigenstates it can be rewritten as
+\begin{align*}
+\expval{\hat{X}} = -\frac{L}{2\pi} \rm{Im \, Ln}\, {\rm det} S,
+\end{align*}
+where 
+\begin{equation}
+S_{p\mu,q\nu} = \sum_{j\alpha}u^{p\mu\, \ast}_{j \alpha} e^{-i\frac{2\pi}{L}j}u^{q\nu}_{j \alpha}
+\end{equation}
+and the determinant is taken restricting $S$ to only the occupied eigenstates. The geometric phase can now be obtained as
+\begin{equation}
+\gamma = \expval{\hat{X}}\frac{2\pi}{L}
+\end{equation}
+
+The correlation function in position space is given by
+\begin{align*}
+C_{ij}^{\alpha \beta} = \expval{c_{i\alpha}^\dagger c_{j\beta}}.
+\end{align*}
+In terms of the fermions that diagonalize the Hamiltonian, 
+\begin{align*}
+& \gamma_{i\alpha} = \sum_{j\beta}u_{j\beta}^{i\alpha \, \ast} c_{j\beta} \\
+& c_{i\alpha} = \sum_{j\beta} u^{j\beta}_{i\alpha} \gamma_{j\beta}
+\end{align*}
+we have
+\begin{align*}
+C_{ij}^{\alpha \beta} =& \sum_{pq,\mu\nu} u^{q\nu }_{j\beta} u^{p\mu \, \ast}_{i\alpha} \expval{\gamma^\dagger_{p\mu} \gamma_{q\nu} } \\
+=&  \sum_{p\mu} u^{p\mu }_{j\beta} u^{p\mu \, \ast}_{i\alpha} \expval{\gamma^\dagger_{p\mu} \gamma_{p\mu} } \\
+=&  \sum_{p\mu} u^{p\mu }_{j\beta} u^{p\mu \, \ast}_{i\alpha} [1-{\rm sign}(E_{p\mu})]/2.
+\end{align*}
+The first term is simply a kronecker delta between both sets of indeces. The second term can be rewritten as
+\begin{align*}
+UD(\abs{D})^{-1}U^\dagger =& UD(D^2)^{-1/2}U^\dagger \\
+=& U D U^\dagger (U D^2 U^\dagger)^{-1/2} \\
+=& H(H^2)^{-1/2},
+\end{align*}
+where $D$ is the diagonal Hamiltonian, $H=UDU^\dagger$. Finally the correlation function can be obtained in position space as
+\begin{align*}
+C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{-1/2} \right]_{ij, \alpha \beta}
+\end{align*}
+
+\section{Entanglement spectrum}
+\carlos{motivation}
+
+We will obtain the entanglement spectrum by following Peschel's method. Consider a quadratic Hamiltonian in one dimension
+\begin{equation}
+H = \sum_{ij,\alpha\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta}c_{j\beta}.
+\end{equation}
+The correlation function in position space is given by
+\begin{align*}
+C_{ij}^{\alpha \beta} = \expval{c_{i\alpha}^\dagger c_{j\beta}}
+\end{align*}
+and the full correlation function is nothing else than the projector onto the occupied bands
+\begin{align*}
+C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{-1/2} \right]_{ij, \alpha \beta}
+\end{align*}
+The entanglement spectrum is then obtained as the spectrum of the subsystem correlation function obtained by bisecting the system into two equal parts. 
+
+\carlos{Explain a bit more ES and plots.}
 
 \section{Homogeneous system}
 
@@ -152,6 +239,11 @@ In order to test this we take the model we used in the previous section and we p
 \caption{a)Profile used for $\kappa_i$ . b)$\chi_i$ for two cases where we place the left cut deep in either the region with positive or negative $\kappa_i$, and geometric phase in red, showing a phase transition. c)$\chi_i$ for all different possible cuts using the parameters $m=1$ (blue) and $m=3$ (green)}
 \label{cuts}
 \end{figure}
+
+The results in Fig.\ref{disorder} are obtained for weak disorder, where the ES is not modified much. For stronger disorder or other types or inhomogeneous perturbations that strongly modify the ES we run into the issue that $\chi$ is defined modulo $1$ and therefore the cut average is not well-defined. The cut average depends on the range considered for the values of $\chi$. We observed that $\chi$ oscillates around the value of the geometric phase. For weak disorder and continuous inhomogeneous perturbations, where one can follow the path of $\xi$ as we run through the different cuts one can use this information to set the numerical range and obtain the correct result for the geometric phase. However for stronger disorder or discontinious perturbations this does not work. The reason $\chi$ is defined modulo $1$ is to get rid of the contribution from the bulk states, as otherwise it is very difficult to numerically classify between bulk and edge state. If we found another way of getting rid of the bulk contribution then $\chi$ and its cut average would be uniquely defined. 
+One can explot the fact that, even in the inhomogeneous case, the ES has a type of particle-hole symmetry. If $\xi$ is an eigenvalue for a cut in $s$ then $1-\xi$ is an eigenvalue of the cut in $s+L/2$. This means that all the information is already contained in half of the spectrum. Using the lower half of the spectrum ensures that we have all the information about the edge eigenstates but the bulk contribution vanishes. This is however only valid when there is a gap between the two halfs of the spectrum at any cut $s$.
+
+Alternative one can set a threshold for the eigenvalues we consider in order to avoid the bulk contribution, which will be a good approximation as long as the ES does not have eigenvalues close to the bulk bands, typically close to the trivial phase, and phase transitions. 
 
 \section{Superconducting systems}
 
