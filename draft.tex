@@ -1,5 +1,4 @@
-                       \documentclass[prb,twocolumn,amsmath,longbibliography,amssymb,superscriptaddress]{revtex4-1}
-
+\documentclass[prb,twocolumn,amsmath,longbibliography,amssymb,superscriptaddress]{revtex4-1}
 \usepackage[pdftex]{graphics}
 \usepackage{graphicx}
 \graphicspath{{figures/}}
@@ -30,11 +29,11 @@
 	
 
 
-\section{Introduction}
+\section{Introduction.}
 
 
 
-\section{Model.}
+\section{Model}
 
 As a starting point we consider the model in the BDI class used in reference \cite{Song2014} because it is the simplest model which supports topological phases with winding numbers $\nu = 0,1,2$. Additionaly, we include two symmetry breaking terms, $\kappa$ and $\kappa'$, to obtain an even richer phase diagram and show that our results are not limited to any topological class. The Hamiltonian is then given by
 \begin{align}
@@ -62,24 +61,21 @@ and therefore it is in the BDI class, where the system has the phase diagram sho
 \makebox[0pt]{
 \subfloat[$t = 1,\kappa =\kappa'=0$]{
   \includegraphics[width=35mm]{bdit1}
-}
-\subfloat[$t=0,\kappa = \kappa'=0$]{\includegraphics[width=35mm]{bdit0}
-}
-}\hspace{0mm}
+}}\hspace{0mm}
 
 \makebox[0pt]{
-\subfloat[$t = 1,t'=1,\kappa =\kappa'=0$]{
-  \includegraphics[width=35mm]{1_c.pdf}
+\subfloat[$t = 1,t'=1$, \, $\kappa =\kappa'=0$]{
+  \includegraphics[width=35mm]{1_b.pdf}
 }
-\subfloat[$t=0,t'=1,\kappa = \kappa'=0$]{\includegraphics[width=35mm]{1_d.pdf}
+\subfloat[$t=1,t'=1$, $\kappa = 0.3, \kappa'=0$]{\includegraphics[width=35mm]{1_c.pdf}
 }
 }\hspace{0mm}
 
 \makebox[0pt]{
 \subfloat[$t = 1,t'=1$, $\kappa = 0,\kappa'=0.3$]{
-  \includegraphics[width=35mm]{1_f.pdf}
+  \includegraphics[width=35mm]{1_d.pdf}
 }
-\subfloat[$t=0,t'=1$, $\kappa = 0.3,\kappa'=0$]{\includegraphics[width=35mm]{1_g.pdf}
+\subfloat[$t=1,t'=1$, $\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{1_e.pdf}
 }
 }
 \caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for two different cuts in the phase diagram for different values of $\kappa,\kappa'$.}
@@ -95,20 +91,20 @@ We can obtain the single-particle eigenstates as
 \begin{align*}
 \sum_{j\beta}H_{ij,\alpha\beta} u^{p\mu}_{j\beta} = E_{p\mu} u_{i\alpha}^{p\mu},
 \end{align*}
-where $[U]_{j\beta,p\mu} = u^{p\mu}_{j\beta}$ is the unitary matrix that diagonalizes $H$. The polarization can be obtained as the many-body average of position operator, regularized for periodic boudnary conditions \carlos{resta}
+where $[U]_{j\beta,p\mu} = u^{p\mu}_{j\beta}$ is the unitary matrix that diagonalizes $H$. The polarization can be obtained as the many-body average of position operator, regularized for periodic boudnary conditions \cite{Resta1997}
 \begin{align*}
 \expval{X} = -\frac{L}{2\pi} \rm{ Im\, Ln }\bra{\Psi_0}e^{i \frac{2\pi}{L}\hat{X}}\ket{\Psi_0},
 \end{align*}
 where $\ket{\Psi_0}$ is the many-body ground state and $\hat{X}$ is the sum of all the single-particle position operators.
-Using that the ground state is a Slater determinant of the single-particle eigenstates it can be rewritten as
+Using that the ground state is a Slater determinant of the single-particle eigenstates, $\ket{u^{p\mu}}$, it can be rewritten as
 \begin{align*}
-\expval{\hat{X}} = -\frac{L}{2\pi} \rm{Im \, Ln}\, {\rm det} S,
+\expval{\hat{X}} = -\frac{L}{2\pi} \rm{Im \, Ln}\, {\rm det} \, \tilde{S},
 \end{align*}
-where 
+where the matrix $\tilde{S}$ is obtained from another matrix S with elements
 \begin{equation}
 S_{p\mu,q\nu} = \sum_{j\alpha}u^{p\mu\, \ast}_{j \alpha} e^{-i\frac{2\pi}{L}j}u^{q\nu}_{j \alpha}
 \end{equation}
-and the determinant is taken restricting $S$ to only the occupied eigenstates. The geometric phase can now be obtained as
+by restricting it to the space of occupied single-particle states. The geometric phase can now be obtained as
 \begin{equation}
 \gamma = \expval{\hat{X}}\frac{2\pi}{L}
 \end{equation}
@@ -138,31 +134,15 @@ where $D$ is the diagonal Hamiltonian, $H=UDU^\dagger$. Finally the correlation 
 \begin{align*}
 C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{-1/2} \right]_{ij, \alpha \beta}
 \end{align*}
+The entanglement spectrum (ES) is then obtained as the spectrum of the subsystem correlation function obtained after bisecting the system into two equal parts. 
 
-\section{Entanglement spectrum}
-\carlos{motivation}
-
-We will obtain the entanglement spectrum by following Peschel's method. Consider a quadratic Hamiltonian in one dimension
-\begin{equation}
-H = \sum_{ij,\alpha\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta}c_{j\beta}.
-\end{equation}
-The correlation function in position space is given by
-\begin{align*}
-C_{ij}^{\alpha \beta} = \expval{c_{i\alpha}^\dagger c_{j\beta}}
-\end{align*}
-and the full correlation function is nothing else than the projector onto the occupied bands
-\begin{align*}
-C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{-1/2} \right]_{ij, \alpha \beta}
-\end{align*}
-The entanglement spectrum is then obtained as the spectrum of the subsystem correlation function obtained by bisecting the system into two equal parts. 
-
-\carlos{Explain a bit more ES and plots.}
+In the ES we can differentiate between two types of eigenvalues, which we denote by $\xi$. The ones at $\xi_b = 0,1$ correspond to bulk states while for the ones in between, $0<\xi_{l,r}<1$, we find their correspondent eigenstate localized in either the left, $\xi_l$, or right, $\xi_r$, virtual edge \carlos{Cite Peschel}. 
 
 \section{Homogeneous system}
 
-For symmetry-protected topological systems in one dimension there is a well-known relation between the entanglement spectrum  (ES) and the geometric phase. The geometric phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems there have been observations of similarities between the midgap eigenvalue of the entanglement spectrum and the geometric phase \cite{Ryu2006,Huang2012,Huang2012-2}, which in the case of the fully dimerized model becomes an exact identity \cite{Ryu2006}. 
+For symmetry-protected topological systems in one dimension there is a well-known relation between ES and the geometric phase. The geometric phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems there have been observations of similarities between the midgap eigenvalue of the entanglement spectrum and the geometric phase \cite{Ryu2006,Huang2012,Huang2012-2}, which in the case of the fully dimerized model becomes an exact identity \cite{Ryu2006}. 
 
-The entanglement spectrum eigenstates can be classified as bulk (with eigenvalues $\xi_{b} = 0,1 $) or edge states (with eigenvalues $\xi_{l,r} \neq 0,1$), which are localized in one of the edges. Note that any eigenstate with eigenvalue different from zero or one we refer to as edge state, and not only the ones at $\xi=1/2$. Consider the combination of all eigenvalues localized in one of the edges modulo one,
+Consider the combination of all eigenvalues localized in one of the edges modulo one,
 \begin{equation}
 \chi = \sum_{i \in l} \xi_l \quad {\rm mod} \quad 1. 
 \end{equation}
@@ -171,33 +151,36 @@ As we will show below, for systems where the ES has more than one edge state per
 \lim_{L \rightarrow \infty}\gamma/2\pi =\lim_{L \rightarrow \infty} \chi
 \label{mainl}
 \end{equation}
-In the examples studied in references \cite{Ryu2006,Huang2012,Huang2012-2} most of the edge states sit close to the bulk bands and therefore give a small contribution, which explains why the relation between the midgap eigenvalue and the geometric phase was almost an identity and why it breaks as we go deep into the trivial state. Alternatively, using that the entanglement spectrum is particle-hole symmetric for homogeneous systems we can express $\chi$ as
+In the examples studied in references \cite{Ryu2006,Huang2012,Huang2012-2} the main contribution comes from one midgap state, while the rest of the edge states sit close to the bulk bands and therefore give a small contribution, which explains why the relation between the midgap eigenvalue and the geometric phase was almost an identity and why it breaks as we go deep into the trivial state. Alternatively, using that the entanglement spectrum is particle-hole symmetric for homogeneous systems we can express $\chi$ as
 \begin{equation*}
 \chi = \frac{1}{2} \left( \sum_{i\in l}\xi_i-\sum_{i\in r}\xi_i \pm \sum_{i\in b}\xi_i  + N \right) \quad {\rm mod} \quad 1,
 \end{equation*}
-where $N$ is the total number of electrons in the ground state and the sign on the bulk term is irrelevant since $-1/2 \, {\rm mod} \, 1 = 1/2 \, {\rm mod} \, 1$. This form is preferable when doing numerics because it is difficult to differentiate between edge modes and bulk modes since the latter can acquire a finite eigenvalue due to finite size effects or numerical errors. In Fig.\ref{bdi20} we show for several cases how Eq. \ref{mainl} holds up to finite size errors. The ES does not have therefore enough information to build up the geometric phase, but one needs to look at the localization structure of the edge states. One drastic example of this can be seen in figures \ref{bdi20}.b and \ref{bdi20}.c , where two ES that are almost identical result in a very different geometric phase. 
+where $N$ is the total number of electrons in the ground state and the sign on the bulk term is irrelevant since $-1/2 \, {\rm mod} \, 1 = 1/2 \, {\rm mod} \, 1$. This form is preferable when doing numerics because it is difficult to differentiate between edge modes and bulk modes, since the latter can acquire a finite eigenvalue due to finite size effects or numerical errors. In Fig.\ref{bdi20} we show for several cases how Eq. \ref{mainl} holds up to finite size errors. $\chi$ is equivalent to the trace of the ES of a semi-infinite chain, but one can extract the information from the ES of a ring in the thermodynamic limit by looking at the localization structure of the eigenstates, only looking at the spectrum is not enough. One drastic example of this can be seen in figures \ref{bdi20}.b and \ref{bdi20}.c , where two ES that look almost identical result in a very different geometric phase. 
 
 \begin{figure}[h!]
 \centering
 \makebox[0pt]{
 \subfloat[$t = 0, t' = 2, \kappa = 10^{-5}$]{
-  \includegraphics[width=35mm]{bdi20.pdf}
+  \includegraphics[width=35mm]{2_a.pdf}
 }
 \subfloat[$t = 0, t' = 2, \kappa = 0.3$]{
-  \includegraphics[width=35mm]{ai20.pdf}
+  \includegraphics[width=35mm]{2_b.pdf}
 }
 }\hspace{0mm}
 
 \makebox[0pt]{
+\subfloat[$t = 0, t' = 2, \kappa = 10^{-5}$]{
+  \includegraphics[width=35mm]{2_c.pdf}
+}
 \subfloat[$t = 0, t' = 2, \kappa = 0.3$]{
-  \includegraphics[width=35mm]{d20.pdf}
+  \includegraphics[width=35mm]{2_d.pdf}
 }
 }
 \caption{Entanglement spectrum (black), Berry phase (red) and $\chi$ (blue) for different cuts of the $H_{BDI}$. a) with $\kappa = 0,\kappa'=0$ in the $AIII$ class, b) with $\kappa'=0$ in the $AI$ class and c) with $\kappa = 0$ in the $D$ class. }
 \label{bdi20}
 \end{figure}
-
-This relation between the geometric phase and the entanglement spectrum is a consequence of an identity between the geometric phase and the many-body entanglement spectrum found for infinite chains \cite{Zaletel2014}. In Appendix A we modified this derivation to account for the periodic boundary conditions we use and show how their result reduces to Eq. \ref{mainl} when expressing it in terms of the ES.
+as numerically is
+This relation between the geometric phase and the entanglement spectrum is a consequence of an identity between the geometric phase and the many-body entanglement spectrum previously found for infinite chains \cite{Zaletel2014}. In Appendix A we modified this derivation to account for the periodic boundary conditions we use and show how their result reduces to Eq. \ref{mainl} when expressing it in terms of the ES.
 
 
 \begin{figure}[h]
@@ -213,9 +196,18 @@ This relation between the geometric phase and the entanglement spectrum is a con
 
 \section{Inhomogeneous systems}
 
-In reference \cite{Zaletel2014} translational invariance was used to derive Eq. \ref{zaletel} in Appendix A, and as a result Eq.\ref{mainl} is no longer correct when it is broken. This can be argued in the following way. Weak disorder will modify the entanglement spectrum but not the charge assignment. Without translational invariance the entanglement spectrum will depend on where is the cut placed on the ring, even though the ground state, and therefore the geometric phase, will not. Therefore there cannot be an equivalence between them. Instead, we found that one can still obtain the geometric phase by considering the average over all spatial cuts of expression \ref{mainl}.
+In reference \cite{Zaletel2014} translational invariance was used to derive Eq. \ref{zaletel} in Appendix A, and as a result Eq.\ref{mainl} is no longer correct when it is broken. This can be argued in the following way. Weak disorder will modify slightly the entanglement spectrum but not the charge assignment. Without translational invariance the entanglement spectrum will depend on where is the cut placed on the ring, even though the ground state, and therefore the geometric phase, will not. Therefore there cannot be an equivalence between them. One thing one could do to get rid of the cut-dependence is to perform and average over all the spatial cuts of expression \ref{mainl}, however, we run into problems. Since we defined $\chi$ as a circular quantity its average is not well-defined. We can take the modulo $1$ outside the average. Consider then
+\begin{equation*}
+\chi_s = \frac{1}{2} \left( \sum_{i\in l}\xi^s_i-\sum_{i\in r}\xi^s_i \pm \sum_{i\in b}\xi^s_i  + N \right) \quad,
+\end{equation*}
+where $\xi^s$ are the eigenvalues of the ES for a cut in positions $s$ and $s+L/2$. Then we have
+\begin{equation}
+\gamma = \expval{\chi_s }_{s}\quad {\rm mod} \quad 1,
+\label{main_inh}
+\end{equation}
+however one of the reasons we defined $\chi$ as a circular quantity is that it gets rid of the bulk contribution, since as mentioned above it is very difficult to differenciate between bulk and edge states and an inconsistent classification of the eigenstates for different cuts will lead to a wrong result. We will show different cases that point to expression \ref{main_inh} being correct but we do not have a practical way of correctly computing it in general. 
 
-In order to test this we take the model we used in the previous section and we promote every parameter to a position-dependent quantity, by adding a random part. In Fig.\ref{disorder} we show $\gamma-\expval{\chi}_{\rm cuts}$ for increasing system size. Note that we do the calculation for a particular disorder configuration for each size. We found that $\expval{\chi}_{\rm cuts}$ converges much faster than the geometric phase and that the difference scales as $O(L^{-2})$, which is the same scaling we find in the homogeneous system. We compared this result with a disorder average $\gamma - \expval{\chi}_{\rm{disorder}}$ and found that, even though we are comparing different disorder configurations, the disorder average and the cut average give the same error, which implies that it must come exclusively from finite size effects in computing the geometric phase, since is the only thing in common. One could think that this cut average is some sort of disorder average, but that is however not correct. In Fig.\ref{cuts} we show the case with a continuous position-dependent potential, plotted in Fig.\ref{cuts}.a, on top of the homogeneous model. In Fig.\ref{cuts}.b we show $\chi_i$ for two cuts where the left edge is either in the positive or negative potential region. As we can see in Fig.\ref{cuts}.c for any intermidiate cut, $\chi_i$ goes continuously from one value to the other. Here we encounter a new problem, since $\chi_i$ only makes physical sense as an angle, there are two paths between the two points. Below the phase transition we find that $\chi_i$ oscillates around $1/2$ while above the phase transition it does so around $0$. By redifining the range of values so that they do not cross $0$ and then averaging we obtain the same result as for the disordered system, that $\gamma-\expval{\chi}_{\rm cuts} \sim O(L^{-2})$. This is only well defined in the continuous limit and can potentially pose problems for finite systems and discontinuous terms, like with disorder. However, as long as the deviations are small and we have $|\expval{\gamma-\chi}|<1/2$, which has been the case so far, one only has to consider two averages, the one with $\chi_i \in [0,1)$ and the one with $\chi_i \in [-1/2,1/2)$, although at the moment there is no indication of which of the two numbers will result on the geometric phase.
+In order for the system to remain gapped we consider $\kappa_i >0$ . In Fig.\ref{disorder} we show $\gamma-\expval{\chi}_{\rm cuts}$ for increasing system size. Note that we do the calculation for a particular disorder configuration for each size. We found that $\expval{\chi}_{\rm cuts}$ converges much faster than the geometric phase and that the difference scales as $O(L^{-2})$, which is the same scaling we find in the homogeneous system. We compared this result with a disorder average $\gamma - \expval{\chi}_{\rm{disorder}}$ and found that, even though we are comparing different disorder configurations, the disorder average and the cut average give the same error, which implies that it must come exclusively from finite size effects in computing the geometric phase, since is the only thing in common. One could think that this cut average is some sort of disorder average, but that is however not correct. In Fig.\ref{cuts} we show the case with a continuous position-dependent potential, plotted in Fig.\ref{cuts}.a, on top of the homogeneous model. In Fig.\ref{cuts}.b we show $\chi_i$ for two cuts where the left edge is either in the positive or negative potential region. As we can see in Fig.\ref{cuts}.c for any intermidiate cut, $\chi_i$ goes continuously from one value to the other. Here we encounter a new problem, since $\chi_i$ only makes physical sense as an angle, there are two paths between the two points. Below the phase transition we find that $\chi_i$ oscillates around $1/2$ while above the phase transition it does so around $0$. By redifining the range of values so that they do not cross $0$ and then averaging we obtain the same result as for the disordered system, that $\gamma-\expval{\chi}_{\rm cuts} \sim O(L^{-2})$. This is only well defined in the continuous limit and can potentially pose problems for finite systems and discontinuous terms, like with disorder. However, as long as the deviations are small and we have $|\expval{\gamma-\chi}|<1/2$, which has been the case so far, one only has to consider two averages, the one with $\chi_i \in [0,1)$ and the one with $\chi_i \in [-1/2,1/2)$, although at the moment there is no indication of which of the two numbers will result on the geometric phase.
 
 
 \begin{figure}[h!]
