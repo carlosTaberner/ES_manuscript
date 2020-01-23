@@ -12,6 +12,7 @@
 
 \newcommand{\carlos}[1]{{\color{red} #1}}
 \newcommand{\maria}[1]{{\color{blue} #1}}
+\newcommand{\mariac}[1]{{\it\color{cyan}#1}}
 
 	
 \begin{document}
@@ -32,30 +33,35 @@
 
 \section{Introduction}
 Topological phases of matter have attracted more and more attention during the last decades, not the least because many more relevant systems have been realized experimentally. 
-The early focus was mainly on \emph{topologically ordered} systems \cite{Wen}, where interaction effects are crucial for stabilizing the phase. 
-The most notable examples are the fractional quantum Hall effect~\cite{} and quantum spin liquids~\cite{}. 
-However, since 2005 \maria{?}~\cite{KaneMele, etc} the focus has shifted to non-interacting topological phases, which can be characterized in terms of topological invariants~\cite{}. 
+The early focus was mainly on \emph{topologically ordered} systems \cite{wenbook}, where interaction effects are crucial for stabilizing the phase. 
+The most notable examples are the fractional quantum Hall effect~\cite{Tsui1982} and quantum spin liquids~\cite{Balents2010spin}. 
+However, since 2005~\cite{kane2005quantum,roy2009topological} the focus has shifted to non-interacting topological phases, which can be characterized in terms of topological invariants~\cite{ryu2010topological}. 
 Symmetries are often necessary to protect these topological phases, and determine which distinct topological phases can be realized for a given dimensionality. 
 
-XXX
-How to identify interesting phases?--- entanglement entropy, entanglement spectrum
+There are a few tools to identify topological phases. 
+A very efficient one is the entanglement entropy~\cite{}, which allows one to identify the total quantum dimension of the underlying topological field theory. 
+As such, the entanglement entropy can only be used for interacting systems. 
+Its main drawback is the fact that it can only provide one of the quantum numbers, and is not able to uniquely determine the topologically ordered phase at hand. 
+In addition, it requires a scaling analysis, which can be challenging for strongly correlated systems. 
+Another, closely related tool, is the entanglement spectrum (ES), originally introduced for fractional quantum Hall systems~\cite{Li2008entanglement}. 
+It was conjectured to provide information about the edge spectrum, which was later shown to be a general feature of ground states with an effective topological field theory description~\cite{Qi2012general}. 
+It also proved to be an effective tool for fractional Chern insulators~\cite{Regnault2011fractional} and certain quantum spin liquids~\cite{yao2010entanglement}. \mariac{Others?}
 
-Kitaev honeycomb model as example of entanglement spectrum 
+Generically, any of the proposed tools provides some information about the phase naturally, while others seem inaccessible. 
+It is not known, whether there exists a method to obtain the full topological data from the ground state. 
+For the simplest quantum Hall states, the Laughlin states,  it was shown that the ES does, in fact, contain the full information about the topological phase~\cite{hermanns2011haldane}.
+However, it is far from clear if this holds for more complicated/nonabelian states as well.  
 
-What information is encoded in the ES? How to extract it? 
+Here, we address a much simpler question: what information can be extracted from the ES of \emph{non-interacting} systems?
+The latter can be computed very efficiently, using methods developed by Peschel and others~\cite{Peschel2003}. 
+It was subsequently shown for topological insulators/superconductors that the ES for (gapped) periodic systems is equivalent to the flat-band energy spectrum of the corresponding system with open boundaries~\cite{Fidkowski2010entanglement}. 
+The same correspondence was also found for closely related gapless systems~\cite{matern2018entanglement}
+However, even for non-interacting systems, it is unclear which information (beyond the  `edge' spectrum) is encoded in the spectrum. 
 
-naively resp. easily accessible: information about edge spectrum
+In this manuscript, we show that the information about the Berry phase can be completely recovered from the entanglement spectrum and provide a simple formula to do so. 
+We relate our results to earlier ones XXX
 
-But, other information can be accessed as well : e.g. compactification radius
-
-in general, still unclear what info is encoded and whether it can uniquely specify the topological order at hand
-
-situation not much better for non-interacting systems--- even here, unclear what information is encoded and how one can read it off from the spectrum
-
-here, we show that the information about the Berry phase can be completely recovered from the entanglement spectrum and provide a simple formula to do so
-
-This can be related to earlier attempts, REFS
-
+\emph{Outline of the paper}
 \section{Model.}
 
 As a starting point we consider the model in the BDI class used in reference \cite{Song2014} because it is the simplest model which supports topological phases with winding numbers $\nu = 0,1,2$. Additionaly, we include two symmetry breaking terms, $\kappa$ and $\kappa'$, to obtain an even richer phase diagram and show that our results are not limited to any topological class. The Hamiltonian is then given by
