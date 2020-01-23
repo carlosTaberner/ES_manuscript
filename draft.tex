@@ -1,4 +1,4 @@
-\documentclass[prb,twocolumn,amsmath,longbibliography,amssymb,superscriptaddress]{revtex4-1}
+\documentclass[twocolumn,amsmath,longbibliography,amssymb,superscriptaddress]{revtex4-1}
 \usepackage[pdftex]{graphics}
 \usepackage{graphicx}
 \graphicspath{{figures/}}
@@ -29,9 +29,31 @@
 	
 
 
-\section{Introduction.}
+\section{Introduction}
+Topological phases of matter have attracted more and more attention during the last decades, not the least because many more relevant systems have been realized experimentally. 
+The early focus was mainly on \emph{topologically ordered} systems \cite{Wen}, where interaction effects are crucial for stabilizing the phase. 
+The most notable examples are the fractional quantum Hall effect~\cite{} and quantum spin liquids~\cite{}. 
+However, since 2005 \maria{?}~\cite{KaneMele, etc} the focus has shifted to non-interacting topological phases, which can be characterized in terms of topological invariants~\cite{}. 
+Symmetries are often necessary to protect these topological phases, and determine which distinct topological phases can be realized for a given dimensionality. 
 
+XXX
+How to identify interesting phases?--- entanglement entropy, entanglement spectrum
 
+Kitaev honeycomb model as example of entanglement spectrum 
+
+What information is encoded in the ES? How to extract it? 
+
+naively resp. easily accessible: information about edge spectrum
+
+But, other information can be accessed as well : e.g. compactification radius
+
+in general, still unclear what info is encoded and whether it can uniquely specify the topological order at hand
+
+situation not much better for non-interacting systems--- even here, unclear what information is encoded and how one can read it off from the spectrum
+
+here, we show that the information about the Berry phase can be completely recovered from the entanglement spectrum and provide a simple formula to do so
+
+This can be related to earlier attempts, REFS
 
 \section{Model}
 
@@ -176,7 +198,7 @@ where $N$ is the total number of electrons in the ground state and the sign on t
   \includegraphics[width=35mm]{2_d.pdf}
 }
 }
-\caption{Entanglement spectrum (black), Berry phase (red) and $\chi$ (blue) for different cuts of the $H_{BDI}$. a) with $\kappa = 0,\kappa'=0$ in the $AIII$ class, b) with $\kappa'=0$ in the $AI$ class and c) with $\kappa = 0$ in the $D$ class. }
+\caption{fill. }
 \label{bdi20}
 \end{figure}
 as numerically is
@@ -196,46 +218,49 @@ This relation between the geometric phase and the entanglement spectrum is a con
 
 \section{Inhomogeneous systems}
 
-In reference \cite{Zaletel2014} translational invariance was used to derive Eq. \ref{zaletel} in Appendix A, and as a result Eq.\ref{mainl} is no longer correct when it is broken. This can be argued in the following way. Weak disorder will modify slightly the entanglement spectrum but not the charge assignment. Without translational invariance the entanglement spectrum will depend on where is the cut placed on the ring, even though the ground state, and therefore the geometric phase, will not. Therefore there cannot be an equivalence between them. One thing one could do to get rid of the cut-dependence is to perform and average over all the spatial cuts of expression \ref{mainl}, however, we run into problems. Since we defined $\chi$ as a circular quantity its average is not well-defined. We can take the modulo $1$ outside the average. Consider then
+In reference \cite{Zaletel2014} translational invariance was used to derive Eq. \ref{zaletel} in Appendix A. Say we break translational invariance by adding weak disorder to the system. This will modify slightly the entanglement spectrum but not the charge assignment. Without translational invariance the entanglement spectrum will depend on where is the cut placed on the ring, even though the ground state, and therefore the geometric phase, will not. One thing one could do to get rid of the cut-dependence is to perform an average over all the spatial cuts of expression \ref{mainl}. Defining now the cut-dependent $\chi$ as 
 \begin{equation*}
 \chi_s = \frac{1}{2} \left( \sum_{i\in l}\xi^s_i-\sum_{i\in r}\xi^s_i \pm \sum_{i\in b}\xi^s_i  + N \right) \quad,
 \end{equation*}
-where $\xi^s$ are the eigenvalues of the ES for a cut in positions $s$ and $s+L/2$. Then we have
+for a cut in positions $s$ and $s+L/2$. We can write
 \begin{equation}
-\gamma = \expval{\chi_s }_{s}\quad {\rm mod} \quad 1,
-\label{main_inh}
+\gamma = \expval{\chi_s \, {\rm mod}\, 1}_s \, {\rm mod}\, 1.
+\label{modmod}
 \end{equation}
-however one of the reasons we defined $\chi$ as a circular quantity is that it gets rid of the bulk contribution, since as mentioned above it is very difficult to differenciate between bulk and edge states and an inconsistent classification of the eigenstates for different cuts will lead to a wrong result. We will show different cases that point to expression \ref{main_inh} being correct but we do not have a practical way of correctly computing it in general. 
+The average of a circular quantity is however not well-defined. For the case when the width of $\chi_s$ is lower than one, there is a range of values $[x,x+1]$ where $\chi_s$ does not cross $0,1$, and averaging over this range makes sure than once we take the second modulo $1$ all the different possible results for the cut-average are reduced to a single one. The shortcomings of expression \ref{modmod} will be discussed later, but to show that this cut-average is correct we will consider now a system in the topological phase to which we add weak disorder, so one can then take the cut-average around $[0,1]$. In Fig.\ref{disorder} we show $1 - \expval{\chi_s \, {\rm mod}\, 1}_s \, {\rm mod}\, 1 /\gamma$ in red for different system sizes. In blue we have shown the same difference using a disorder average. Both values match fairly well and they seem to vanish in the thermodynamic limit, scaling as $O(L^{-2})$. The fact that different disorder configurations match so well points to a systematic finite-size error in the way we calculate either the ES or the geometric phase that is system-independent. From this result one could think that the cut-average is some sort of disorder average. The implication however goes in the opposite direction. If the cut-average is assumed to be correct, that implies that in the thermodynamic limit we can group all the infinite different disorder configurations into an infinite set of $L$ configurations relating to different cuts of the same system, which average individually to the correct $\gamma_{\rm conf}$.
 
-In order for the system to remain gapped we consider $\kappa_i >0$ . In Fig.\ref{disorder} we show $\gamma-\expval{\chi}_{\rm cuts}$ for increasing system size. Note that we do the calculation for a particular disorder configuration for each size. We found that $\expval{\chi}_{\rm cuts}$ converges much faster than the geometric phase and that the difference scales as $O(L^{-2})$, which is the same scaling we find in the homogeneous system. We compared this result with a disorder average $\gamma - \expval{\chi}_{\rm{disorder}}$ and found that, even though we are comparing different disorder configurations, the disorder average and the cut average give the same error, which implies that it must come exclusively from finite size effects in computing the geometric phase, since is the only thing in common. One could think that this cut average is some sort of disorder average, but that is however not correct. In Fig.\ref{cuts} we show the case with a continuous position-dependent potential, plotted in Fig.\ref{cuts}.a, on top of the homogeneous model. In Fig.\ref{cuts}.b we show $\chi_i$ for two cuts where the left edge is either in the positive or negative potential region. As we can see in Fig.\ref{cuts}.c for any intermidiate cut, $\chi_i$ goes continuously from one value to the other. Here we encounter a new problem, since $\chi_i$ only makes physical sense as an angle, there are two paths between the two points. Below the phase transition we find that $\chi_i$ oscillates around $1/2$ while above the phase transition it does so around $0$. By redifining the range of values so that they do not cross $0$ and then averaging we obtain the same result as for the disordered system, that $\gamma-\expval{\chi}_{\rm cuts} \sim O(L^{-2})$. This is only well defined in the continuous limit and can potentially pose problems for finite systems and discontinuous terms, like with disorder. However, as long as the deviations are small and we have $|\expval{\gamma-\chi}|<1/2$, which has been the case so far, one only has to consider two averages, the one with $\chi_i \in [0,1)$ and the one with $\chi_i \in [-1/2,1/2)$, although at the moment there is no indication of which of the two numbers will result on the geometric phase.
-
+For stronger disorder one cannot be sure if $\chi_s$ crosses $0,1$ or not so this method cannot be applied but for continuous inhomogeneous perturbations one can follow $\chi_s$, so we can use expression \ref{modmod} even when they are strong. In Fig.\ref{4} we show the results using a position dependent $\kappa$ parameter, shown in figure \ref{4}.a for different values of $m$ and the amplitude of $\kappa$. In cases Fig.\ref{4}.b,c the width of $\chi_s$ is small so we can average taking the value ranges $[0,1]$ and $[-1/2,1/2]$ respectively and we see that the cut average matches the geometric phase perfectly. However for stronger perturbations, as shown in Fig.\ref{4}.d, one can have that the width of $\chi_s$ is bigger than 1 and there is no meaningful range of values one can average. Instead what one can do is to recover $\chi_s$ (\carlos{ only edge modes}) by constructing a new object $\tilde{\chi}_s$ by adding or substracting $1$ each time $\chi_s$ crosses $0,1$, taking the cut-average of $\tilde{\chi}_s$ and then take the modulo 1. 
 
 \begin{figure}[h!]
 \centering
 \makebox[0pt]{
 \subfloat[]{
-  \includegraphics[width=40mm]{profile.pdf}
+  \includegraphics[width=40mm]{4_a.pdf}
+}
+\subfloat[]{
+  \includegraphics[width=40mm]{4_b.pdf}
 }
 }\hspace{0mm}
 
 \makebox[0pt]{
 \subfloat[]{
-  \includegraphics[width=40mm]{extreme_es.pdf}
+  \includegraphics[width=40mm]{4_c.pdf}
 }
 \subfloat[]{
-  \includegraphics[width=40mm]{cut_es.pdf}
+  \includegraphics[width=40mm]{4_d.pdf}
 }
 }
 
 
-\caption{a)Profile used for $\kappa_i$ . b)$\chi_i$ for two cases where we place the left cut deep in either the region with positive or negative $\kappa_i$, and geometric phase in red, showing a phase transition. c)$\chi_i$ for all different possible cuts using the parameters $m=1$ (blue) and $m=3$ (green)}
-\label{cuts}
+\caption{ fill. put .5 line, also break the symmetry. with an envelope.}
+\label{4}
 \end{figure}
+(We use a profile which is invariant for $x\rightarrow x+L/2$ for practical reasons, so we can illustrate all cases, as it enhances the effect of the nonhomogeneity. But this symmetry is not necesarry for anything we discuss here)
+The last case with an easy solution is when the system is fully gapped, so that the ES doesn't have modes crossing $1/2$ for any cut. In this case one can make use of the particle-hole symmetry of the ES and use only the lower half of the spectrum to build $\chi_s$ with no issues due to the bulk contribution. 
+One can explot the fact that, even in the inhomogeneous case, the ES has a type of particle-hole symmetry. If $\xi$ is an eigenvalue for a cut in $s$ then $1-\xi$ is an eigenvalue of the cut in $s+L/2$. This means that all the information is already contained in half of the spectrum. Using the lower half of the spectrum ensures that we have all the information about the edge eigenstates but the bulk contribution vanishes. This is however only valid when there is a gap between the two halfs of the spectrum at any cut $s$. MERGE
+Another interesting point is that the two charge choices now leave to different $\chi_s$ since the particle-hole is no longer fulfilled for individual cuts. However both still lead to the same result because there is still a symmetry involving cuts related by a half-system translation. Interestingly for $\pm 1/2$ the quantity $\chi_s$ seems to be smaller, leading to fewer issues when averaging. 
 
-The results in Fig.\ref{disorder} are obtained for weak disorder, where the ES is not modified much. For stronger disorder or other types or inhomogeneous perturbations that strongly modify the ES we run into the issue that $\chi$ is defined modulo $1$ and therefore the cut average is not well-defined. The cut average depends on the range considered for the values of $\chi$. We observed that $\chi$ oscillates around the value of the geometric phase. For weak disorder and continuous inhomogeneous perturbations, where one can follow the path of $\xi$ as we run through the different cuts one can use this information to set the numerical range and obtain the correct result for the geometric phase. However for stronger disorder or discontinious perturbations this does not work. The reason $\chi$ is defined modulo $1$ is to get rid of the contribution from the bulk states, as otherwise it is very difficult to numerically classify between bulk and edge state. If we found another way of getting rid of the bulk contribution then $\chi$ and its cut average would be uniquely defined. 
-One can explot the fact that, even in the inhomogeneous case, the ES has a type of particle-hole symmetry. If $\xi$ is an eigenvalue for a cut in $s$ then $1-\xi$ is an eigenvalue of the cut in $s+L/2$. This means that all the information is already contained in half of the spectrum. Using the lower half of the spectrum ensures that we have all the information about the edge eigenstates but the bulk contribution vanishes. This is however only valid when there is a gap between the two halfs of the spectrum at any cut $s$.
 
-Alternative one can set a threshold for the eigenvalues we consider in order to avoid the bulk contribution, which will be a good approximation as long as the ES does not have eigenvalues close to the bulk bands, typically close to the trivial phase, and phase transitions. 
 
 \section{Superconducting systems}
 
@@ -256,6 +281,7 @@ H_{ij} =& m \sigma_x\delta_{ij} + \frac{1}{2} t \left[(\sigma_x + i \sigma_y)\de
 which is just the Bogoliubov-de Gennes Hamiltonian of the Kitaev chain by rotating $x$ into $z$ and identifying $\mu = -m, t_{\rm Kit} = -t_{BDI}/2, \Delta = -t_{BDI}/2 $. From Fig.\ref{bdi_phase_diagram} we see that the $BDI$ model transitions from $\nu = 1$ to the trivial phase at $t=0, m=\pm t_{BDI}$, or alternatively, when $\mu = \pm 2 t_{Kit}$, which is the known result for the Kitaev chain. Therefore the results already shown for the BDI model studied here are also applicable to the Kitaev chain.  
 
 \bibliography{references}	
+
 	
 \appendix
 
