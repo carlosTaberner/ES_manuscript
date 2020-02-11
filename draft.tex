@@ -34,11 +34,11 @@
 Topological phases of matter have attracted more and more attention during the last decades, not the least because many more relevant systems have been realized experimentally. 
 The early focus was mainly on \emph{topologically ordered} systems \cite{wenbook}, where interaction effects are crucial for stabilizing the phase. 
 The most notable examples are the fractional quantum Hall effect~\cite{Tsui1982} and quantum spin liquids~\cite{Balents2010spin}. 
-However, since 2005~\cite{kane2005quantum,roy2009topological} the focus has shifted to non-interacting topological phases, which can be characterized in terms of topological invariants~\cite{ryu2010topological}. 
+However, since 2005~\cite{kane2005quantum, roy2009topological} the focus has shifted to non-interacting topological phases, which can be characterized in terms of topological invariants~\cite{ryu2010topological}. 
 Symmetries are often necessary to protect these topological phases, and determine which distinct topological phases can be realized for a given dimensionality. 
 
 There are a few tools to identify topological phases. 
-A very efficient one is the entanglement entropy~\cite{}, which allows one to identify the total quantum dimension of the underlying topological field theory. 
+A very efficient one is the entanglement entropy~\cite{Kitaev2006topological, Levin2006detecting}, which allows one to identify the total quantum dimension of the underlying topological field theory. 
 As such, the entanglement entropy can only be used for interacting systems. 
 Its main drawback is the fact that it can only provide one of the quantum numbers, and is not able to uniquely determine the topologically ordered phase at hand. 
 In addition, it requires a scaling analysis, which can be challenging for strongly correlated systems. 
@@ -106,7 +106,7 @@ and therefore it is in the BDI class, where the system has the phase diagram sho
 \subfloat[$t=1,t'=1$, $\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{1_b.pdf}
 }
 }
-\caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for two different cuts in the phase diagram for different values of $\kappa,\kappa'$. \carlos{I'm not sure what to include here.}}
+\caption{\maria{axis labels} Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for two different cuts in the phase diagram for different values of $\kappa,\kappa'$. \carlos{I'm not sure what to include here.}}
 \label{bdi_phase_diagram}
 \end{figure}
 
@@ -165,10 +165,11 @@ C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{-1/2} \right]_{ij, \alph
 The entanglement spectrum (ES) is then obtained as the spectrum of the subsystem correlation function obtained after bisecting the system into two equal parts. 
 
 In the ES we can differentiate between two types of eigenvalues, which we denote by $\xi$. The ones at $\xi_b = 0,1$ correspond to bulk states while for the ones in between, $0<\xi_{l,r}<1$, we find their correspondent eigenstate localized in either the left, $\xi_l$, or right, $\xi_r$, virtual edge \cite{Peschel2008}. 
-
+\mariac{introduce entanglement energy, relation between C and energies}
 \section{Homogeneous system}
 
-\subsubsection{One edge mode case}
+\subsubsection{Single edge mode}
+\mariac{find better wording?}
 
 For symmetry-protected topological systems in one dimension there is a well-known relation between ES and the Zak phase. The Zak phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. For slighly more complex ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. It is known \carlos{Cite peschel} that the entanglement energies of 1D chains are equispaced sets of distinct values. The first result we show is that in simple systems like the SSH chain, where there is only one "distinct" mode, one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
 \begin{equation}
@@ -193,7 +194,8 @@ In the case where there is only one finite eigenvalue in  the ES, like in the fu
 \label{huang}
 \end{figure}
 
-\subsubsection{Localization dependent charges}
+\subsubsection{Multiple edge modes}
+%\subsubsection{Localization dependent charges}
 
 In order to generalize this to more complex systems one needs to know how to properly assign this $\pm 1/2$ charge to each entanglement mode. This is done according to their localization classification, so we have
 \begin{equation}
