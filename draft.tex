@@ -11,6 +11,7 @@
 
 \newcommand{\carlos}[1]{{\color{red} #1}}
 \newcommand{\maria}[1]{{\color{blue} #1}}
+\newcommand{\mariac}[1]{{\it\color{cyan}#1}}
 
 	
 \begin{document}
@@ -31,33 +32,38 @@
 
 \section{Introduction}
 Topological phases of matter have attracted more and more attention during the last decades, not the least because many more relevant systems have been realized experimentally. 
-The early focus was mainly on \emph{topologically ordered} systems \cite{Wen}, where interaction effects are crucial for stabilizing the phase. 
-The most notable examples are the fractional quantum Hall effect~\cite{} and quantum spin liquids~\cite{}. 
-However, since 2005 \maria{?}~\cite{KaneMele, etc} the focus has shifted to non-interacting topological phases, which can be characterized in terms of topological invariants~\cite{}. 
+The early focus was mainly on \emph{topologically ordered} systems \cite{wenbook}, where interaction effects are crucial for stabilizing the phase. 
+The most notable examples are the fractional quantum Hall effect~\cite{Tsui1982} and quantum spin liquids~\cite{Balents2010spin}. 
+However, since 2005~\cite{kane2005quantum,roy2009topological} the focus has shifted to non-interacting topological phases, which can be characterized in terms of topological invariants~\cite{ryu2010topological}. 
 Symmetries are often necessary to protect these topological phases, and determine which distinct topological phases can be realized for a given dimensionality. 
 
-XXX
-How to identify interesting phases?--- entanglement entropy, entanglement spectrum
+There are a few tools to identify topological phases. 
+A very efficient one is the entanglement entropy~\cite{}, which allows one to identify the total quantum dimension of the underlying topological field theory. 
+As such, the entanglement entropy can only be used for interacting systems. 
+Its main drawback is the fact that it can only provide one of the quantum numbers, and is not able to uniquely determine the topologically ordered phase at hand. 
+In addition, it requires a scaling analysis, which can be challenging for strongly correlated systems. 
+Another, closely related tool, is the entanglement spectrum (ES), originally introduced for fractional quantum Hall systems~\cite{Li2008entanglement}. 
+It was conjectured to provide information about the edge spectrum, which was later shown to be a general feature of ground states with an effective topological field theory description~\cite{Qi2012general}. 
+It also proved to be an effective tool for fractional Chern insulators~\cite{Regnault2011fractional} and certain quantum spin liquids~\cite{yao2010entanglement}. \mariac{Others?}
 
-Kitaev honeycomb model as example of entanglement spectrum 
+Generically, any of the proposed tools provides some information about the phase naturally, while others seem inaccessible. 
+It is not known, whether there exists a method to obtain the full topological data from the ground state. 
+For the simplest quantum Hall states, the Laughlin states,  it was shown that the ES does, in fact, contain the full information about the topological phase~\cite{hermanns2011haldane}.
+However, it is far from clear if this holds for more complicated/nonabelian states as well.  
 
-What information is encoded in the ES? How to extract it? 
+Here, we address a much simpler question: what information can be extracted from the ES of \emph{non-interacting} systems?
+The latter can be computed very efficiently, using methods developed by Peschel and others~\cite{Peschel2003}. 
+It was subsequently shown for topological insulators/superconductors that the ES for (gapped) periodic systems is equivalent to the flat-band energy spectrum of the corresponding system with open boundaries~\cite{Fidkowski2010entanglement}. 
+The same correspondence was also found for closely related gapless systems~\cite{matern2018entanglement}
+However, even for non-interacting systems, it is unclear which information (beyond the  `edge' spectrum) is encoded in the spectrum. 
 
-naively resp. easily accessible: information about edge spectrum
+In this manuscript, we show that the information about the Berry phase can be completely recovered from the entanglement spectrum and provide a simple formula to do so. 
+We relate our results to earlier ones XXX
 
-But, other information can be accessed as well : e.g. compactification radius
+\emph{Outline of the paper}
+\section{Model.}
 
-in general, still unclear what info is encoded and whether it can uniquely specify the topological order at hand
-
-situation not much better for non-interacting systems--- even here, unclear what information is encoded and how one can read it off from the spectrum
-
-here, we show that the information about the Berry phase can be completely recovered from the entanglement spectrum and provide a simple formula to do so
-
-This can be related to earlier attempts, REFS
-
-\section{Model}
-
-As a starting point we consider the model in the BDI class used in reference \cite{Song2014} because it is the simplest model which supports topological phases with winding numbers $\nu = 0,1,2$. Additionaly, we include two symmetry breaking terms, $\kappa$ and $\kappa'$, to obtain an even richer phase diagram and show that our results are not limited to any topological class. The Hamiltonian is then given by
+As a starting point we consider the model in the BDI class used in reference \cite{Song2014} because it is a very simple model which supports topological phases with winding numbers up to $\nu =2$. Additionaly, we include two symmetry breaking terms, $\kappa$ and $\kappa'$, to obtain an even richer phase diagram and show that our results are not limited to any topological class. The Hamiltonian is then given by
 \begin{align}
 H =& \sum_{i\alpha,j\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta} c_{j\beta} \\
 H_{ij} =& (m \sigma_x + \kappa \sigma_z)\delta_{ij}  + \frac{1}{2i}\kappa'\sigma_z (\delta_{i-j,1}-\delta_{i-j,-1})\\
@@ -77,34 +83,34 @@ For $\kappa = \kappa' = 0$ this Hamiltonian has the following symmetries
 &C = \sigma_z\mathcal{K} ; \quad &&C H(-k) C^{-1} = -H(k) \\
 &S = \sigma_z ; \quad &&S H(k)S^{-1} = -H(k) 
 \end{alignat*}
-and therefore it is in the BDI class, where the system has the phase diagram shown in Fig.\ref{bdi_phase_diagram} for $t=0,1$. We also show cuts with the transitions $\nu = 2 \rightarrow 0$ and $\nu = 1 \rightarrow 2$ for different values of $\kappa,\kappa'$.  For $\kappa' \neq 0$ only $C$ is preserved and the system belongs now to the $D$ class. The $Z$ invariant transforms into a $Z_2$ invariant and the original $\nu = 2,0$ phases become equivalent. For $\kappa \neq 0$ only $T$ is preserved and the system is in the trivial AI class, where all zero-energy modes split.
+and therefore it is in the BDI class, where the system has the phase diagram shown in Fig.\ref{bdi_phase_diagram} for $t=1$. We also show cuts with the transitions $\nu = 2 \rightarrow 0$ and $\nu = 1 \rightarrow 2$ for different values of $\kappa,\kappa'$.  For $\kappa' \neq 0$ only $C$ is preserved and the system belongs to the $D$ class. The $Z$ invariant transforms into a $Z_2$ invariant and the original $\nu = 2,0$ phases become equivalent. For $\kappa \neq 0$ only $T$ is preserved and the system is in the trivial AI class, where all zero-energy modes split.
 \begin{figure}[h!]
 \centering
 \makebox[0pt]{
 \subfloat[$t = 1,\kappa =\kappa'=0$]{
-  \includegraphics[width=35mm]{bdit1}
+  \includegraphics[width=45mm]{phase_diagram2.pdf}
 }}\hspace{0mm}
 
 \makebox[0pt]{
 \subfloat[$t = 1,t'=1$, \, $\kappa =\kappa'=0$]{
-  \includegraphics[width=35mm]{1_b.pdf}
+  \includegraphics[width=35mm]{1_a.pdf}
 }
-\subfloat[$t=1,t'=1$, $\kappa = 0.3, \kappa'=0$]{\includegraphics[width=35mm]{1_c.pdf}
+\subfloat[$t=1,t'=1$, $\kappa = 0.3, \kappa'=0$]{\includegraphics[width=35mm]{1_b.pdf}
 }
 }\hspace{0mm}
 
 \makebox[0pt]{
 \subfloat[$t = 1,t'=1$, $\kappa = 0,\kappa'=0.3$]{
-  \includegraphics[width=35mm]{1_d.pdf}
+  \includegraphics[width=35mm]{1_b.pdf}
 }
-\subfloat[$t=1,t'=1$, $\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{1_e.pdf}
+\subfloat[$t=1,t'=1$, $\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{1_b.pdf}
 }
 }
-\caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for two different cuts in the phase diagram for different values of $\kappa,\kappa'$.}
+\caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for two different cuts in the phase diagram for different values of $\kappa,\kappa'$. \carlos{I'm not sure what to include here.}}
 \label{bdi_phase_diagram}
 \end{figure}
 
-\section{Geometric phase and Entanglement spectrum}
+\section{Zak phase and Entanglement spectrum}
 Consider a quadratic Hamiltonian in one dimension
 \begin{equation}
 \mathcal{H} = \sum_{ij,\alpha\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta}c_{j\beta}.
@@ -115,7 +121,7 @@ We can obtain the single-particle eigenstates as
 \end{align*}
 where $[U]_{j\beta,p\mu} = u^{p\mu}_{j\beta}$ is the unitary matrix that diagonalizes $H$. The polarization can be obtained as the many-body average of position operator, regularized for periodic boudnary conditions \cite{Resta1997}
 \begin{align*}
-\expval{X} = -\frac{L}{2\pi} \rm{ Im\, Ln }\bra{\Psi_0}e^{i \frac{2\pi}{L}\hat{X}}\ket{\Psi_0},
+\expval{X} = -\frac{L}{2\pi} \rm{ Im\, Ln }\bra{\Psi_0}e^{-i \frac{2\pi}{L}\hat{X}}\ket{\Psi_0},
 \end{align*}
 where $\ket{\Psi_0}$ is the many-body ground state and $\hat{X}$ is the sum of all the single-particle position operators.
 Using that the ground state is a Slater determinant of the single-particle eigenstates, $\ket{u^{p\mu}}$, it can be rewritten as
@@ -126,11 +132,11 @@ where the matrix $\tilde{S}$ is obtained from another matrix S with elements
 \begin{equation}
 S_{p\mu,q\nu} = \sum_{j\alpha}u^{p\mu\, \ast}_{j \alpha} e^{-i\frac{2\pi}{L}j}u^{q\nu}_{j \alpha}
 \end{equation}
-by restricting it to the space of occupied single-particle states. The geometric phase can now be obtained as
+by restricting it to the space of occupied single-particle states. The Zak phase can now be obtained as
 \begin{equation}
-\gamma = \expval{\hat{X}}\frac{2\pi}{L}
+\gamma = \expval{\hat{X}}\frac{2\pi}{L} + \frac{1}{2}
 \end{equation}
-
+\carlos{There is an extra 1/2 factor compared to Kivelson's formula which I don't know where it is coming from.}
 The correlation function in position space is given by
 \begin{align*}
 C_{ij}^{\alpha \beta} = \expval{c_{i\alpha}^\dagger c_{j\beta}}.
@@ -158,52 +164,120 @@ C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{-1/2} \right]_{ij, \alph
 \end{align*}
 The entanglement spectrum (ES) is then obtained as the spectrum of the subsystem correlation function obtained after bisecting the system into two equal parts. 
 
-In the ES we can differentiate between two types of eigenvalues, which we denote by $\xi$. The ones at $\xi_b = 0,1$ correspond to bulk states while for the ones in between, $0<\xi_{l,r}<1$, we find their correspondent eigenstate localized in either the left, $\xi_l$, or right, $\xi_r$, virtual edge \carlos{Cite Peschel}. 
+In the ES we can differentiate between two types of eigenvalues, which we denote by $\xi$. The ones at $\xi_b = 0,1$ correspond to bulk states while for the ones in between, $0<\xi_{l,r}<1$, we find their correspondent eigenstate localized in either the left, $\xi_l$, or right, $\xi_r$, virtual edge \cite{Peschel2008}. 
 
 \section{Homogeneous system}
 
-For symmetry-protected topological systems in one dimension there is a well-known relation between ES and the geometric phase. The geometric phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems there have been observations of similarities between the midgap eigenvalue of the entanglement spectrum and the geometric phase \cite{Ryu2006,Huang2012,Huang2012-2}, which in the case of the fully dimerized model becomes an exact identity \cite{Ryu2006}. 
+\subsubsection{One edge mode case}
 
-Consider the combination of all eigenvalues localized in one of the edges modulo one,
+For symmetry-protected topological systems in one dimension there is a well-known relation between ES and the Zak phase. The Zak phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. For slighly more complex ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. It is known \carlos{Cite peschel} that the entanglement energies of 1D chains are equispaced sets of distinct values. The first result we show is that in simple systems like the SSH chain, where there is only one "distinct" mode, one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
 \begin{equation}
-\chi = \sum_{i \in l} \xi_l \quad {\rm mod} \quad 1. 
+\chi = \frac{1}{2}\left(\sum_j (-1)^j \xi_j+N_A\right) \, {\rm mod} \, 1,
+\label{eqplusminus}
 \end{equation}
-As we will show below, for systems where the ES has more than one edge state per edge one can find the geometric phase in the thermodynamic limit as
+where $N_A$ is the number of electrons in the ground state in region A, which in the thermodynamic limit fulfills
 \begin{equation}
-\lim_{L \rightarrow \infty}\gamma/2\pi =\lim_{L \rightarrow \infty} \chi
-\label{mainl}
+\lim_{L \rightarrow \infty} \gamma = \lim_{L \rightarrow \infty} \chi.
 \end{equation}
-In the examples studied in references \cite{Ryu2006,Huang2012,Huang2012-2} the main contribution comes from one midgap state, while the rest of the edge states sit close to the bulk bands and therefore give a small contribution, which explains why the relation between the midgap eigenvalue and the geometric phase was almost an identity and why it breaks as we go deep into the trivial state. Alternatively, using that the entanglement spectrum is particle-hole symmetric for homogeneous systems we can express $\chi$ as
-\begin{equation*}
-\chi = \frac{1}{2} \left( \sum_{i\in l}\xi_i-\sum_{i\in r}\xi_i \pm \sum_{i\in b}\xi_i  + N \right) \quad {\rm mod} \quad 1,
-\end{equation*}
-where $N$ is the total number of electrons in the ground state and the sign on the bulk term is irrelevant since $-1/2 \, {\rm mod} \, 1 = 1/2 \, {\rm mod} \, 1$. This form is preferable when doing numerics because it is difficult to differentiate between edge modes and bulk modes, since the latter can acquire a finite eigenvalue due to finite size effects or numerical errors. In Fig.\ref{bdi20} we show for several cases how Eq. \ref{mainl} holds up to finite size errors. $\chi$ is equivalent to the trace of the ES of a semi-infinite chain, but one can extract the information from the ES of a ring in the thermodynamic limit by looking at the localization structure of the eigenstates, only looking at the spectrum is not enough. One drastic example of this can be seen in figures \ref{bdi20}.b and \ref{bdi20}.c , where two ES that look almost identical result in a very different geometric phase. 
+In the case where there is only one finite eigenvalue in  the ES, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase. In Fig.\ref{huang} we show the case were it is not fully dimerized. We see in Fig.\ref{huang}.a that even though in the symmetry protected case the ES has finite eigenvalues in the trivial phase these are double-degenerate so that they cancel each other. In the case where we break the symmetry we see that there is one main midgap eigenvalue, so that the Zak phase follows it very closely, but as the midgap eigenvalue approaches the bulk the contribution from the other modes becomes more relevant and the Zak phase, and therefore $\chi$, start to deviate from the midgap eigenvalue.
+\begin{figure}[h!]
+\centering
+\makebox[0pt]{
+\subfloat[$t = 1,t'=0$, \, \,$\kappa =\kappa'=0$]{
+  \includegraphics[width=35mm]{2_a.pdf}
+}
+\subfloat[$t=1,t'=0$, $\kappa = 0.3, \kappa'=0$]{\includegraphics[width=35mm]{2_b.pdf}
+}
+}
+\caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for two different cuts in the phase diagram for different values of $\kappa,\kappa'$.}
+\label{huang}
+\end{figure}
+
+\subsubsection{Localization dependent charges}
+
+In order to generalize this to more complex systems one needs to know how to properly assign this $\pm 1/2$ charge to each entanglement mode. This is done according to their localization classification, so we have
+\begin{equation}
+\chi = \frac{1}{2} \left( \sum_{i\in r}\xi_i-\sum_{i\in l}\xi_i \pm \sum_{i\in b}\xi_i  + N_A \right) \quad {\rm mod} \quad 1,
+\label{loceq}
+\end{equation}
+the charge of the bulk modes so far is irrelevant since their eigenvalue is 1 in the thermodynamic limit, but in the next section we will have to take a closer look at it.  In the case the spectrum is double degenerate the left and right edge states might mix but one will always classify oneof the pair as left and the other one as right states, which is why the expression Eq.~\eqref{eqplusminus} simplifies so much. Even in the case where the degeneracies are broken the pairs of entanglement modes split in the same way (all left modes go up, right ones go down, or the other way around) so that the formula still applies as long as there are no crossings. This is however not the case when the degeneracies are higher than two-fold, or when we have more modes present that can cross. In order to always obtain localized modes we diagonalize instead $C_A + \lambda C_A\hat{X}C_A$, where $\hat{X}$ is the position operator and $\lambda$ is a small parameter that vanishes in the thermodynamic limit. This relation between the Zak phase and the entanglement spectrum is a consequence of an identity between the Zak phase and the many-body entanglement spectrum previously found for infinite chains \cite{Zaletel2014}. In Appendix A (\carlos{I have to take a look at it again}) we modified this derivation to account for the periodic boundary conditions we use and show how their result reduces to Eq.~\eqref{loceq} when expressing it in terms of the ES.
+
+In Fig.\ref{2},a,b. we show an example that highlights the importance of the localization structure of the ES. Two ES that seem at first very similar result in very different Zak phases. This happens because of how the two symmetry breaking terms split the four-fold degenerate midgap states. While $\kappa'$ splits them into two two-fold degenerate pairs whose contribution cancels, $\kappa$ split thems into two $left-left$ and $right-right$ pairs, with a finite contribution to the Zak phase. In Fig.\ref{2},c,d. we also show the $\nu = 2 \rightarrow 1$ cut in the phase-diagram, to illustrate a more complex ES. 
+
+One drastic example of this can be seen in figure \ref{old} , where two ES that look almost identical result in a very different Zak phase. \carlos{This was an old plot I don't know if we want to keep or not}
 
 \begin{figure}[h!]
 \centering
 \makebox[0pt]{
-\subfloat[$t = 0, t' = 2, \kappa = 10^{-5}$]{
-  \includegraphics[width=35mm]{2_a.pdf}
+\subfloat[$t = 1, t' = 2,$   $\kappa =0.3, \kappa' = 0$]{
+  \includegraphics[width=35mm]{3_a.pdf}
 }
-\subfloat[$t = 0, t' = 2, \kappa = 0.3$]{
-  \includegraphics[width=35mm]{2_b.pdf}
+\subfloat[$t = 1, t' = 2,$ $\kappa = 0, \kappa' = 0.3$]{
+  \includegraphics[width=35mm]{3_b.pdf}
 }
 }\hspace{0mm}
 
 \makebox[0pt]{
-\subfloat[$t = 0, t' = 2, \kappa = 10^{-5}$]{
-  \includegraphics[width=35mm]{2_c.pdf}
+\subfloat[$t = 1, t' = -2,$ $\kappa = 0.3, \kappa' = 0$]{
+  \includegraphics[width=35mm]{3_c.pdf}
 }
-\subfloat[$t = 0, t' = 2, \kappa = 0.3$]{
-  \includegraphics[width=35mm]{2_d.pdf}
+\subfloat[$t = 1, t' = -2,$ $\kappa = 0, \kappa' = 0.3$]{
+  \includegraphics[width=35mm]{3_d.pdf}
 }
 }
-\caption{fill. }
-\label{bdi20}
+\caption{Entanglement spectrum (black), $\chi$ (green) and $\gamma$ (red)  }
+\label{2}
 \end{figure}
-as numerically is
-This relation between the geometric phase and the entanglement spectrum is a consequence of an identity between the geometric phase and the many-body entanglement spectrum previously found for infinite chains \cite{Zaletel2014}. In Appendix A we modified this derivation to account for the periodic boundary conditions we use and show how their result reduces to Eq. \ref{mainl} when expressing it in terms of the ES.
 
+
+
+
+\section{Inhomogeneous systems}
+
+\subsubsection{Simple case, continuous ES.}
+
+In reference \cite{Zaletel2014} translational invariance was used to derive Eq. \ref{zaletel} in Appendix A. Say we break translational invariance by adding weak disorder to the system. This will modify slightly the entanglement spectrum but not the charge assignment. Without translational invariance the entanglement spectrum will depend on where is the cut placed on the ring, even though the ground state, and therefore the Zak phase, will not. The first quantity one can construct that is cut-independent is the cut-average of $\chi$. Naively one would define
+\begin{equation}
+\bar{\chi} = \frac{1}{L}\sum_{s=1}^L \chi_s
+\label{batcutavg}
+\end{equation}
+where
+\begin{equation}
+\chi_s = \frac{1}{2} \left( \sum_{i\in r}\xi^s_i-\sum_{i\in l}\xi^s_i \pm \sum_{i\in b}\xi^s_i  + N_A \right) \quad {\rm mod} \quad 1,
+\end{equation}
+is defined for cuts at $s$ and $s+L/2$. However the average of a circular quantity is not well defined. The reason we took the modulo 1 was to get rid of the bulk contribution, which should vanish in the end result anyway. If we take the modulo 1 after averaging we still might have an issue due to the bulk classification being inconsistent. A bulk mode near the center of A, at $L/4$, might cross $L/4$ at different cuts, changing its assigned charge. The bulk contribution will not be constant across cuts and that will lead to errors when averaging. 
+
+One can get away with expression Eq.~\eqref{batcutavg} in a few cases. For a system with a continuous position-dependent Hamiltonian in a trivial phase, $\chi_s$ should also be continuous. This tell us how we have to perform the cut-average. Even when discontinuities are present as long they are weak enough so that we still can tell when $\chi_s$ crosses $0,1$, we can use this information to perform the cut average. In the case that the width of $\chi_s$ is lower than 1 one can select the range of values so that $\chi_s$ does not cross the "$0,1$" line and then average. We show this in Fig.\ref{inh}.a for a system with disorder on $\kappa_s$. Note that even though we have random disorder the ES, and therefore $\chi_s$ shows some sign of continuity so that the cut-averaged can be performed this way even for relatively strong disorder.
+
+
+
+\begin{figure}[h!]
+\centering
+\makebox[0pt]{
+\subfloat[$\kappa_s$]{
+  \includegraphics[width=40mm]{4_c.pdf}
+}
+\subfloat[$t=1,t'=2,m =1$ ]{
+  \includegraphics[width=40mm]{4_d.pdf}
+}
+}\hspace{0mm}
+
+\makebox[0pt]{
+\subfloat[$\kappa_s$]{
+  \includegraphics[width=40mm]{4_a.pdf}
+}
+\subfloat[$t=1,t'=2,m =1$]{
+  \includegraphics[width=40mm]{4_b.pdf}
+}
+}
+\label{inh}
+\end{figure}
+
+In the case where $\chi_s$ is continuous but the width is larger than 1 can construct a new quantity $\chi_s'$ that is not defined modulo 1, by extending the range of $\chi_s \, {\rm mod} \, 1$ every time it crosses $0$ or $1$, such that
+\begin{equation}
+\chi_{s+1}' = {\rm Min}\{\chi'_{s+1}-\chi'_s,\chi'_{s+1}-\chi'_s+1,\chi'_{s+1}-\chi'_s-1\}
+\end{equation}
+where at each step $\chi_{s+1}'$ is chosen by minimizing the absolute value of the difference. In Fig.\ref{inh}.b we show an example of this. In Fig.\ref{disorder} we show $1-\expval{\chi_s}_{\rm cuts}/\gamma$ for different system lengths for system with weak disorder, as well as the disorder average of $1-\chi_0/\gamma$. We observe that both averages lead to the same difference, which scales as $O(L^{-2})$ (\carlos{I have to redo de plot, maybe scaling is different}), vanishing in the thermodynamic limit. The fact that both methods lead to the same error suggests that it comes strictly from a systematic finite size error in the computation of either the Zak phase or the ES which is system-independent. 
 
 \begin{figure}[h]
 \centering
@@ -212,59 +286,51 @@ This relation between the geometric phase and the entanglement spectrum is a con
   \includegraphics[width=65mm]{scaling_cut_disavg.png}
 }
 }
-\caption{}
+\caption{\carlos{Redo}}
 \label{disorder}
 \end{figure}
 
-\section{Inhomogeneous systems}
+\subsubsection{Wannier states, L/4 crossing fix}
 
-In reference \cite{Zaletel2014} translational invariance was used to derive Eq. \ref{zaletel} in Appendix A. Say we break translational invariance by adding weak disorder to the system. This will modify slightly the entanglement spectrum but not the charge assignment. Without translational invariance the entanglement spectrum will depend on where is the cut placed on the ring, even though the ground state, and therefore the geometric phase, will not. One thing one could do to get rid of the cut-dependence is to perform an average over all the spatial cuts of expression \ref{mainl}. Defining now the cut-dependent $\chi$ as 
-\begin{equation*}
-\chi_s = \frac{1}{2} \left( \sum_{i\in l}\xi^s_i-\sum_{i\in r}\xi^s_i \pm \sum_{i\in b}\xi^s_i  + N \right) \quad,
-\end{equation*}
-for a cut in positions $s$ and $s+L/2$. We can write
+In a general case where the discontinuities are too strong and the discussed above does not apply one has to take a closer look into the bulk states to ensure a consistent classification. As we mentioned above the bulk states farthest away from the edges are the problematic ones. They are also the ones best approximated by the Wannier states obtained from the chain with periodic boundary conditions as the eigenstates of 
 \begin{equation}
-\gamma = \expval{\chi_s \, {\rm mod}\, 1}_s \, {\rm mod}\, 1.
-\label{modmod}
+C\hat{X}_{\rm PBC}C
 \end{equation}
-The average of a circular quantity is however not well-defined. For the case when the width of $\chi_s$ is lower than one, there is a range of values $[x,x+1]$ where $\chi_s$ does not cross $0,1$, and averaging over this range makes sure than once we take the second modulo $1$ all the different possible results for the cut-average are reduced to a single one. The shortcomings of expression \ref{modmod} will be discussed later, but to show that this cut-average is correct we will consider now a system in the topological phase to which we add weak disorder, so one can then take the cut-average around $[0,1]$. In Fig.\ref{disorder} we show $1 - \expval{\chi_s \, {\rm mod}\, 1}_s \, {\rm mod}\, 1 /\gamma$ in red for different system sizes. In blue we have shown the same difference using a disorder average. Both values match fairly well and they seem to vanish in the thermodynamic limit, scaling as $O(L^{-2})$. The fact that different disorder configurations match so well points to a systematic finite-size error in the way we calculate either the ES or the geometric phase that is system-independent. From this result one could think that the cut-average is some sort of disorder average. The implication however goes in the opposite direction. If the cut-average is assumed to be correct, that implies that in the thermodynamic limit we can group all the infinite different disorder configurations into an infinite set of $L$ configurations relating to different cuts of the same system, which average individually to the correct $\gamma_{\rm conf}$.
-
-For stronger disorder one cannot be sure if $\chi_s$ crosses $0,1$ or not so this method cannot be applied but for continuous inhomogeneous perturbations one can follow $\chi_s$, so we can use expression \ref{modmod} even when they are strong. In Fig.\ref{4} we show the results using a position dependent $\kappa$ parameter, shown in figure \ref{4}.a for different values of $m$ and the amplitude of $\kappa$. In cases Fig.\ref{4}.b,c the width of $\chi_s$ is small so we can average taking the value ranges $[0,1]$ and $[-1/2,1/2]$ respectively and we see that the cut average matches the geometric phase perfectly. However for stronger perturbations, as shown in Fig.\ref{4}.d, one can have that the width of $\chi_s$ is bigger than 1 and there is no meaningful range of values one can average. Instead what one can do is to recover $\chi_s$ (\carlos{ only edge modes}) by constructing a new object $\tilde{\chi}_s$ by adding or substracting $1$ each time $\chi_s$ crosses $0,1$, taking the cut-average of $\tilde{\chi}_s$ and then take the modulo 1. 
+where $\hat{X}_{\rm PBC} = \exp\{i 2\pi \hat{X}/L\}$. Similar to when we go through different cuts labeled by $s$, we now consider the Wannier states dependent on where we define our lattice site 1, shifted by $s$. The obtained Wannier states for $s$ and $s+1$ will be therefore exctly the same, but shifted one lattice site. By considering their average position $\expval{\hat{X}_{PBC}}_{i,s}$ we can define a set of $2L$ Wannier states that depend continuously on $s$ (provided that the Hamiltonian is continuous). These Wannier states are then a good approximation for the Bulk states of $C_A$ we find for the different cuts. Consider now the quantity $\sum_i\expval{\hat{X}}_{i,s}$. So far everything was $s$ independent as our system was periodic, but by considering the operator $\hat{X}$ we introduce an unphysical boundary so that it will depend on where we put the first and last sites. If the states do not cross this unphysical boundary then $\sum_i\expval{\hat{X}}_{i,s} = \sum_i\expval{\hat{X}_{\rm PBC}}_{i,s} $ and it will be a constant. However, when a Wannier state crosses the boundary we obtain the same constant plus $L$. If we put this boundary at $L/4$ the object 
+\begin{equation}
+\frac{1}{L}\left(\sum_i\expval{\hat{X}}_{i,s}-\sum_i\expval{\hat{X}}_{i,0}\right)
+\end{equation}
+will be 1 (0) when a states has crossed the boundary or 0 (-1) when it has not, depending on the number of states in A at $s=0$, which we take as reference. Depending which state we take as reference will introduce a global integer shift for all cuts, so it is not relevant as it will go away after we average and take the modulo 1. By adding this term to our cut-average we will compensate for when our bulk state in the middle of A crosses $L/4$ and its charge changes. Leading to a continuous $\chi_s$ which can be averaged. In Fig.\ref{wan} we show how this works for one case. In Fig.\ref{wan}.a we show the expectation value of the position operator for both the entanglement eigenstates (in black) and the Wannier states (in red) for different cuts. In Fig.\ref{wan}.b and c we show $\chi_s$, which displays jumps due to a bulk state crossing $L/4$, and 
+\begin{equation}
+\chi_s' = \chi_s + \frac{1}{L}\left(\sum_i\expval{\hat{X}}_{i,s}-\sum_i\expval{\hat{X}}_{i,0}\right),
+\end{equation}
+where the position is defined in $[-3L/4,L/4]$ to correctly compensate for these jumps. This method conceptually works perfectly whenever the bulk states of the ES match the Wannier states, i.e. in the thermodynamic limit, but it is not clear what the small parameter is. It depends on the $\lambda$ used (it should be small enough to not affect ES but large enough to localize the ES eigenstates) but also on the model. Models with longe-range hopping, for example, lead to a higher number of edge modes in the ES which makes the effect of the edge go deeper into the bulk. 
+\carlos{We should think again if there is a better method to get this}
 
 \begin{figure}[h!]
 \centering
 \makebox[0pt]{
-\subfloat[]{
-  \includegraphics[width=40mm]{4_a.pdf}
-}
-\subfloat[]{
-  \includegraphics[width=40mm]{4_b.pdf}
-}
-}\hspace{0mm}
+\subfloat[$\expval{\hat{X}}_{i,s}$ for different cuts, for the entanglement eigenstates (black) and the Wannier states (red)]{
+  \includegraphics[width=90mm]{loca.pdf}
+}}\hspace{0mm}
 
 \makebox[0pt]{
-\subfloat[]{
-  \includegraphics[width=40mm]{4_c.pdf}
+\subfloat[$\chi_s$]{
+  \includegraphics[width=45mm]{wan1.pdf}
 }
-\subfloat[]{
-  \includegraphics[width=40mm]{4_d.pdf}
+\subfloat[$\chi_s'$ ]{
+  \includegraphics[width=45mm]{wan2.pdf}
 }
 }
 
-
-\caption{ fill. put .5 line, also break the symmetry. with an envelope.}
-\label{4}
+\caption{a)Profile used for the inhomogeneous part $\kappa_s$. b,c,d) ES (black), $\chi_s$ mod $1$ (green), $\gamma$ (red), $\expval{\chi_s}_{\rm cuts}$ mod $1$ (dashed blue).}
+\label{wan}
 \end{figure}
-(We use a profile which is invariant for $x\rightarrow x+L/2$ for practical reasons, so we can illustrate all cases, as it enhances the effect of the nonhomogeneity. But this symmetry is not necesarry for anything we discuss here)
-The last case with an easy solution is when the system is fully gapped, so that the ES doesn't have modes crossing $1/2$ for any cut. In this case one can make use of the particle-hole symmetry of the ES and use only the lower half of the spectrum to build $\chi_s$ with no issues due to the bulk contribution. 
-One can explot the fact that, even in the inhomogeneous case, the ES has a type of particle-hole symmetry. If $\xi$ is an eigenvalue for a cut in $s$ then $1-\xi$ is an eigenvalue of the cut in $s+L/2$. This means that all the information is already contained in half of the spectrum. Using the lower half of the spectrum ensures that we have all the information about the edge eigenstates but the bulk contribution vanishes. This is however only valid when there is a gap between the two halfs of the spectrum at any cut $s$. MERGE
-Another interesting point is that the two charge choices now leave to different $\chi_s$ since the particle-hole is no longer fulfilled for individual cuts. However both still lead to the same result because there is still a symmetry involving cuts related by a half-system translation. Interestingly for $\pm 1/2$ the quantity $\chi_s$ seems to be smaller, leading to fewer issues when averaging. 
-
 
 
 \section{Superconducting systems}
 
-The proof in Ref.\cite{Zaletel2014} also breaks down for superconducting systems. However, as we did for systems without translational invariance, one can extend expression \ref{mainl} for systems with pairing terms as well. Since one computes the geometric phase from the single-particle Bogoliubov-de Gennes Hamiltonian, we can obtain the correspondent entanglement spectrum and use expression \ref{mainl} to obtain the geometric phase. Take for example the kitaev chain, with the following Hamiltonian
+The proof in Ref.\cite{Zaletel2014} also breaks down for superconducting systems. However, as we did for systems without translational invariance, one can extend expression \ref{mainl} for systems with pairing terms as well. Since one computes the Zak phase from the single-particle Bogoliubov-de Gennes Hamiltonian, we can obtain the correspondent entanglement spectrum and use expression \ref{mainl} to obtain the Zak phase. Take for example the kitaev chain, with the following Hamiltonian
 \begin{align*}
 H =& -\mu \sum_{i} c_i^\dagger c_i - t \sum_{i}\left( c_{i+1}^\dagger c_i + {\rm h.c.}\right) \\
 &+  \sum_{i}\left( \Delta c_{i} c_{i+1} + {\rm h.c.}\right).
@@ -279,6 +345,7 @@ Note that by taking $t' = \kappa = \kappa = 0$ in the BDI model, Eq. \ref{bdi_mo
 H_{ij} =& m \sigma_x\delta_{ij} + \frac{1}{2} t \left[(\sigma_x + i \sigma_y)\delta_{i,j+1} + (\sigma_x - i \sigma_y) \delta_{i,j-1} \right],
 \end{align*}
 which is just the Bogoliubov-de Gennes Hamiltonian of the Kitaev chain by rotating $x$ into $z$ and identifying $\mu = -m, t_{\rm Kit} = -t_{BDI}/2, \Delta = -t_{BDI}/2 $. From Fig.\ref{bdi_phase_diagram} we see that the $BDI$ model transitions from $\nu = 1$ to the trivial phase at $t=0, m=\pm t_{BDI}$, or alternatively, when $\mu = \pm 2 t_{Kit}$, which is the known result for the Kitaev chain. Therefore the results already shown for the BDI model studied here are also applicable to the Kitaev chain.  
+
 
 \bibliography{references}	
 
@@ -300,7 +367,7 @@ The many-body states $\ket{p,p}_B$ can be built by occupying the different ES ei
 s_p^2 =& \prod_{i \in {\rm occ}} \xi_i \prod_{i \in {\rm empty}}(1-\xi_i) \\
 =& \prod_i (1-\xi_i)\left(\frac{\xi_i}{1-\xi_i} \right)^{n_i}
 \end{align}
-And the charge can be assigned so that $Q_p = \sum_{\alpha = b,l,r} q_\alpha\sum_{i \in \alpha} n_i$ with the constrain that $q_r,\pm q_b = q_l-1$ \textcolor{red}{Why?}. As the main result of \cite{Zaletel2014} the geometric phase is then found to be
+And the charge can be assigned so that $Q_p = \sum_{\alpha = b,l,r} q_\alpha\sum_{i \in \alpha} n_i$ with the constrain that $q_r,\pm q_b = q_l-1$ \textcolor{red}{Why?}. As the main result of \cite{Zaletel2014} the Zak phase is then found to be
 \begin{align}
 e^{i\gamma} = e^{2\pi i \sum_p s_p^2 Q_p}  \bra{\psi^0}\ket{\psi^{2\pi}},
 \label{zaletel}
@@ -324,7 +391,7 @@ e^{N\pi i} & \text{for} \quad q_l = 1/2,
 \end{align}
 where we used that $\sum_p s_p^2 = 1$. The change in the monodromy between both choices is accompanied by a change in the exponential term in Eq.\ref{zaletel}, so that both charge choices are equivalent.
 
-Expressing the contribution of the many-body entanglement spectrum to the geometric phase in terms of the ES, we have
+Expressing the contribution of the many-body entanglement spectrum to the Zak phase in terms of the ES, we have
 \begin{align*}
 \gamma' = 2\pi \sum_{n_i = 0,1} \left(\sum_{i } n_i q_i\right) \left(\prod_m (1- \xi_m)\left(\frac{\xi_m}{1-\xi_m} \right)^{n_m} \right) ,
 \end{align*} 
