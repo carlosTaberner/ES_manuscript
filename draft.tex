@@ -168,10 +168,10 @@ In the ES we can differentiate between two types of eigenvalues, which we denote
 \mariac{introduce entanglement energy, relation between C and energies}
 \section{Homogeneous system}
 
-\subsubsection{Single edge mode}
+\subsubsection{Nearest-neighbor hopping}
 \mariac{find better wording?}
 
-For symmetry-protected topological systems in one dimension there is a well-known relation between ES and the Zak phase. The Zak phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. For slighly more complex ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. It is known \carlos{Cite peschel} that the entanglement energies of 1D chains are equispaced sets of distinct values. The first result we show is that in simple systems like the SSH chain, where there is only one "distinct" mode, one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
+For symmetry-protected topological systems in one dimension there is a well-known relation between ES and the Zak phase \carlos{cite}. The Zak phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. For slighly more complex ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. The first result we show is that in systems with nearest-neighbor hopping, like the SSH chain, one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
 \begin{equation}
 \chi = \frac{1}{2}\left(\sum_j (-1)^j \xi_j+N_A\right) \, {\rm mod} \, 1,
 \label{eqplusminus}
@@ -180,6 +180,17 @@ where $N_A$ is the number of electrons in the ground state in region A, which in
 \begin{equation}
 \lim_{L \rightarrow \infty} \gamma = \lim_{L \rightarrow \infty} \chi.
 \end{equation}
+\carlos{Note: Peschel only finds the entanglement energies to be equispaced in systems with nearest-neighbor hopping. The general picture is seems much more complex. So far it worked for the two-band models I considered because they effectively only have nearest-neighbor hopping, adding a $\sigma_0$ hopping for example breaks this. See in Fig.\ref{eh} that for $t'\neq 0$ this is not true anymore, and even in the $\nu=1$ phase there can be crossings.  }
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=80mm]{eh1.pdf}
+\caption{Entanglement energy spectrum for a cut with $t'=-2$.}
+\label{eh}
+\end{figure}
+
+
+
 In the case where there is only one finite eigenvalue in  the ES, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase. In Fig.\ref{huang} we show the case were it is not fully dimerized. We see in Fig.\ref{huang}.a that even though in the symmetry protected case the ES has finite eigenvalues in the trivial phase these are double-degenerate so that they cancel each other. In the case where we break the symmetry we see that there is one main midgap eigenvalue, so that the Zak phase follows it very closely, but as the midgap eigenvalue approaches the bulk the contribution from the other modes becomes more relevant and the Zak phase, and therefore $\chi$, start to deviate from the midgap eigenvalue.
 \begin{figure}[h!]
 \centering
