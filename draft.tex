@@ -63,7 +63,7 @@ We relate our results to earlier ones XXX
 \emph{Outline of the paper}
 \section{Model.}
 
-As a starting point we consider the model in the BDI class used in reference \cite{Song2014} because it is a very simple model which supports topological phases with winding numbers up to $\nu =2$. Additionaly, we include two symmetry breaking terms, $\kappa$ and $\kappa'$, to obtain an even richer phase diagram and show that our results are not limited to any topological class. The Hamiltonian is then given by
+To showcase our results we consider as a starting point the model in the BDI class used in reference \cite{Song2014} because it is a very simple model which supports topological phases with winding numbers up to $\nu =2$. Additionaly, we include two symmetry breaking terms, $\kappa$ and $\kappa'$, to obtain an even richer phase diagram and show that our results are not limited to any topological class. The Hamiltonian is then given by
 \begin{align}
 H =& \sum_{i\alpha,j\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta} c_{j\beta} \\
 H_{ij} =& (m \sigma_x + \kappa \sigma_z)\delta_{ij}  + \frac{1}{2i}\kappa'\sigma_z (\delta_{i-j,1}-\delta_{i-j,-1})\\
@@ -83,7 +83,7 @@ For $\kappa = \kappa' = 0$ this Hamiltonian has the following symmetries
 &C = \sigma_z\mathcal{K} ; \quad &&C H(-k) C^{-1} = -H(k) \\
 &S = \sigma_z ; \quad &&S H(k)S^{-1} = -H(k) 
 \end{alignat*}
-and therefore it is in the BDI class, where the system has the phase diagram shown in Fig.\ref{bdi_phase_diagram} for $t=1$. We also show cuts with the transitions $\nu = 2 \rightarrow 0$ and $\nu = 1 \rightarrow 2$ for different values of $\kappa,\kappa'$.  For $\kappa' \neq 0$ only $C$ is preserved and the system belongs to the $D$ class. The $Z$ invariant transforms into a $Z_2$ invariant and the original $\nu = 2,0$ phases become equivalent. For $\kappa \neq 0$ only $T$ is preserved and the system is in the trivial AI class, where all zero-energy modes split.
+and therefore it is in the BDI class, where the system has the phase diagram shown in Fig.\ref{bdi_phase_diagram} for $t=1$. We also a cut through the three phases (dotted line in the phase diagram) for different values of $\kappa,\kappa'$.  For $\kappa = \kappa'= 0$ when the system is in the BDI class we the system has a number of zero modes equal to the winding number, as it is well known. For $\kappa' \neq 0$ only $C$ is preserved and the system belongs to the $D$ class As the zero modes in the $\nu=2$ phase split from zero pairwise, the $\nu = 2$ and $\nu=0$ phases become equivalent. For $\kappa \neq 0$ only $T$ is preserved and the system is in the trivial AI class, where all zero-energy modes split. With both $\kappa \neq 0$ and $\kappa' \neq0$ the system has no symmetry, belonging to the $A$ class and the edge modes that were doubly degenerate in the $D$ class split as well. 
 \begin{figure}[h!]
 \centering
 \makebox[0pt]{
@@ -92,21 +92,21 @@ and therefore it is in the BDI class, where the system has the phase diagram sho
 }}\hspace{0mm}
 
 \makebox[0pt]{
-\subfloat[$t = 1,t'=1$, \, $\kappa =\kappa'=0$]{
+\subfloat[$t = 1,t'=-2$, \, $\kappa =\kappa'=0$]{
   \includegraphics[width=35mm]{1_a.pdf}
 }
-\subfloat[$t=1,t'=1$, $\kappa = 0.3, \kappa'=0$]{\includegraphics[width=35mm]{1_b.pdf}
+\subfloat[$t=1,t'=-2$, $\kappa = 0.3, \kappa'=0$]{\includegraphics[width=35mm]{1_b.pdf}
 }
 }\hspace{0mm}
 
 \makebox[0pt]{
-\subfloat[$t = 1,t'=1$, $\kappa = 0,\kappa'=0.3$]{
-  \includegraphics[width=35mm]{1_b.pdf}
+\subfloat[$t = 1,t'=-2$, $\kappa = 0,\kappa'=0.3$]{
+  \includegraphics[width=35mm]{1_c.pdf}
 }
-\subfloat[$t=1,t'=1$, $\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{1_b.pdf}
+\subfloat[$t=1,t'=-2$, $\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{1_d.pdf}
 }
 }
-\caption{\maria{axis labels} Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for two different cuts in the phase diagram for different values of $\kappa,\kappa'$. \carlos{I'm not sure what to include here.}}
+\caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for two different cuts in the phase diagram for different values of $\kappa,\kappa'$.}
 \label{bdi_phase_diagram}
 \end{figure}
 
@@ -119,14 +119,19 @@ We can obtain the single-particle eigenstates as
 \begin{align*}
 \sum_{j\beta}H_{ij,\alpha\beta} u^{p\mu}_{j\beta} = E_{p\mu} u_{i\alpha}^{p\mu},
 \end{align*}
-where $[U]_{j\beta,p\mu} = u^{p\mu}_{j\beta}$ is the unitary matrix that diagonalizes $H$. The polarization can be obtained as the many-body average of position operator, regularized for periodic boudnary conditions \cite{Resta1997}
+where $[U]_{j\beta,p\mu} = u^{p\mu}_{j\beta}$ is the unitary matrix that diagonalizes $H$. The polarization can be obtained as the many-body average of the position operator, but it has to be regularized for periodic boundary conditions \cite{Resta1997}. We can define a position operator for PBC as
+\begin{equation}
+\hat{X}_{\rm PBC} = e^{-i\frac{2\pi}{L}\hat{X}},
+\end{equation}
+where $\hat{X}$ is the sum of all the single-particle position operators. We can consider then the many-body average of the position operator over the ground state, defined as
 \begin{align*}
-\expval{X} = -\frac{L}{2\pi} \rm{ Im\, Ln }\bra{\Psi_0}e^{-i \frac{2\pi}{L}\hat{X}}\ket{\Psi_0},
+\expval{\hat{X}_{\rm PBC}}_0 \equiv -\frac{L}{2\pi} \rm{ Im\, Ln }\bra{\Psi_0}\hat{X}_{\rm PBC}\ket{\Psi_0},
 \end{align*}
-where $\ket{\Psi_0}$ is the many-body ground state and $\hat{X}$ is the sum of all the single-particle position operators.
-Using that the ground state is a Slater determinant of the single-particle eigenstates, $\ket{u^{p\mu}}$, it can be rewritten as
+\carlos{This is the notation used in the Resta paper, but I'm not sure if it's confusing.}
+
+where $\ket{\Psi_0}$ is the many-body ground state. Using that the ground state is a Slater determinant of the single-particle eigenstates, $\ket{u^{p\mu}}$, it can be rewritten as
 \begin{align*}
-\expval{\hat{X}} = -\frac{L}{2\pi} \rm{Im \, Ln}\, {\rm det} \, \tilde{S},
+\expval{\hat{X}_{\rm PBC}}_0 = -\frac{L}{2\pi} \rm{Im \, Ln}\, {\rm det} \, \tilde{S},
 \end{align*}
 where the matrix $\tilde{S}$ is obtained from another matrix S with elements
 \begin{equation}
@@ -134,9 +139,9 @@ S_{p\mu,q\nu} = \sum_{j\alpha}u^{p\mu\, \ast}_{j \alpha} e^{-i\frac{2\pi}{L}j}u^
 \end{equation}
 by restricting it to the space of occupied single-particle states. The Zak phase can now be obtained as
 \begin{equation}
-\gamma = \expval{\hat{X}}\frac{2\pi}{L} + \frac{1}{2}
+\gamma = \expval{\hat{X}_{\rm PBC}}_0\frac{2\pi}{L} + \frac{1}{2}
 \end{equation}
-\carlos{There is an extra 1/2 factor compared to Kivelson's formula which I don't know where it is coming from.}
+\carlos{There is an extra 1/2 factor compared to Restas's formula which I don't know where it is coming from.}
 The correlation function in position space is given by
 \begin{align*}
 C_{ij}^{\alpha \beta} = \expval{c_{i\alpha}^\dagger c_{j\beta}}.
@@ -162,7 +167,7 @@ where $D$ is the diagonal Hamiltonian, $H=UDU^\dagger$. Finally the correlation 
 \begin{align*}
 C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{-1/2} \right]_{ij, \alpha \beta}
 \end{align*}
-The entanglement spectrum (ES) is then obtained as the spectrum of the subsystem correlation function obtained after bisecting the system into two equal parts. 
+The single-particle entanglement spectrum (ES) is then obtained as the spectrum of the subsystem correlation function obtained after bisecting the system into two equal parts. 
 
 In the ES we can differentiate between two types of eigenvalues, which we denote by $\xi$. The ones at $\xi_b = 0,1$ correspond to bulk states while for the ones in between, $0<\xi_{l,r}<1$, we find their correspondent eigenstate localized in either the left, $\xi_l$, or right, $\xi_r$, virtual edge \cite{Peschel2008}. 
 \mariac{introduce entanglement energy, relation between C and energies}
@@ -171,7 +176,7 @@ In the ES we can differentiate between two types of eigenvalues, which we denote
 \subsubsection{Nearest-neighbor hopping}
 \mariac{find better wording?}
 
-For symmetry-protected topological systems in one dimension there is a well-known relation between ES and the Zak phase \carlos{cite}. The Zak phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. For slighly more complex ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. The first result we show is that in systems with nearest-neighbor hopping, like the SSH chain, one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
+For symmetry-protected topological systems in one dimension there is a well-known relation between ES and the Zak phase \carlos{cite}. The Zak phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. For cases with more edge modes present in the ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. The first result we show is that in systems with nearest-neighbor hopping, like the SSH chain, one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
 \begin{equation}
 \chi = \frac{1}{2}\left(\sum_j (-1)^j \xi_j+N_A\right) \, {\rm mod} \, 1,
 \label{eqplusminus}
@@ -189,9 +194,7 @@ where $N_A$ is the number of electrons in the ground state in region A, which in
 \label{eh}
 \end{figure}
 
-
-
-In the case where there is only one finite eigenvalue in  the ES, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase. In Fig.\ref{huang} we show the case were it is not fully dimerized. We see in Fig.\ref{huang}.a that even though in the symmetry protected case the ES has finite eigenvalues in the trivial phase these are double-degenerate so that they cancel each other. In the case where we break the symmetry we see that there is one main midgap eigenvalue, so that the Zak phase follows it very closely, but as the midgap eigenvalue approaches the bulk the contribution from the other modes becomes more relevant and the Zak phase, and therefore $\chi$, start to deviate from the midgap eigenvalue.
+In the case where there is only one finite eigenvalue in  the ES, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase. In Fig.\ref{huang} we show show the dashed cut in the phase diagram shown above, which is equivalent to an SSH chain. We see that even though the ES has finite eigenvalues in the trivial phase these are double-degenerate so that they cancel each other. In the case where we break the symmetry we see that there is one main midgap eigenvalue, so that the Zak phase follows it very closely, but as the midgap eigenvalue approaches the bulk, the contribution from the other modes becomes more relevant and the Zak phase start to deviate from the midgap eigenvalue.
 \begin{figure}[h!]
 \centering
 \makebox[0pt]{
@@ -207,15 +210,20 @@ In the case where there is only one finite eigenvalue in  the ES, like in the fu
 
 \subsubsection{Multiple edge modes}
 %\subsubsection{Localization dependent charges}
-
-In order to generalize this to more complex systems one needs to know how to properly assign this $\pm 1/2$ charge to each entanglement mode. This is done according to their localization classification, so we have
+\carlos{change title.}
+In expression 	\eqref{eqplusminus} we assigned a charge of $\pm1/2$ to each entanglement eigenstate depending on the eigenvalue ordering. 
+In order to generalize this to systems with longer-range hopping one needs to know how to properly assign this $\pm 1/2$ charge to each entanglement mode. We found that this is done according to their localization, so we have
 \begin{equation}
 \chi = \frac{1}{2} \left( \sum_{i\in r}\xi_i-\sum_{i\in l}\xi_i \pm \sum_{i\in b}\xi_i  + N_A \right) \quad {\rm mod} \quad 1,
 \label{loceq}
 \end{equation}
-the charge of the bulk modes so far is irrelevant since their eigenvalue is 1 in the thermodynamic limit, but in the next section we will have to take a closer look at it.  In the case the spectrum is double degenerate the left and right edge states might mix but one will always classify oneof the pair as left and the other one as right states, which is why the expression Eq.~\eqref{eqplusminus} simplifies so much. Even in the case where the degeneracies are broken the pairs of entanglement modes split in the same way (all left modes go up, right ones go down, or the other way around) so that the formula still applies as long as there are no crossings. This is however not the case when the degeneracies are higher than two-fold, or when we have more modes present that can cross. In order to always obtain localized modes we diagonalize instead $C_A + \lambda C_A\hat{X}C_A$, where $\hat{X}$ is the position operator and $\lambda$ is a small parameter that vanishes in the thermodynamic limit. This relation between the Zak phase and the entanglement spectrum is a consequence of an identity between the Zak phase and the many-body entanglement spectrum previously found for infinite chains \cite{Zaletel2014}. In Appendix A (\carlos{I have to take a look at it again}) we modified this derivation to account for the periodic boundary conditions we use and show how their result reduces to Eq.~\eqref{loceq} when expressing it in terms of the ES.
+by defining $ \chi$ modulo $1$ we make the charge of the bulk modes irrelevant but in the next section we will have to take a closer look at it. We find the charge of the edge modes by computing $\expval{\hat{X}}_i$ and seeing if it is above or below $L/4$. In the case the ES is double degenerate at most, left and right edge states might mix but one will always classify one state of the pair as left and the other one as right, this is however not the case when the degeneracies are higher than two-fold. In order to ensure that we obtain edge modes localized at one edge, instead of $C_A$ we diagonalize $C_A + \lambda C_A\hat{X}C_A$, where $\hat{X}$ is the position operator and $\lambda$ is a small parameter that vanishes in the thermodynamic limit. 
 
-In Fig.\ref{2},a,b. we show an example that highlights the importance of the localization structure of the ES. Two ES that seem at first very similar result in very different Zak phases. This happens because of how the two symmetry breaking terms split the four-fold degenerate midgap states. While $\kappa'$ splits them into two two-fold degenerate pairs whose contribution cancels, $\kappa$ split thems into two $left-left$ and $right-right$ pairs, with a finite contribution to the Zak phase. In Fig.\ref{2},c,d. we also show the $\nu = 2 \rightarrow 1$ cut in the phase-diagram, to illustrate a more complex ES. 
+The reason expression~\eqref{loceq} simplifies so much for systems with nearest-neighbor hopping is that in this case it was found that all the eigenvalues of the ES are related to each other. The entanglement energies  (\carlos{Peschel always refers to them as entanglement energies or eigenvalues of the entanglement Hamiltonian. Entanglement spectrum he uses for the spectrum of the reduced density matrix, so it makes sense to use single-particle ES for the spectrum of CA}) come in pairs of left and right modes that are equispaced in the thermodynamic limit, so that the charges assigned are always $ \pm(+-+-+-...)$. In the case that the modes cross each other they do so for every pair, so that it just ammounts to a global minus sign in the charge assignment.
+
+This relation between the Zak phase and the entanglement spectrum is a consequence of an identity between the Zak phase and the many-body entanglement spectrum previously found for infinite chains \cite{Zaletel2014}. In Appendix A (\carlos{I have to take a look at it again}) we modified this derivation to account for the periodic boundary conditions we use and show how their result reduces to Eq.~\eqref{loceq} when expressing it in terms of the ES.
+
+In Fig.\ref{2} we show an example that highlights the importance of the localization structure of the ES. For the solid line cut in the phase-diagram, with the $\nu = 2 \rightarrow 0 $ transition, two ES that seem at first very similar result in very different Zak phases. This happens because of how the two symmetry breaking terms split the four-fold degenerate midgap states. While $\kappa'$ splits them into two two-fold degenerate pairs whose contribution cancels, $\kappa$ split thems into two $left-left$ and $right-right$ pairs, with a finite contribution to the Zak phase. We also show the cut through the dotted line that shows all possible phases to illustrate how our results also apply to more complex ES. 
 
 \begin{figure}[h!]
 \centering
@@ -356,7 +364,7 @@ Note that by taking $t' = \kappa = \kappa = 0$ in the BDI model, Eq. \ref{bdi_mo
 H_{ij} =& m \sigma_x\delta_{ij} + \frac{1}{2} t \left[(\sigma_x + i \sigma_y)\delta_{i,j+1} + (\sigma_x - i \sigma_y) \delta_{i,j-1} \right],
 \end{align*}
 which is just the Bogoliubov-de Gennes Hamiltonian of the Kitaev chain by rotating $x$ into $z$ and identifying $\mu = -m, t_{\rm Kit} = -t_{BDI}/2, \Delta = -t_{BDI}/2 $. From Fig.\ref{bdi_phase_diagram} we see that the $BDI$ model transitions from $\nu = 1$ to the trivial phase at $t=0, m=\pm t_{BDI}$, or alternatively, when $\mu = \pm 2 t_{Kit}$, which is the known result for the Kitaev chain. Therefore the results already shown for the BDI model studied here are also applicable to the Kitaev chain.  
-
+\carlos{check again becase I though that the kitaev chain had left-left right-right pairs, so in this case the entnsglement energies are not equispaced}
 
 \bibliography{references}	
 
