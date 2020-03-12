@@ -8,6 +8,7 @@
 \usepackage{subfig}
 \usepackage{bm}
 \usepackage{caption}
+\usepackage{amsmath} 
 
 \newcommand{\carlos}[1]{{\color{red} #1}}
 \newcommand{\maria}[1]{{\color{blue} #1}}
@@ -60,7 +61,7 @@ However, even for non-interacting systems, it is unclear which information (beyo
 In this manuscript, we show that the information about the Berry phase can be completely recovered from the entanglement spectrum and provide a simple formula to do so. 
 We relate our results to earlier ones XXX
 
-\emph{Outline of the paper}
+\emph{Outline of the paper}: In section II we introduce the model used throughout the paper and we discuss its phase diagram. In section III we introduce the Zak phase and the entanglement spectrum and set up the notation that will be used. In section IV and V we show our results for homogeneous and inhomogeneous systems, respectively. In section VI we will discuss how our results also generalize to the case of models with pairing terms and finally in section VII we present the conclusions and possible outlook.
 \section{Model.}
 
 To showcase our results we consider as a starting point the model in the BDI class used in reference \cite{Song2014} because it is a very simple model which supports topological phases with winding numbers up to $\nu =2$. Additionaly, we include two symmetry breaking terms, $\kappa$ and $\kappa'$, to obtain an even richer phase diagram and show that our results are not limited to any topological class. The Hamiltonian is then given by
@@ -106,7 +107,7 @@ and therefore it is in the BDI class, where the system has the phase diagram sho
 \subfloat[$t=1,t'=-2$, $\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{1_d.pdf}
 }
 }
-\caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for two different cuts in the phase diagram for different values of $\kappa,\kappa'$.}
+\caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for a cut going through the three differet regions, for different values of $\kappa,\kappa'$.}
 \label{bdi_phase_diagram}
 \end{figure}
 
@@ -174,7 +175,7 @@ In the ES we can differentiate between two types of eigenvalues, which we denote
 \section{Homogeneous system}
 
 \subsubsection{Nearest-neighbor hopping}
-\mariac{find better wording?}
+
 
 For symmetry-protected topological systems in one dimension there is a well-known relation between ES and the Zak phase \cite{Peschel2008}. The Zak phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. For cases with more edge modes present in the ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. The first result we show is that in systems with nearest-neighbor hopping, like the SSH chain, one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
 \begin{equation}
@@ -196,7 +197,7 @@ In the case where there is only one finite eigenvalue in  the ES, like in the fu
 \subfloat[$t=1,t'=0$, $\kappa = 0.3, \kappa'=0$]{\includegraphics[width=35mm]{2_b.pdf}
 }
 }
-\caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for two different cuts in the phase diagram for different values of $\kappa,\kappa'$.}
+\caption{Entanglement spectrum (black), $\chi$ (green) and $\gamma$ (red) for a cut in the phase diagram through the $\nu = 1 \rightarrow \nu = 0$ transition (dashed line in the phase diagram) for $t'=0$ and different values of $\kappa$.}
 \label{huang}
 \end{figure}
 
@@ -208,7 +209,7 @@ In order to generalize this to systems with longer-range hopping one needs to kn
 \chi = \frac{1}{2} \left( \sum_{i\in r}\xi_i-\sum_{i\in l}\xi_i \pm \sum_{i\in b}\xi_i  + N_A \right) \quad {\rm mod} \quad 1,
 \label{loceq}
 \end{equation}
-by defining $ \chi$ modulo $1$ we make the charge of the bulk modes irrelevant but in the next section we will have to take a closer look at it. We find the charge of the edge modes by computing $\expval{\hat{X}}_i$ and seeing if it is above or below $L/4$. In the case the ES is double degenerate at most, left and right edge states might mix but one will always classify one state of the pair as left and the other one as right, this is however not the case when the degeneracies are higher than two-fold. In order to ensure that we obtain edge modes localized at one edge, instead of $C_A$ we diagonalize $C_A + \lambda C_A\hat{X}C_A$, where $\hat{X}$ is the position operator and $\lambda$ is a small parameter that vanishes in the thermodynamic limit. 
+by defining $ \chi$ modulo $1$ we make the charge of the bulk modes irrelevant but in the next section we will have to take a closer look at it. We find the charge of the edge modes by computing $\expval{\hat{X}}_i$ and seeing if it is above or below $L/4$. In the case the ES is double degenerate at most, left and right edge states might mix but one will always classify one state of the pair as left and the other one as right, this is however not the case when the degeneracies are higher than two-fold. In order to ensure that we obtain edge modes localized at one edge, instead of $C_A$ we diagonalize $C_A + \lambda C_A\hat{X}C_A$ (\carlos{Explain why it does not work in general}), where $\hat{X}$ is the position operator and $\lambda$ is a small parameter that vanishes in the thermodynamic limit. 
 
 The reason expression~\eqref{loceq} simplifies so much for systems with only nearest-neighbor hopping is that it is known that in this case the eigenstates of $C_A$ always come with an alternating edge localization (left-right-left...), so that the signs assigned are always $ \pm(+-+-+-...)$. Their eigenvalues are also related, so that the modes can only cross each other if all of them do so two by two, so that it just ammounts to a global minus sign.
 
@@ -235,82 +236,109 @@ In Fig.\ref{2} we show an example that highlights the importance of the localiza
   \includegraphics[width=35mm]{3_d.pdf}
 }
 }
-\caption{Entanglement spectrum (black), $\chi$ (green) and $\gamma$ (red)  }
+\caption{Entanglement spectrum (black), $\chi$ (green) and $\gamma$ (red) for two different cuts,  continuous line for a,b, and dotted line for c,d plots, Showing a more diverse ES where more than one midgap state is present. }
 \label{2}
 \end{figure}
 
+Using the fact that $N_A = \Tr C_A$ we can rewrite $\chi$ as
+\begin{equation}
+\chi = \left(\sum_{i\ in r} \xi_i+ \sum_{i\in b}\xi_i\right) \, {\rm mod} \, 1.
+\end{equation}
+A simpler way one can compute this quantity is by obtaining $C_A$ for an open chain, labeled as $C_A^{ o}$. For a long enough chain the right eigenvalues will remain the same, as we still place a virtual cut in the middle of the chain but the left eigenvalues will no longer be present, so that one can simply compute
+\begin{equation}
+\chi = \Tr C_A^{o} \, {\rm mod} \, 1.
+\end{equation}
+This method however will introduce a stronger finite size effect and as we will discuss below it only works for homogeneous systems. \carlos{I don't know if its worth it to introduce in this paper. Then I dont know what to do for the ES = winding. }
 
 
 
 \section{Inhomogeneous systems}
 
-\subsubsection{Simple case, continuous ES.}
 
 In reference \cite{Zaletel2014} translational invariance was used to derive the relation between the many-body entanglement spectrum and the Zak phase. If this symmetry is broken by, for example, adding weak disorder to the system, this will modify slightly the eigenvalues of the reduced density matrix but not the charge assignment in Eq.~\eqref{zaletel} in the Appendix. The left side of Eq.~\eqref{zaletel} will be cut independent while the right side is not, and therefore cannot be correct. 
 
-We are interested therefore in finding a cut-independent quantity from the ES that might still result in the Zak phase. The first thing one can do is a cut-average of $\chi$. Naively one would define
+We are interested therefore in finding a cut-independent quantity from the ES that might still result in the Zak phase. The first thing one can do is to do an average over the different cuts. Naively one would cut-average the expression in Eq.~\eqref{loceq}, however the average of a circular quantity is not well defined. We defined $\chi$ modulo 1 because the Zak phase is also defined modulo 1, but it also served the purpose of getting rid of the sign choice for the bulk modes, which is problematic. As we do for the edge state, we can choose a sign for the bulk modes in the following way
 \begin{equation}
-\bar{\chi} = \frac{1}{L}\sum_{s=1}^L (\chi_s \, {\rm mod} \, 1 )
+g_i=
+\begin{cases}
+ +1 &,\rm{if} \expval{\hat{X}}_i > L/4  \\
+ -1 &,\rm{if} \expval{\hat{X}}_i < L/4.
+\end{cases}
+\end{equation}
+So that now we define
+\begin{equation}
+\chi_s = \frac{1}{2} \left( \sum_{i\in r}\xi^s_i-\sum_{i\in l}\xi^s_i + \sum_{i\in b}g_i^s \xi^s_i  + N_A \right),
+\end{equation}
+obtained for cuts at $s$ and $s+L/2$ and the cut-average is given by
+\begin{equation}
+\bar{\chi} = \frac{1}{L}\sum_{s=1}^L \chi_s.
 \label{batcutavg}
 \end{equation}
-where
-\begin{equation}
-\chi_s = \frac{1}{2} \left( \sum_{i\in r}\xi^s_i-\sum_{i\in l}\xi^s_i \pm \sum_{i\in b}\xi^s_i  + N_A \right) 
-\end{equation}
-is obtained for cuts at $s$ and $s+L/2$. However the average of a circular quantity is not well defined. The reason we defined $\chi$ with modulo 1 in Eq.~\eqref{loceq} was to get rid of the choice of sign for the bulk, which should not matter for the end result anyway. Instead, we can calculate
-\begin{equation}
-\bar{\chi} = \frac{1}{L}\sum_{s=1}^L \chi_s \quad {\rm mod} \quad 1 
-\label{goodcutavg}
-\end{equation}
-but in order to obtain the correct result we need the contribution from the bulk to be constant across different cuts,$\xi_{i \in b}^s = \xi_{i \in b}$, so that in the end
-\begin{align}
-\bar{\chi} =& \frac{1}{2L}\sum_{s=1}^L \left( \sum_{i\in r}\xi^s_i-\sum_{i\in l}\xi^s_i \right) \quad {\rm mod} \quad 1 \\
-&+\frac{1}{2} \left(\sum_{i\in b}\xi^s_i + N_A \right) \quad {\rm mod} \quad 1 \nonumber
-\label{goodcutavg}
-\end{align}
-If instead we only take the modulo 1 after averaging we still might have an issue due to the charge assignment of the bulk modes being inconsistent. A bulk mode near the center of A, at $L/4$, might cross $L/4$ at different cuts, changing its assigned charge. The bulk contribution will not be constant across cuts and that will lead to errors when averaging. 
+By adding the perturbation proportional to $C_A\hat{X} C_A$ the bulk modes also localize. As we move through the different cuts the average position of the bulk modes moves slightly. For most modes this will not affect the assigned sign, but for the modes near the middle of subsystem $A$ it might be that for strong enough inhomogeneity that the mode crosses $L/4$ and the sign changes. We find that in order for us to get the correct result the contribution from the bulk modes should be constant across cuts, so we have to find a way of correcting for these jumps of $1$ in $\chi_s$. 
 
-One can get away with expression Eq.~\eqref{batcutavg} in a few cases. For a system with a continuous position-dependent Hamiltonian $\chi_s$ should also be continuous. This tell us how we have to perform the cut-average. Even when discontinuities are present as long they are weak enough so that we still can tell when $\chi_s$ crosses "$0,1$" (\carlos{write properly}), the cut-average can be performed. In the case that the width of $\chi_s$ is lower than 1 one can select the range of values so that $\chi_s$ does not cross the "$0,1$" line and then average. We show this in Fig.\ref{inh} for a system with disorder on $\kappa_s$. Note that even though we have random disorder, the ES and $\chi_s$ show some sign of continuity so that the cut-averaged can be performed this way even for relatively strong disorder.
+\subsubsection{Continuous inhomogeneity}
+
+In the case we have a continuous inhomogeneity one can obtain a new quantity $\chi'_s$ with a constant bulk contribution, by assuming that the discontinuities of $\chi_s$ above some threshold, $h$, are due to these unphisical changes of sign for the bulk states and eliminating them by shifting it by an integer number so that
+\begin{equation}
+\chi_{s+1}'-\chi'_s < h
+\end{equation}
+and it is continuous. $\chi'_s$ can now be cut-averaged to obtain the Zak phase. In figure \ref{inh} we show this for a continuous profile for $\kappa_s$. We see that $\chi_s$ in fact presents jumps of $1$ but once we correct them in $\chi'_s$, its cut average results in the Zak phase. We also see the same for a disordered $\kappa_s$. Even though the disorder is relatively strong we see that $\chi_s'$, after the artificial jumps are eliminated, is fairly continuous, which allows us to use this method even for strong inhomogeneity, as long as we can identify this jumps. 
 
 
 
 \begin{figure}[h!]
+
+
 \centering
 \makebox[0pt]{
-\subfloat[$\kappa_s$]{
-  \includegraphics[width=40mm]{4_c.pdf}
-}
-\subfloat[$t=1,t'=2,m =1$ ]{
-  \includegraphics[width=40mm]{4_d.pdf}
-}
-}\hspace{0mm}
-
-\makebox[0pt]{
-\subfloat[$\kappa_s$]{
+\subfloat[]{
   \includegraphics[width=40mm]{4_a.pdf}
+  \label{inha}
 }
-\subfloat[$t=1,t'=2,m =1$]{
+\subfloat[ ]{
   \includegraphics[width=40mm]{4_b.pdf}
 }
 }\hspace{0mm}
 
 \makebox[0pt]{
-\subfloat[$\chi_s'$]{
-  \includegraphics[width=40mm]{xicfix.pdf}
-}}
-\label{inh}
+\subfloat[]{
+  \includegraphics[width=40mm]{4_c.pdf}
+}
+\subfloat[]{
+  \includegraphics[width=40mm]{4_d.pdf}
+}
+}\hspace{0mm}
+
+\makebox[0pt]{
+\subfloat[]{
+  \includegraphics[width=40mm]{4_e.pdf}
+}
+\subfloat[]{
+  \includegraphics[width=40mm]{4_f.pdf}
+}
+}
+
+\caption{Using the parameters \label{inh}$t=1,t'=2,m =1$, we show our results for two different profiles for $\kappa_s$, one continuous (a) and one with disorder (b). In (c) and (d) we show the ES (black) and $ \chi_s \, {\rm mod} \, 1$ (green). In (e) and (f) we show $\chi_s$ (green), $\chi'_s$ (blue dots), $\gamma$ (red) and $\expval{\chi'_s}_{\rm cuts}$ (blue dashed) }
+
 \end{figure}
 
-In the case where $\chi_s$ is continuous but the width is larger than 1 can construct a new quantity $\chi_s'$ that is not defined modulo 1, by extending the range of $\chi_s \, {\rm mod} \, 1$ every time it crosses $0$ or $1$. In Fig.\ref{inh}.d we show an example of this. In Fig.\ref{disorder} we show $1-\expval{\chi_s}_{\rm cuts}/\gamma$ for different system lengths for system with weak disorder, as well as the disorder average of $1-\chi_0/\gamma$. We observe that both averages lead to the same difference, which scales as $O(L^{-2})$ (\carlos{I have to redo de plot, maybe scaling is different}), vanishing in the thermodynamic limit. The fact that both methods lead to the same error suggests that it comes strictly from a systematic finite size error in the computation of either the Zak phase or the ES which is system-independent. 
+In some cases, this calculation simplifies a bit more. Note that, in the case where one can tell a priori that the width of $\chi'_s$ is lower than 1, as in the example with disorder, to recover $\chi_s'$ one can simply take the modulo 1 and adding an offset, so for instance in the example with disorder we can obtain
+\begin{equation}
+\chi'_s = ([\chi_s-1/2] \, {\rm mod} \, 1)+1/2.
+\end{equation}
+One can then cut-average the resulting $\chi_s \, \rm{mod} \,1$ in the same way to obtain the Zak phase. This cannot be done in the first example because as we already see in Fig.\ref{inh}.c, $\chi_s \, \rm{mod} \,1$ wraps aroud the full range, so that there is no offset that will allow us to average it in a well-defined way.
+
+
+In Fig.\ref{disorder} we show $1-\expval{\chi_s}_{\rm cuts}/\gamma$ for different system lengths for system with weak disorder, as well as the disorder average of $1-\chi_0/\gamma$. For both cases the error seems to vanish in the thermodynamic limit. For small systems both errors are very similar, which suggests that it comes strictly from a systematic finite size error in the computation of either the Zak phase or the ES which is system-independent. For larger systems the disoder average is more dispersed, probably due to the number of configurations considered not being high enough. 
 
 \begin{figure}[h]
 \centering
 \makebox[0pt]{
-\subfloat[$t = 0, t' = 2, \kappa = 0.3$]{
-  \includegraphics[width=65mm]{scaling_cut_disavg.png}
+\subfloat[$t = 1, t' = 2, m=1, \kappa_s \in (-1,1)$]{
+  \includegraphics[width=65mm]{disvscut.pdf}
 }
 }
-\caption{\carlos{Redo}}
+\caption{We show $1-\expval{\chi_s'}_{\rm cuts}/\gamma$ (red) and $1-\expval{\chi_s'}_{\rm dis}/\expval{\gamma}_{\rm dis}$. The cut average seems to do as good or better than the disorder average. For small systems it seems that both errors are similar, pointing to a systematic finite size error in the computation of either the Zak phase or the ES. For larger systems the error in the disorder average is more spread, which suggests that one should average more configurations.}
 \label{disorder}
 \end{figure}
 
@@ -320,7 +348,7 @@ In the case where $\chi_s$ is continuous but the width is larger than 1 can cons
 \begin{figure}[t]
 \centering
 \makebox[0pt]{
-\subfloat[$\expval{\hat{X}}_{i,s}$ for different cuts, for the entanglement eigenstates (black) and the Wannier states (red)]{
+\subfloat[$\expval{\hat{X}}_{i,s}$ for different cuts, for the entanglement eigenstates such that $\xi_i < 1/2$ (black) and the Wannier states (red)]{
   \includegraphics[width=90mm]{loca.pdf}
 }}\hspace{0mm}
 
@@ -333,29 +361,32 @@ In the case where $\chi_s$ is continuous but the width is larger than 1 can cons
 }
 }
 
-\caption{}
+\caption{For the same parameters as used in Fig.5.a,c,e we show the expectation value of the position for the ES eigenstates (black) and the Wannier states (red), showing that the latter are a good approximation of the former in the bulk. We highlight by a continuous red line the bulk mode that crosses $L/4$ which causes the jumps in $\chi_s$. In (b) we show again $\chi_s$ (black) and the correction for the sign switch (red). In (c) $\chi_s'$ is reconstructed via this method, showing the same result as we had before.}
 \label{wan}
 \end{figure}
 
 
-In a general case where the discontinuities are too strong and the discussed above does not apply one has to take a closer look into the bulk states to ensure a consistent charge assignment. As we mentioned above the bulk states farthest away from the edges are the problematic ones. They are also the ones best approximated by the Wannier states obtained from the chain with periodic boundary conditions, as the eigenstates of 
+In a general case where the discontinuities are too strong and we do not know how to correct for these jumps as explained before one has to take a closer look into the bulk states to ensure a consistent sign assignment. As we mentioned above the bulk states farthest away from the edges are the problematic ones. They are also the ones best approximated by the Wannier states obtained from the chain with periodic boundary conditions, as the eigenstates of 
 \begin{equation}
 C\hat{X}_{\rm PBC}C
 \end{equation}
 where $\hat{X}_{\rm PBC} = \exp\{i 2\pi \hat{X}/L\}$. Similar to when we go through different cuts labeled by $s$, we now consider the Wannier states dependent on where we define our lattice site 1, shifted by $s$. The obtained Wannier states for $s$ and $s+1$ will be therefore exactly the same, but shifted one lattice site. By considering their average position $\expval{\hat{X}_{PBC}}_{i,s}$ we can define a set of $2L$ Wannier states that depend continuously on $s$, provided that the Hamiltonian is continuous. These Wannier states are then a good approximation for the Bulk states of $C_A$ we find for the different cuts. 
-Consider now the quantity $\sum_i\expval{\hat{X}}_{i,s}$. So far everything was $s$ independent as our system was periodic, but by considering the operator $\hat{X}$ we introduce an unphysical boundary so that it will depend on where we put the first and last sites. If the states do not cross this unphysical boundary then $\sum_i\expval{\hat{X}}_{i,s} = \sum_i\expval{\hat{X}_{\rm PBC}}_{i,s} $ and it will be a constant with $s$. However, when a Wannier state crosses the boundary we obtain the same constant plus $L$. If we put this boundary at $L/4$ the quantity 
+Consider now the quantity $\sum_i\expval{\hat{X}}_{i,s}$. So far everything was $s$ independent as our system was periodic, but by considering the operator $\hat{X}$ we introduce an unphysical boundary so that it will depend on how the lattice sites are defined. If the states do not cross this unphysical boundary then $\sum_i\expval{\hat{X}}_{i,s} = \sum_i\expval{\hat{X}_{\rm PBC}}_{i,s} $ and it will be a constant with $s$. However, when a Wannier state crosses the boundary we obtain the same constant plus $L$. If we put this boundary at $L/4$ the quantity 
 \begin{equation}
-\frac{1}{L}\left(\sum_i\expval{\hat{X}}_{i,s}-\sum_i\expval{\hat{X}}_{i,0}\right)
+\delta_s = \frac{1}{L}\left(\sum_i\expval{\hat{X}}_{i,s}-\sum_i\expval{\hat{X}}_{i,0}\right)
 \end{equation}
-will be 1 (0) when a states has crossed the boundary or 0 (-1) when it has not, depending on the number of states in A at $s=0$, which we take as reference. Depending which state we take as reference will introduce a global integer shift for all cuts, so it is not relevant as it will go away after we average and take the modulo 1. By adding this term to our cut-average we will compensate for when our bulk state in the middle of A crosses $L/4$ and its charge changes, leading to a continuous $\chi_s$ which can be averaged. In Fig.\ref{wan} we show how this works for one case. In Fig.\ref{wan}.a we show the expectation value of the position operator for both the entanglement eigenstates (in black) and the Wannier states (in red) for different cuts. In Fig.\ref{wan}.b and c we show $\chi_s$, which displays jumps due to a bulk state crossing $L/4$, and 
+will be 1 (0) when a states has crossed the boundary or 0 (-1) when it has not, depending on the number of states in A at $s=0$, which we take as reference. Depending which state we take as reference will introduce a global integer shift for all cuts, so it is not relevant as it will go away after we average and take the modulo 1. By adding this term to our cut-average we will compensate for when our bulk state in the middle of A crosses $L/4$ and its charge changes, leading to a continuous $\chi_s'$ which can be averaged,
 \begin{equation}
-\chi_s' = \chi_s + \frac{1}{L}\left(\sum_i\expval{\hat{X}}_{i,s}-\sum_i\expval{\hat{X}}_{i,0}\right),
-\end{equation}
-where the position is defined in $[-3L/4,L/4]$ to correctly compensate for these jumps. This method conceptually works perfectly whenever the bulk states of the ES match the Wannier states, i.e. in the thermodynamic limit, but it is not clear what the small parameter is. It depends on the $\lambda$ used (it should be small enough to not affect ES but large enough to localize the ES eigenstates) but also on the system. Systems with many ES edge modes close to the bulk tend to have a higher finite size effect.
+\chi_s' = \chi_s + \delta_s
+\end{equation} 
 
-This method is however not general. We find that whenever there is an interphase in our system, and therefore a zero mode in the energy spectrum, the Wannier states are in general no longer a good approximation of the bulk of finite systems. However, in the cases where we have an interphase but $\chi_s$ is continuous and its width is lower than one, we observe that Eq.\eqref{batcutavg} still gives the correct Zak phase, suggesting that this relation between the ES and the Zak phase exists in general for inhomogeneous systems even though we do not know how to compute it in some cases. 
+In Fig.\ref{wan} we show how this works for the same continuous example as in \ref{inh}. In Fig.\ref{wan}.a we show the expectation value of the position operator for both the entanglement eigenstates (in black) and the Wannier states (in red) for different values of $s$. In Fig.\ref{wan}.b and c we show $\chi_s$, which displays jumps due to a bulk state crossing $L/4$, and $\delta_s$, showing that it properly corrects the sign switch.
 
+This method conceptually works perfectly whenever the bulk states of the ES are equal to the Wannier states, i.e. in the thermodynamic limit, but it is not clear what the small parameter is. It depends on the $\lambda$ used (it should be small enough to not affect ES but large enough to localize the ES eigenstates) but also on the system. Systems with many ES edge modes close to the bulk tend to have a higher finite size effect.
 
+We also find that whenever there is an interphase in our system, and therefore a zero mode in the energy spectrum, the Wannier states are not necesseraly a good approximation of the bulk of finite systems. However, in the cases where we have an interphase but $\chi_s$ is fairly continuous, so that we can correct these jumps, cut-averaging results again in the Zak phase. 
+
+As the sign assigned to the bulk modes becomes relevant in the inhomogeneous case one might think that it is better to use the open chain, $\chi_s = \Tr C_A^{o,s}$, as one avoids the issue of having to assign any signs at all. Although this is true we find another problem. By adiabatically tuning down the coupling between the $L$ and $1$ sites we see that the eigenvalues of the $left$ modes flow to either $0$ or $1$. In the case where this eigenvalues oscillate around $1/2$ for different cuts this leads to discontinuities in the number of bulk modes at $\xi=1$ which again result in an incorrect cut-average and we found no practical way of compensating for these discontinuitiesyfgh. 
 
 \section{Superconducting systems}
 
@@ -375,13 +406,9 @@ H_{ij} =& m \sigma_x\delta_{ij} + \frac{1}{2} t \left[(\sigma_x + i \sigma_y)\de
 \end{align*}
 which is just the Bogoliubov-de Gennes Hamiltonian of the Kitaev chain by rotating $x$ into $z$ and identifying $\mu = -m, t_{\rm Kit} = -t_{BDI}/2, \Delta = -t_{BDI}/2 $. From Fig.\ref{bdi_phase_diagram} we see that the $BDI$ model transitions from $\nu = 1$ to the trivial phase at $t=0, m=\pm t_{BDI}$, or alternatively, when $\mu = \pm 2 t_{Kit}$, which is the known result for the Kitaev chain. Therefore the results already shown for the BDI model studied here are also applicable to the Kitaev chain.  
 
-\section{Notes}
+\section{Conclusion}
 
-So far we show examples of two-band models, where the Zak phase is obtained from the lower occupied band. If we consider systems with a higher number of bands each band carries a Zak phase. We find that if we substitute the projector onto the occupied states, $C$, by a projector to any band $\alpha$ (or set of states), $P_\alpha$, the relations discussed above still hold.
-
-There is one thing one has to be careful about. The Zak phase seems not well-defined for two-band models at gapless points, or at least for finite systems. This seems to generalize to wether or not there is a gap between the set of states chosen to calculate the Zak phase over and the rest.
-
-We encounter another issue. When an inhomogeneous system presents interphases between two different topological phases, and therefore zero-modes, the localization of the entanglement eigenstates does not work as discussed above anymore. The Wannier states are no longer always good approximations in the bulk and we do not have a way of defining a consistent clasification of the bulk states. However, for the cases where $\chi_s$'s width is lower than 1 this classification is not needed and the can still compute the Zak phase.
+It was previously known that the Zak phase was encoded in the many-body entanglement spectrum. Here we have shown how it is encoded in the single-body entanglement spectrum. This relation is simpler than the one involving the MBES and it provides more insight into the ES. We have furthermore shown how this relation generalizes to inhomogeneous and superconducting systems, where it was not previously shown to be present. Our result also provides a new way of computing the Zak phase for inhomogeneous systems where instead of diagonalizing a $2L\times 2L$ matrix one has to diagonalize $L$ matrices of size $L\times L$, which in some cases might be computationally favorable. (\carlos{can we get insight on this?}). 
 
 \bibliography{references}	
 
