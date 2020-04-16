@@ -32,39 +32,44 @@
 
 
 \section{Introduction}
-Topological phases of matter have attracted more and more attention during the last decades, not the least because many more relevant systems have been realized experimentally. 
+Topological phases of matter have attracted a lot of attention during the last decades, not the least because a large variety of relevant systems have been realized experimentally. 
 The early focus was mainly on \emph{topologically ordered} systems \cite{wenbook}, where interaction effects are crucial for stabilizing the phase. 
 The most notable examples are the fractional quantum Hall effect~\cite{Tsui1982} and quantum spin liquids~\cite{Balents2010spin}. 
 However, since 2005~\cite{kane2005quantum, roy2009topological} the focus has shifted to non-interacting topological phases, which can be characterized in terms of topological invariants~\cite{ryu2010topological}. 
 Symmetries are often necessary to protect these topological phases, and determine which distinct topological phases can be realized for a given dimensionality. 
 
-There are a few tools to identify topological phases. 
-A very efficient one is the entanglement entropy~\cite{Kitaev2006topological, Levin2006detecting}, which allows one to identify the total quantum dimension of the underlying topological field theory. 
+There are few tools to identify topological phases. 
+A very efficient one is the entanglement entropy~\cite{Kitaev2006topological, Levin2006detecting}, which allows one to identify the total quantum dimension of the underlying topological quantum field theory. 
 As such, the entanglement entropy can only be used for interacting systems. 
-Its main drawback is the fact that it can only provide one of the quantum numbers, and is not able to uniquely determine the topologically ordered phase at hand. 
-In addition, it requires a scaling analysis, which can be challenging for strongly correlated systems. 
+Its main drawback is the fact that it can only provide one of the pertinent quantum numbers that characterizes the system, and is, thus,  not able to uniquely determine the topologically ordered phase at hand. 
+In addition, it requires a careful scaling analysis, which can be challenging for strongly correlated systems. 
 Another, closely related tool, is the entanglement spectrum (ES), originally introduced for fractional quantum Hall systems~\cite{Li2008entanglement}. 
-It was conjectured to provide information about the edge spectrum, which was later shown to be a general feature of ground states with an effective topological field theory description~\cite{Qi2012general}. 
+It was conjectured to provide information about the edge spectrum, which was later shown to be a general feature of ground states with an effective topological quantum field theory description~\cite{Qi2012general}. 
 It also proved to be an effective tool for fractional Chern insulators~\cite{Regnault2011fractional} and certain quantum spin liquids~\cite{yao2010entanglement}. \mariac{Others?}
 
 Generically, any of the proposed tools provides some information about the phase naturally, while others seem inaccessible. 
 It is not known, whether there exists a method to obtain the full topological data from the ground state. 
 For the simplest quantum Hall states, the Laughlin states,  it was shown that the ES does, in fact, contain the full information about the topological phase~\cite{hermanns2011haldane}.
-However, it is far from clear if this holds for more complicated/nonabelian states as well.  
+However, it is far from clear if this holds for more complicated, in particular nonabelian, states as well.  
 
 Here, we address a much simpler question: what information can be extracted from the ES of \emph{non-interacting} systems?
 The latter can be computed very efficiently, using methods developed by Peschel and others~\cite{Peschel2003}. 
 It was subsequently shown for topological insulators/superconductors that the ES for (gapped) periodic systems is equivalent to the flat-band energy spectrum of the corresponding system with open boundaries~\cite{Fidkowski2010entanglement}. 
-The same correspondence was also found for closely related gapless systems~\cite{matern2018entanglement}
+The same correspondence was also found for closely related gapless systems~\cite{Matern2018entanglement}
 However, even for non-interacting systems, it is unclear which information (beyond the  `edge' spectrum) is encoded in the spectrum. 
 
-In this manuscript, we show that the information about the Berry phase can be completely recovered from the entanglement spectrum and provide a simple formula to do so. 
+In this manuscript, we show that the information about the Zak phase can be completely recovered from the entanglement spectrum and provide a simple formula to do so. 
 We relate our results to earlier ones XXX
 
 \emph{Outline of the paper}: In section II we introduce the model used throughout the paper and we discuss its phase diagram. In section III we introduce the Zak phase and the entanglement spectrum and set up the notation that will be used. In section IV and V we show our results for homogeneous and inhomogeneous systems, respectively. In section VI we will discuss how our results also generalize to the case of models with pairing terms and finally in section VII we present the conclusions and possible outlook.
-\section{Model.}
 
-To showcase our results we consider as a starting point the model in the BDI class used in reference \cite{Song2014} because it is a very simple model which supports topological phases with winding numbers up to $\nu =2$. Additionaly, we include two symmetry breaking terms, $\kappa$ and $\kappa'$, to obtain an even richer phase diagram and show that our results are not limited to any topological class. The Hamiltonian is then given by
+% - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
+\section{Model.}
+\mariac{ref needed to 10-fold way}
+To showcase our results we consider as a starting point the model in the BDI class used in reference~\cite{Song2014}. 
+This is a very simple model which nevertheless supports a rich phase diagram containing topological phases with winding numbers up to $\nu =2$. 
+In order to show that our results are not limited to any symmetry class, we also include two symmetry breaking terms. 
+The Hamiltonian is  given by
 \begin{align}
 H =& \sum_{i\alpha,j\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta} c_{j\beta} \\
 H_{ij} =& (m \sigma_x + \kappa \sigma_z)\delta_{ij}  + \frac{1}{2i}\kappa'\sigma_z (\delta_{i-j,1}-\delta_{i-j,-1})\\
@@ -78,39 +83,65 @@ H(k)=&\mqty( \kappa + \kappa' \sin(k) & t' e^{i2k} + t e^{ik}+m \\t' e^{-i2k} + 
 =& (t' \cos(2k)+t\cos(k)+m)\sigma_x \\
 &+ (-t' \sin(2k)-t\sin(k))\sigma_y + (\kappa+\kappa'\sin(k)) \sigma_z.
 \end{align*}
-For $\kappa = \kappa' = 0$ this Hamiltonian has the following symmetries
+For $\kappa = \kappa' = 0$ this Hamiltonian is in the BDI class, i.e. it has time-reversal ($T$), particle-hole ($C$), and chiral symmetry ($S$):
 \begin{alignat*}{2}
 &T = \mathcal{K} ; \quad &&T H(-k) T^{-1} = H(k) \\
 &C = \sigma_z\mathcal{K} ; \quad &&C H(-k) C^{-1} = -H(k) \\
-&S = \sigma_z ; \quad &&S H(k)S^{-1} = -H(k) 
+&S = \sigma_z ; \quad &&S H(k)S^{-1} = -H(k) .
 \end{alignat*}
-and therefore it is in the BDI class, where the system has the phase diagram shown in Fig.\ref{bdi_phase_diagram} for $t=1$. We also a cut through the three phases (dotted line in the phase diagram) for different values of $\kappa,\kappa'$.  For $\kappa = \kappa'= 0$ when the system is in the BDI class we the system has a number of zero modes equal to the winding number, as it is well known. For $\kappa' \neq 0$ only $C$ is preserved and the system belongs to the $D$ class As the zero modes in the $\nu=2$ phase split from zero pairwise, the $\nu = 2$ and $\nu=0$ phases become equivalent. For $\kappa \neq 0$ only $T$ is preserved and the system is in the trivial AI class, where all zero-energy modes split. With both $\kappa \neq 0$ and $\kappa' \neq0$ the system has no symmetry, belonging to the $A$ class and the edge modes that were doubly degenerate in the $D$ class split as well. 
+The corresponding phase diagram is shown in Fig.\ref{fig:bdi_phase_diagram} for $t=1$. 
+\begin{figure}[t]
+	\centering
+	\makebox[0pt]{
+	\subfloat[$t = 1,\kappa =\kappa'=0$]{
+	  \includegraphics[width=45mm]{phase_diagram2.pdf}
+	}}\hspace{0mm}
+\caption{\mariac{need more visible lines .}Phase diagram for the system in the $BDI$ class showing the winding number of each region.}
+\label{fig:bdi_phase_diagram}
+\end{figure}
+When imposing open boundary conditions on the system harbors, the number of symmetry-protected zero energy edge modes is equal to the winding number. 
+%We also a cut through the three phases (dotted line in the phase diagram) for different values of $\kappa,\kappa'$.  
+
+For $\kappa' \neq 0$ only particle-hole symmetry $C$ is preserved and the system belongs to symmetry class $D$. 
+In one spatial dimension, the latter is characterized \mariac{better expression?} by a $\mathbb{Z}_2$ instead of the $\mathbb{Z}$ invariant of the BDI class. 
+Consequently, adding such a term causes the zero modes in the $\nu=2$ phase to split from zero pairwise and the $\nu = 2$ and $\nu=0$ phases become equivalent. 
+For $\kappa \neq 0$ only time-reversal $T$ is preserved and the system is in the AI class. 
+In one dimensions, this class is trivial and, thus,  all zero-energy modes split. 
+With both $\kappa \neq 0$ and $\kappa' \neq0$ the system has no symmetry, thus belonging to the $A$ class.  Also this symmetry class is topologically trivial in one dimension. 
+
+The behavior of the zero-energy edge modes in the various symmetry classes is  shown in Fig.~\ref{fig:zero_E_modes}, using the dotted path ($t=1,t'=-2$) marked in the phase diagram~\ref{fig:bdi_phase_diagram}. 
+Subfigure (a) shows the edge spectrum in the BDI class, with 4 (resp. 2) symmetry-protected zero modes for winding number 2 (1). 
+In subfigure (b) and (d), where the system is in a topologically trivial phase, all edge modes are gapped. 
+Subfigure (c) shows the edge spectrum of the system being in class D, where the $\nu=2 $ phase becomes trivial. 
+Consequently, symmetry-protected zero modes only exist for $1<m<2.5$\mariac{?} (corresponding to $\nu=1$ for $\kappa'=0$) , whereas the modes are split for $m<1$ (corresponding to $\nu=2$ for $\kappa'=0$).
+
 \begin{figure}[h!]
 \centering
-\makebox[0pt]{
-\subfloat[$t = 1,\kappa =\kappa'=0$]{
-  \includegraphics[width=45mm]{phase_diagram2.pdf}
-}}\hspace{0mm}
+%\makebox[0pt]{
+%\subfloat[$t = 1,\kappa =\kappa'=0$]{
+%  \includegraphics[width=45mm]{phase_diagram2.pdf}
+%}}\hspace{0mm}
 
 \makebox[0pt]{
-\subfloat[$t = 1,t'=-2$, \, $\kappa =\kappa'=0$]{
+\subfloat[$\kappa =\kappa'=0$]{
   \includegraphics[width=35mm]{1_a.pdf}
 }
-\subfloat[$t=1,t'=-2$, $\kappa = 0.3, \kappa'=0$]{\includegraphics[width=35mm]{1_b.pdf}
+\subfloat[$\kappa = 0.3, \kappa'=0$]{\includegraphics[width=35mm]{1_b.pdf}
 }
 }\hspace{0mm}
 
 \makebox[0pt]{
-\subfloat[$t = 1,t'=-2$, $\kappa = 0,\kappa'=0.3$]{
+\subfloat[$\kappa = 0,\kappa'=0.3$]{
   \includegraphics[width=35mm]{1_c.pdf}
 }
-\subfloat[$t=1,t'=-2$, $\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{1_d.pdf}
+\subfloat[$\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{1_d.pdf}
 }
 }
-\caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region and surface energy spectrum for a cut going through the three differet regions, for different values of $\kappa,\kappa'$.}
-\label{bdi_phase_diagram}
+\caption{Surface energy spectrum along the dotted path (i.e. $t=1,t'=-2$) in the phase diagram of Fig.~\ref{fig:bdi_phase_diagram} for different values of $\kappa,\kappa'$.}
+\label{fig:zero_E_modes}
 \end{figure}
 
+% - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 \section{Zak phase and Entanglement spectrum}
 Consider a quadratic Hamiltonian in one dimension
 \begin{equation}
@@ -172,6 +203,9 @@ The single-particle entanglement spectrum (ES) is then obtained as the spectrum 
 
 In the ES we can differentiate between two types of eigenvalues, which we denote by $\xi$. The ones at $\xi_b = 0,1$ correspond to bulk states while for the ones in between, $0<\xi_{l,r}<1$, we find their correspondent eigenstate localized in either the left, $\xi_l$, or right, $\xi_r$, virtual edge \cite{Peschel2008}. 
 \mariac{introduce entanglement energy, relation between C and energies}
+
+
+% - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 \section{Homogeneous system}
 
 \subsubsection{Nearest-neighbor hopping}
@@ -250,7 +284,7 @@ A simpler way one can compute this quantity is by obtaining $C_A$ for an open ch
 \end{equation}
 This method however will introduce a stronger finite size effect and as we will discuss below it only works for homogeneous systems. \carlos{I don't know if its worth it to introduce in this paper. Then I dont know what to do for the ES = winding. }
 
-
+% - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 
 \section{Inhomogeneous systems}
 
@@ -388,6 +422,8 @@ We also find that whenever there is an interphase in our system, and therefore a
 
 As the sign assigned to the bulk modes becomes relevant in the inhomogeneous case one might think that it is better to use the open chain, $\chi_s = \Tr C_A^{o,s}$, as one avoids the issue of having to assign any signs at all. Although this is true we find another problem. By adiabatically tuning down the coupling between the $L$ and $1$ sites we see that the eigenvalues of the $left$ modes flow to either $0$ or $1$. In the case where this eigenvalues oscillate around $1/2$ for different cuts this leads to discontinuities in the number of bulk modes at $\xi=1$ which again result in an incorrect cut-average and we found no practical way of compensating for these discontinuitiesyfgh. 
 
+% - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
+
 \section{Superconducting systems}
 
 The proof in Ref.\cite{Zaletel2014} also breaks down for superconducting systems. However, as we did for systems without translational invariance, one can extend this identity for systems with pairing terms as well. Since one computes the Zak phase from the single-particle Bogoliubov-de Gennes Hamiltonian, we can obtain the correspondent ES and everything discussed above should apply as well. Take for example the kitaev chain, with the following Hamiltonian
@@ -414,6 +450,8 @@ It was previously known that the Zak phase was encoded in the many-body entangle
 
 	
 \appendix
+
+% - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 
 \section{Appendix A}
 	
