@@ -72,23 +72,23 @@ In order to show that our results are not limited to any symmetry class, we also
 The Hamiltonian is  given by
 \begin{align}
 H =& \sum_{i\alpha,j\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta} c_{j\beta} \\
-H_{ij} =& (m \sigma_x + \kappa \sigma_z)\delta_{ij}  + \frac{1}{2i}\kappa'\sigma_z (\delta_{i-j,1}-\delta_{i-j,-1})\\
-&+ \frac{1}{2} t \left[(\sigma_x + i \sigma_y)\delta_{i,j+1} + (\sigma_x - i \sigma_y) \delta_{i,j-1} \right] \\
+H_{ij} =& (m \sigma_x + \kappa \sigma_z)\delta_{ij}  + \frac{1}{2i}\kappa'\sigma_z (\delta_{i-j,1}-\delta_{i-j,-1})\nonumber\\
+&+ \frac{1}{2} t \left[(\sigma_x + i \sigma_y)\delta_{i,j+1} + (\sigma_x - i \sigma_y) \delta_{i,j-1} \right] \nonumber\\
 &+  \frac{1}{2} t' \left[(\sigma_x + i \sigma_y)\delta_{i,j+2} + (\sigma_x - i \sigma_y) \delta_{i,j-2} \right],
 \label{bdi_model}
 \end{align}
 with the corresponding Bloch Hamiltonian being
-\begin{align*}
-H(k)=&\mqty( \kappa + \kappa' \sin(k) & t' e^{i2k} + t e^{ik}+m \\t' e^{-i2k} + t e^{-ik}+m & -\kappa-\kappa' \sin(k)  ) \\
+\begin{align}
+H(k)=&\mqty( \kappa + \kappa' \sin(k) & t' e^{i2k} + t e^{ik}+m \nonumber\\t' e^{-i2k} + t e^{-ik}+m & -\kappa-\kappa' \sin(k)  )\nonumber \\
 =& (t' \cos(2k)+t\cos(k)+m)\sigma_x \\
-&+ (-t' \sin(2k)-t\sin(k))\sigma_y + (\kappa+\kappa'\sin(k)) \sigma_z.
-\end{align*}
+&+ (-t' \sin(2k)-t\sin(k))\sigma_y + (\kappa+\kappa'\sin(k)) \sigma_z.\nonumber
+\end{align}
 For $\kappa = \kappa' = 0$ this Hamiltonian is in the BDI class, i.e. it has time-reversal ($T$), particle-hole ($C$), and chiral symmetry ($S$):
-\begin{alignat*}{2}
-&T = \mathcal{K} ; \quad &&T H(-k) T^{-1} = H(k) \\
-&C = \sigma_z\mathcal{K} ; \quad &&C H(-k) C^{-1} = -H(k) \\
+\begin{alignat}{2}
+&T = \mathcal{K} ; \quad &&T H(-k) T^{-1} = H(k) \nonumber\\
+&C = \sigma_z\mathcal{K} ; \quad &&C H(-k) C^{-1} = -H(k) \nonumber\\
 &S = \sigma_z ; \quad &&S H(k)S^{-1} = -H(k) .
-\end{alignat*}
+\end{alignat}
 The corresponding phase diagram is shown in Fig.\ref{fig:bdi_phase_diagram} for $t=1$. 
 \begin{figure}[t]
 	\centering
@@ -142,67 +142,106 @@ Consequently, symmetry-protected zero modes only exist for $1<m<2.5$\mariac{?} (
 \end{figure}
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
-\section{Zak phase and Entanglement spectrum}
-Consider a quadratic Hamiltonian in one dimension
+\section{Zak phase and entanglement spectrum}
+In this section, we review some relevant information about firstly the Zak phase and secondly the entanglement spectrum in non-interacting systems. 
+We consider a generic, quadratic Hamiltonian in one dimension
 \begin{equation}
 \mathcal{H} = \sum_{ij,\alpha\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta}c_{j\beta}.
 \end{equation}
 We can obtain the single-particle eigenstates as
-\begin{align*}
+\begin{align}
 \sum_{j\beta}H_{ij,\alpha\beta} u^{p\mu}_{j\beta} = E_{p\mu} u_{i\alpha}^{p\mu},
-\end{align*}
-where $[U]_{j\beta,p\mu} = u^{p\mu}_{j\beta}$ is the unitary matrix that diagonalizes $H$. The polarization can be obtained as the many-body average of the position operator, but it has to be regularized for periodic boundary conditions \cite{Resta1997}. We can define a position operator for PBC as
+\end{align}
+where $[U]_{j\beta,p\mu} = u^{p\mu}_{j\beta}$ is the unitary matrix that diagonalizes $H$, i.e. 
+\begin{align}\label{eq:D}
+H&=UDU^\dagger& \mbox{with } D=\mbox{diag}(E_{p\mu}).
+\end{align} 
+The polarization can be obtained as the many-body average of the position operator, but the latter has to be regularized for periodic boundary conditions \cite{Resta1997}. 
+We can define a position operator for PBC as
 \begin{equation}
 \hat{X}_{\rm PBC} = e^{-i\frac{2\pi}{L}\hat{X}},
 \end{equation}
-where $\hat{X}$ is the sum of all the single-particle position operators. We can consider then the many-body average of the position operator over the ground state, defined as
-\begin{align*}
-\expval{\hat{X}_{\rm PBC}}_0 \equiv -\frac{L}{2\pi} \rm{ Im\, Ln }\bra{\Psi_0}\hat{X}_{\rm PBC}\ket{\Psi_0},
-\end{align*}
-\carlos{This is the notation used in the Resta paper, but I'm not sure if it's confusing.}
+where $\hat{X}$ is the sum of all the single-particle position operators. 
 
-where $\ket{\Psi_0}$ is the many-body ground state. Using that the ground state is a Slater determinant of the single-particle eigenstates, $\ket{u^{p\mu}}$, it can be rewritten as
-\begin{align*}
-\expval{\hat{X}_{\rm PBC}}_0 = -\frac{L}{2\pi} \rm{Im \, Ln}\, {\rm det} \, \tilde{S},
-\end{align*}
-where the matrix $\tilde{S}$ is obtained from another matrix S with elements
+
+We can now consider then the many-body average of the position operator over the ground state, defined as
+\begin{align}
+\expval{\hat{X}_{\rm PBC}}_0 \equiv -\frac{L}{2\pi} \rm{ Im }\ln\bra{\Psi_0}\hat{X}_{\rm PBC}\ket{\Psi_0},
+\end{align}
+%\carlos{This is the notation used in the Resta paper, but I'm not sure if it's confusing.}
+where $\ket{\Psi_0}$ is the many-body ground state. 
+Using that the ground state is a Slater determinant of the occupied single-particle eigenstates, $\ket{u^{p\mu}}$, it can be rewritten as
+\begin{align}
+\expval{\hat{X}_{\rm PBC}}_0 = -\frac{L}{2\pi} \rm{Im }\ln \, {\rm det} \, S,
+\end{align}
+where the matrix $S$ is given by
 \begin{equation}
-S_{p\mu,q\nu} = \sum_{j\alpha}u^{p\mu\, \ast}_{j \alpha} e^{-i\frac{2\pi}{L}j}u^{q\nu}_{j \alpha}
+S_{p\mu,q\nu} = \sum_{j\alpha}\!^{'} u^{p\mu\, \ast}_{j \alpha} e^{-i\frac{2\pi}{L}j}u^{q\nu}_{j \alpha}
 \end{equation}
-by restricting it to the space of occupied single-particle states. The Zak phase can now be obtained as
+and the $\sum\!{'}$ indicates that the sum is restricted to the space of \emph{occupied} single-particle states. 
+The Zak phase can then be obtained as
 \begin{equation}
-\gamma = \expval{\hat{X}_{\rm PBC}}_0\frac{2\pi}{L} + \frac{1}{2}
+\gamma = \expval{\hat{X}_{\rm PBC}}_0\frac{2\pi}{L} + \frac{1}{2}.
 \end{equation}
 \carlos{There is an extra 1/2 factor compared to Restas's formula which I don't know where it is coming from.}
-The correlation function in position space is given by
-\begin{align*}
-C_{ij}^{\alpha \beta} = \expval{c_{i\alpha}^\dagger c_{j\beta}}.
-\end{align*}
-In terms of the fermions that diagonalize the Hamiltonian, 
-\begin{align*}
-& \gamma_{i\alpha} = \sum_{j\beta}u_{j\beta}^{i\alpha \, \ast} c_{j\beta} \\
-& c_{i\alpha} = \sum_{j\beta} u^{j\beta}_{i\alpha} \gamma_{j\beta}
-\end{align*}
-we have
-\begin{align*}
-C_{ij}^{\alpha \beta} =& \sum_{pq,\mu\nu} u^{q\nu }_{j\beta} u^{p\mu \, \ast}_{i\alpha} \expval{\gamma^\dagger_{p\mu} \gamma_{q\nu} } \\
-=&  \sum_{p\mu} u^{p\mu }_{j\beta} u^{p\mu \, \ast}_{i\alpha} \expval{\gamma^\dagger_{p\mu} \gamma_{p\mu} } \\
-=&  \sum_{p\mu} u^{p\mu }_{j\beta} u^{p\mu \, \ast}_{i\alpha} [1-{\rm sign}(E_{p\mu})]/2.
-\end{align*}
-The first term is simply a kronecker delta between both sets of indeces. The second term can be rewritten as
-\begin{align*}
-UD(\abs{D})^{-1}U^\dagger =& UD(D^2)^{-1/2}U^\dagger \\
-=& U D U^\dagger (U D^2 U^\dagger)^{-1/2} \\
-=& H(H^2)^{-1/2},
-\end{align*}
-where $D$ is the diagonal Hamiltonian, $H=UDU^\dagger$. Finally the correlation function can be obtained in position space as
-\begin{align*}
-C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{-1/2} \right]_{ij, \alpha \beta}
-\end{align*}
-The single-particle entanglement spectrum (ES) is then obtained as the spectrum of the subsystem correlation function obtained after bisecting the system into two equal parts. 
 
-In the ES we can differentiate between two types of eigenvalues, which we denote by $\xi$. The ones at $\xi_b = 0,1$ correspond to bulk states while for the ones in between, $0<\xi_{l,r}<1$, we find their correspondent eigenstate localized in either the left, $\xi_l$, or right, $\xi_r$, virtual edge \cite{Peschel2008}. 
-\mariac{introduce entanglement energy, relation between C and energies}
+Let us now proceed to discuss the entanglement spectrum. 
+An important quantity is the correlation function, which in position space is given by
+\begin{align}
+C_{ij}^{\alpha \beta} = \expval{c_{i\alpha}^\dagger c_{j\beta}}.
+\end{align}
+In terms of the fermions that diagonalize the Hamiltonian, 
+\begin{align}
+& \gamma_{i\alpha} = \sum_{j\beta}u_{j\beta}^{i\alpha \, \ast} c_{j\beta} \nonumber\\
+& c_{i\alpha} = \sum_{j\beta} u^{j\beta}_{i\alpha} \gamma_{j\beta}
+\end{align}
+we find that the correlation matrix can be written as 
+\begin{align}\label{eq:corr_mat}
+C_{ij}^{\alpha \beta} =& \sum_{pq,\mu\nu} u^{q\nu }_{j\beta} u^{p\mu \, \ast}_{i\alpha} \expval{\gamma^\dagger_{p\mu} \gamma_{q\nu} }\nonumber \\
+=&  \sum_{p\mu} u^{p\mu }_{j\beta} u^{p\mu \, \ast}_{i\alpha} \expval{\gamma^\dagger_{p\mu} \gamma_{p\mu} }\nonumber \\
+=&  \sum_{p\mu} u^{p\mu }_{j\beta} u^{p\mu \, \ast}_{i\alpha} [1-{\rm sign}(E_{p\mu})]/2.
+\end{align}
+The first term of the last line is simply a kronecker delta between both sets of indices. 
+The second term can be rewritten, using Eq.~\ref{eq:D}, as
+\begin{align}\label{eq:C_rewritten}
+UD(\abs{D})^{-1}U^\dagger =& UD(D^2)^{-1/2}U^\dagger\nonumber \\
+=& U D U^\dagger (U D^2 U^\dagger)^{-1/2}\nonumber \\
+=& H(H^2)^{-1/2}.
+\end{align}
+\mariac{I am sorry, but I do not see how to move from the first to the second line}
+%where $D$ is the diagonal Hamiltonian, $H=UDU^\dagger$. 
+Consequently,  the correlation function in position space can be written  as
+\begin{align}\label{eq:corr_mat2}
+C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{-1/2} \right]_{ij, \alpha \beta}.
+\end{align}
+This form is used for all subsequent calculations. 
+
+In this manuscript, we are mainly interested in the spectrum of the reduced\mariac{better expression?} correlation matrix, i.e. the correlation matrix restricted to a spatial sub-region $A$ (its complement will be denoted by $B$ in the following). 
+For simplicity, we generically choose $A$ n as half the system, but none of our results depends on this fact. 
+The resulting correlation matrix spectrum (CMS) is  denoted by the set of eigenvalues $\xi_j$. 
+We will differentiate between two types of eigenvalues: those at $\xi_j=0 (1)$ correspond to ``bulk'' states, by which we mean that the corresponding eigenstates lie (mostly) in  $A$ ($B$). 
+Values $0<\xi_{l,r}<1$ indicate states that are located at the virtual boundaries -- labeled `left' and `right' -- between $A$ and $B$~\cite{Peschel2008}. 
+Topological phases are characterized by (symmetry-protected) zero-energy modes in the edge spectrum, which is in one-to-one correspondence to $\xi=\frac 1 2$ modes in the CMS~\cite{Fidkowski2010entanglement}.
+ 
+
+The CMS is in one-to-one correspondence to the single-particle entanglement spectrum (ES). 
+Following Ref.~\cite{Peschel2008}, one can write the  reduced density matrix as 
+\begin{align}\label{eq:red_dens_mat}
+\rho&=\mathcal{K} \exp(-\mathcal H),
+\end{align}
+where $\mathcal{K}$ is a normalization constant and $\mathcal{H}$ is a quadratic Hamiltonian, referred to as entanglement Hamiltonian. 
+The eigenvalues $\epsilon_j$ of $\mathcal{H}$ are related to those of $C$ by 
+\begin{align}
+\xi_j &=\left(e^{\epsilon_j}+1\right)^{-1}. 
+\end{align}
+Thus, the full information of the \emph{many-particle} ES is fully contained in the single-particle spectrum of the correlation matrix. 
+The latter is much simpler to interpret. 
+Consequently, we will focus on the CMS in the remainder of the manuscript and only mention the ES when necessary. 
+\mariac{not happy with the flow yet}
+%The single-particle entanglement spectrum (ES) is then obtained as the spectrum of the subsystem correlation function obtained after bisecting the system into two equal parts. 
+
+%In the ES we can differentiate between two types of eigenvalues, which we denote by $\xi$. The ones at $\xi_b = 0,1$ correspond to bulk states while for the ones in between, $0<\xi_{l,r}<1$, we find their correspondent eigenstate localized in either the left, $\xi_l$, or right, $\xi_r$, virtual edge \cite{Peschel2008}. 
+%\mariac{introduce entanglement energy, relation between C and energies}
 
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
