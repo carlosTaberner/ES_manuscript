@@ -59,7 +59,7 @@ The same correspondence was also found for closely related gapless systems~\cite
 However, even for non-interacting systems, it is unclear which information (beyond the  `edge' spectrum) is encoded in the spectrum. 
 
 In this manuscript, we show that the information about the Zak phase can be completely recovered from the entanglement spectrum and provide a simple formula to do so. 
-We relate our results to earlier ones XXX
+We relate our results to earlier ones, \mariac{mention Pollman~\cite{Zaletel2014}, Ryu hatsugai~\cite{Ryu2006} and Huang Arovas~\cite{Huang2012,Huang2012-2}} XXX
 
 \emph{Outline of the paper}: In section II we introduce the model used throughout the paper and we discuss its phase diagram. In section III we introduce the Zak phase and the entanglement spectrum and set up the notation that will be used. In section IV and V we show our results for homogeneous and inhomogeneous systems, respectively. In section VI we will discuss how our results also generalize to the case of models with pairing terms and finally in section VII we present the conclusions and possible outlook.
 
@@ -209,27 +209,26 @@ This form is particularly useful for all our subsequent calculations, since it d
 In this manuscript, we are mainly interested in the spectrum of the correlation matrix, when restricted to a spatial sub-region $A$ (its complement will be denoted by $B$ in the following). 
 Following Ref.s~\cite{Huang2012,Huang2012-2}, we refer to this spectrum as the entanglement occupancy spectrum (EOS). 
 The resulting eigenvalues  are denoted by $\xi_j$. 
-We will differentiate between two types of eigenvalues: those (exponentially) close to $\xi_j=0 (1)$ correspond to ``bulk'' states, by which we mean that the corresponding eigenstates lie (up to exponentially small corrections) in  $A$ ($B$). 
-Values $0<\xi_{l,r}<1$ indicate states that are located at the virtual boundaries -- labeled `left' and `right' in the following-- between $A$ and $B$~\cite{Peschel2008}. 
-There is, of course, an ambiguity here on dividing eigenstates of the EOS into ``bulk'' and ``edge'' states and `how close' the eigenvalue has to be to $0,1$ in order to qualify as a bulk state. 
-XXXX
-Topological phases are characterized by (symmetry-protected) zero-energy modes in the edge spectrum, which is in one-to-one correspondence to $\xi=\frac 1 2$ modes in the CMS~\cite{Fidkowski2010entanglement}.
+%We will differentiate between two types of eigenvalues: those (exponentially) close to $\xi_j=0 (1)$ correspond to ``bulk'' states, by which we mean that the corresponding eigenstates lie (up to exponentially small corrections) in  $A$ ($B$). 
+%Values $0<\xi_{l,r}<1$ indicate states that are located at the virtual boundaries -- labeled `left' and `right' in the following-- between $A$ and $B$~\cite{Peschel2008}. 
+%There is, of course, an ambiguity here on dividing eigenstates of the EOS into ``bulk'' and ``edge'' states and `how close' the eigenvalue has to be to $0,1$ in order to qualify as a bulk state. 
+%XXXX
+Topological phases are characterized by (symmetry-protected) zero-energy modes in the edge spectrum and $\xi=\frac 1 2$ modes in the OES~\cite{Fidkowski2010entanglement}.
  
 
 The CMS is in one-to-one correspondence to the single-particle entanglement spectrum (ES). 
 Following Ref.~\cite{Peschel2008}, one can write the  reduced density matrix as 
 \begin{align}\label{eq:red_dens_mat}
-\rho&=\mathcal{K} \exp(-\mathcal H),
+\rho_A&=\mathcal{K} \exp(-\mathcal H),
 \end{align}
 where $\mathcal{K}$ is a normalization constant and $\mathcal{H}$ is a quadratic Hamiltonian, referred to as entanglement Hamiltonian. 
-The eigenvalues $\epsilon_j$ of $\mathcal{H}$ are related to those of $C$ by 
+The eigenvalues $\epsilon_j$ of $\mathcal{H}$ are related to the EOS by 
 \begin{align}
 \xi_j &=\left(e^{\epsilon_j}+1\right)^{-1}. 
 \end{align}
-Thus, the full information of the \emph{many-particle} ES is fully contained in the single-particle spectrum of the correlation matrix. 
+Thus, the full information of the \emph{many-particle} ES is fully contained in the single-particle spectrum of the reduced correlation matrix. 
 The latter is much simpler to interpret. 
-Consequently, we will focus on the CMS in the remainder of the manuscript and only mention the ES when necessary. 
-\mariac{not happy with the flow yet}
+Consequently, we will focus on the EOS in the remainder of the manuscript and only mention the ES when necessary. 
 %The single-particle entanglement spectrum (ES) is then obtained as the spectrum of the subsystem correlation function obtained after bisecting the system into two equal parts. 
 
 %In the ES we can differentiate between two types of eigenvalues, which we denote by $\xi$. The ones at $\xi_b = 0,1$ correspond to bulk states while for the ones in between, $0<\xi_{l,r}<1$, we find their correspondent eigenstate localized in either the left, $\xi_l$, or right, $\xi_r$, virtual edge \cite{Peschel2008}. 
@@ -237,18 +236,31 @@ Consequently, we will focus on the CMS in the remainder of the manuscript and on
 
 
 A few comments are needed regarding  bipartition. 
-In the following sections, we show that the Zak phase can be recovered from the EOS.
+In the following sections, we show how the Zak phase can be recovered from the EOS.
 We also give a simple formula that is identical to the Zak phase in the thermodyamic limit.  
 However, for a generic, finite size system, there will be finite-size discrepancies between our formula and the Zak phase.
-In order to reduce these, we are going to choose $A$ as half the system in the reminder of the manuscript.
+In order to reduce these, we are going to choose $A$ as half the system in the remainder of the manuscript.
 The results (in the thermodynamic limit) do not depend on this choice. 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 \section{Homogeneous system}
 
+Let us first review previous results on the relation between the entanglement spectrum and the Zak phase. 
+For symmetry-protected topological systems in one dimension, the quantized Zak phase is zero whenever there is an even number  of eigenvalues per edge at $\xi = 1/2$, and $\pi$ when the number is odd~\cite{Peschel2008}. 
+Ryu and Hatsugai considered the fully dimerized SSH chain with broken chiral symmetry~\cite{Ryu2006}.  
+This model is rather special in that there is only a single pair of eigenvalues in the EOS that is not identical to $0$ or $1$. 
+In fact, the authors could show that the value of this `midgap state' is identical to the Zak phase divided by $2\pi$. 
+Their result is a particular limit of Eq.~\eqref{eqplusminus}. 
+%
+%Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. 
+Huang and Arovas considered a two-dimensional chern insulator and noted that the Zak phase qualitatively follows the `virtual edge mode' that connects the EOS values at 0 to those at 1~\cite{Huang2012,Huang2012-2}. 
+Interpreting this as a one-dimensional system with a parameter, we can explain this behavior by Eq.~\eqref{eqplusminus}, noting that there is a single pair of eigenvalues that dominates the sum. 
+Note that the observation of Ref.s~\cite{Huang2012,Huang2012-2} is particular to a system with Chern number 0 or $\pm 1$, and it generically fails for systems with higher Chern numbers.
+In the latter case, there are several terms in Eq.~\eqref{eqplusminus} with comparably large contributions. 
+%For cases with more edge modes present in the ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. 
+
+
 \subsubsection{Nearest-neighbor hopping}
-
-
-For symmetry-protected topological systems in one dimension there is a well-known relation between ES and the Zak phase \cite{Peschel2008}. The Zak phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. \mariac{correct?}For cases with more edge modes present in the ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. \mariac{too long}The first result we show is that in systems with nearest-neighbor hopping, like the SSH chain, one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
+\mariac{too long}The first result we show is that in systems with nearest-neighbor hopping, like the SSH chain, one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
 \begin{equation}
 \chi = \frac{1}{2}\left(\sum_j (-1)^j \xi_j+N_A\right) \, {\rm mod} \, 1,
 \label{eqplusminus}
