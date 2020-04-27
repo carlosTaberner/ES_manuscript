@@ -17,7 +17,7 @@
 	
 \begin{document}
 		
-\title{Something fancy...}
+\title{On the relation of the entanglement spectrum to the Zak-phase}
 \author{Carlos Ortega Taberner}
 \affiliation{Department of Physics, Stockholm University, AlbaNova University Center, SE-106 91 Stockholm, Sweden}
 \affiliation{Nordita, KTH Royal Institute of Technology and Stockholm University, SE-106 91 Stockholm, Sweden}
@@ -65,10 +65,9 @@ We relate our results to earlier ones XXX
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 \section{Model.}
-\mariac{ref needed to 10-fold way}
 To showcase our results we consider as a starting point the model in the BDI class used in reference~\cite{Song2014}. 
 This is a very simple model which nevertheless supports a rich phase diagram containing topological phases with winding numbers up to $\nu =2$. 
-In order to show that our results are not limited to any symmetry class, we also include two symmetry breaking terms. 
+In order to show that our results are not limited to any symmetry class~\cite{ryu2010topological}, we also include two symmetry breaking terms. 
 The Hamiltonian is  given by
 \begin{align}
 H =& \sum_{i\alpha,j\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta} c_{j\beta} \\
@@ -83,6 +82,7 @@ H(k)=&\mqty( \kappa + \kappa' \sin(k) & t' e^{i2k} + t e^{ik}+m \nonumber\\t' e^
 =& (t' \cos(2k)+t\cos(k)+m)\sigma_x \\
 &+ (-t' \sin(2k)-t\sin(k))\sigma_y + (\kappa+\kappa'\sin(k)) \sigma_z.\nonumber
 \end{align}
+
 For $\kappa = \kappa' = 0$ this Hamiltonian is in the BDI class, i.e. it has time-reversal ($T$), particle-hole ($C$), and chiral symmetry ($S$):
 \begin{alignat}{2}
 &T = \mathcal{K} ; \quad &&T H(-k) T^{-1} = H(k) \nonumber\\
@@ -99,21 +99,28 @@ The corresponding phase diagram is shown in Fig.\ref{fig:bdi_phase_diagram} for 
 \caption{\mariac{need more visible lines .}Phase diagram for the system in the $BDI$ class showing the winding number of each region.}
 \label{fig:bdi_phase_diagram}
 \end{figure}
-When imposing open boundary conditions on the system harbors, the number of symmetry-protected zero energy edge modes is equal to the winding number. 
+The BDI class  is characterized by a $\mathbb{Z}$ invariant, the winding number,  in one spatial dimension.
+When imposing open boundary conditions on the system, the number of symmetry-protected zero energy edge modes is equal to the winding number. 
+The behavior of the  edge modes  is  shown in Fig.~\ref{fig:zero_E_modes}, using the dotted path ($t=1,t'=-2$) marked in the phase diagram. 
+Subfigure (a) shows the edge spectrum in the BDI class, with 4 (resp. 2) symmetry-protected zero modes for winding number 2 (1). 
 %We also a cut through the three phases (dotted line in the phase diagram) for different values of $\kappa,\kappa'$.  
 
 For $\kappa' \neq 0$ only particle-hole symmetry $C$ is preserved and the system belongs to symmetry class $D$. 
-In one spatial dimension, the latter is characterized \mariac{better expression?} by a $\mathbb{Z}_2$ instead of the $\mathbb{Z}$ invariant of the BDI class. 
-Consequently, adding such a term causes the zero modes in the $\nu=2$ phase to split from zero pairwise and the $\nu = 2$ and $\nu=0$ phases become equivalent. 
+In one spatial dimension, the latter is characterized by a $\mathbb{Z}_2$ invariant.  
+Consequently, adding such a term causes the zero modes in the $\nu=2$ phase to split  pairwise and the $\nu = 2$ and $\nu=0$ phases become equivalent. 
+This is shown in subfigure (c), where one clearly sees that the zero modes below $m=1$ are split. 
+
 For $\kappa \neq 0$ only time-reversal $T$ is preserved and the system is in the AI class. 
 In one dimensions, this class is trivial and, thus,  all zero-energy modes split. 
-With both $\kappa \neq 0$ and $\kappa' \neq0$ the system has no symmetry, thus belonging to the $A$ class.  Also this symmetry class is topologically trivial in one dimension. 
+With both $\kappa \neq 0$ and $\kappa' \neq0$ the system has no symmetry, thus belonging to the $A$ class.  
+Also this symmetry class is topologically trivial in one dimension. 
+Subfigures (b) and (d) show the edge spectrum for class AI and A, respectively. In both cases, the edge modes are split from zero.
 
-The behavior of the zero-energy edge modes in the various symmetry classes is  shown in Fig.~\ref{fig:zero_E_modes}, using the dotted path ($t=1,t'=-2$) marked in the phase diagram~\ref{fig:bdi_phase_diagram}. 
-Subfigure (a) shows the edge spectrum in the BDI class, with 4 (resp. 2) symmetry-protected zero modes for winding number 2 (1). 
-In subfigure (b) and (d), where the system is in a topologically trivial phase, all edge modes are gapped. 
-Subfigure (c) shows the edge spectrum of the system being in class D, where the $\nu=2 $ phase becomes trivial. 
-Consequently, symmetry-protected zero modes only exist for $1<m<2.5$\mariac{?} (corresponding to $\nu=1$ for $\kappa'=0$) , whereas the modes are split for $m<1$ (corresponding to $\nu=2$ for $\kappa'=0$).
+
+%
+%In subfigure (b) and (d), where the system is in a topologically trivial phase, all edge modes are gapped. 
+%Subfigure (c) shows the edge spectrum of the system being in class D, where the $\nu=2 $ phase becomes trivial. 
+%Consequently, symmetry-protected zero modes only exist for $1<m<2.5$\mariac{?} (corresponding to $\nu=1$ for $\kappa'=0$) , whereas the modes are split for $m<1$ (corresponding to $\nu=2$ for $\kappa'=0$).
 
 \begin{figure}[h!]
 \centering
@@ -137,7 +144,7 @@ Consequently, symmetry-protected zero modes only exist for $1<m<2.5$\mariac{?} (
 \subfloat[$\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{1_d.pdf}
 }
 }
-\caption{Surface energy spectrum along the dotted path (i.e. $t=1,t'=-2$) in the phase diagram of Fig.~\ref{fig:bdi_phase_diagram} for different values of $\kappa,\kappa'$.}
+\caption{\mariac{increase system size and colorcode edge modes.}Edge spectrum along the dotted path (i.e. $t=1,t'=-2$) of Fig.~\ref{fig:bdi_phase_diagram} for different values of $\kappa$ and $\kappa'$.\mariac{note on numerical system size}}
 \label{fig:zero_E_modes}
 \end{figure}
 
@@ -250,7 +257,7 @@ Consequently, we will focus on the CMS in the remainder of the manuscript and on
 \subsubsection{Nearest-neighbor hopping}
 
 
-For symmetry-protected topological systems in one dimension there is a well-known relation between ES and the Zak phase \cite{Peschel2008}. The Zak phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. For cases with more edge modes present in the ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. The first result we show is that in systems with nearest-neighbor hopping, like the SSH chain, one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
+For symmetry-protected topological systems in one dimension there is a well-known relation between ES and the Zak phase \cite{Peschel2008}. The Zak phase, which is quantized, is zero whenever there is an even number per edge of eigenvalues at $\xi = 1/2$, and $\pi$ when the number is odd. Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. \mariac{correct?}For cases with more edge modes present in the ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. \mariac{too long}The first result we show is that in systems with nearest-neighbor hopping, like the SSH chain, one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
 \begin{equation}
 \chi = \frac{1}{2}\left(\sum_j (-1)^j \xi_j+N_A\right) \, {\rm mod} \, 1,
 \label{eqplusminus}
@@ -260,7 +267,7 @@ where $N_A$ is the number of electrons in the ground state in region A, which in
 \lim_{L \rightarrow \infty} \gamma = \lim_{L \rightarrow \infty} \chi.
 \end{equation}
 
-In the case where there is only one finite eigenvalue in  the ES, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase. In Fig.\ref{huang} we show show the dashed cut in the phase diagram shown above, which is equivalent to an SSH chain. We see that even though the ES has finite eigenvalues in the trivial phase these are double-degenerate so that they cancel each other. In the case where we break the symmetry we see that there is one main midgap eigenvalue, so that the Zak phase follows it very closely, but as the midgap eigenvalue approaches the bulk, the contribution from the other modes becomes more relevant and the Zak phase start to deviate from the midgap eigenvalue.
+In the case where there is only one finite eigenvalue in  the ES, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase. In Fig.\ref{huang} we show show the ES along the dashed cut in the phase diagram of Fig.~\ref{fig:bdi_phase_diagram}, which is equivalent to an SSH chain. We see that even though the ES has finite eigenvalues in the trivial phase these are double-degenerate so that they cancel each other. In the case where we break the symmetry we see that there is one main midgap eigenvalue, so that the Zak phase follows it very closely, but as the midgap eigenvalue approaches the bulk, the contribution from the other modes becomes more relevant and the Zak phase start to deviate from the midgap eigenvalue.
 \begin{figure}[h!]
 \centering
 \makebox[0pt]{
