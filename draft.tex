@@ -161,8 +161,11 @@ We can obtain the single-particle eigenstates as
 \end{align}
 where $[U]_{j\beta,p\mu} = u^{p\mu}_{j\beta}$ is the unitary matrix that diagonalizes $H$. 
 
-
-\mariac{Carlos wants to add a paragraph on Zak phase. }
+In translational invariant systems the Zak phase is defined as the Berry phase acquired by a state $\ket{u_k}$ as it winds around the Brillouin zone,
+\begin{equation}
+\gamma = \int_{-\pi}^\pi dk \, \bra{u_k}\partial_k \ket{u_k} \, {\rm mod}\, 2\pi.
+\end{equation}
+The Zak phase is equal to $\pi$ times the parity of the winding number, and it is also related to the polarization \cite{Resta1997}. Since the latter has a position space formulation we will use  it in all calculations below to compute the Zak phase. 
 
 The polarization can be obtained as the many-body average of the position operator, but the latter has to be regularized for periodic boundary conditions \cite{Resta1997}. 
 We can define a position operator for PBC as
@@ -201,15 +204,15 @@ Using the results of appendix~\ref{app:CM}, it  can be written  as
 \begin{align}\label{eq:corr_mat2}
 C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{-1/2} \right]_{ij, \alpha \beta}.
 \end{align}
-This form is particularly useful for all our subsequent calculations, since it does not rely on translational symmetry. 
-
+This form is particularly useful for all our subsequent calculations, since it does not rely on translation symmetry. 
 
 In this manuscript, we are mainly interested in the spectrum of the correlation matrix, when restricted to a spatial sub-region $A$ (its complement will be denoted by $B$ in the following). 
-For simplicity, we generically choose $A$ as half the system. \mariac{expand this to a paragraph.}
- 
-The resulting correlation matrix spectrum (CMS) is  denoted by the set of eigenvalues $\xi_j$. 
-We will differentiate between two types of eigenvalues: those at $\xi_j=0 (1)$ correspond to ``bulk'' states, by which we mean that the corresponding eigenstates lie (mostly) in  $A$ ($B$). 
-Values $0<\xi_{l,r}<1$ indicate states that are located at the virtual boundaries -- labeled `left' and `right' -- between $A$ and $B$~\cite{Peschel2008}. 
+Following Ref.s~\cite{Huang2012,Huang2012-2}, we refer to this spectrum as the entanglement occupancy spectrum (EOS). 
+The resulting eigenvalues  are denoted by $\xi_j$. 
+We will differentiate between two types of eigenvalues: those (exponentially) close to $\xi_j=0 (1)$ correspond to ``bulk'' states, by which we mean that the corresponding eigenstates lie (up to exponentially small corrections) in  $A$ ($B$). 
+Values $0<\xi_{l,r}<1$ indicate states that are located at the virtual boundaries -- labeled `left' and `right' in the following-- between $A$ and $B$~\cite{Peschel2008}. 
+There is, of course, an ambiguity here on dividing eigenstates of the EOS into ``bulk'' and ``edge'' states and `how close' the eigenvalue has to be to $0,1$ in order to qualify as a bulk state. 
+XXXX
 Topological phases are characterized by (symmetry-protected) zero-energy modes in the edge spectrum, which is in one-to-one correspondence to $\xi=\frac 1 2$ modes in the CMS~\cite{Fidkowski2010entanglement}.
  
 
@@ -233,6 +236,12 @@ Consequently, we will focus on the CMS in the remainder of the manuscript and on
 %\mariac{introduce entanglement energy, relation between C and energies}
 
 
+A few comments are needed regarding  bipartition. 
+In the following sections, we show that the Zak phase can be recovered from the EOS.
+We also give a simple formula that is identical to the Zak phase in the thermodyamic limit.  
+However, for a generic, finite size system, there will be finite-size discrepancies between our formula and the Zak phase.
+In order to reduce these, we are going to choose $A$ as half the system in the reminder of the manuscript.
+The results (in the thermodynamic limit) do not depend on this choice. 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 \section{Homogeneous system}
 
