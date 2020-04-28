@@ -63,7 +63,7 @@ The relation between the entanglement spectrum and various topological invariant
 In Ref.~\cite{Zaletel2014}, the authors show that the Zak phase can be computed from the Schmidt decomposition of a translation invariant, infinite chain. 
 This demonstrates that there should be a direct relation between the single-particle entanglement energies and the Zak phase, although deriving that relation turned out to be non-trivial. 
 An added benefit of our approach is that it can be generalized to systems that are not translationally invariant in a numerically efficient way. 
-A particular limit of our result for homogeneous systems~\ref{eqplusminus} was derived by Ryu and Hatsugai for a dimerized SSH chain~\cite{Ryu2006}. 
+A particular limit of our result for homogeneous systems~\ref{eqplusminus} was derived by Ryu and Hatsugai for a fully dimerized SSH chain~\cite{Ryu2006}. 
 The similarity between the behavior of the Zak phase and the 'virtual edge modes' in the entanglement spectrum of a Chern insulator, which was observed in Ref.~\cite{Huang2012,Huang2012-2}, can also be explained by our results. 
 
 
@@ -102,7 +102,7 @@ Using the results of Ref.~\cite{Song2014}, the corresponding phase diagram can b
 	\subfloat[$t = 1,\kappa =\kappa'=0$]{
 	  \includegraphics[width=45mm]{phase_diagram2.pdf}
 	}}\hspace{0mm}
-\caption{\mariac{need more visible lines. Get rid of (a).}Phase diagram for the system in the $BDI$ class showing the winding number of each region.}
+\caption{\mariac{ Get rid of (a).}Phase diagram for the system in the $BDI$ class showing the winding number of each region.}
 \label{fig:bdi_phase_diagram}
 \end{figure}
 The BDI class  is characterized by a $\mathbb{Z}$ invariant, the winding number,  in one spatial dimension.
@@ -222,16 +222,17 @@ The resulting eigenvalues  are denoted by $\xi_j$.
 Topological phases are characterized by (symmetry-protected) zero-energy modes in the edge spectrum and $\xi=\frac 1 2$ modes in the OES~\cite{Fidkowski2010entanglement}.
  
 
-The CMS is in one-to-one correspondence to the single-particle entanglement spectrum (ES). 
+The EOS is in one-to-one correspondence to the entanglement spectrum (ES). 
 Following Ref.~\cite{Peschel2008}, one can write the  reduced density matrix as 
 \begin{align}\label{eq:red_dens_mat}
 \rho_A&=\mathcal{K} \exp(-\mathcal H),
 \end{align}
 where $\mathcal{K}$ is a normalization constant and $\mathcal{H}$ is a quadratic Hamiltonian, referred to as entanglement Hamiltonian. 
-The eigenvalues $\epsilon_j$ of $\mathcal{H}$ are related to the EOS by 
+The eigenvalues $\epsilon_j$ of $\mathcal{H}$, referred to as entanglement energies,  are related to the EOS by 
 \begin{align}
 \xi_j &=\left(e^{\epsilon_j}+1\right)^{-1}. 
 \end{align}
+XXXX
 Thus, the full information of the \emph{many-particle} ES is fully contained in the single-particle spectrum of the reduced correlation matrix. 
 The latter is much simpler to interpret. 
 Consequently, we will focus on the EOS in the remainder of the manuscript and only mention the ES when necessary. 
@@ -265,19 +266,34 @@ In the latter case, there are several terms in Eq.~\eqref{eqplusminus} with comp
 %For cases with more edge modes present in the ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. 
 
 
-\subsubsection{Nearest-neighbor hopping}
-Let us first focus on systems with nearest-neighbor hopping, such as the SSH chain.
- one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
+\subsubsection{Systems with equidistant entanglement energies}
+We first discuss systems, for which the entanglement energies of a \emph{single} virtual edge are equidistant. 
+This is a common feature for e.g. nearest neighbor hopping models\mariac{ref to Peschel}, such as the SSH chain, and applies to the Hamiltonian~\ref{bdi_model} when $t'=0$. 
+In this case, one can obtain the Zak phase in a very simple fashion: We reorder the eigenvalues of the ES by magnitude, $\xi_1 < \xi_2 < ...$, and compute
 \begin{equation}
 \chi = \frac{1}{2}\left(\sum_j (-1)^j \xi_j+N_A\right) \, {\rm mod} \, 1,
 \label{eqplusminus}
 \end{equation}
-where $N_A$ is the number of electrons in the ground state in region A, which in the thermodynamic limit fulfills
+where $N_A$ is the number of electrons in the ground state in region A. 
+In the thermodynamic limit, $\chi$ becomes identical to the Zak phase divided by $2\pi$:
 \begin{equation}
-\lim_{L \rightarrow \infty} \gamma = \lim_{L \rightarrow \infty} \chi.
+\lim_{L \rightarrow \infty} \frac{\gamma}{2\pi} = \lim_{L \rightarrow \infty} \chi.
 \end{equation}
 
-In the case where there is only one finite eigenvalue in  the ES, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase. In Fig.\ref{huang} we show show the ES along the dashed cut in the phase diagram of Fig.~\ref{fig:bdi_phase_diagram}, which is equivalent to an SSH chain. We see that even though the ES has finite eigenvalues in the trivial phase these are double-degenerate so that they cancel each other. In the case where we break the symmetry we see that there is one main midgap eigenvalue, so that the Zak phase follows it very closely, but as the midgap eigenvalue approaches the bulk, the contribution from the other modes becomes more relevant and the Zak phase start to deviate from the midgap eigenvalue.
+In the case where there is only one eigenvalue per edge that is $\neq 0,1$ in  the EOS, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase~\cite{Ryu2006}. 
+
+In Fig.~\ref{huang} we show  the EOS along the dashed cut in the phase diagram of Fig.~\ref{fig:bdi_phase_diagram}. 
+Along this line, our model is equivalent to an SSH chain. 
+In the presence of chiral and translation symmetry, all eigenvalues of the EOS are doubly degenerate --- one eigenvalue from each edge. 
+The difference of $\pi$ between the trivial and topological regime originates from the rearrangement of a few dominant eigenvalues in the EOS. 
+In the topological regime, there are a pair of eigenvalues at $\xi=1/2$, while the rest are close to $0$ and $1$. 
+At the phase transition, the two $\xi=1/2$ modes mix with one mode coming from $1$ and $0$ respectively, leading to a pair of modes close to $0$ and $1$, see Fig.~\ref{huang}(a). 
+Consequently, there is one less mode at $\xi=1$, which yields a difference of $\pi$ in the Zak phase. 
+Note that the full sum~\ref{eqplusminus}  evaluates to zero in the trivial regime, up to finite-size corrections, despite the presence of modes with entanglement occupancy $0<\xi<1$. 
+
+When breaking chiral symmetry, the EOS will no longer be doubly degenerate. 
+For small $m$, there are two dominant midgap eigenvalues, and the Zak phase follows the lower of them very closely, see Fig.~\ref{huang}(b).
+When this midgap eigenvalue approaches  0, the contribution from the other modes becomes more relevant and the Zak phase starts to deviate from the midgap eigenvalue, \mariac{see inset}.
 \begin{figure}[h!]
 \centering
 \makebox[0pt]{
@@ -287,7 +303,8 @@ In the case where there is only one finite eigenvalue in  the ES, like in the fu
 \subfloat[$t=1,t'=0$, $\kappa = 0.3, \kappa'=0$]{\includegraphics[width=35mm]{2_b.pdf}
 }
 }
-\caption{Entanglement spectrum (black), $\chi$ (green) and $\gamma$ (red) for a cut in the phase diagram through the $\nu = 1 \rightarrow \nu = 0$ transition (dashed line in the phase diagram) for $t'=0$ and different values of $\kappa$.}
+\caption{\mariac{system size?}Entanglement spectrum (black), $\chi$ (green) and $\frac{\gamma}{2\pi}$ (red) for a cut in the phase diagram through the $\nu = 1 \rightarrow \nu = 0$ transition (dashed line in 	\ref{fig:bdi_phase_diagram}
+	) for $t'=0$ and different values of $\kappa$.}
 \label{huang}
 \end{figure}
 
