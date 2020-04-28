@@ -59,7 +59,13 @@ The same correspondence was also found for closely related gapless systems~\cite
 However, even for non-interacting systems, it is unclear which information (beyond the  `edge' spectrum) is encoded in the spectrum. 
 
 In this manuscript, we show that the information about the Zak phase can be completely recovered from the entanglement spectrum and provide a simple formula to do so. 
-We relate our results to earlier ones, \mariac{mention Pollman~\cite{Zaletel2014}, Ryu hatsugai~\cite{Ryu2006} and Huang Arovas~\cite{Huang2012,Huang2012-2}} XXX
+The relation between the entanglement spectrum and various topological invariants has already been studied in the literature. 
+In Ref.~\cite{Zaletel2014}, the authors show that the Zak phase can be computed from the Schmidt decomposition of a translation invariant, infinite chain. 
+This demonstrates that there should be a direct relation between the single-particle entanglement energies and the Zak phase, although deriving that relation turned out to be non-trivial. 
+An added benefit of our approach is that it can be generalized to systems that are not translationally invariant in a numerically efficient way. 
+A particular limit of our result for homogeneous systems~\ref{eqplusminus} was derived by Ryu and Hatsugai for a dimerized SSH chain~\cite{Ryu2006}. 
+The similarity between the behavior of the Zak phase and the 'virtual edge modes' in the entanglement spectrum of a Chern insulator, which was observed in Ref.~\cite{Huang2012,Huang2012-2}, can also be explained by our results. 
+
 
 \emph{Outline of the paper}: In section II we introduce the model used throughout the paper and we discuss its phase diagram. In section III we introduce the Zak phase and the entanglement spectrum and set up the notation that will be used. In section IV and V we show our results for homogeneous and inhomogeneous systems, respectively. In section VI we will discuss how our results also generalize to the case of models with pairing terms and finally in section VII we present the conclusions and possible outlook.
 
@@ -260,7 +266,8 @@ In the latter case, there are several terms in Eq.~\eqref{eqplusminus} with comp
 
 
 \subsubsection{Nearest-neighbor hopping}
-\mariac{too long}The first result we show is that in systems with nearest-neighbor hopping, like the SSH chain, one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
+Let us first focus on systems with nearest-neighbor hopping, such as the SSH chain.
+ one can obtain the Zak phase by ordering the eigenvalues of the ES, $\xi_1 < \xi_2 < ...$, and computing
 \begin{equation}
 \chi = \frac{1}{2}\left(\sum_j (-1)^j \xi_j+N_A\right) \, {\rm mod} \, 1,
 \label{eqplusminus}
