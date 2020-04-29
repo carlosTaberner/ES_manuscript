@@ -229,12 +229,11 @@ Following Ref.~\cite{Peschel2008}, one can write the  reduced density matrix as
 \end{align}
 where $\mathcal{K}$ is a normalization constant and $\mathcal{H}$ is a quadratic Hamiltonian, referred to as entanglement Hamiltonian. 
 The eigenvalues $\epsilon_j$ of $\mathcal{H}$, referred to as entanglement energies,  are related to the EOS by 
-\begin{align}
+\begin{align}\label{eq:xi_eps}
 \xi_j &=\left(e^{\epsilon_j}+1\right)^{-1}, 
 \end{align}
 the corresponding eigenstates are the same. 
-XXXX
-Thus, the full information of the \emph{many-particle} ES is fully contained in the single-particle spectrum of the reduced correlation matrix. 
+Eq.~\eqref{eq:xi_eps} implies that the full information of the \emph{many-particle} ES is contained in the single-particle spectrum of the reduced correlation matrix. 
 The latter is much simpler to interpret. 
 Consequently, we will focus on the EOS in the remainder of the manuscript and only mention the ES when necessary. 
 %The single-particle entanglement spectrum (ES) is then obtained as the spectrum of the subsystem correlation function obtained after bisecting the system into two equal parts. 
@@ -269,7 +268,7 @@ In the latter case, there are several terms in Eq.~\eqref{eqplusminus} with comp
 
 \subsubsection{Systems with equidistant entanglement energies}
 We first discuss systems, for which the entanglement energies of a \emph{single} virtual edge are equidistant. 
-This is a common feature for e.g. nearest neighbor hopping models\mariac{ref to Peschel}, such as the SSH chain, and applies to the Hamiltonian~\ref{bdi_model} when $t'=0$. 
+This is a common feature for e.g. nearest neighbor hopping models\mariac{ref to Peschel}, such as the SSH chain, and applies to the Hamiltonian~\eqref{bdi_model} when $t'=0$. 
 In this case, one can obtain the Zak phase in a very simple fashion: We reorder the eigenvalues of the ES by magnitude, $\xi_1 < \xi_2 < ...$, and compute
 \begin{equation}
 \chi = \frac{1}{2}\left(\sum_j (-1)^j \xi_j+N_A\right) \, {\rm mod} \, 1,
@@ -290,7 +289,7 @@ The difference of $\pi$ between the trivial and topological regime originates fr
 In the topological regime, there are a pair of eigenvalues at $\xi=1/2$, while the rest are close to $0$ and $1$. 
 At the phase transition, the two $\xi=1/2$ modes mix with one mode coming from $1$ and $0$ respectively, leading to a pair of modes close to $0$ and $1$, see Fig.~\ref{huang}(a). 
 Consequently, there is one less mode at $\xi=1$, which yields a difference of $\pi$ in the Zak phase. 
-Note that the full sum~\ref{eqplusminus}  evaluates to zero in the trivial regime, up to finite-size corrections, despite the presence of modes with entanglement occupancy $0<\xi<1$. 
+Note that the full sum~\eqref{eqplusminus}  evaluates to zero in the trivial regime, up to finite-size corrections, despite the presence of modes with entanglement occupancy $0<\xi<1$. 
 
 When breaking chiral symmetry, the EOS will no longer be doubly degenerate. 
 For small $m$, there are two dominant midgap eigenvalues, and the Zak phase follows the lower of them very closely, see Fig.~\ref{huang}(b).
@@ -304,17 +303,17 @@ When this midgap eigenvalue approaches  0, the contribution from the other modes
 \subfloat[$t=1,t'=0$, $\kappa = 0.3, \kappa'=0$]{\includegraphics[width=35mm]{2_b.pdf}
 }
 }
-\caption{\mariac{system size?}Entanglement spectrum (black), $\chi$ (green) and $\frac{\gamma}{2\pi}$ (red) for a cut in the phase diagram through the $\nu = 1 \rightarrow \nu = 0$ transition (dashed line in 	\ref{fig:bdi_phase_diagram}
+\caption{\mariac{system size?}Entanglement spectrum (black), $\chi$ (green) and $\frac{\gamma}{2\pi}$ (red) for a cut in the phase diagram through the $\nu = 1 \rightarrow \nu = 0$ transition (dashed line in~\ref{fig:bdi_phase_diagram}
 	) for $t'=0$ and different values of $\kappa$.}
 \label{huang}
 \end{figure}
 
 \subsubsection{General case}
 
-In expression 	\eqref{eqplusminus} we assigned a `charge'  of $\pm1/2$ to each entanglement eigenstate depending on the eigenvalue ordering, see also appendix~\ref{app:pollmann} and the related discussion in Ref.~\cite{Zaletel2014}. 
+In expression~\eqref{eqplusminus} we assigned a `charge'  of $\pm1/2$ to each entanglement eigenstate depending on the eigenvalue ordering, see also appendix~\ref{app:pollmann} and the related discussion in Ref.~\cite{Zaletel2014}. 
 In order to generalize this to systems for which the ES is not equidistant  one needs to know how to properly assign this $\pm 1/2$ charge to each entanglement mode. We found that this is done according to their localization. 
 We separate the eigenstates of the entanglement Hamiltonian (or alternatively the reduced correlation matrix) into a \emph{right} and \emph{left} set depending on whether $\expval{\hat{X}}_i > L/4$ or $\expval{\hat{X}}_i < L/4$ (region $A$ ranges from $0$ to $L/2$) and we assign the charges $q_r = +1/2$ and $q_l = -1/2$, respectively.
- Expression \ref{eqplusminus} then generalizes to
+ Expression \eqref{eqplusminus} then generalizes to
 \begin{equation}
 \chi = \frac{1}{2} \left( \sum_{i\in r}\xi_i-\sum_{i\in l}\xi_i+ N_A \right) \quad {\rm mod} \quad 1.
 \label{eq_loc}
@@ -559,8 +558,13 @@ It was previously known that the Zak phase was encoded in the many-body entangle
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 
-\section{Appendix A}\label{app:pollmann}
-	
+\section{Computing the Zak phase from the Schmidt decomposition}\label{app:pollmann}
+\maria{In this appendix, we review  how to compute the Zak phase from the Schmidt decomposition~\cite{Zaletel2014}and relate it to our own results of Eq.s~\eqref{eqplusminus} and \eqref{eq_loc}.}
+
+\mariac{notation ES/EOS consistent with main text?}
+
+\mariac{add some explanatory sentences?}
+
 Consider a chain with periodic boundary conditions. A Schmidt decomposition for two bipartite cuts gives the ground state
 \begin{equation}
 \ket{\psi} = \sum_{p,q} \ket{p,q}_A s_p \ket{p,q}_B s_q,
@@ -574,7 +578,7 @@ The many-body states $\ket{p,p}_B$ can be built by occupying the different ES ei
 s_p^2 =& \prod_{i \in {\rm occ}} \xi_i \prod_{i \in {\rm empty}}(1-\xi_i) \\
 =& \prod_i (1-\xi_i)\left(\frac{\xi_i}{1-\xi_i} \right)^{n_i}
 \end{align}
-And the charge can be assigned so that $Q_p = \sum_{\alpha = b,l,r} q_\alpha\sum_{i \in \alpha} n_i$ with the constrain that $q_r,\pm q_b = q_l-1$ \textcolor{red}{Why?}. As the main result of \cite{Zaletel2014} the Zak phase is then found to be
+And the charge can be assigned so that $Q_p = \sum_{\alpha = b,l,r} q_\alpha\sum_{i \in \alpha} n_i$ with the constrain that $q_r\pm q_b = q_l-1$ \textcolor{red}{Why?}. As the main result of \cite{Zaletel2014} the Zak phase is then found to be
 \begin{align}
 e^{i\gamma} = e^{2\pi i \sum_p s_p^2 Q_p}  \bra{\psi^0}\ket{\psi^{2\pi}},
 \label{zaletel}
@@ -638,7 +642,8 @@ so that
 \end{align*}
 and we have recovered equation \ref{mainl}. 
 
-\section{Correlation matrix}\label{app:CM}
+\section{Alternative expression for the correlation matrix}\label{app:CM}
+In this appendix, we show how to express the correlation matrix in terms of the Hamiltonian, used in Eq.~\eqref{eq:corr_mat2}. 
 We consider the generic, quadratic Hamiltonian in one dimension of Eq.~\ref{eq:quadr_Ham}, which is diagonalized by a unitary matrix $U$ with 
 	\begin{align}\label{eq:D}
 	H&=UDU^\dagger& \mbox{with } D=\mbox{diag}(E_{p\mu}).
@@ -657,24 +662,25 @@ C_{ij}^{\alpha \beta} =& \sum_{pq,\mu\nu} u^{q\nu }_{j\beta} u^{p\mu \, \ast}_{i
 The first term of the last line is simply a kronecker delta between both sets of indices. 
 
 The second term can be rewritten, using Eq.~\ref{eq:D}, as
-\begin{align}\label{eq:C_rewritten}
+\begin{align}
 UD(\abs{D})^{-1}U^\dagger =& UDU^\dagger U(D^2)^{-1/2}U^\dagger
 \end{align}
-Consider
-\begin{align*}
-[U (D^2)^{-1/2} U^\dagger]^2 =& U (D^2)^{-1/2} U^\dagger U  (D^2)^{-1/2} U^\dagger \\
-=&  U (D^2)^{-1/2}  (D^2)^{-1/2} U^\dagger \\
-=&  U (D^2)^{-1} U^\dagger \\
-=&  (U D^2 U^\dagger)^{-1} \\
-\end{align*}
-Therefore
+We can rewrite this expression further by noting that 
+\begin{align}
+[U (D^2)^{-1/2} U^\dagger]^2 =& U (D^2)^{-1/2} U^\dagger U  (D^2)^{-1/2} U^\dagger \nonumber\\
+=&  U (D^2)^{-1/2}  (D^2)^{-1/2} U^\dagger \nonumber\\
+=&  U (D^2)^{-1} U^\dagger \nonumber\\
+=&  (U D^2 U^\dagger)^{-1}.
+\end{align}
+Therefore,
 \begin{align*}
 U (D^2)^{-1/2} U^\dagger =&(U D^2 U^\dagger)^{-1/2} 
 \end{align*}
-and we have
-\begin{align}\label{eq:C_rewritten}
-UD(\abs{D})^{-1}U^\dagger =& UDU^\dagger(U D^2 U^\dagger)^{-1/2} \\ 
+and we conclude that
+\begin{align}\label{eq:UDDU}
+UD(\abs{D})^{-1}U^\dagger =& UDU^\dagger(U D^2 U^\dagger)^{-1/2} \nonumber\\ 
 =& H(H^2)^{-1/2}.
 \end{align}
+Combining Eq.s~\eqref{eq:corr_mat},  and \eqref{eq:UDDU}, we arrive at the final expression of the correlation matrix in Eq.~\eqref{eq:corr_mat2}. 
 
 \end{document}
