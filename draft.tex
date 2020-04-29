@@ -230,8 +230,9 @@ Following Ref.~\cite{Peschel2008}, one can write the  reduced density matrix as
 where $\mathcal{K}$ is a normalization constant and $\mathcal{H}$ is a quadratic Hamiltonian, referred to as entanglement Hamiltonian. 
 The eigenvalues $\epsilon_j$ of $\mathcal{H}$, referred to as entanglement energies,  are related to the EOS by 
 \begin{align}
-\xi_j &=\left(e^{\epsilon_j}+1\right)^{-1}. 
+\xi_j &=\left(e^{\epsilon_j}+1\right)^{-1}, 
 \end{align}
+the corresponding eigenstates are the same. 
 XXXX
 Thus, the full information of the \emph{many-particle} ES is fully contained in the single-particle spectrum of the reduced correlation matrix. 
 The latter is much simpler to interpret. 
@@ -310,52 +311,84 @@ When this midgap eigenvalue approaches  0, the contribution from the other modes
 
 \subsubsection{General case}
 
-In expression 	\eqref{eqplusminus} we assigned a charge of $\pm1/2$ to each entanglement eigenstate depending on the eigenvalue ordering. 
-In order to generalize this to systems with longer-range hopping one needs to know how to properly assign this $\pm 1/2$ charge to each entanglement mode. We found that this is done according to their localization, so we have
+In expression 	\eqref{eqplusminus} we assigned a `charge'  of $\pm1/2$ to each entanglement eigenstate depending on the eigenvalue ordering, see also appendix~\ref{app:pollmann} and the related discussion in Ref.~\cite{Zaletel2014}. 
+In order to generalize this to systems for which the ES is not equidistant  one needs to know how to properly assign this $\pm 1/2$ charge to each entanglement mode. We found that this is done according to their localization. 
+We separate the eigenstates of the entanglement Hamiltonian (or alternatively the reduced correlation matrix) into a \emph{right} and \emph{left} set depending on whether $\expval{\hat{X}}_i > L/4$ or $\expval{\hat{X}}_i < L/4$ (region $A$ ranges from $0$ to $L/2$) and we assign the charges $q_r = +1/2$ and $q_l = -1/2$, respectively.
+ Expression \ref{eqplusminus} then generalizes to
 \begin{equation}
-\chi = \frac{1}{2} \left( \sum_{i\in r}\xi_i-\sum_{i\in l}\xi_i \pm \sum_{i\in b}\xi_i  + N_A \right) \quad {\rm mod} \quad 1,
-\label{loceq}
+\chi = \frac{1}{2} \left( \sum_{i\in r}\xi_i-\sum_{i\in l}\xi_i+ N_A \right) \quad {\rm mod} \quad 1.
+\label{eq_loc}
 \end{equation}
-by defining $ \chi$ modulo $1$ we make the charge of the bulk modes irrelevant but in the next section we will have to take a closer look at it. We find the charge of the edge modes by computing $\expval{\hat{X}}_i$ and seeing if it is above or below $L/4$. In the case the ES is double degenerate at most, left and right edge states might mix but one will always classify one state of the pair as left and the other one as right, this is however not the case when the degeneracies are higher than two-fold. In order to ensure that we obtain edge modes localized at one edge, instead of $C_A$ we diagonalize $C_A + \lambda C_A\hat{X}C_A$ (\carlos{Explain why it does not work in general}), where $\hat{X}$ is the position operator and $\lambda$ is a small parameter that vanishes in the thermodynamic limit. 
 
-The reason expression~\eqref{loceq} simplifies so much for systems with only nearest-neighbor hopping is that it is known that in this case the eigenstates of $C_A$ always come with an alternating edge localization (left-right-left...), so that the signs assigned are always $ \pm(+-+-+-...)$. Their eigenvalues are also related, so that the modes can only cross each other if all of them do so two by two, so that it just ammounts to a global minus sign.
+In order for this expression to be well-defined however we need localized eigenstates. 
+Non-degenerate eigenstates of the EOS are automatically localized, but degenerate or nearly-degenerate eigenstates (i.e. those exponentially close to $\xi=0,1$) are not necessarily localized. 
+It turns out that we need not worry about the latter set of states, because changing their charge from say $1/2$ to $-1/2$ only changes $1/2(\sum_{i\in r} \xi_i - \sum_{i\in l}\xi_i)$ in Eq.~\eqref{eq_loc} by an integer, which is canceled \mariac{better expression?} by mod 1. 
+Also in the case where eigenstates are double degenerate we need not worry about localizing them, because computing the expectation value of the position operator will automatically assign the correct number of eigenstates to the left/right half of $A$. 
+This is no longer true for four-fold, or higher-fold, degenerate states.
+%In Fig.\ref{huang}.a the doubly-degenerate states have contributions from both edges. Performing the above classification will always lead to assigning one state as \emph{left} and the other one as \emph{right} so there is no issue, but this is no longer true for four-fold, or higher, degenerate states. 
+%The eigenstates close to $1$ and $0$ are also highly degenerate and thus delocalized over the whole chain. However in this case this is irrelevant since the difference in $\chi$ from changing the charge in one of these modes is either $0$ or $1$, which is cancelled anyway by taking the modulo $1$, so the expression \ref{loceq} is well-defined \carlos{up to exponentially small errors?}.
+In order to ensure that we obtain localized entanglement eigenstates,  we diagonalize $C_A + \lambda C_A\hat{X}C_A$ instead of $C_A$. 
+\mariac{do not commute 
+relation to wannier states
+how to choose lambda }
+where $\lambda$ is a parameter that must be high enough to split all degenerate states into localized ones but small enough to not perturbe the EOS. 
+%Note that this procedure is not necessary when the only degeneracy is at eigenvalues $1$ and $0$, like in Fig. \ref{huang}.b, as discussed above. \carlos{I need to explain a bit more how this works with the symmetries  ect.}
 
-This relation between the Zak phase and the entanglement spectrum is a consequence of an identity between the Zak phase and the many-body entanglement spectrum previously found for infinite chains \cite{Zaletel2014}. In Appendix A we modified this derivation to account for the periodic boundary conditions we use and show how their result reduces to Eq.~\eqref{loceq} when expressing it in terms of the ES.
-
-In Fig.\ref{2} we show an example that highlights the importance of the localization structure of the ES. For the solid line cut in the phase-diagram, with the $\nu = 2 \rightarrow 0 $ transition, two ES that seem at first very similar result in very different Zak phases. This happens because of how the two symmetry breaking terms split the four-fold degenerate midgap states. While $\kappa'$ splits them into two two-fold degenerate pairs whose contribution cancels, $\kappa$ split thems into two $left-left$ and $right-right$ pairs, with a finite contribution to the Zak phase. We also show the cut through the dotted line that shows all possible phases to illustrate how our results also apply to more complex ES. 
+In Fig.\ref{2} we show an example that highlights the importance of the localization structure of the ES. For the solid line cut in the phase-diagram, with the $\nu = 2 \rightarrow 0 $ transition, two ES that seem at first very similar result in very different Zak phases. This happens because of how the two symmetry breaking terms split the four-fold degenerate midgap states. While $\kappa'$ splits them into two two-fold degenerate pairs at opposite edges whose contribution cancels, $\kappa$ split thems into two $left-left$ and $right-right$ pairs, with a finite contribution to the Zak phase. We also show the cut through the dotted line that shows all possible phases in the BDI class to illustrate how our results also apply to more complex EOS where the observations made in references \cite{Huang2012,Huang2012-2} do not apply anymore. 
 
 \begin{figure}[h!]
-\centering
-\makebox[0pt]{
-\subfloat[$t = 1, t' = 2,$   $\kappa =0.3, \kappa' = 0$]{
-  \includegraphics[width=35mm]{3_a.pdf}
-}
-\subfloat[$t = 1, t' = 2,$ $\kappa = 0, \kappa' = 0.3$]{
-  \includegraphics[width=35mm]{3_b.pdf}
-}
-}\hspace{0mm}
-
-\makebox[0pt]{
-\subfloat[$t = 1, t' = -2,$ $\kappa = 0.3, \kappa' = 0$]{
-  \includegraphics[width=35mm]{3_c.pdf}
-}
-\subfloat[$t = 1, t' = -2,$ $\kappa = 0, \kappa' = 0.3$]{
-  \includegraphics[width=35mm]{3_d.pdf}
-}
-}
-\caption{Entanglement spectrum (black), $\chi$ (green) and $\gamma$ (red) for two different cuts,  continuous line for a,b, and dotted line for c,d plots, Showing a more diverse ES where more than one midgap state is present. }
-\label{2}
+	\centering
+	\makebox[0pt]{
+		\subfloat[$t = 1, t' = 2,$   $\kappa =0.3, \kappa' = 0$]{
+			\includegraphics[width=35mm]{3_a.pdf}
+		}
+		\subfloat[$t = 1, t' = 2,$ $\kappa = 0, \kappa' = 0.3$]{
+			\includegraphics[width=35mm]{3_b.pdf}
+		}
+	}\hspace{0mm}
+	
+	\makebox[0pt]{
+		\subfloat[$t = 1, t' = -2,$ $\kappa = 0.3, \kappa' = 0$]{
+			\includegraphics[width=35mm]{3_c.pdf}
+		}
+		\subfloat[$t = 1, t' = -2,$ $\kappa = 0, \kappa' = 0.3$]{
+			\includegraphics[width=35mm]{3_d.pdf}
+		}
+	}
+	\caption{Entanglement spectrum (black), $\chi$ (green) and $\gamma$ (red) for two different cuts,  continuous line for a,b, and dotted line for c,d plots, Showing a more diverse ES where more than one midgap state is present. }
+	\label{2}
 \end{figure}
 
+\mariac{issue about  the ambiguity about right - left vs left - right, connect with discussion about Zaletel results and their convention?}
+This relation between the Zak phase and the EOS is a consequence of an identity between the Zak phase and the many-body entanglement spectrum previously found for infinite chains \cite{Zaletel2014}. In Appendix A we modified this derivation to account for the periodic boundary conditions we use and show how their result reduces to Eq.~\eqref{eq_loc} when expressing it in terms of the EOS.
+
+
+\mariac{alternative way of computing Zak phase}
 Using the fact that $N_A = \Tr C_A$ we can rewrite $\chi$ as
 \begin{equation}
-\chi = \left(\sum_{i\ in r} \xi_i+ \sum_{i\in b}\xi_i\right) \, {\rm mod} \, 1.
+\chi = \left(\sum_{i\in r} \xi_i\right) \, {\rm mod} \, 1.
 \end{equation}
 A simpler way one can compute this quantity is by obtaining $C_A$ for an open chain, labeled as $C_A^{ o}$. For a long enough chain the right eigenvalues will remain the same, as we still place a virtual cut in the middle of the chain but the left eigenvalues will no longer be present, so that one can simply compute
 \begin{equation}
 \chi = \Tr C_A^{o} \, {\rm mod} \, 1.
 \end{equation}
-This method however will introduce a stronger finite size effect and as we will discuss below it only works for homogeneous systems. \carlos{I don't know if its worth it to introduce in this paper. Then I dont know what to do for the ES = winding. }
+This method however will introduce a stronger finite size effect and as we will discuss below it only works for homogeneous systems. \carlos{I don't know if its worth it to introduce in this paper. }
+
+Before proceeding with the inhomogeneous systems, let us explain why the expression~\eqref{eqplusminus} simplifies so much for systems with an equidistant ES. 
+First note that for translation invariant systems, the ES of the right and the left edge are related by an overall '-' sign, i.e. for each eigenvalue $\epsilon$ on the right edge, there is a corresponding value $-\epsilon$ on the left edge. 
+Since the spectra are equidistant, this implies that the two edge spectra are merely shifted with respect to each other.
+Note that  the shift could be zero, e.g.  in presence of a symmetry. 
+Independent of the shift, the simple assignment of $ (...+-+-+-...)$ will automatically assign charges $\pm 1/2$ to each edge. 
+The only remaining issue is whether this simple recipe assigns charge $+1/2$ or $-1/2$ to the right edge.
+In presence of a symmetry, this question is irrelevant \mariac{better expression?} because of the degeneracy. 
+In general, it implies that $\chi$ as defined in Eq.~\eqref{eqplusminus} only gives the Zak phase up to an overall sign. 
+This issue can be fixed by determining the localization of a single eigenstate. 
+
+%The reason is that, unless they are degenerate, the ordered eigenstates always come with alternating edge localization (...left-right-left-right...)\mariac{ref to peschel}, so that the signs assigned are always . 
+%\mariac{expand}
+%\mariac{issue about crossing spectra?}
+%If the eigenvalues cross each other this only adds a global minus sign, however this unlikely and usually only happens when all eigenvalues are close to $0$ and $1$ and $\chi$ is therefore small. 
+
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 
@@ -526,7 +559,7 @@ It was previously known that the Zak phase was encoded in the many-body entangle
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 
-\section{Appendix A}
+\section{Appendix A}\label{app:pollmann}
 	
 Consider a chain with periodic boundary conditions. A Schmidt decomposition for two bipartite cuts gives the ground state
 \begin{equation}
