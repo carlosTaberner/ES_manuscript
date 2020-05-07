@@ -267,6 +267,7 @@ In the latter case, there are several terms in Eq.~\eqref{eqplusminus} with comp
 
 
 \subsubsection{Systems with equidistant entanglement energies}
+\mariac{add scaling plot for $\chi$ versus $\gamma/(2\pi)$. }
 We first discuss systems, for which the entanglement energies of a \emph{single} virtual edge are equidistant. 
 This is a common feature for e.g. nearest neighbor hopping models\mariac{ref to Peschel}, such as the SSH chain, and applies to the Hamiltonian~\eqref{bdi_model} when $t'=0$. 
 In this case, one can obtain the Zak phase in a very simple fashion: We reorder the eigenvalues of the ES by magnitude, $\xi_1 < \xi_2 < ...$, and compute
@@ -326,14 +327,29 @@ Also in the case where eigenstates are double degenerate we need not worry about
 This is no longer true for four-fold, or higher-fold, degenerate states.
 %In Fig.\ref{huang}.a the doubly-degenerate states have contributions from both edges. Performing the above classification will always lead to assigning one state as \emph{left} and the other one as \emph{right} so there is no issue, but this is no longer true for four-fold, or higher, degenerate states. 
 %The eigenstates close to $1$ and $0$ are also highly degenerate and thus delocalized over the whole chain. However in this case this is irrelevant since the difference in $\chi$ from changing the charge in one of these modes is either $0$ or $1$, which is cancelled anyway by taking the modulo $1$, so the expression \ref{loceq} is well-defined \carlos{up to exponentially small errors?}.
-In order to ensure that we obtain localized entanglement eigenstates,  we diagonalize $C_A + \lambda C_A\hat{X}C_A$ instead of $C_A$. 
-\mariac{do not commute 
-relation to wannier states
-how to choose lambda }
-where $\lambda$ is a parameter that must be high enough to split all degenerate states into localized ones but small enough to not perturbe the EOS. 
-%Note that this procedure is not necessary when the only degeneracy is at eigenvalues $1$ and $0$, like in Fig. \ref{huang}.b, as discussed above. \carlos{I need to explain a bit more how this works with the symmetries  ect.}
 
-In Fig.\ref{2} we show an example that highlights the importance of the localization structure of the ES. For the solid line cut in the phase-diagram, with the $\nu = 2 \rightarrow 0 $ transition, two ES that seem at first very similar result in very different Zak phases. This happens because of how the two symmetry breaking terms split the four-fold degenerate midgap states. While $\kappa'$ splits them into two two-fold degenerate pairs at opposite edges whose contribution cancels, $\kappa$ split thems into two $left-left$ and $right-right$ pairs, with a finite contribution to the Zak phase. We also show the cut through the dotted line that shows all possible phases in the BDI class to illustrate how our results also apply to more complex EOS where the observations made in references \cite{Huang2012,Huang2012-2} do not apply anymore. 
+
+In order to ensure that we obtain localized entanglement eigenstates,  we diagonalize $C_A + \lambda C_A\hat{X}C_A$ instead of $C_A$.
+For the whole system, one way of obtaining localized eigenstates of the full correlation matrix is to diagonalize $C\hat{X}C$, which results in localized Wannier states. 
+$C$ commutes with this operator because it is a projector, but this is not necessarily the case for $C_A$ and $C_A\hat{X}C_A$. 
+Far from the edges, however, $C_A$ and $C$ are equivalent, so that the states at $\xi=1$ will localize into Wannier states by adding the $\lambda C_A\hat{X}C_A$ term.
+The rest of the eigenstates will also localize because this term, as it splits the degeneracies. 
+But as it does not commute with $C_A$ close to the virtual edges,  it will modify the eigenstates. 
+For that reason $\lambda$ must be a small parameter. \mariac{how to scale $\lambda$ with system size}. 
+%\mariac{do not commute 
+%	relation to wannier states
+%	how to choose lambda }
+%where $\lambda$ is a parameter that must be high enough to split all degenerate states into localized ones but small enough to not perturbe the EOS. 
+
+In Fig.\ref{2} we show two examples that highlight the importance of the localization structure of the ES. 
+In subfigures (a) and (b), we compute the EOS for varying $m$ at  $t=1$, $t'=2$, indicated by the solid line  in the phase-diagram~\ref{fig:bdi_phase_diagram}, in the presence of two different symmetry breaking terms: (i) $\kappa =0.3$, $\kappa'=0$ and (ii) $\kappa=0$, $\kappa'=0.3$.  
+For $\kappa=\kappa'=0$, there is a phase transition $\nu = 2 \rightarrow 0 $ at $m=2$, whereas both choices of symmetry breaking render the system trivial  for all $m$.
+However, the two symmetry breaking terms split the four-fold degenerate $\xi=1/2$ midgap states very differently, thus resulting in completely different Zak phases despite the superficial resemblance of their respective EOS.  
+While $\kappa'$ splits the four-fold degenerate states into two two-fold degenerate pairs at opposite edges whose contribution cancels, $\kappa$ split them into two $left-left$ and $right-right$ pairs, with a finite contribution to the Zak phase. 
+In subfigures (c) and (d), we consider the same symmetry breaking terms, but now for $t=1$ and $t'=-2$, where the BDI systems shows a phase transition  $\nu=2\rightarrow 1\rightarrow 0$. 
+Note that the $\kappa'$ term does not render the $\nu=1$ phase trivial, and the Zak phase will remain quantized in that region, see Fig.~\ref{2}(d). 
+Also here, Eq.~\ref{eq_loc} correctly reproduces the Zak phase for all values of $m$. 
+Note that in all examples shown in this subsection, the observations made in references \cite{Huang2012,Huang2012-2}, i.e. that the behavior of the Zak phase resembles that of the entanglement occupancy midgap states, do not apply anymore. 
 
 \begin{figure}[h!]
 	\centering
@@ -362,16 +378,21 @@ In Fig.\ref{2} we show an example that highlights the importance of the localiza
 This relation between the Zak phase and the EOS is a consequence of an identity between the Zak phase and the many-body entanglement spectrum previously found for infinite chains \cite{Zaletel2014}. In Appendix A we modified this derivation to account for the periodic boundary conditions we use and show how their result reduces to Eq.~\eqref{eq_loc} when expressing it in terms of the EOS.
 
 
-\mariac{alternative way of computing Zak phase}
-Using the fact that $N_A = \Tr C_A$ we can rewrite $\chi$ as
+Let us also discuss an alternative way of computing Zak phase. 
+Using the fact that $N_A = \Tr C_A$, we can rewrite $\chi$ as
 \begin{equation}
 \chi = \left(\sum_{i\in r} \xi_i\right) \, {\rm mod} \, 1.
 \end{equation}
-A simpler way one can compute this quantity is by obtaining $C_A$ for an open chain, labeled as $C_A^{ o}$. For a long enough chain the right eigenvalues will remain the same, as we still place a virtual cut in the middle of the chain but the left eigenvalues will no longer be present, so that one can simply compute
+A simpler way to compute this quantity is by obtaining $C_A$ for an open chain, labeled as $C_A^{ o}$. 
+For a sufficiently long  chain the right eigenvalues will remain the same, %as we still place a virtual cut in the middle of the chain 
+but the left eigenvalues will no longer be present. 
+This allows one to simply compute
 \begin{equation}
 \chi = \Tr C_A^{o} \, {\rm mod} \, 1.
 \end{equation}
-This method however will introduce a stronger finite size effect and as we will discuss below it only works for homogeneous systems. \carlos{I don't know if its worth it to introduce in this paper. }
+This method, however, will introduce a stronger finite size effect and requires substantially larger systems for the same accuracy. 
+In addition, it only works for homogeneous systems as explained below. 
+
 
 Before proceeding with the inhomogeneous systems, let us explain why the expression~\eqref{eqplusminus} simplifies so much for systems with an equidistant ES. 
 First note that for translation invariant systems, the ES of the right and the left edge are related by an overall '-' sign, i.e. for each eigenvalue $\epsilon$ on the right edge, there is a corresponding value $-\epsilon$ on the left edge. 
@@ -393,29 +414,43 @@ This issue can be fixed by determining the localization of a single eigenstate.
 
 \section{Inhomogeneous systems}
 
+In reference \cite{Zaletel2014} translational invariance was used to derive the relation between the many-body entanglement spectrum and the Zak phase. If this symmetry is broken by, for example, by adding weak disorder to the system, this will modify slightly the eigenvalues of the reduced density matrix but not the charge assignment in Eq.~\eqref{zaletel} in the Appendix. The left side of Eq.~\eqref{zaletel} will be cut independent while the right side is not, and therefore cannot be correct. 
 
-In reference \cite{Zaletel2014} translational invariance was used to derive the relation between the many-body entanglement spectrum and the Zak phase. If this symmetry is broken by, for example, adding weak disorder to the system, this will modify slightly the eigenvalues of the reduced density matrix but not the charge assignment in Eq.~\eqref{zaletel} in the Appendix. The left side of Eq.~\eqref{zaletel} will be cut independent while the right side is not, and therefore cannot be correct. 
-
-We are interested therefore in finding a cut-independent quantity from the ES that might still result in the Zak phase. The first thing one can do is to do an average over the different cuts. Naively one would cut-average the expression in Eq.~\eqref{loceq}, however the average of a circular quantity is not well defined. We defined $\chi$ modulo 1 because the Zak phase is also defined modulo 1, but it also served the purpose of getting rid of the sign choice for the bulk modes, which is problematic. As we do for the edge state, we can choose a sign for the bulk modes in the following way
+We are interested therefore in finding a cut-independent quantity from the EOS that might still result in the Zak phase. The first thing one can do is to do an average over the different cuts. Naively one would cut-average the expression in Eq.~\eqref{eq_loc}, however the average of a circular quantity is not well defined. We defined $\chi$ modulo 1 because it is a phase, but it also served the purpose of getting rid of arbitrary charge assignment of some of the modes close to 1, which is problematic. We define
 \begin{equation}
-g_i=
-\begin{cases}
- +1 &,\rm{if} \expval{\hat{X}}_i > L/4  \\
- -1 &,\rm{if} \expval{\hat{X}}_i < L/4.
-\end{cases}
+\chi_s = \frac{1}{2} \left( \sum_{i\in r}\xi^s_i-\sum_{i\in l}\xi^s_i  + N_A \right),
 \end{equation}
-So that now we define
+obtained for cuts at sites $s$ and $s+L/2$. The cut-average is then given by
 \begin{equation}
-\chi_s = \frac{1}{2} \left( \sum_{i\in r}\xi^s_i-\sum_{i\in l}\xi^s_i + \sum_{i\in b}g_i^s \xi^s_i  + N_A \right),
-\end{equation}
-obtained for cuts at $s$ and $s+L/2$ and the cut-average is given by
-\begin{equation}
-\bar{\chi} = \frac{1}{L}\sum_{s=1}^L \chi_s.
+\bar{\chi} = \left(\frac{1}{L}\sum_{s=1}^L \chi_s \right)\, \rm{mod} \, 1.
 \label{batcutavg}
 \end{equation}
-By adding the perturbation proportional to $C_A\hat{X} C_A$ the bulk modes also localize. As we move through the different cuts the average position of the bulk modes moves slightly. For most modes this will not affect the assigned sign, but for the modes near the middle of subsystem $A$ it might be that for strong enough inhomogeneity that the mode crosses $L/4$ and the sign changes. We find that in order for us to get the correct result the contribution from the bulk modes should be constant across cuts, so we have to find a way of correcting for these jumps of $1$ in $\chi_s$. 
+As we move through the different cuts the average position of  the eigenstates at 1 can move slightly, so that the number of states at each half of the system depends on the cut, which will affect the cut-average. In order to obtain the correct result of  the contribution of the states at $\xi=1$ should be constant across cuts, so that it can be correctly cancelled by the modulo 1. Therefore we have to find a way of correcting for jumps of $1$ in $\chi_s$ when a mode at one crosses the $L/4$. 
+
+%
+%In reference \cite{Zaletel2014} translational invariance was used to derive the relation between the many-body entanglement spectrum and the Zak phase. If this symmetry is broken by, for example, adding weak disorder to the system, this will modify slightly the eigenvalues of the reduced density matrix but not the charge assignment in Eq.~\eqref{zaletel} in the Appendix. The left side of Eq.~\eqref{zaletel} will be cut independent while the right side is not, and therefore cannot be correct. 
+%
+%We are interested therefore in finding a cut-independent quantity from the ES that might still result in the Zak phase. The first thing one can do is to do an average over the different cuts. Naively one would cut-average the expression in Eq.~\eqref{loceq}, however the average of a circular quantity is not well defined. We defined $\chi$ modulo 1 because the Zak phase is also defined modulo 1, but it also served the purpose of getting rid of the sign choice for the bulk modes, which is problematic. As we do for the edge state, we can choose a sign for the bulk modes in the following way
+%\begin{equation}
+%g_i=
+%\begin{cases}
+% +1 &,\rm{if} \expval{\hat{X}}_i > L/4  \\
+% -1 &,\rm{if} \expval{\hat{X}}_i < L/4.
+%\end{cases}
+%\end{equation}
+%So that now we define
+%\begin{equation}
+%\chi_s = \frac{1}{2} \left( \sum_{i\in r}\xi^s_i-\sum_{i\in l}\xi^s_i + \sum_{i\in b}g_i^s \xi^s_i  + N_A \right),
+%\end{equation}
+%obtained for cuts at $s$ and $s+L/2$ and the cut-average is given by
+%\begin{equation}
+%\bar{\chi} = \frac{1}{L}\sum_{s=1}^L \chi_s.
+%\label{batcutavg}
+%\end{equation}
+%By adding the perturbation proportional to $C_A\hat{X} C_A$ the bulk modes also localize. As we move through the different cuts the average position of the bulk modes moves slightly. For most modes this will not affect the assigned sign, but for the modes near the middle of subsystem $A$ it might be that for strong enough inhomogeneity that the mode crosses $L/4$ and the sign changes. We find that in order for us to get the correct result the contribution from the bulk modes should be constant across cuts, so we have to find a way of correcting for these jumps of $1$ in $\chi_s$. 
 
 \subsubsection{Continuous inhomogeneity}
+$\chi$ does not have to be continuous, but jumps of 'integers' can be compensated by hand. 
 
 In the case we have a continuous inhomogeneity one can obtain a new quantity $\chi'_s$ with a constant bulk contribution, by assuming that the discontinuities of $\chi_s$ above some threshold, $h$, are due to these unphisical changes of sign for the bulk states and eliminating them by shifting it by an integer number so that
 \begin{equation}
@@ -578,7 +613,7 @@ The many-body states $\ket{p,p}_B$ can be built by occupying the different ES ei
 s_p^2 =& \prod_{i \in {\rm occ}} \xi_i \prod_{i \in {\rm empty}}(1-\xi_i) \\
 =& \prod_i (1-\xi_i)\left(\frac{\xi_i}{1-\xi_i} \right)^{n_i}
 \end{align}
-And the charge can be assigned so that $Q_p = \sum_{\alpha = b,l,r} q_\alpha\sum_{i \in \alpha} n_i$ with the constrain that $q_r\pm q_b = q_l-1$ \textcolor{red}{Why?}. As the main result of \cite{Zaletel2014} the Zak phase is then found to be
+And the charge can be assigned so that $Q_p = \sum_{\alpha = l,r} q_\alpha\sum_{i \in \alpha} n_i$ with the constrain that $q_r= q_l-1$ \textcolor{red}{Why?}. As the main result of \cite{Zaletel2014} the Zak phase is then found to be
 \begin{align}
 e^{i\gamma} = e^{2\pi i \sum_p s_p^2 Q_p}  \bra{\psi^0}\ket{\psi^{2\pi}},
 \label{zaletel}
