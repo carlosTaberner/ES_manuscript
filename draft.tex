@@ -426,7 +426,6 @@ where
 \end{equation}
 is obtained for cuts at sites $s$ and $s+L/2$. In Fig.\ref{fig:simple_inh}.b we show the same system as in Fig.\ref{2}.c with an added moderate disorder in the $\kappa$ parameter shown in \ref{fig:simple_inh}.a . We show the EOS of one cut with that particular $\chi_s$, which differs from the Zak phase. The Zak phase is shown to be recovered by the cut-average of $\chi$. Next we show the results for the same system with $m=-2$, and a continuous profile for $\kappa$ shown in \ref{fig:simple_inh}.c. In Fig. \ref{fig:simple_inh}.d is shown how the EOS and $\chi_s$ depends on the cuts, and how the Zak phase is again recovered by the cut-averaged $\chi$.
 
-
 \begin{figure}[h!]
 \centering
 \makebox[0pt]{
@@ -443,12 +442,21 @@ is obtained for cuts at sites $s$ and $s+L/2$. In Fig.\ref{fig:simple_inh}.b we 
 }
 \subfloat[$t=1,t'=-2,m=2$]{\includegraphics[width=35mm]{simplecutES.pdf}
 }
+}\hspace{0mm}
+
+\makebox[0pt]{
+\subfloat[$\kappa_i$]{
+  \includegraphics[width=35mm]{cutavgwrongkap.pdf}
 }
-\caption{In a) and b) we show the system in Fig. 4.c with an added disorder. we show the ES (black) and $ \chi_s \, {\rm mod} \, 1$ (green) for one particular cut,$\gamma$ (red) and $\expval{\chi_s}_{\rm cuts}$ (blue dashed). In c) and d) we show the same system at $m=2$ and a continuous homogeneous profile for $\kappa_i$. We show the ES and $\chi_s$ for all cuts. }
+\subfloat[$t=1,t'=-2,m=1$]{\includegraphics[width=35mm]{cutavgwrong.pdf}
+}
+}
+\caption{In a) and b) we show the system in Fig. 4.c with an added disorder. we show the ES (black) and $ \chi_s \, {\rm mod} \, 1$ (green) for one particular cut,$\gamma$ (red) and $\expval{\chi_s}_{\rm cuts}$ (blue dashed). In c) and d) we show the same system at $m=2$ and a continuous homogeneous profile for $\kappa_i$. In e) and f) we show a case where using \eqref{eq:inh_simple} fails. We show the ES and $\chi_s$ for all cuts. }
 \label{fig:simple_inh}
 \end{figure}
 
-We have shown two cases were using expression \ref{eq:inh_simple} leads to the correct result but one has to be careful as the average of a circular quantity is not uniquely defined. We can instead take the cut-average 
+We have shown two cases were using expression \ref{eq:inh_simple} leads to the correct result. The average of a circular quantity is in fact not uniquely defined, and the average we do in Eq.\ref{eq:inh_simple}, which equates to averaging the valus in $(0,1)$ around $1/2$ (\carlos{is this clear?}), is just one choice that works in this cases. However in Fig.\ref{fig:simple_inh}.f this cut-average fails to give the Zak phase. This happens because by taking $\chi$ modulo 1 we have thrown out relevant information.
+To avoid this issue we can instead take the cut-average 
 \begin{align}
 \gamma =\left(\frac{1}{L}\sum_{s=1}^L \chi_s \right)\, \rm{mod} \, 1,
 \label{eq:inh_fixed}
@@ -476,7 +484,7 @@ As the sign assigned to the bulk modes becomes relevant in the inhomogeneous cas
 
 \section{Superconducting systems}
 
-The proof in Ref.\cite{Zaletel2014} also breaks down for superconducting systems. However, as we did for systems without translational invariance, one can extend this identity for systems with pairing terms as well. Since one computes the Zak phase from the single-particle Bogoliubov-de Gennes Hamiltonian, we can obtain the correspondent ES and everything discussed above should apply as well. Take for example the kitaev chain, with the following Hamiltonian
+However, as we did for systems without translational invariance, one can extend this identity for systems with pairing terms as well. Since one computes the Zak phase from the single-particle Bogoliubov-de Gennes Hamiltonian, we can obtain the correspondent ES and everything discussed above should apply as well. Take for example the kitaev chain, with the following Hamiltonian
 \begin{align*}
 H =& -\mu \sum_{i} c_i^\dagger c_i - t \sum_{i}\left( c_{i+1}^\dagger c_i + {\rm h.c.}\right) \\
 &+  \sum_{i}\left( \Delta c_{i} c_{i+1} + {\rm h.c.}\right).
@@ -632,74 +640,62 @@ Combining Eq.s~\eqref{eq:corr_mat},  and \eqref{eq:UDDU}, we arrive at the final
 \section{$\lambda$ term}
 
 
-In order to ensure that we obtain localized entanglement eigenstates,  we diagonalize $C_A + \lambda C_A\hat{X}C_A$ instead of $C_A$.
-For the whole system, one way of obtaining localized eigenstates of the full correlation function (\carlos{Hamiltonian?}) is to diagonalize $C\hat{X}C$, which results in localized Wannier states. $C$ commutes with this operator because it is a projector, but this is no longer the case for $C_A$. Far from the edges however, $C_A$ and $C$ are equivalent, so that the states at 1 will perfectly localize into Wannier states by adding the $\lambda C_A\hat{X}C_A/L$ term (\carlos{Note that the states at 0 or close to 0 don't localize ,but this is not an issue}). Note that in the thermodynamic limit the operator $\hat{X}$ acts as proportional to an identity for localized states. Therefore in this limit the localized eigenstates of $C_A$ with $\xi \neq 0,1$ are also eigenstates of this operator while their mixture is not. Threfore this operator breaks all degeneracies of $C_A$ and results in localized eigenstates.
+In order to ensure that we obtain localized entanglement eigenstates,  we diagonalize $C_A^\lambda = C_A + \lambda/L^2 C_A\hat{X}C_A$ instead of $C_A$, where $\lambda$ is our small parameter and the reason we include the $L^2$ scaling will be explained below.
+For the whole system one way of obtaining localized eigenstates of the full correlation function (\carlos{also the Hamiltonian?}) is to diagonalize $C\hat{X}C$, which results in localized Wannier states. $C$ commutes with this operator because it is a projector, but this is no longer the case for $C_A$. Far from the edges however, $C_A$ and $C$ are equivalent, so that the states close to $\xi=1$ will perfectly localize into Wannier states by adding the $\lambda$ term. Note that in the thermodynamic limit the operator $\hat{X}$ acts as proportional to an identity for localized states. Therefore in this limit the localized eigenstates of $C_A$ far from $\xi = 0,1$ are also eigenstates of $C_A^\lambda$ while their mixture is not. Threfore this operator breaks all degeneracies of $C_A$ and results in localized eigenstates.
 
-One has to be careful when choosing the correct $\lambda$. A parameter $\lambda$ which is too small will fail to break the degeneracies and localize the eigenstates. On the other hand the $\lambda$ term will modify the eigenvalues and introduce an additional error. The eigenstates roughly spread over the whole chain so that we have $\expval{\hat{X}}_{i\alpha} \simeq i$. Therefore the error it introduces in $\chi$ is roughly
+One has to be careful when choosing the correct $\lambda$. A parameter $\lambda$ which is too small will fail to break the degeneracies and localize the eigenstates. On the other hand the $\lambda$ term will  modify the eigenvalues and introduce an additional error to $\chi$. Assuming localized eigenstates we have $\expval{\hat{X}}_{i\alpha} \simeq i$. Therefore the error it introduces in $\chi$ is roughly
 \begin{equation}
-\lambda \sum_{\alpha=1,2}\left( \sum_{i=L/4+1}^{L/2}i-\sum_{i=1}^{L/4}i \right) = \frac{\lambda L^2}{8}
+\frac{\lambda}{L^2} \sum_{\alpha=1,2}\left( \sum_{i=L/4+1}^{L/2}i-\sum_{i=1}^{L/4}i \right) = \frac{\lambda }{8},
 \end{equation}
-Reescaling $\lambda$ to $\lambda/L^2$ we ensure that this error is roughly independent of system size and controlled only by $\lambda$. In Fig.\ref{lambdaL} we show this error in $\chi$ together with the average width for the eigenstates of the top half of the spectrum, for different system sizes. We see that indeed the error remains constant with system size. In this particualr case the degeneracies do not seem to induce a big error. However when we look at the average width we see three different regions. One region at low system size where the width is bounded by the system size and therefore the $\lambda$ term strongly modifies the eigenstates, which fail to localize. For incresing system size we see a second region where the system seems to localize and the width seems constant. And finally for further increasing system size a third region where the width increases again because the $\lambda$ term is too small to break the degeneracies and localize the eigenstates.
+it is proportional to $\lambda$ and independent on system size. In Fig.\ref{lambdaL} we show this error in $\chi$ together with the maximum width of the eigenstates in the top half of the spectrum (\carlos{as we only care about the midgap states and the bulk modes at 1}), for different system sizes. We see that indeed the error remains constant with system size. In this case most of the bulk modes are above $\xi = 1-10^{-10}$, so that the error coming from the $\lambda$ term is bigger than the one we make by failing to localize the bulk modes. However, by looking at the maximum width of the eigenstates we see three different regions. One region at low system size where the width increases linearly. A second region where the system localizes and the width seems constant, and finally for large systems a third region where the width increases again because the $\lambda$ term is too small to break the degeneracies and localize the eigenstates.
 
 
 \begin{figure*}[h!]
 \centering
 \makebox[0pt]{
-\subfloat[${\rm Log}_{10}(\chi - \gamma)$]{
+\subfloat[${\rm Log}_{10}(\chi - \gamma)$ (\carlos{There are errors at $-5,-9,-12$ because that's the order of the eigenvalue of the bulk modes that should cancel pairwise but dont due to failure of localization. Furthermore, the error in yellow around $L=150$ is due to a mode close  to $\xi = 0$ so that it does not appear in Fig. b.})]{
   \includegraphics[width=55mm]{lambdaL1.pdf}
 }
-\subfloat[$\sum_{i/\xi_i>1/2} \bra{\psi_i}\sigma_x\ket{\psi_i}/L$]{\includegraphics[width=55mm]{lambdaL2.pdf}
+\subfloat[${\rm Max}\bra{\psi_i}\sigma_x\ket{\psi_i}$ for $\xi_i >1/2$. \carlos{I don't know why the green line localizes so bad. I have to look further into it}]{\includegraphics[width=55mm]{lambdaL2.pdf}
 }
 }
-\caption{$\lambda = 10^{-9}, t = 1, t'= 2, m=0$}
+\caption{$t = 1, t'= 2, m=0$ for $-{\rm Log}_{10}[\lambda] = 4,5,6,7,8,9,10$.}
 \label{lambdaL}
 \end{figure*}
 
-In Fig.\ref{lambdalambda} we keep the system size constant, and big enough so that we do not introduce a strong finite size error as seen above, and sweep $\lambda$ (from big to small). We see two regions. For big $\lambda$ the error made decreases proportional to $\lambda$ and the eigenstates remain localize, until some point were $\lambda$ is so small that similar to what hapened in the third region above the eigenstates fail to localize. In this case this leads to a wrong classification of the midgap modes which results in a completely wrong $\chi$.
+In Fig.\ref{linearRegion} we take a closer look into the first region with a maximum width proportional to the system size. What happens in this region is that due to finite size the midgap modes that localize in the edges overlap so the resulting eigenstates are not localized and are split from $\xi = 1/2$. The boundary where this region ends changes with $\lambda$ and coincides with the point where the splitting from the $\lambda$ term is bigger than the splitting due to finite size. The gap between these midgap modes that mix starts decreasing with larger system size up to a point, where the system starts to localize, where this splitting is roughly constant with system size and proportional to $\lambda$. In the $\nu = 1$ region the two midgap states are degenerate and we do not observe this first linear region, the eigenstates localize for any finite $\lambda$.
 
-Note that there is a lower bound to $\lambda$ given by the numerical accuracy, $\lambda_{\rm min} \sim 10^{-13} L^2$. Since the system has to be much greater than the correlation length in order for it to localize into Wannier states, we have $\lambda_{\rm min} \sim 10^{-13} l_{\rm corr}^2$, which will set the minimum error we can expect, as it scales only with the $\lambda$ parameter. (\carlos{Not 100\% sure about this statement. Specially how it works in relation to the system with interphase and zero-modes.})
-
-For inhomogeneous systems the story is slightly different. Due to the cut-average a wrong assignment of the bulk modes leads to an error of order $\mathcal{O}(1/L)$. In Fig. \ref{lambdainhlambda} we have the error made in $\chi$ and the maximum width of the eigenstates for different values of $\lambda$ and system size $L$. For each system size we observe, similar as before, a region were the system localizes followed by a region where the effect of the $\lambda$ term is too small and the system fails to localize. The only difference being that due to the cut-average a wrong assignment of the bulk modes leads to an error of order $\mathcal{O}(1/L)$. Note that there is an optimal value for the system size that allows to choose the lowest $\lambda$. In Fig \ref{lambdainhL} we see the same results for a system with $\lambda=10^{-8}$, near the minimum allowed where the system still localizes for some $L$. We see, as in the homogeneous case, that there are three regions. One with a finite-size effect, a second one were the system localizes and a third one where $\lambda/L^2$ is too small and the system delocalizes again. 
 
 \begin{figure*}[h!]
 \centering
 \makebox[0pt]{
-\subfloat[${\rm Log}_{10}(\chi - \gamma)$]{
-  \includegraphics[width=55mm]{lambdalambda1.pdf}
+\subfloat[Width of the eigenstate closest to $\xi=1/2$]{
+  \includegraphics[width=55mm]{linearBoundary.pdf}
 }
-\subfloat[$\sum_{i/\xi_i>1/2} \bra{\psi_i}\sigma_x\ket{\psi_i}/L$]{\includegraphics[width=55mm]{lambdalambda2.pdf}
+\subfloat[Gap between the two eigenstates closest to $\xi = 1/2$]{\includegraphics[width=55mm]{linearBoundarysplit.pdf}
 }
 }
-\caption{$L=80, t = 1, t'= 2, m=0$}
-\label{lambdalambda}
+\caption{$t = 1, t'= 2, m=0, \nu=0 , -{\rm Log}_{10}[\gamma] = 4,5,6,7,8,9,10$ for the different colors. Vertical lines are addded to better show how the features of both plots match.}
+\label{linearRegion}
 \end{figure*}
 
-\begin{figure*}[h!]
-\centering
-\makebox[0pt]{
-\subfloat[${\rm Log}_{10}(\chi - \gamma)$]{
-  \includegraphics[width=55mm]{lambdainherr.pdf}
-}
-\subfloat[$\sum_{i/\xi_i>1/2} \bra{\psi_i}\sigma_x\ket{\psi_i}/L$]{\includegraphics[width=55mm]{lambdainhloc.pdf}
-}
-}
-\caption{$L=40,80,120,160,200; t = 1, t'= 2, m=0$}
-\label{lambdainhlambda}
-\end{figure*}
+
+
+For inhomogeneous systems the story is slightly different. Due to the cut-average a wrong assignment of the bulk modes leads to an error of order $\mathcal{O}(1/L)$. In Fig. \ref{lambdainh} we have the error made in $\chi$ and the maximum width of the eigenstates for different values of system size $L$. The disorder does not change anything discussed above and we observe the same behavior in the localization as in the homogeneous case.
+
 
 \begin{figure*}[h!]
 \centering
 \makebox[0pt]{
-\subfloat[${\rm Log}_{10}(\chi - \gamma)$]{
+\subfloat[${\rm Log}_{10}(\chi - \gamma)$ ]{
   \includegraphics[width=55mm]{lambdaLinherr.pdf}
 }
-\subfloat[$\sum_{i/\xi_i>1/2} \bra{\psi_i}\sigma_x\ket{\psi_i}/L$]{\includegraphics[width=55mm]{lambdaLinhloc.pdf}
+\subfloat[${\rm Max}\bra{\psi_i}\sigma_x\ket{\psi_i}$ for $\xi_i >1/2$.]{\includegraphics[width=55mm]{lambdaLinhloc.pdf}
 }
 }
-\caption{$\lambda=10^{-8}, t = 1, t'= 2, m=0$}
-\label{lambdainhL}
+\caption{$t = 1, t'= 2, m=0, \nu=2$. }
+\label{lambdainh}
 \end{figure*}
-
 
 
 \end{document}
