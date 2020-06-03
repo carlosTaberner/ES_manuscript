@@ -417,7 +417,7 @@ This issue can be fixed by determining the localization of a single eigenstate.
 
 In reference \cite{Zaletel2014} translational invariance was used to derive the relation between the many-body entanglement spectrum and the Zak phase. If this symmetry is broken by adding, for example, weak disorder, this result is no longer true. However we found, as our main result, that one can still obtain the Zak phase as the cut-average of the relation derived for homogeneous systems. For some systems this can be written as (\carlos{not sure about this phrasing})
 \begin{align}
-\gamma =\left(\frac{1}{L}\sum_{s=1}^L (\chi_s \, \rm{mod} \, 1)\right)\, \rm{mod} \, 1,
+\bar{\chi} =\left(\frac{1}{L}\sum_{s=1}^L (\chi_s \, \rm{mod} \, 1)\right)\, \rm{mod} \, 1,
 \label{eq:inh_simple}
 \end{align}
 where
@@ -446,38 +446,38 @@ is obtained for cuts at sites $s$ and $s+L/2$. In Fig.\ref{fig:simple_inh}.b we 
 
 \makebox[0pt]{
 \subfloat[$\kappa_i$]{
-  \includegraphics[width=35mm]{cutavgwrongkap.pdf}
+  \includegraphics[width=35mm]{simplecutavgaround0kap.pdf}
 }
-\subfloat[$t=1,t'=-2,m=1$]{\includegraphics[width=35mm]{cutavgwrong.pdf}
+\subfloat[$t=1,t'=-2,m=1$]{\includegraphics[width=35mm]{simplecutavgaround0.pdf}
 }
 }
 \caption{In a) and b) we show the system in Fig. 4.c with an added disorder. we show the ES (black) and $ \chi_s \, {\rm mod} \, 1$ (green) for one particular cut,$\gamma$ (red) and $\expval{\chi_s}_{\rm cuts}$ (blue dashed). In c) and d) we show the same system at $m=2$ and a continuous homogeneous profile for $\kappa_i$. In e) and f) we show a case where using \eqref{eq:inh_simple} fails. We show the ES and $\chi_s$ for all cuts. }
 \label{fig:simple_inh}
 \end{figure}
 
-We have shown two cases were using expression \ref{eq:inh_simple} leads to the correct result. The average of a circular quantity is in fact not uniquely defined, and the average we do in Eq.\ref{eq:inh_simple}, which equates to averaging the valus in $(0,1)$ around $1/2$ (\carlos{is this clear?}), is just one choice that works in this cases. However in Fig.\ref{fig:simple_inh}.f this cut-average fails to give the Zak phase. This happens because by taking $\chi$ modulo 1 we have thrown out relevant information.
-To avoid this issue we can instead take the cut-average 
+We have shown two cases were using expression \ref{eq:inh_simple} leads to the correct result, but this is in fact not the general case, as we can see in Fig.\ref{fig:simple_inh}.f . The average of a circular quantity is not uniquely defined and the choice we made in Eq.\ref{eq:inh_simple}, which equates to averaging the values in $(0,1)$ around $1/2$ (\carlos{is this clear?}) turns out to work in certain cases. How to perform this circular average is a priory not known, we can only judge after we compute the Zak phase independetly if we used the correct choice or not. Therefore in order to proceed we need to get rid of the circular average which leaves us with
 \begin{align}
-\gamma =\left(\frac{1}{L}\sum_{s=1}^L \chi_s \right)\, \rm{mod} \, 1,
+\bar{\chi} =\left(\frac{1}{L}\sum_{s=1}^L \chi_s \right)\, \rm{mod} \, 1,
 \label{eq:inh_fixed}
 \end{align}
-
-
-but this however has to be done carefully. So far we have naively separated our eigenstates into \emph{left} and \emph{rigth} sectors, assigned the charges acordingly, and took the modulo 1 to eliminate the contribution of the bulk modes that localize at the center of A. The problem resides in the classification of these bulk modes. Even if the rest of the EOS remains constant, due to the inhomogeneity a bulk mode can cross the middle of region A, as shown in Fig.\ref{fig:loc_fix}, which will change $\chi$ by $1/L$, even though choosing $L/4$ as the separation between the \emph{left} and \emph{rigth} sectors is not physical. In order for \ref{eq:inh_fixed} to work properly the contribution from the bulk modes, which should vanish in the end, must remain constant across the different cuts. In order to achieve this we choose a cut-dependent threshold that the bulk modes do not cross, $l_s$, as the mean position of two of the eigenstates close to this middle point of A, as shown in Fig.\ref{fig:loc_fix}. This is done in practice for the Wannier states (\carlos{Do I explain exactly how do I do it numerically?}).
+but this however has to be done carefully. So far we have naively separated our eigenstates into \emph{left} and \emph{rigth} sectors, assigned the charges acordingly, and took the modulo 1 to eliminate the contribution of the bulk modes that localize at the center of A. The problem resides in the classification of these bulk modes. Even if the rest of the EOS remains constant, due to the inhomogeneity a bulk mode can cross the middle of region A, as shown in Fig.\ref{fig:loc_fix}, which will change $\chi$ by $1/L$, even though choosing $L/4$ as the separation between the \emph{left} and \emph{rigth} sectors is not physical. In order for \ref{eq:inh_fixed} to work properly the contribution from the bulk modes, which should vanish in the end, must remain constant across the different cuts. In order to achieve this we have to choose a cut-dependent threshold that the bulk modes do not cross. We choose this threshold, $l_s$, as the mean position of two of the eigenstates close to this middle point of A, as shown in Fig.\ref{fig:loc_fix}. This is done in practice using the Wannier states (\carlos{Do I explain exactly how do I do it numerically?}).
 Note that in the thermodynamic limit it does not matter if the position of these eigenstates cross as they are degenerate, the only important thing is that the number of bulk modes at each sector remains constant (\carlos{Not sure about this phrasing either}). 
+
+The reason Eq.\ref{eq:inh_simple} works in some cases is that if, assuming the correct constant bulk contribution, $\chi_s \in [n,n+1)$, wher $n$ is an integer, then taking the modulo 1 before or after averaging does not affect the final result. The same argument can be generalize for a $\chi_s \in [a+a,1)$, for any real $a$, given that we offset the modulo 1 in Eq.\ref{eq:inh_simple} appropiately.
 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=70mm]{loc_fix.pdf}
-\caption{Average position of the Wannier states in red and, slightly shifted, the localized entanglement eigenstates (\carlos{rename $C_A+\lambda C_A X C_A$?} in blue. In black we show the threshold $l_s$ obtained as the mean value of the two Wannier states close de $19$ and $20$) $L=80,\lambda=10^{-6}, t = 1, t'= 2, m=0$}
+\caption{Average position of the Wannier states in red and, slightly shifted, the localized entanglement eigenstates 
+in blue. In black we show the threshold $l_s$ obtained as the mean value of the two Wannier states close de $19$ and $20$) $L=80,\lambda=10^{-6}, t = 1, t'= 2, m=0$}
 \label{fig:loc_fix}
 \end{figure}
 
 
 
 
-As the sign assigned to the bulk modes becomes relevant in the inhomogeneous case one might think that it is better to use the open chain, $\chi_s = \Tr C_A^{o,s}$, as one avoids the issue of having to assign any signs at all. Although this is true we find another problem. By adiabatically tuning down the coupling between the $L$ and $1$ sites we see that the eigenvalues of the $left$ modes flow to either $0$ or $1$. This can lead to discontinuities in the number of bulk modes at $\xi=1$ which again result in an incorrect cut-average. \carlos{Works in some cases.}
+As the sign assigned to the bulk modes becomes relevant in the inhomogeneous case one might think that it is better to use the open chain, $\chi_s = \Tr C_A^{{\rm open},s}$, as one avoids the issue of having to assign any signs at all. Although this is true we find another problem. By adiabatically tuning down the coupling between the $L$ and $1$ sites we see that the eigenvalues of the $left$ modes flow to either $0$ or $1$. This can lead to discontinuities in the number of bulk modes at $\xi=1$ which again result in an incorrect cut-average. \carlos{Do we want to include is? Or leave it for later?}
 
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
