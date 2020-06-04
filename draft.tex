@@ -430,20 +430,31 @@ This is closely related to another issue, namely \mariac{issue about  the ambigu
 \section{Inhomogeneous systems}
 
 In the last section, we have argued that the Zak phase is encoded in the EOS. 
-This result could, in fact, already been inferred from Ref.~\cite{Zaletel2014}, where the relation between the many-body entanglement spectrum and the Zak phase was derived. 
-However, for the latter  translation invariance was crucial for the derivation, and it was unclear if (and how) it can be generalized to inhomogeneous systems.
-In this section, we demonstrate that the EOS contains the full information about the Zak phase even for inhomogeneous systems and present a well-defined procedure for extracting the Zak phase. 
+This result could, in fact, already have been inferred from Ref.~\cite{Zaletel2014}, where the relation between the singular values of the Schmidt decomposition and the Zak phase was derived. 
+However, for the latter translation invariance was crucial in the derivation, and it was unclear if (and how) it can be generalized to inhomogeneous systems.
+Note that both the entanglement spectrum --- single-body or many-body --- and the Schmidt decomposition depend on where the virtual boundaries are located in a system that is not translationally invariant.
+Despite this obvious concern, we will show that the EOS still contains the full information about the Zak phase even for inhomogeneous systems, and present a well-defined procedure for extracting it. 
 
-In reference \cite{Zaletel2014} translational invariance was used to derive the relation between the many-body entanglement spectrum and the Zak phase. If this symmetry is broken by adding, for example, weak disorder, this result is no longer true. However we found, as our main result, that one can still obtain the Zak phase as the cut-average of the relation derived for homogeneous systems. For some systems this can be written as (\carlos{not sure about this phrasing})
+%In reference \cite{Zaletel2014} translational invariance was used to derive the relation between the many-body entanglement spectrum and the Zak phase. If this symmetry is broken by adding, for example, weak disorder, this result is no longer true. However we found, as our main result, that one can still obtain the Zak phase as the cut-average of the relation derived for homogeneous systems. For some systems this can be written as (\carlos{not sure about this phrasing})
+The main idea is that even though $\chi$ depends on the details of the location of the virtual boundaries, by averaging over different such `cuts' we can define a well-defined quantity. 
+The most obvious generalization of eq.~\eqref{eq_loc} is given by 
 \begin{align}
 \bar{\chi} =\left(\frac{1}{L}\sum_{s=1}^L (\chi_s \, \rm{mod} \, 1)\right)\, \rm{mod} \, 1,
 \label{eq:inh_simple}
 \end{align}
 where
 \begin{equation}
-\chi_s = \frac{1}{2} \left( \sum_{i\in r}\xi^s_i-\sum_{i\in l}\xi^s_i  + N_A \right)
+\chi_s = \frac{1}{2} \left( \sum_{i\in r}\xi^s_i-\sum_{i\in l}\xi^s_i  + N_A \right). 
 \end{equation}
-is obtained for cuts at sites $s$ and $s+L/2$. In Fig.\ref{fig:simple_inh}.b we show the same system as in Fig.\ref{2}.c with an added moderate disorder in the $\kappa$ parameter shown in \ref{fig:simple_inh}.a . We show the EOS of one cut with that particular $\chi_s$, which differs from the Zak phase. The Zak phase is shown to be recovered by the cut-average of $\chi$. Next we show the results for the same system with $m=-2$, and a continuous profile for $\kappa$ shown in \ref{fig:simple_inh}.c. In Fig. \ref{fig:simple_inh}.d is shown how the EOS and $\chi_s$ depends on the cuts, and how the Zak phase is again recovered by the cut-averaged $\chi$.
+Thus, we average $\chi$ over cuts that partition the system into two equal halves with the virtual boundaries located between sites sites $s$, $s+1$ and $s+L/2$,$s+L/2+1$ respectively. 
+This generalization indeed reproduces the Zak phase for some systems, but is unfortunately too simple to work in general. 
+Remember that $\chi$ refers to an angular variable, 
+
+XXXXXXX
+
+
+
+In Fig.\ref{fig:simple_inh}.b we show the same system as in Fig.\ref{2}.c with an added moderate disorder in the $\kappa$ parameter shown in \ref{fig:simple_inh}.a . We show the EOS of one cut with that particular $\chi_s$, which differs from the Zak phase. The Zak phase is shown to be recovered by the cut-average of $\chi$. Next we show the results for the same system with $m=-2$, and a continuous profile for $\kappa$ shown in \ref{fig:simple_inh}.c. In Fig. \ref{fig:simple_inh}.d is shown how the EOS and $\chi_s$ depends on the cuts, and how the Zak phase is again recovered by the cut-averaged $\chi$.
 
 \begin{figure}[h!]
 \centering
