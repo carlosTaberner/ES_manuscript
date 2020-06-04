@@ -150,7 +150,7 @@ Subfigures (b) and (d) show the edge spectrum for class AI and A, respectively. 
 \subfloat[$\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{1_d.pdf}
 }
 }
-\caption{\mariac{increase system size and colorcode edge modes.}Edge spectrum along the dotted path (i.e. $t=1,t'=-2$) of Fig.~\ref{fig:bdi_phase_diagram} for different values of $\kappa$ and $\kappa'$.\mariac{note on numerical system size}}
+\caption{\mariac{Figures still need to be replaced}Edge spectrum along the dotted path (i.e. $t=1,t'=-2$) of Fig.~\ref{fig:bdi_phase_diagram} for different values of $\kappa$ and $\kappa'$.\mariac{note on numerical system size}}
 \label{fig:zero_E_modes}
 \end{figure}
 
@@ -261,7 +261,7 @@ Their result is a particular limit of Eq.~\eqref{eqplusminus}.
 %Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. 
 Huang and Arovas considered a two-dimensional chern insulator and noted that the Zak phase qualitatively follows the `virtual edge mode' that connects the EOS values at 0 to those at 1~\cite{Huang2012,Huang2012-2}. 
 Interpreting this as a one-dimensional system with a parameter, we can explain this behavior by Eq.~\eqref{eqplusminus}, noting that there is a single pair of eigenvalues that dominates the sum. 
-Note that the observation of Ref.s~\cite{Huang2012,Huang2012-2} is particular to a system with Chern number 0 or $\pm 1$, and it generically fails for systems with higher Chern numbers.
+Note that the observation of Ref.s~\cite{Huang2012,Huang2012-2} is particular to systems with Chern number 0 or $\pm 1$, and usually fails for more general systems, see for instance Fig.~\ref{2}.  
 In the latter case, there are several terms in Eq.~\eqref{eqplusminus} with comparably large contributions. 
 %For cases with more edge modes present in the ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. 
 
@@ -270,31 +270,36 @@ In the latter case, there are several terms in Eq.~\eqref{eqplusminus} with comp
 \mariac{add scaling plot for $\chi$ versus $\gamma/(2\pi)$. }
 We first discuss systems, for which the entanglement energies of a \emph{single} virtual edge are equidistant. 
 This is a common feature for e.g. nearest neighbor hopping models\mariac{ref to Peschel}, such as the SSH chain, and applies to the Hamiltonian~\eqref{bdi_model} when $t'=0$. 
-In this case, one can obtain the Zak phase in a very simple fashion: We reorder the eigenvalues of the ES by magnitude, $\xi_1 < \xi_2 < ...$, and compute
+In this case, one can obtain the Zak phase in a very simple fashion: We reorder the eigenvalues of the EOS by magnitude, $\xi_1 < \xi_2 < ...$, and compute
 \begin{equation}
 \chi = \frac{1}{2}\left(\sum_j (-1)^j \xi_j+N_A\right) \, {\rm mod} \, 1,
 \label{eqplusminus}
 \end{equation}
 where $N_A$ is the number of electrons in the ground state in region A. 
 In the thermodynamic limit, $\chi$ becomes identical to the Zak phase divided by $2\pi$:
-\begin{equation}
+\begin{equation}\label{eq:chi_gamma_simple}
 \lim_{L \rightarrow \infty} \frac{\gamma}{2\pi} = \lim_{L \rightarrow \infty} \chi.
 \end{equation}
-
 In the case where there is only one eigenvalue per edge that is $\neq 0,1$ in  the EOS, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase~\cite{Ryu2006}. 
-
-In Fig.~\ref{huang} we show  the EOS along the dashed cut in the phase diagram of Fig.~\ref{fig:bdi_phase_diagram}. 
+We illustrate the general behavior of Eq.~\eqref{eq:chi_gamma_simple} in Fig.~\ref{huang}, both in the presence, \ref{huang}(a),  and absence, \ref{huang}(b),  of chiral symmetry. 
+We show the EOS (black), the Zak phase$/2\pi$ (red) and $\chi$ (green), setting the next-nearest neighbor hopping $t'=0$, i.e.  along the dashed cut in the phase diagram of Fig.~\ref{fig:bdi_phase_diagram}. 
 Along this line, our model is equivalent to an SSH chain. 
+
 In the presence of chiral and translation symmetry, all eigenvalues of the EOS are doubly degenerate --- one eigenvalue from each edge. 
 The difference of $\pi$ between the trivial and topological regime originates from the rearrangement of a few dominant eigenvalues in the EOS. 
 In the topological regime, there are a pair of eigenvalues at $\xi=1/2$, while the rest are close to $0$ and $1$. 
 At the phase transition, the two $\xi=1/2$ modes mix with one mode coming from $1$ and $0$ respectively, leading to a pair of modes close to $0$ and $1$, see Fig.~\ref{huang}(a). 
 Consequently, there is one less mode at $\xi=1$, which yields a difference of $\pi$ in the Zak phase. 
 Note that the full sum~\eqref{eqplusminus}  evaluates to zero in the trivial regime, up to finite-size corrections, despite the presence of modes with entanglement occupancy $0<\xi<1$. 
-
 When breaking chiral symmetry, the EOS will no longer be doubly degenerate. 
-For small $m$, there are two dominant midgap eigenvalues, and the Zak phase follows the lower of them very closely, see Fig.~\ref{huang}(b).
-When this midgap eigenvalue approaches  0, the contribution from the other modes becomes more relevant and the Zak phase starts to deviate from the midgap eigenvalue, \mariac{see inset}.
+Still, eq.~\eqref{eqplusminus} faithfully reproduces the Zak phase, see Fig.~\ref{huang}(b). 
+\paragraph*{Finite-size scaling}
+
+% \mariac{still missing}
+%
+%
+%For small $m$, there are two dominant midgap eigenvalues, and the Zak phase follows the lower of them very closely, see Fig.~\ref{huang}(b).
+%When this midgap eigenvalue approaches  0, the contribution from the other modes becomes more relevant and the Zak phase starts to deviate from the midgap eigenvalue, \mariac{see inset}.
 \begin{figure}[h!]
 \centering
 \makebox[0pt]{
@@ -319,33 +324,41 @@ We separate the eigenstates of the entanglement Hamiltonian (or alternatively th
 \chi = \frac{1}{2} \left( \sum_{i\in r}\xi_i-\sum_{i\in l}\xi_i+ N_A \right) \quad {\rm mod} \quad 1.
 \label{eq_loc}
 \end{equation}
+Note that the details on how to define \emph{right} versus \emph{left} are actually not important. 
+We could have chosen any other boundary than $L/4$ as long as it is sufficiently far away from the boundary to ensure that the boundary modes are correctly assigned. 
+The underlying reason is that  bulk modes have eigenvalues $\xi=0,1$.
+Thus, re-assigning, say, a \emph{right} to  \emph{left} bulk mode changes the expression within the parenthesis in eq.~\eqref{eq_loc} by either $0$ or $1$, and the full expression remains unchanged due to the modulo. 
 
-In order for this expression to be well-defined however we need localized eigenstates. 
+
+However, in order for  \eqref{eq_loc} to be well-defined,  we need localized eigenstates. 
 Non-degenerate eigenstates of the EOS are automatically localized, but degenerate or nearly-degenerate eigenstates (i.e. those exponentially close to $\xi=0,1$) are not necessarily localized. 
-It turns out that we need not worry about the latter set of states, because changing their charge from say $1/2$ to $-1/2$ only changes $1/2(\sum_{i\in r} \xi_i - \sum_{i\in l}\xi_i)$ in Eq.~\eqref{eq_loc} by an integer, which is canceled \mariac{better expression?} by mod 1. 
+As explained above, we need not worry about the latter set of states.
+%, because changing their charge from say $1/2$ to $-1/2$ only changes $1/2(\sum_{i\in r} \xi_i - \sum_{i\in l}\xi_i)$ in Eq.~\eqref{eq_loc} by an integer, which is canceled \mariac{better expression?} by mod 1. 
 Also in the case where eigenstates are double degenerate we need not worry about localizing them, because computing the expectation value of the position operator will automatically assign the correct number of eigenstates to the left/right half of $A$. 
 This is no longer true for four-fold, or higher-fold, degenerate states.
+
+
 %In Fig.\ref{huang}.a the doubly-degenerate states have contributions from both edges. Performing the above classification will always lead to assigning one state as \emph{left} and the other one as \emph{right} so there is no issue, but this is no longer true for four-fold, or higher, degenerate states. 
 %The eigenstates close to $1$ and $0$ are also highly degenerate and thus delocalized over the whole chain. However in this case this is irrelevant since the difference in $\chi$ from changing the charge in one of these modes is either $0$ or $1$, which is cancelled anyway by taking the modulo $1$, so the expression \ref{loceq} is well-defined \carlos{up to exponentially small errors?}.
 
-
-In order to ensure that we obtain localized entanglement eigenstates,  we diagonalize $C_A + \lambda C_A\hat{X}C_A$ instead of $C_A$.
+{\color{red} Localization section needs to be rewritten}
+we diagonalize $C_A + \lambda C_A\hat{X}C_A$ instead of $C_A$.
 For the whole system, one way of obtaining localized eigenstates of the full correlation matrix is to diagonalize $C\hat{X}C$, which results in localized Wannier states. 
 $C$ commutes with this operator because it is a projector, but this is not necessarily the case for $C_A$ and $C_A\hat{X}C_A$. 
 Far from the edges, however, $C_A$ and $C$ are equivalent, so that the states at $\xi=1$ will localize into Wannier states by adding the $\lambda C_A\hat{X}C_A$ term.
 The rest of the eigenstates will also localize because this term, as it splits the degeneracies. 
 But as it does not commute with $C_A$ close to the virtual edges,  it will modify the eigenstates. 
-For that reason $\lambda$ must be a small parameter. \mariac{how to scale $\lambda$ with system size}. 
+For that reason $\lambda$ must be a small parameter. 
 %\mariac{do not commute 
 %	relation to wannier states
 %	how to choose lambda }
 %where $\lambda$ is a parameter that must be high enough to split all degenerate states into localized ones but small enough to not perturbe the EOS. 
 
 In Fig.\ref{2} we show two examples that highlight the importance of the localization structure of the ES. 
-In subfigures (a) and (b), we compute the EOS for varying $m$ at  $t=1$, $t'=2$, indicated by the solid line  in the phase-diagram~\ref{fig:bdi_phase_diagram}, in the presence of two different symmetry breaking terms: (i) $\kappa =0.3$, $\kappa'=0$ and (ii) $\kappa=0$, $\kappa'=0.3$.  
+In subfigures (a) and (b), we compute the EOS for varying $m$ at  $t=1$, $t'=2$ --- indicated by the solid line  in the phase-diagram~\ref{fig:bdi_phase_diagram} --- in the presence of two different symmetry breaking terms: (i) $\kappa =0.3$, $\kappa'=0$ and (ii) $\kappa=0$, $\kappa'=0.3$.  
 For $\kappa=\kappa'=0$, there is a phase transition $\nu = 2 \rightarrow 0 $ at $m=2$, whereas both choices of symmetry breaking render the system trivial  for all $m$.
 However, the two symmetry breaking terms split the four-fold degenerate $\xi=1/2$ midgap states very differently, thus resulting in completely different Zak phases despite the superficial resemblance of their respective EOS.  
-While $\kappa'$ splits the four-fold degenerate states into two two-fold degenerate pairs at opposite edges whose contribution cancels, $\kappa$ split them into two $left-left$ and $right-right$ pairs, with a finite contribution to the Zak phase. 
+While $\kappa'$ splits the four-fold degenerate states into two two-fold degenerate pairs at opposite edges whose contribution cancels, $\kappa$ split them into two \emph{left}-\emph{left} and \emph{right}-\emph{right} pairs, with a finite contribution to the Zak phase. 
 In subfigures (c) and (d), we consider the same symmetry breaking terms, but now for $t=1$ and $t'=-2$, where the BDI systems shows a phase transition  $\nu=2\rightarrow 1\rightarrow 0$. 
 Note that the $\kappa'$ term does not render the $\nu=1$ phase trivial, and the Zak phase will remain quantized in that region, see Fig.~\ref{2}(d). 
 Also here, Eq.~\ref{eq_loc} correctly reproduces the Zak phase for all values of $m$. 
@@ -373,9 +386,8 @@ Note that in all examples shown in this subsection, the observations made in ref
 	\caption{Entanglement spectrum (black), $\chi$ (green) and $\gamma$ (red) for two different cuts,  continuous line for a,b, and dotted line for c,d plots, Showing a more diverse ES where more than one midgap state is present. }
 	\label{2}
 \end{figure}
-
-\mariac{issue about  the ambiguity about right - left vs left - right, connect with discussion about Zaletel results and their convention?}
-This relation between the Zak phase and the EOS is a consequence of an identity between the Zak phase and the many-body entanglement spectrum previously found for infinite chains \cite{Zaletel2014}. In Appendix A we modified this derivation to account for the periodic boundary conditions we use and show how their result reduces to Eq.~\eqref{eq_loc} when expressing it in terms of the EOS.
+This relation between the Zak phase and the EOS is a consequence of an identity between the Zak phase and the many-body entanglement spectrum previously found for infinite chains \cite{Zaletel2014}.
+In Appendix A we modified this derivation to account for the periodic boundary conditions we use and show how their result reduces to Eq.~\eqref{eq_loc} when expressing it in terms of the EOS.
 
 
 Let us also discuss an alternative way of computing Zak phase. 
@@ -392,7 +404,7 @@ This allows one to simply compute
 \chi = \Tr C_A^{o} \, {\rm mod} \, 1.
 \end{equation}
 This method, however, will introduce a stronger finite size effect and requires substantially larger systems for the same accuracy. 
-In addition, it only works for homogeneous systems as explained below. 
+In addition, it only works for homogeneous systems as explained in the next section. 
 
 
 Before proceeding with the inhomogeneous systems, let us explain why the expression~\eqref{eqplusminus} simplifies so much for systems with an equidistant ES. 
@@ -401,9 +413,11 @@ Since the spectra are equidistant, this implies that the two edge spectra are me
 Note that  the shift could be zero, e.g.  in presence of a symmetry. 
 Independent of the shift, the simple assignment of $ (...+-+-+-...)$ will automatically assign charges $\pm 1/2$ to each edge. 
 The only remaining issue is whether this simple recipe assigns charge $+1/2$ or $-1/2$ to the right edge.
-In presence of a symmetry, this question is irrelevant \mariac{better expression?} because of the degeneracy. 
+In presence of a symmetry, this question is irrelevant because of the degeneracy. 
 In general, it implies that $\chi$ as defined in Eq.~\eqref{eqplusminus} only gives the Zak phase up to an overall sign. 
 This issue can be fixed by determining the localization of a single eigenstate. 
+
+This is closely related to another issue, namely \mariac{issue about  the ambiguity about right - left vs left - right, connect with discussion about Zaletel results and their convention}
 
 %The reason is that, unless they are degenerate, the ordered eigenstates always come with alternating edge localization (...left-right-left-right...)\mariac{ref to peschel}, so that the signs assigned are always . 
 %\mariac{expand}
@@ -414,6 +428,11 @@ This issue can be fixed by determining the localization of a single eigenstate.
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 
 \section{Inhomogeneous systems}
+
+In the last section, we have argued that the Zak phase is encoded in the EOS. 
+This result could, in fact, already been inferred from Ref.~\cite{Zaletel2014}, where the relation between the many-body entanglement spectrum and the Zak phase was derived. 
+However, for the latter  translation invariance was crucial for the derivation, and it was unclear if (and how) it can be generalized to inhomogeneous systems.
+In this section, we demonstrate that the EOS contains the full information about the Zak phase even for inhomogeneous systems and present a well-defined procedure for extracting the Zak phase. 
 
 In reference \cite{Zaletel2014} translational invariance was used to derive the relation between the many-body entanglement spectrum and the Zak phase. If this symmetry is broken by adding, for example, weak disorder, this result is no longer true. However we found, as our main result, that one can still obtain the Zak phase as the cut-average of the relation derived for homogeneous systems. For some systems this can be written as (\carlos{not sure about this phrasing})
 \begin{align}
