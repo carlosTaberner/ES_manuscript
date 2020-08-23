@@ -14,7 +14,10 @@
 \newcommand{\carlos}[1]{{\color{red} #1}}
 \newcommand{\maria}[1]{{\color{blue} #1}}
 \newcommand{\mariac}[1]{{\it\color{cyan}#1}}
-
+\newcommand{\changed}[1]{{\color{orange}#1}}
+\newcommand{\tpo}{\tilde{\mathcal{P}}_{\rm o}}
+\newcommand{\brapsio}[1]{\bra{\tilde{\Psi}_{{\rm o}}^#1}}
+\newcommand{\ketpsio}[1]{\ket{\tilde{\Psi}_{{\rm o}}^#1}}
 	
 \begin{document}
 		
@@ -56,24 +59,28 @@ However, it is far from clear if this holds for more complicated, in particular 
 Here, we address a much simpler question: what information can be extracted from the ES of \emph{non-interacting} systems?
 The latter can be computed very efficiently, using methods developed by Peschel and others~\cite{Peschel2003}. 
 It was subsequently shown for topological insulators/superconductors that the ES for (gapped) periodic systems is equivalent to the flat-band energy spectrum of the corresponding system with open boundaries~\cite{Fidkowski2010entanglement}. 
-The same correspondence was also found for closely related gapless systems~\cite{Matern2018entanglement}
+The same correspondence was also found for closely related gapless systems~\cite{Matern2018entanglement}.
 However, even for non-interacting systems, it is unclear which information (beyond the  `edge' spectrum) is encoded in the entanglement spectrum. 
-
 In this manuscript, we show that the information about the Zak phase, or polarization, can be completely recovered from the entanglement spectrum and provide a simple formula to do so. 
+We also show how to extend this method to compute the Chern number directly from the entanglement spectrum. 
+
+
 The relation between the entanglement spectrum and various topological invariants has already been studied in the literature. 
 In Ref.~\cite{Zaletel2014}, the authors show that the Zak phase can be computed from the Schmidt decomposition of a translation invariant, infinite chain. 
 This demonstrates that there should be a direct relation between the single-particle entanglement energies and the Zak phase, although deriving that relation turned out to be non-trivial. 
 An added benefit of our approach is that it can be generalized to systems that are not translationally invariant in a numerically efficient way \carlos{Does using the MBES imply this is no longer correct?}. 
 A particular limit of our result for homogeneous systems~\eqref{eq:chi_integrable} was derived by Ryu and Hatsugai for a fully dimerized SSH chain~\cite{Ryu2006}. 
-The similarity between the behavior of the Zak phase and the 'virtual edge modes' in the entanglement spectrum of a Chern insulator, which was observed in Ref.~\cite{Huang2012,Huang2012-2}, can also be explained by our results. 
+The similarity between the behavior of the Zak phase and the 'virtual edge modes' in the entanglement spectrum of certain Chern insulators, which was observed in Ref.~\cite{Huang2012,Huang2012-2}, can also be explained by our results. 
+The polarization obtained via this method for infinite systems or systems with periodic boundary conditions is only well-defined modulo 1, i.e. in the range $[0,1]$. 
+One can, however, compute it in the equivalent open chain to obtain a polarization defined on the full real axis. %\carlos{Not sure about this expression. I mean it's not defined on a circle, not that is not a complex number, which it trivially isnt.}. 
+We use the latter method to compute Chern numbers, which can also serve as topological invariants in one-dimensional systems.
+For the system studied, the Chern number is equivalent to the winding number, but it is unclear whether this result continues to hold for generic systems.
 
-\carlos{I added this last part}
-Although the polarization obtained via this method for infinite systems or systems with periodic boundary conditions is only well-defined modulo 1 one can compute it in the equivalent open chain to obtain a polarization defined as a real number \carlos{Not sure about this expression. I mean it's not defined on a circle, not that is not a complex number, which it trivially isnt.}. We use this method to compute Chern numbers, which can also serve as topological invariants in one-dimensional systems, and for the system studied we show that it is equivalent to the winding number.
-
-\emph{Outline of the paper}: In section II we introduce the model used throughout the paper and we discuss its phase diagram. In section III we introduce the polarization, the different ways one can define it and its relation to the Zak phase. In section IV we introduce the entanglement spectrum and set the notation that will be used. In section V we introduce the method and show how it reproduces the Zak phase for both systems with and without translational invariance. In section VI we explain how the method applied to the opened chain allows us to compute Chern numbers and winding numbers and finally in section VII we present the conclusions and possible outlook.
+\emph{Outline of the paper}: In section II we introduce the model used throughout the paper and we discuss its phase diagram. In section III we introduce the polarization, the different ways one can define it and its relation to the Zak phase. In section IV we introduce the entanglement spectrum and set the notation that will be used. In section V we introduce the method and show how it reproduces the Zak phase for both systems with and without translational invariance. In section VI we explain how the method applied to the opened chain allows us to compute Chern numbers %and winding numbers 
+and finally in section VII we present the conclusions and possible outlook.
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
-\section{Model.}
+\section{Model}
 To showcase our results we consider as a starting point the model in the BDI class used in reference~\cite{Song2014}. 
 This is a very simple model which nevertheless supports a rich phase diagram containing topological phases with winding numbers up to $\nu =2$. 
 In order to show that our results are not limited to any symmetry class~\cite{ryu2010topological}, we also include two symmetry breaking terms. 
@@ -167,7 +174,7 @@ We can obtain its single-particle eigenstates as
 \begin{align}
 \sum_{j\beta}H_{ij,\alpha\beta} u_{p\mu}^{j\beta} = E_{p\mu} u^{i\alpha}_{p\mu},
 \end{align}
-where $[U]_{j\beta,p\mu} = u_{p\mu}^{j\beta}$ is the unitary matrix that diagonalizes $H$. In translational invariant systems $u_{p\mu}^{j\beta} = e^{ipj}\tilde{u}_{p \mu}^{\beta}$, where $\tilde{u}_{p \mu}^{\beta}$ are the components of the eigenstates of the Bloch Hamiltonian, $\ket{\tilde{u}_{k\mu}}$. One can now compute the Zak phase \cite{Zak1989}, which for a two-band model is defined as the geometric phase acquired by the occupied state $\ket{\tilde{u}_k}$ as it winds around the Brillouin zone,
+where $[U]_{j\beta,p\mu} = u_{p\mu}^{j\beta}$ is the unitary matrix that diagonalizes $H$. In translational invariant systems $u_{p\mu}^{j\beta} = e^{ipj}\tilde{u}_{p \mu}^{\beta}$, where $\tilde{u}_{p \mu}^{\beta}$ are the components of the eigenstates of the Bloch Hamiltonian, $\ket{\tilde{u}_{k\mu}}$. One can now compute the Zak phase \cite{Zak1989}, which for a two-band \mariac{do we need the restriction to two-band models?} model is defined as the geometric phase acquired by the occupied state $\ket{\tilde{u}_k}$ as it winds around the Brillouin zone,
 \begin{equation}
 \gamma = \int_{0}^{2\pi} dk\, i A_k, 
 \label{eq:zak_phase}
@@ -177,25 +184,30 @@ where $A_k = \bra{\tilde{u}_k}\partial_k \ket{\tilde{u}_k}$ is the Berry connect
 \Delta {\gamma_{\lambda_i \lambda_f}} = \int_{\lambda_i}^{\lambda_f}\int_{0}^{2\pi} dk \, \Omega_{\lambda k},
 \label{eq:change_zak_phase}
 \end{equation}
-where $\Omega_{\lambda k} = \partial_\lambda A_k(\lambda,k) - \partial_k A_\lambda(\lambda,k)$ is the Berry curvature. The Berry curvature is fully gauge invariant and therefore the change in the Zak phase as defined in \eqref{eq:change_zak_phase} is defined as a real number. The Zak phase itself, as defined above, can be shown to be proportional to the winding number for a certain gauge (see Appendix \ref{appendix:winding_ssh}), which means that it carries physical information beyond modulo $2\pi$. Note that other ways of computing the Zak phase rely on computing $e^{i\gamma}$ instead, such that the result is always defined only modulo $2\pi$.
+where 
+\begin{align}\label{eq:BerryCurvature}
+\Omega_{\lambda k} = \partial_\lambda A_k(\lambda,k) - \partial_k A_\lambda(\lambda,k)
+\end{align}
+ is the Berry curvature. The Berry curvature is fully gauge invariant and, therefore, the change in the Zak phase as defined in \eqref{eq:change_zak_phase} is defined along the full real line. The Zak phase itself, as defined above, can be shown to be proportional to the winding number for a certain gauge (see Appendix \ref{appendix:winding_ssh}), which means that it carries physical information beyond modulo $2\pi$. Note that other ways of computing the Zak phase rely on computing $e^{i\gamma}$ instead, such that the result is always defined only modulo $2\pi$.
 
 The derivative of the polarization with respect to some parameter $\lambda$ was obtained \cite{KingSmith1993} as
-\begin{equation}
+\begin{equation}\label{eq:Bloch_polarization}
 \partial_\lambda \tilde{\mathcal{P}}^{\rm Bloch} = \int_{0}^{2\pi} \frac{dk}{2\pi} \, \Omega_{\lambda k},
 \end{equation}
-which allows us to make the identification $ \tilde{\mathcal{P}}^{\rm Bloch} = \gamma/2\pi$. As discussed above this polarization is defined as an absolute value only modulo 1, however its changes can be defined as a real number. This is no surprise as the derivative of the polarization is related to the current which is a physical observable, unlike $\tilde{\mathcal{P}}^{\rm Bloch}$. 
+which allows us to make the identification $ \tilde{\mathcal{P}}^{\rm Bloch} = \gamma/2\pi$. As discussed above,  this polarization is defined as an absolute value only modulo 1, however its changes can be defined as a real number. This is no surprise as the derivative of the polarization is related to the current which is a physical observable, unlike $\tilde{\mathcal{P}}^{\rm Bloch}$. 
 
 One can also compute the geometric phase obtained by threading a $U(1)$ flux through the ring \cite{Watanabe2018}, which allows us to compute a polarization in the absence of translational invariance. If the flux is introduced homogeneously through a vector potential $A_x = \Phi/L$ an equivalent polarization can be defined as
 \begin{equation}
-\mathcal{P} = \int_0^{2\pi}\frac{d\Phi}{2\pi} i\bra{\Psi_0^\Phi}\partial_\Phi \ket{\Psi_0^\Phi} + {\rm Im}{\rm Ln} \bra{\Psi_0^0}e^{2\pi i \hat{P}} \ket{\Psi_0^{2\pi}}, 
+\mathcal{P} = \int_0^{2\pi}\frac{d\Phi}{2\pi} i\bra{\Psi^\Phi}\partial_\Phi \ket{\Psi^\Phi} + \Im\ln \bra{\Psi^0}e^{2\pi i \hat{P}} \ket{\Psi^{2\pi}}, 
 \end{equation}
-where $\ket{\Psi_0^{\Phi}}$ is the ground state in the presence of flux and $\hat{P}=\frac{1}{L}\sum_{j\alpha} j\hat{n}_{j\alpha}$ is the polarization operator. This is equivalent to the polarization obtained by Resta \cite{Resta1997} as
+where $\ket{\Psi^{\Phi}}$ is the ground state in the presence of flux and $\hat{P}=\frac{1}{L}\sum_{j\alpha} j\hat{n}_{j\alpha}$ is the polarization operator. This is equivalent to the polarization obtained by Resta \cite{Resta1997} as
+\maria{should I interpret the following line as $\Phi=0$?}
 \begin{align}
-\mathcal{P} = \frac{1}{2\pi} \rm{ Im }\,{\rm Ln}\bra{\Psi_0}e^{2\pi i \hat{P}}\ket{\Psi_0}.
+\mathcal{P} = \frac{1}{2\pi} \rm{ Im }\,\ln\bra{\Psi}e^{2\pi i \hat{P}}\ket{\Psi}.
 \end{align}
 This expression is particularly useful because it can be easily expressed in terms of single-particle eigenstates as
 \begin{align}
-\mathcal{P} = \frac{1}{2\pi} \rm{Im \,Ln} \, {\rm det }\!' \, S,
+\mathcal{P} = \frac{1}{2\pi}\Im \ln \, {\rm det }\!' \, S,
 \label{eq:polarization_resta}
 \end{align}
 where the matrix $S$ is given by
@@ -204,9 +216,13 @@ S_{p\mu,q\nu} = \sum_{j\alpha} u_{p\mu}^{j \alpha \, \ast} e^{i\frac{2\pi}{L}j}u
 \end{equation}
 \carlos{I have to check overall sign and sign of exponential.}and  ${\rm det }\!' $ indicates that the determinant is restricted to the space of \emph{occupied} single-particle states. Below we will employ this expression to compare our results with.
 
-There is one last polarization we must consider and it is the one obtained when the flux is introduced in the bond between sites $i=1$ and $i=L$ via twisted boundary conditions. This is equivalent to performing the gauge transformation $\ket{\tilde{\Psi}_0^\Phi}=e^{i\Phi \hat{P}}\ket{\Psi_0^\Phi}$, which makes $\ket{\tilde{\Psi}_0^\Phi}$ fully periodic in $\Phi$. We can now define the polarization
+There is one last polarization we must consider and it is the one obtained when the flux is introduced in the bond between sites $i=1$ and $i=L$ via twisted boundary conditions. This is equivalent to performing the gauge transformation
+\begin{align}\label{eq:Psi_tilde}
+\ket{\tilde{\Psi}^\Phi}=e^{i\Phi \hat{P}}\ket{\Psi^\Phi},
+\end{align}
+which makes $\ket{\tilde{\Psi}_0^\Phi}$ fully periodic in $\Phi$. We can now define the polarization
 \begin{equation}
-\tilde{\mathcal{P}} = \int_0^{2\pi}\frac{d\Phi}{2\pi} i\bra{\tilde{\Psi_0}^\Phi}\partial_\Phi \ket{\tilde{\Psi_0}^\Phi},
+\tilde{\mathcal{P}} = \int_0^{2\pi}\frac{d\Phi}{2\pi} i\bra{\tilde{\Psi}^\Phi}\partial_\Phi \ket{\tilde{\Psi}^\Phi},
 \label{eq:p_tilde}
 \end{equation}
 which is related to the current flowing through the bond \cite{Watanabe2018}. This polarization is related to the homogeneous polarization by 
@@ -215,9 +231,12 @@ which is related to the current flowing through the bond \cite{Watanabe2018}. Th
 \end{equation} 
 where
 \begin{equation}
-\mathcal{P}_0= \int_0^{2\pi}\frac{d\Phi}{2\pi} \bra{\tilde{\Psi_0}^\Phi}\hat{P}\ket{\tilde{\Psi_0}^\Phi}.
+\tilde {\mathcal{P}}_0= \int_0^{2\pi}\frac{d\Phi}{2\pi} \bra{\tilde{\Psi}^\Phi}\hat{P}\ket{\tilde{\Psi}^\Phi}.
 \end{equation} 
-The previous discussion about the Zak phase being defined only modulo $2\pi$ although its changes can be defined as a real number applies in the same way to the polarization obtained in \eqref{eq:p_tilde}.
+\maria{Ref to Oshikawa paper?}
+%The previous discussion about the Zak phase being defined only modulo $2\pi$ although its changes can be defined as a real number applies in the same way to the polarization obtained in \eqref{eq:p_tilde}.
+Note that while $\tilde{\mathcal{P}}$ itself is only defined modulo 1, its changes are again well-defined on the full real axis, similar to the discussion about the Bloch polarization below Eq.~\eqref{eq:Bloch_polarization}. 
+In fact, for translationally invariant systems one finds that $\tilde{\mathcal{P}} = \tilde{\mathcal{P}}^{\rm Bloch}$ \cite{Watanabe2018}. 
 
 
 \section{Entanglement spectrum}
@@ -304,7 +323,7 @@ In the thermodynamic limit, $\chi$ becomes identical to either $\tilde{\mathcal{
 \end{equation}
 For translational invariant systems the EOS is symmetric such that a crossing of the eigenvalues $\xi$ results in $\chi$ changing sign. This is particularly irrelevant in the case of symmetry-protected states where the Zak phase is quantized to $0$ or $\pi$. 
 
-In the case where there is only one eigenvalue per edge that is $\neq 0,1$ in  the EOS, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase~\cite{Ryu2006}. 
+In the case where there is only one eigenvalue per edge that is $\neq 0,1$ in  the EOS, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase found in Ref.~\cite{Ryu2006}. 
 
 In Fig.~\ref{huang} we show  the EOS along the dashed cut in the phase diagram of Fig.~\ref{fig:bdi_phase_diagram}. 
 Along this line, our model is equivalent to an SSH chain. 
@@ -337,12 +356,12 @@ In general we find that it is only the eigenstates that localize on the left edg
 \chi = \sum_{\mu \in A_L} \xi_\mu \, {\rm mod} \, 1. 
 \label{eq:chi_left}
 \end{equation}
-In the thermodynamic limit it is $\tilde{\mathcal{P}}$ that we actually identify with $\chi$
+In the thermodynamic limit, it is $\tilde{\mathcal{P}}$ that we actually identify with $\chi$
 \begin{equation}
-\lim_{L \rightarrow \infty} \tilde{\mathcal{P}} = \lim_{L \rightarrow \infty} \chi,
+\lim_{L \rightarrow \infty} \tilde{\mathcal{P}} = \lim_{L \rightarrow \infty} \chi.
 \label{eq:ptilde_eq_chi}
 \end{equation}
-however for translationally invariant systems $\tilde{\mathcal{P}} = \tilde{\mathcal{P}}^{\rm Bloch}$ \cite{Watanabe2018}. Note that in order to compute $\chi$ correctly the eigenstates with $\xi \neq 0,1$ need to be localized in order for us to select the correct eigenvalues. It might be, like in Fig.\ref{huang}(a) that the spectrum has degenerate pairs of left and right eigenstates and the numerical diagonalization mixes them. This case is trivial as we know that there is one left and one right eigenstate but if the degeneracy is four-fold or higher one needs to obtain the localized eigenstates. Localizing the eigenstates that are exponentially close to $\xi = 0,1$ is more difficult but not doing so only results in an exponentially small error. 
+Note that in order to compute $\chi$ correctly the eigenstates with $\xi \neq 0,1$ need to be localized in order for us to select the correct eigenvalues. It might be --- like in Fig.\ref{huang}(a) --- that the spectrum has degenerate pairs of left and right eigenstates and the numerical diagonalization mixes them. This case is trivial, as we know that there is one left and one right eigenstate but if the degeneracy is four-fold or higher one needs to obtain the localized eigenstates. Localizing the eigenstates that are exponentially close to $\xi = 0,1$ is more difficult but not doing so only results in an exponentially small error. 
 
 Before proceeding lets review again the result in the previous section. First note that for translation invariant systems, the ES of the right and the left edge are related by an overall '-' sign, i.e. for each eigenvalue $\epsilon$ on the right edge, there is a corresponding value $-\epsilon$ on the left edge. 
 Since the spectra are equidistant, this implies that the two edge spectra are merely shifted with respect to each other.
@@ -399,22 +418,26 @@ This relation between the Zak phase and the EOS is a consequence of an identity 
 
 
 In Appendix A we obtain that $\chi$ should be the sum of all the eigenvalues of eigenstates related to the cut between $i=1$ and $i=L$ that make a subspace $A_L$. The dimension of $A_L$ is however not well-defined as one can always include bulk modes into it. Since the bulk modes have $\xi = 0,1$ this makes $\chi$ well-defined only modulo 1. This can be avoided by computing instead
-\begin{equation}
-\tilde{\mathcal{P}}_{\rm open} = \int_0^{2\pi}\frac{d\Phi}{2\pi} i\bra{\tilde{\Psi}_{0,{\rm open}}^\Phi}\partial_\Phi \ket{\tilde{\Psi}_{0,{\rm open}}^\Phi}.
+\begin{equation}\label{eq:tpo}
+\tpo = \int_0^{2\pi}\frac{d\Phi}{2\pi} i\brapsio{\Phi}\partial_\Phi \ketpsio{\Phi}.
 \end{equation}
-where $\ket{\tilde{\Psi}_{0,{\rm open}}^0}$ is the ground state of the chain opened between sites $i=L/2$ and $i=L/2+1$ and 
+where $\ketpsio{{\Phi=0}}$ is the ground state of the chain opened between sites $i=L/2$ and $i=L/2+1$ and 
 \begin{equation}
-\ket{\tilde{\Psi}_{0,{\rm open}}^\Phi} =e^{-i \Phi \hat{N}_A} \ket{\tilde{\Psi}_{0,{\rm open}}^0}.
+\ketpsio{\Phi} =e^{-i \Phi \hat{N}_A} \ketpsio{0}.
 \label{eq:gauge}
 \end{equation}
-The difference with the closed chain being that now there is no ambiguity on when an electron crosses the boundary with the twisted boundary condition. Note that since the chain is open $\Phi$ is not a flux but should now be regarded as a parameter and therefore $\tilde{\mathcal{P}}_{\rm open}$ does not need to be a physical polarization.  $\tilde{\mathcal{P}}_{\rm open}$ can be obtained in an even simpler way than $\tilde{\mathcal{P}}$ as
-\begin{align*}
-\tilde{\mathcal{P}}_{\rm open} =&  \int_0^{2\pi}\frac{d\Phi}{2\pi} \bra{\tilde{\Psi}_{0,{\rm open}}^0}  \hat{N}_A \ket{\tilde{\Psi}_{0,{\rm open}}^0} \\
-=&\sum_{\alpha,j\in A}\bra{\tilde{\Psi}_{0,{\rm open}}^0} c_{j\alpha}^\dagger c_{j\alpha} \ket{\tilde{\Psi}_{0,{\rm open}}^0} \\
-=&\sum_{\alpha,j\in A} C_{\rm open,j\alpha,j\alpha} \\
-=& {\rm Tr}[C_{A,\rm open}].
-\end{align*}
-Which is nothing else than the generalization of $\chi$ to the open chain. The idea is that in the process of oppening the chain, which can be done adiabatically, all eigenvalues that are not in $A_L$ should get pushed to $\xi=0$ or $\xi=1$. If for a given path in parameter space $\boldsymbol{\lambda}_i \rightarrow \boldsymbol{\lambda}_f$ their contribution remains constant, that is, there are no jumps between $\xi=0$ and $\xi=1$ and $\tilde{\mathcal{P}}_{\rm open} (\boldsymbol{\lambda} )$ is smooth, then changes in $\tilde{\mathcal{P}}_{\rm open}(\boldsymbol{\lambda}_i ) $ along the path will be defined as a real number and not only modulo 1. Since $\tilde{\mathcal{P}}$ is a local property of the bond between $i=1$ and $i=L$ one would expect it to not depend on what happens far from it such that $\tilde{\mathcal{P}}_{\rm open}$ and $\tilde{\mathcal{P}}$ are equivalent. 
+The difference with the closed chain being that now there is no ambiguity on when an electron crosses the boundary with the twisted boundary condition. Note that since the chain is open, $\Phi$ is not a flux but should now be regarded as a parameter and therefore $\tpo$ does not need to be a physical polarization.  $\tpo$ can be obtained in an even simpler way than $\tilde{\mathcal{P}}$ as 
+\begin{align}\label{eq:phi_independence}
+\tpo =&  \int_0^{2\pi}\frac{d\Phi}{2\pi} \brapsio{0} \hat{N}_A \ketpsio{0} \nonumber \\
+=&\sum_{\alpha,j\in A}\brapsio{0} c_{j\alpha}^\dagger c_{j\alpha} \ketpsio{0} \nonumber\\
+=&\sum_{\alpha,j\in A} C_{\rm o,j\alpha,j\alpha}\nonumber \\
+=& {\rm Tr}[C_{A,\rm o}],
+\end{align}
+where we used Eq.~\eqref{eq:gauge} and $C_{\rm o}$($C_{A,\rm o}$) denotes the (reduced) density matrix of the open chain. 
+Note that Eq.~\eqref{eq:phi_independence} is nothing else than the generalization of $\chi$ to the open chain. 
+\maria{I am not entirely happy with the following argument, as it goes wrong in the topological phase. We mention this later, but we should already mention it here. }
+The idea is that in the process of opening the chain, which can be done adiabatically, all eigenvalues that are not in $A_L$ should get pushed to $\xi=0$ or $\xi=1$. 
+If for a given path in parameter space $\boldsymbol{\lambda}_i \rightarrow \boldsymbol{\lambda}_f$ their contribution remains constant, that is, there are no jumps between $\xi=0$ and $\xi=1$ and $\tpo (\boldsymbol{\lambda} )$ is smooth, then changes in $\tpo(\boldsymbol{\lambda}_i ) $ along the path will be defined as a real number and not only modulo 1. Since $\tilde{\mathcal{P}}$ is a local property of the bond between $i=1$ and $i=L$ one would expect it to not depend on what happens far from it such that $\tpo$ and $\tilde{\mathcal{P}}$ are equivalent. 
 
 \subsubsection{SSH chain}
 
@@ -422,117 +445,128 @@ Consider the simple case of the SSH chain, with $t'=0$ in the model. In the chir
 \begin{equation}
 SH(\kappa)S = -H(-\kappa), \quad S C_A(\kappa) S = \mathbb{I}-C_A(-\kappa)
 \end{equation}
-so $\tilde{\mathcal{P}}_{\rm open}(-\kappa) = L-\tilde{\mathcal{P}}_{\rm open}(\kappa)$. Unless $\tilde{\mathcal{P}}_{\rm open}(0) = L/2$, which only happens in the trivial case, the result will be discontinuous at $\kappa = 0$. We can see this in Fig.\ref{ssh_chern}.(a) where we show $\tilde{\mathcal{P}}_{\rm open}$ in the space $(m,\kappa)$. This branch cut is in fact not an artifice of the open chain trick, but the result of the degenerate point at $(m=t,\kappa=0)$ having an associated Chern number $C=1$ \cite{Asboth2016}.
+so $\tpo(-\kappa) = L-\tpo(\kappa)$. Unless $\tpo(0) = L/2$, which only happens in the trivial case, the result will be discontinuous at $\kappa = 0$. We can see this in Fig.\ref{ssh_chern}.(a) where we show $\tpo$ in the space $(m,\kappa)$. This branch cut is in fact not an artifice of the open chain trick, but the result of the degenerate point at $(m=t,\kappa=0)$ having an associated Chern number $C=1$ \cite{Asboth2016}.
 
 Consider a loop around the singularity at $(m=t,\kappa=0)$ parametrized by $\theta$. The Chern number is then defined as
 \begin{equation}
-C = \int_0^{2\pi}d\theta\int_0^{2\pi}\frac{d\Phi}{2\pi} \Omega_{\theta\Phi}.
+C = \int_0^{2\pi}d\theta\int_0^{2\pi}\frac{d\Phi}{2\pi} \Omega_{\theta\Phi},
 \label{eq:chern}
 \end{equation} 
-The Berry connection for the flux is simply $A_\Phi(\theta,\Phi,) = -i\tilde{\mathcal{P}}(\theta)$, so we now need to compute $A_\theta(\theta,\Phi)$. (\carlos{Please double check this calculation}) Expanding $\ket{\tilde{\Psi}_{0,{\rm open}}^0}$ in the eigenbasis of $\hat{N_A}$, $\{\ket{j}\}$ we can compute its derivative with respect to the parameter $\theta$ as
-\begin{align*}
-\partial_\theta \ket{\tilde{\Psi}_{0,{\rm open}}^0} =& \sum_j [\partial_\theta c_j (\theta)]e^{-i\Phi N_A^j}\ket{j}.
-\end{align*}
-where $c_j(\theta) = \bra{j}\ket{\tilde{\Psi}_{0,{\rm open}}^0}$. The correspondent Berry connection then gives
-\begin{align*}
-\bra{\tilde{\Psi}_{0,{\rm open}}^\Phi}\partial_\theta \ket{\tilde{\Psi}_{0,{\rm open}}^\Phi} =& \sum_{lj} c^*_l(\theta) [\partial_\theta c_j(\theta)] \bra{l} e^{i\Phi (N_A^lN_A^j)}\ket{j}\\
-=& \sum_j  c^*_j(\theta) \partial_\theta c_j(\theta) \\
-=&\bra{\tilde{\Psi}_{0,{\rm open}}^0}\partial_\theta \ket{\tilde{\Psi}_{0,{\rm open}}^0}
-\end{align*}
-and is therefore independent of $\Phi$. 
+with the Berry curvature $\Omega_{\theta\Phi}$ defined in Eq.~\ref{eq:BerryCurvature}. 
+From  Eq.~\eqref{eq:tpo}, it follows that the Berry connection for the flux is simply $A_\Phi(\theta,\Phi,) = -i\tpo(\theta)$, so we only need to compute $A_\theta(\theta,\Phi)$. (\carlos{Please double check this calculation}) Expanding $\ketpsio{\Phi}$ in the eigenbasis of the number operator $\hat{N_A}$ -- denoted by $\{\ket{j}\}$ -- we can compute its derivative with respect to the parameter $\theta$ as
+\changed{changed}
+\begin{align}
+\partial_\theta \ketpsio{\Phi} =& \sum_j [\partial_\theta c_j (\theta)]e^{-i\Phi N_A^j}\ket{j}.
+\end{align}
+where $c_j(\theta) = \Big\langle j\ketpsio{0}$ does not depend on $\Phi$. The correspondent Berry connection then gives
+\begin{align}
+\brapsio{\Phi}\partial_\theta \ketpsio{\Phi} =& \sum_{lj} c^*_l(\theta) [\partial_\theta c_j(\theta)] \bra{l} e^{i\Phi (N_A^lN_A^j)}\ket{j}\nonumber\\
+=& \sum_j  c^*_j(\theta) \partial_\theta c_j(\theta) \nonumber\\
+=&\brapsio{0}\partial_\theta \ketpsio{0}, 
+\end{align}
+i.e. it is independent of $\Phi$. 
 
 The integral in \eqref{eq:chern} is performed on the surface of the torus defined by $(\theta,\Phi)$. Because the Berry connection $A_\Phi(\theta)$ is not smooth one cannot directly apply Stokes theorem. Instead, consider that we split the torus in two cylinders, $S_1$ with $\theta\in[\theta_0,2\pi-\theta_0]$ and  $S_2$ with $\theta\in[2\pi-\theta_0,2\pi+\theta_0]$ and we change the gauge in $\boldsymbol{A}(\theta)$ such that it is smooth in each cylinder. We can now apply Stokes theorem to the two cylinders independently
-\begin{align*}
-C_1 =& \int_{S_1} d\boldsymbol{S}\cdot (\nabla \times \boldsymbol{A}) \\
-=& \int_{\partial S_1} d\boldsymbol{l}\cdot \boldsymbol{A}(\theta,\Phi) \\
-=& \int_a^{2\pi-a} d\theta A_\theta(\theta,0) +\int_0^{2\pi} \frac{d\Phi}{2\pi} A_\Phi (2\pi-a,\Phi) \\
+\begin{align}
+C_1 =& \int_{S_1} d\boldsymbol{S}\cdot (\nabla \times \boldsymbol{A}) \nonumber\\
+=& \int_{\partial S_1} d\boldsymbol{l}\cdot \boldsymbol{A}(\theta,\Phi) \nonumber\\
+=& \int_a^{2\pi-a} d\theta A_\theta(\theta,0) +\int_0^{2\pi} \frac{d\Phi}{2\pi} A_\Phi (2\pi-a,\Phi) \nonumber\\
 &-\int_a^{2\pi-a} d\theta A_\theta(\theta,2\pi) -\int_0^{2\pi} \frac{d\Phi}{2\pi} A_\Phi (a,\Phi).
-\end{align*}
+\end{align}
 In our case, $A_\theta$ is independent of $\Phi$ so the terms involving it cancel and we have
-\begin{align*}
+\begin{align}
 C_1 =& \int_0^{2\pi} \frac{d\Phi}{2\pi} [A_\Phi (2\pi-a,\Phi) -A_\Phi (a,\Phi)].
-\end{align*}
+\end{align}
 Similarly computing the integral for the other cylinder we obtain
-\begin{align*}
+\begin{align}
 C_2 =& \int_0^{2\pi} \frac{d\Phi}{2\pi} [A'_\Phi (2\pi+a,\Phi) -A'_\Phi (2\pi-a,\Phi)].
-\end{align*}
+\end{align}
 The Chern number is then $C=C_1+C_2$. Noting again that $A'_\Phi(\theta)$ is continuous in $S_2$ taking the limit of $a\rightarrow 0^+$ makes $C_2$ vanish and the Chern number is given by
-\begin{align*}
+\begin{align}
 C =& \int_0^{2\pi} \frac{d\Phi}{2\pi} [A_\Phi (2\pi^-,\Phi) -A_\Phi (0^+,\Phi)].
-\end{align*}
+\end{align}
 If we consider the loop starting at $\kappa = 0$ this is exactly the case shown in Fig.\ref{ssh_chern}.(a), where $A_\Phi (\theta,\Phi) = \tilde{\mathcal{P}}_{\rm open}(\theta)$ is smooth everywhere but in $\theta = 0$, and therefore we can compute the Chern number simply as 
-\begin{align*}
-C= \tilde{\mathcal{P}}_{\rm open}(\kappa=0^+)-\tilde{\mathcal{P}}_{\rm open}(\kappa=0^-).
-\end{align*}
+\begin{align}
+C= \tpo(\kappa=0^+)-\tpo(\kappa=0^-).
+\end{align}
 Using the symmetry of the polarization described above this results in 
 \begin{align}
-C= 2\tilde{\mathcal{P}}_{\rm open}(0^+)-L.
+C= 2\tpo(0^+)-L.
 \label{eq:Chern_number}
 \end{align}
-The discontinuity in $\tilde{\mathcal{P}}_{\rm open}$ is therefore related to the Chern number and it is not merely continuous modulo 1. 
+The discontinuity in $\tpo$ is therefore related to the Chern number.% and it is not merely continuous modulo 1. 
 
-One can also obtain a polarization continuous in $\kappa$ by doing a gauge transformation $\ket{\tilde{\psi}^{\prime \,\Phi}_{0}}=e^{ i \Phi \Theta(-\kappa)\Theta(t-m)}\ket{\tilde{\psi}^{\Phi}_{0}}$ that places the branch cut at $m=t,\kappa < 0$ as we see in Fig.\ref{ssh_chern}.(b)  (\carlos{need to double check signs}). This is in fact the result one gets when using the gauge that allows one to compute the winding number from the Zak phase. 
+One can also obtain a polarization continuous in $\kappa$ by doing a gauge transformation 
+\begin{align}
+\ket{\tilde{\psi}^{\prime \,\Phi}}=e^{ i \Phi \Theta(-\kappa)\Theta(t-m)}\ket{\tilde{\psi}^{\Phi}}
+\end{align}
+\maria{where $\Theta$ is the Heaviside theta function (?)}. 
+This gauge transformation places the branch cut at $m=t,\kappa < 0$, as can be seen in Fig.\ref{ssh_chern}(b)  (\carlos{need to double check signs}). 
+This is in fact the result one gets when using the gauge that allows one to compute the winding number from the Zak phase. \maria{???}
 
-\begin{figure}[t]
-	\centering
-	\makebox[0pt]{
-		\subfloat[$\tilde{\mathcal{P}}_{\rm open}-L/2$]{
-			\includegraphics[width=50mm]{windingSSH1.pdf}
-		}
-		\subfloat[$\tilde{\mathcal{P}}_{\rm open,+}-L/2$]{
-			\includegraphics[width=45mm]{windingSSH2.pdf}
-		}
-	}\hspace{0mm}
-	
-	\makebox[0pt]{
-		\subfloat[$\tilde{\mathcal{P}}_{\rm open}-L/2$]{
-			\includegraphics[width=45mm]{windingtp1.pdf}
-		}
-		\subfloat[$\tilde{\mathcal{P}}_{\rm open,+}-L/2$]{
-			\includegraphics[width=45mm]{windingtp2.pdf}
-		}
-	}
-	\caption{Polarization $\tilde{\mathcal{P}}_{\rm open}$ computed for three different gauge choices, for $t=1,\kappa'=0$ and system size $L=160$. (a) and (b) with $t'=0$ and (c) and (d) for $t'=-2$. }
-	\label{ssh_chern}
-\end{figure}
+\changed{undo figure uncomment}
+%\begin{figure}[t]
+%	\centering
+%	\makebox[0pt]{
+%		\subfloat[$\tilde{\mathcal{P}}_{\rm open}-L/2$]{
+%			\includegraphics[width=50mm]{windingSSH1.pdf}
+%		}
+%		\subfloat[$\tilde{\mathcal{P}}_{\rm open,+}-L/2$]{
+%			\includegraphics[width=45mm]{windingSSH2.pdf}
+%		}
+%	}\hspace{0mm}
+%	
+%	\makebox[0pt]{
+%		\subfloat[$\tilde{\mathcal{P}}_{\rm open}-L/2$]{
+%			\includegraphics[width=45mm]{windingtp1.pdf}
+%		}
+%		\subfloat[$\tilde{\mathcal{P}}_{\rm open,+}-L/2$]{
+%			\includegraphics[width=45mm]{windingtp2.pdf}
+%		}
+%	}
+%	\caption{Polarization $\tilde{\mathcal{P}}_{\rm open}$ computed for three different gauge choices, for $t=1,\kappa'=0$ and system size $L=160$. (a) and (b) with $t'=0$ and (c) and (d) for $t'=-2$. }
+%	\label{ssh_chern}
+%\end{figure}
 
-
-
-\begin{figure}[t]
-	\centering
-	\makebox[0pt]{
-		\subfloat[$\tilde{\mathcal{P}}_{\rm open}$]{
-			\includegraphics[width=50mm]{windingtpdis.pdf}
-		}
-		\subfloat[$C $]{
-			\includegraphics[width=45mm]{plotwinding.pdf}
-		}		
-	}\hspace{0mm}
-	
-	\makebox[0pt]{
-		\subfloat[${\rm Log}_{10} (C \, {\rm mod} \, 1)$ ]{
-			\includegraphics[width=45mm]{plotwindingerror.pdf}
-		}
-	}
-	\caption{We compute (a)$\tilde{\mathcal{P}}_{\rm open}$, (b) $\nu$ and (c) error in the quantization of $\nu$ for the continuous line in the phase diagram, $t=1,t'=2$ and system size $L=400$. (a) is computed for $W=6$ showing that the branch cut is not affected by the disorder. (b) and (c) are computed for increasing disorder strength, showing a good quantization of the resulting winding number far from the transitions. }
-	\label{winding}
-\end{figure}
+\changed{undo figure uncomment}
+%
+%\begin{figure}[t]
+%	\centering
+%	\makebox[0pt]{
+%		\subfloat[$\tilde{\mathcal{P}}_{\rm open}$]{
+%			\includegraphics[width=50mm]{windingtpdis.pdf}
+%		}
+%		\subfloat[$C $]{
+%			\includegraphics[width=45mm]{plotwinding.pdf}
+%		}		
+%	}\hspace{0mm}
+%	
+%	\makebox[0pt]{
+%		\subfloat[${\rm Log}_{10} (C \, {\rm mod} \, 1)$ ]{
+%			\includegraphics[width=45mm]{plotwindingerror.pdf}
+%		}
+%	}
+%	\caption{We compute (a)$\tilde{\mathcal{P}}_{\rm open}$, (b) $\nu$ and (c) error in the quantization of $\nu$ for the continuous line in the phase diagram, $t=1,t'=2$ and system size $L=400$. (a) is computed for $W=6$ showing that the branch cut is not affected by the disorder. (b) and (c) are computed for increasing disorder strength, showing a good quantization of the resulting winding number far from the transitions. }
+%	\label{winding}
+%\end{figure}
 
 
 
 \subsubsection{$t' \neq 0$}
 
-The analysis we did above of $\tilde{\mathcal{P}}_{\rm open}$ for the SSH chain seems rather trivial as $\tilde{\mathcal{P}}_{\rm open}$ does not seem to have more information than $\tilde{\mathcal{P}}$ modulo 1. This is no longer true when $t' \neq 0$ allowing for a $\nu = 2$ phase. In Fig.\ref{ssh_chern}.(c) we see $\tilde{\mathcal{P}}_{\rm open}$ for the dotted cut in the phase diagram with an added symmetry breaking $\kappa$. We see clearly that $\tilde{\mathcal{P}}_{\rm open}$ distinguises between the $\nu=0$ and $\nu = 2$ phases. Similar to before there is a gauge choice that makes $\tilde{\mathcal{P}}_{\rm open}$ continuous in $\kappa$, however which gauge transformation does this is a priori not known, so in practice we can only compute the limit $\lim_{\kappa \rightarrow 0} \tilde{\mathcal{P}}_{\rm open}$ in the original gauge.
+The analysis we did above of $\tpo$ for the SSH chain seems rather trivial as $\tpo$ does not seem to have more information than $\tilde{\mathcal{P}}$ modulo 1. This is no longer true when $t' \neq 0$ allowing for a $\nu = 2$ phase. In Fig.\ref{ssh_chern}.(c) we see $\tpo$ for the dotted cut in the phase diagram with an added symmetry breaking $\kappa$. We see clearly that $\tpo$ distinguishes between the $\nu=0$ and $\nu = 2$ phases. Similar to before, there is a gauge choice that makes $\tpo$ continuous in $\kappa$.
+However, which gauge transformation does this is a priori not known, so in practice we can only compute the limit $\lim_{\kappa \rightarrow 0} \tpo$ in the original gauge.
 
 Our expression for the Chern number \eqref{eq:Chern_number} is also valid without translational invariance. Consider now that we add disorder in the $t$ and $m$ parameters
 \begin{align}
-&t_i = t + \frac{W}{2} \omega_i \\
+&t_i = t + \frac{W}{2} \omega_i \nonumber\\
 &m_i = m + W \omega'_i
 \end{align}
 where $\omega_i$ and $\omega_i$ are randomly selected from $[-1/2,1/2]$. For very strong disorder, where the gap fills with states, the limit $\lim_{\kappa \rightarrow 0} \tilde{\mathcal{P}}_{\rm open}$ might become problematic as bulk states can cross $E=0$ as we tune $\kappa$ down. In order to avoid it we break chiral symmetry locally in the edge of the open chain so it only affects the zero modes. If any of the other states cross $E=0$ they do it in pairs such that $\tilde{\mathcal{P}}_{\rm open}$ is not affected by it. We show $\tilde{\mathcal{P}}_{\rm open}$ in Fig.\ref{winding}.(a) using the local symmetry breaking term for a strong disorder, $W=6t$, where the gap is indeed filled with states. In Fig.\ref{winding}.(b) we show $C$ for the continuous line in the phase diagram and increasing disorder strength. The Chern number as defined in \eqref{eq:Chern_number} indeed provides a topological invariant which can be compared with the winding number obtained in reference \cite{Song2014} for the same system. Note that for large enough systems the spectrum of $C_A$ is not affected by the local chiral symmetry breaking term other than the occupation of the zero-energy modes such that $C$ is still quantized, however near the transitions it is smoothen by the disorder average We show the error in the quantization of $C$ in figure \ref{winding}.(c) . 
 
-\carlos{In Appendix D I give an expression for the winding number for flux insertion. However this expression seems problematic with a filled gap (Prodan refers to this). If we found an inhomogeneous term that induce a topological transition without filling the gap we can use this formula instead of comparing with the Prodan results, so we dont have to worry about the filled gap. 
-Furthermore I worked an expression for this winding number in terms of the correlation function, which I believe we might be able to relate to our $\chi$. However I can only do this on the open chain, where the winding number itself is not well-defined because the Hamiltonian is not invertible. We can do the trick of splitting the edge-modes and arguing that the winding number should not change by doing that because its a  bulk property, but I'm not too sure about that, so it would be better if we found a way of computing the winding number for open chains.   }
+\mariac{removed the paragraph about appendix D}
+%\carlos{In Appendix D I give an expression for the winding number for flux insertion. However this expression seems problematic with a filled gap (Prodan refers to this). If we found an inhomogeneous term that induce a topological transition without filling the gap we can use this formula instead of comparing with the Prodan results, so we dont have to worry about the filled gap. 
+%Furthermore I worked an expression for this winding number in terms of the correlation function, which I believe we might be able to relate to our $\chi$. However I can only do this on the open chain, where the winding number itself is not well-defined because the Hamiltonian is not invertible. We can do the trick of splitting the edge-modes and arguing that the winding number should not change by doing that because its a  bulk property, but I'm not too sure about that, so it would be better if we found a way of computing the winding number for open chains.   }
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 
@@ -715,71 +749,71 @@ where $q(k) = f(k)/\abs{f(k)}$. This is nothing else than the winding number \ci
 
 Consider now that we parametrize a loop in parameter space as $m=1-\cos(\theta),\kappa = \sin(\theta)$.
 
-
-\section{Twisted boundary condition Winding number}
-\carlos{Work in progress}
-For a system with chiral symmetry the Hamiltonian can be written in some basis as
-\begin{equation}
-H = \mqty(0 & h \\ h^\dagger & 0),
-\end{equation}
-where $h$ is in general a matrix. In translationally invariant systems the winding number is defined as 
-\begin{equation}
-\nu = -i\int_0^{2\pi} \frac{dk}{2\pi} {\rm Tr}[h(k)^{-1} \partial_k h(k)],
-\label{eq:winding_k}
-\end{equation}
-where $h(k)$ is the off-diagonal block of the Bloch Hamiltonian. In systems without translational invariance, one can similarly define the winding number
-\begin{equation}
-\nu = -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[h(\Phi)^{-1} \partial_\Phi h(\Phi)],
-\label{eq:winding_flux}
-\end{equation}
-for a $U(1)$ flux introduced (\carlos{I have only found a similar expression in the context of non-hermitian systems \cite{Gong2018}, but I assume this is the expression Prodan refers to. It gives the correct results in translationally invariant systems, however it is very unpractical.}). Note that a generalization of \eqref{eq:winding_k} to position space has also been developed which not necesseraly gives the same results as \eqref{eq:winding_flux} (\carlos{The only comparison is in the Prodan paper where they talk about practical numerical implementations but don't adress if both formulations are equivalent.}) Both formulations however reduce to \eqref{eq:winding_k} for translationally invariant systems \cite{Gong2018}.  In the following we will omit the flux parameter for simplicity.
-
-Note that the winding number can also be expressed in terms of the flat-band Hamiltonian
-\begin{align*}
-Q =& H (H^2)^{-1/2} \\
-=& \mqty(0 & q \\ q^\dagger & 0).
-\end{align*}
-Note that since $Q$ only has eigenvalues $\pm 1 $ , $Q^2 = \mathbb{I}$ and therefore $q^\dagger = q^{-1}$. We can therefore write
-\begin{equation}
-\nu = -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[q^\dagger \partial_\Phi q].
-\end{equation}
-In this basis the chiral symmetry operator is given by $S = \sigma_z \otimes \mathbb{I}$ such that the winding number can be expressed in terms of the full flat-band Hamiltonian as
-\begin{align}
-\nu =& \frac{i}{2}\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S Q^\dagger \partial_\Phi Q] \\
-=& \frac{i}{2}\int_0^{2\pi} \frac{d\Phi}{2\pi} \left({\rm Tr}[q \partial_\Phi q^\dagger]-{\rm Tr}[q^\dagger \partial_\Phi q] \right)\\
-=& -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[q^\dagger \partial_\Phi q] 
-\end{align}
-where in the last step we use the fact that the winding number is a real number. We can now write the winding number in terms of the correlation matrix
-\begin{align}
-\nu =& \frac{i}{2}\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S (1-2C) \partial_\Phi (1-2C)] \\
-=& -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S (1-2C) \partial_\Phi C] .
-\end{align}
-Introducing the flux via twisted boundary conditions allows us to easily construct the ground state with flux in the case of the open chain \eqref{eq:gauge}, therefore we will employ this gauge to compute the correlation matrix. The correlation matrix can be written in position space as
-\begin{equation}
-C = \mqty(C_A & C_{AB} \\ C_{AB}^\dagger & C_B),
-\end{equation}
-where in this basis, assuming $S$ is a local symmetry it is also diagonal. Note that the flux will only appear in the off-diagonal blocks $C_{AB}$ and therefore the first term in the trace above will vanish, leaving the winding number as
-\begin{align}
-\nu =&  -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S C \partial_\Phi C] \\
-=&  -i\int_0^{2\pi} \frac{d\Phi}{2\pi} \left( {\rm Tr}[S C_{AB} \partial_\Phi C_{AB}^\dagger]+{\rm Tr}[S C_{AB}^\dagger \partial_\Phi C_{AB}] \right)
-\end{align}
-We can not explicitely construct the correlation matrix with flux as
-\begin{align*}
-C_{ij}^\Phi =& \bra{\tilde{\Psi}_{0,{\rm open}}^\Phi}c_i^\dagger c_j \ket{\tilde{\Psi}_{0,{\rm open}}^\Phi} \\
-=&\bra{\tilde{\Psi}_{0,{\rm open}}^0}e^{i\Phi \hat{N}_A} c_i^\dagger c_j e^{-i\Phi \hat{N}_A}\ket{\tilde{\Psi}_{0,{\rm open}}^0} .
-\end{align*}
-Depending on if $i,j$ belong to $A$ or not, commuting the exponentials will leave additional factors or not, resulting in
-\begin{align*}
-C^\Phi = \mqty(C_A^0 & e^{i\Phi} C_{AB}^0 \\e^{-i\Phi} C_{AB}^{0\,\dagger} &C_B^{0}),
-\end{align*}
-where we have made explicit the flux dependence. The winding number is then
-\begin{align}
-\nu =&  -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S C^\Phi \partial_\Phi C^\Phi] \\
-=&  -i\int_0^{2\pi} \frac{d\Phi}{2\pi} \left( {\rm Tr}[-iS C_{AB}^0 C_{AB}^{0\,\dagger}]+{\rm Tr}[iS C_{AB}^{0\,^\dagger} C_{AB}^0] \right) \\
-=&  {\rm Tr}[S C_B^0(1-C_B^0)]-{\rm Tr}[S C_A^0(1-C_A^0)] 
-\end{align}
-where in the last step we use one of the properties of the correlation function stemming from $C^2 = C$. (\carlos{So far this expression gives the correct result for translationally invariant systems however one needs to do the trick of breaking chiral symmetry slightly. However, unlike with $\tilde{\mathcal{P}}$ this expression is not discontinuous at $\kappa = 0$. })
-
+\mariac{removed appendix D}
+%\section{Twisted boundary condition Winding number}
+%\carlos{Work in progress}
+%For a system with chiral symmetry the Hamiltonian can be written in some basis as
+%\begin{equation}
+%H = \mqty(0 & h \\ h^\dagger & 0),
+%\end{equation}
+%where $h$ is in general a matrix. In translationally invariant systems the winding number is defined as 
+%\begin{equation}
+%\nu = -i\int_0^{2\pi} \frac{dk}{2\pi} {\rm Tr}[h(k)^{-1} \partial_k h(k)],
+%\label{eq:winding_k}
+%\end{equation}
+%where $h(k)$ is the off-diagonal block of the Bloch Hamiltonian. In systems without translational invariance, one can similarly define the winding number
+%\begin{equation}
+%\nu = -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[h(\Phi)^{-1} \partial_\Phi h(\Phi)],
+%\label{eq:winding_flux}
+%\end{equation}
+%for a $U(1)$ flux introduced (\carlos{I have only found a similar expression in the context of non-hermitian systems \cite{Gong2018}, but I assume this is the expression Prodan refers to. It gives the correct results in translationally invariant systems, however it is very unpractical.}). Note that a generalization of \eqref{eq:winding_k} to position space has also been developed which not necesseraly gives the same results as \eqref{eq:winding_flux} (\carlos{The only comparison is in the Prodan paper where they talk about practical numerical implementations but don't adress if both formulations are equivalent.}) Both formulations however reduce to \eqref{eq:winding_k} for translationally invariant systems \cite{Gong2018}.  In the following we will omit the flux parameter for simplicity.
+%
+%Note that the winding number can also be expressed in terms of the flat-band Hamiltonian
+%\begin{align*}
+%Q =& H (H^2)^{-1/2} \\
+%=& \mqty(0 & q \\ q^\dagger & 0).
+%\end{align*}
+%Note that since $Q$ only has eigenvalues $\pm 1 $ , $Q^2 = \mathbb{I}$ and therefore $q^\dagger = q^{-1}$. We can therefore write
+%\begin{equation}
+%\nu = -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[q^\dagger \partial_\Phi q].
+%\end{equation}
+%In this basis the chiral symmetry operator is given by $S = \sigma_z \otimes \mathbb{I}$ such that the winding number can be expressed in terms of the full flat-band Hamiltonian as
+%\begin{align}
+%\nu =& \frac{i}{2}\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S Q^\dagger \partial_\Phi Q] \\
+%=& \frac{i}{2}\int_0^{2\pi} \frac{d\Phi}{2\pi} \left({\rm Tr}[q \partial_\Phi q^\dagger]-{\rm Tr}[q^\dagger \partial_\Phi q] \right)\\
+%=& -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[q^\dagger \partial_\Phi q] 
+%\end{align}
+%where in the last step we use the fact that the winding number is a real number. We can now write the winding number in terms of the correlation matrix
+%\begin{align}
+%\nu =& \frac{i}{2}\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S (1-2C) \partial_\Phi (1-2C)] \\
+%=& -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S (1-2C) \partial_\Phi C] .
+%\end{align}
+%Introducing the flux via twisted boundary conditions allows us to easily construct the ground state with flux in the case of the open chain \eqref{eq:gauge}, therefore we will employ this gauge to compute the correlation matrix. The correlation matrix can be written in position space as
+%\begin{equation}
+%C = \mqty(C_A & C_{AB} \\ C_{AB}^\dagger & C_B),
+%\end{equation}
+%where in this basis, assuming $S$ is a local symmetry it is also diagonal. Note that the flux will only appear in the off-diagonal blocks $C_{AB}$ and therefore the first term in the trace above will vanish, leaving the winding number as
+%\begin{align}
+%\nu =&  -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S C \partial_\Phi C] \\
+%=&  -i\int_0^{2\pi} \frac{d\Phi}{2\pi} \left( {\rm Tr}[S C_{AB} \partial_\Phi C_{AB}^\dagger]+{\rm Tr}[S C_{AB}^\dagger \partial_\Phi C_{AB}] \right)
+%\end{align}
+%We can not explicitely construct the correlation matrix with flux as
+%\begin{align*}
+%C_{ij}^\Phi =& \bra{\tilde{\Psi}_{0,{\rm open}}^\Phi}c_i^\dagger c_j \ket{\tilde{\Psi}_{0,{\rm open}}^\Phi} \\
+%=&\bra{\tilde{\Psi}_{0,{\rm open}}^0}e^{i\Phi \hat{N}_A} c_i^\dagger c_j e^{-i\Phi \hat{N}_A}\ket{\tilde{\Psi}_{0,{\rm open}}^0} .
+%\end{align*}
+%Depending on if $i,j$ belong to $A$ or not, commuting the exponentials will leave additional factors or not, resulting in
+%\begin{align*}
+%C^\Phi = \mqty(C_A^0 & e^{i\Phi} C_{AB}^0 \\e^{-i\Phi} C_{AB}^{0\,\dagger} &C_B^{0}),
+%\end{align*}
+%where we have made explicit the flux dependence. The winding number is then
+%\begin{align}
+%\nu =&  -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S C^\Phi \partial_\Phi C^\Phi] \\
+%=&  -i\int_0^{2\pi} \frac{d\Phi}{2\pi} \left( {\rm Tr}[-iS C_{AB}^0 C_{AB}^{0\,\dagger}]+{\rm Tr}[iS C_{AB}^{0\,^\dagger} C_{AB}^0] \right) \\
+%=&  {\rm Tr}[S C_B^0(1-C_B^0)]-{\rm Tr}[S C_A^0(1-C_A^0)] 
+%\end{align}
+%where in the last step we use one of the properties of the correlation function stemming from $C^2 = C$. (\carlos{So far this expression gives the correct result for translationally invariant systems however one needs to do the trick of breaking chiral symmetry slightly. However, unlike with $\tilde{\mathcal{P}}$ this expression is not discontinuous at $\kappa = 0$. })
+%
 
 
 \end{document}
