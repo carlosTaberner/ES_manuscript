@@ -83,16 +83,19 @@ and finally in section VII we present the conclusions and possible outlook.
 \section{Model}
 To showcase our results we consider as a starting point the model in the BDI class used in reference~\cite{Song2014}. 
 This is a very simple model which nevertheless supports a rich phase diagram containing topological phases with winding numbers up to $\nu =2$. 
-In order to show that our results are not limited to any symmetry class~\cite{ryu2010topological}, we also include two symmetry breaking terms. 
+In order to show that our results are not limited to any particular symmetry class~\cite{ryu2010topological}, we also include two symmetry breaking terms. 
 The Hamiltonian is then given by
 \begin{align}
-H =& \sum_{i\alpha,j\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta} c_{j\beta} \\
+H =& \sum_{i\alpha,j\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta} c_{j\beta},
+\end{align}
+where $H_{ij} $ is given by 
+\begin{align}
 H_{ij} =& (m \sigma_x + \kappa \sigma_z)\delta_{ij}  + \frac{1}{2i}\kappa'\sigma_z (\delta_{i-j,1}-\delta_{i-j,-1})\nonumber\\
 &+ \frac{1}{2} t \left[(\sigma_x + i \sigma_y)\delta_{i,j+1} + (\sigma_x - i \sigma_y) \delta_{i,j-1} \right] \nonumber\\
 &+  \frac{1}{2} t' \left[(\sigma_x + i \sigma_y)\delta_{i,j+2} + (\sigma_x - i \sigma_y) \delta_{i,j-2} \right],
 \label{bdi_model}
 \end{align}
-with the corresponding Bloch Hamiltonian being
+and the corresponding Bloch Hamiltonian is given by
 \begin{align}
 H(k)=&\mqty( \kappa + \kappa' \sin(k) & t' e^{i2k} + t e^{ik}+m \nonumber\\t' e^{-i2k} + t e^{-ik}+m & -\kappa-\kappa' \sin(k)  )\nonumber \\
 =& (t' \cos(2k)+t\cos(k)+m)\sigma_x \\
@@ -118,7 +121,7 @@ The behavior of the  edge modes  is  shown in Fig.~\ref{fig:zero_E_modes}, using
 Subfigure (a) shows the edge spectrum in the BDI class, with 4 (resp. 2) symmetry-protected zero modes for winding number 2 (1). 
 %We also a cut through the three phases (dotted line in the phase diagram) for different values of $\kappa,\kappa'$.  
 
-For $\kappa' \neq 0$ only particle-hole symmetry $C$ is preserved and the system belongs to symmetry class $D$. 
+For $\kappa' \neq 0$, only particle-hole symmetry $C$ is preserved and the system belongs to symmetry class $D$. 
 In one spatial dimension, the latter is characterized by a $\mathbb{Z}_2$ invariant.  
 Consequently, adding such a term causes the zero modes in the $\nu=2$ phase to split  pairwise and the $\nu = 2$ and $\nu=0$ phases become equivalent. 
 This is shown in subfigure (b), where one clearly sees that the zero modes below $m=1$ are split. 
@@ -151,7 +154,7 @@ Subfigures (c) and (d) show the edge spectrum for class AI and A, respectively. 
 }\hspace{0mm}
 
 \makebox[0pt]{
-\subfloat[$\kappa = .3,\kappa'=0$]{
+\subfloat[$\kappa = 0.3,\kappa'=0$]{
   \includegraphics[width=35mm]{2c.pdf}
 }
 \subfloat[$\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{2d.pdf}
@@ -164,7 +167,9 @@ Subfigures (c) and (d) show the edge spectrum for class AI and A, respectively. 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 \section{Geometric phases and polarization}
 
-In this section we review some results of the modern theory of polarization, which gave a geometrical description of the polarization \cite{Resta1992,KingSmith1993,Vanderbilt1993,Resta1997} , as well as a recent article by Watanabe and Oshikawa \cite{Watanabe2018} that clarified the meanings of the different polarizations one can define this way and the relations between them. For clarity we will use the same notation they use. 
+In this section we review some aspects of the modern theory of polarization, which gave a geometrical description of the polarization \cite{Resta1992,KingSmith1993,Vanderbilt1993,Resta1997}. 
+We also discuss the results of a recent article by Watanabe and Oshikawa \cite{Watanabe2018} that clarified the meanings of the different polarizations one can define this way, as well as the relations between them. 
+For clarity we will use the same notation they use. 
 
 Consider a generic, quadratic Hamiltonian in one dimension
 \begin{equation}\label{eq:quadr_Ham}
@@ -174,12 +179,15 @@ We can obtain its single-particle eigenstates as
 \begin{align}
 \sum_{j\beta}H_{ij,\alpha\beta} u_{p\mu}^{j\beta} = E_{p\mu} u^{i\alpha}_{p\mu},
 \end{align}
-where $[U]_{j\beta,p\mu} = u_{p\mu}^{j\beta}$ is the unitary matrix that diagonalizes $H$. In translational invariant systems $u_{p\mu}^{j\beta} = e^{ipj}\tilde{u}_{p \mu}^{\beta}$, where $\tilde{u}_{p \mu}^{\beta}$ are the components of the eigenstates of the Bloch Hamiltonian, $\ket{\tilde{u}_{k\mu}}$. One can now compute the Zak phase \cite{Zak1989}, which for a two-band \mariac{do we need the restriction to two-band models?} model is defined as the geometric phase acquired by the occupied state $\ket{\tilde{u}_k}$ as it winds around the Brillouin zone,
+where $[U]_{j\beta,p\mu} = u_{p\mu}^{j\beta}$ is the unitary matrix that diagonalizes $H$. In translational invariant systems $u_{p\mu}^{j\beta} = e^{ipj}\tilde{u}_{p \mu}^{\beta}$, where $\tilde{u}_{p \mu}^{\beta}$ are the components of the eigenstates of the Bloch Hamiltonian, $\ket{\tilde{u}_{k\mu}}$. One can now compute the Zak phase \cite{Zak1989}, which for a two-band  model is defined as the geometric phase acquired by the occupied state $\ket{\tilde{u}_k}$ as it winds around the Brillouin zone,
 \begin{equation}
 \gamma = \int_{0}^{2\pi} dk\, i A_k, 
 \label{eq:zak_phase}
 \end{equation}
-where $A_k = \bra{\tilde{u}_k}\partial_k \ket{\tilde{u}_k}$ is the Berry connection \cite{Berry1984}. The Zak phase is typically regarded as just a phase because it is only gauge invariant modulo $2\pi$. However, for two different states defined by a parameter $\lambda$, as long as $A_k(\lambda)$ is smooth in the path connecting them the change in the Zak phase can be computed as
+where $A_k = \bra{\tilde{u}_k}\partial_k \ket{\tilde{u}_k}$ is the Berry connection \cite{Berry1984}. 
+The generalization to higher-band models is straightforward. 
+
+The Zak phase is typically regarded as just a phase because it is only gauge invariant modulo $2\pi$. However, for two different states defined by a parameter $\lambda$ --- assuming $A_k(\lambda)$ is smooth in the path connecting them --- the change in the Zak phase can be computed as
 \begin{equation}
 \Delta {\gamma_{\lambda_i \lambda_f}} = \int_{\lambda_i}^{\lambda_f}\int_{0}^{2\pi} dk \, \Omega_{\lambda k},
 \label{eq:change_zak_phase}
@@ -188,13 +196,16 @@ where
 \begin{align}\label{eq:BerryCurvature}
 \Omega_{\lambda k} = \partial_\lambda A_k(\lambda,k) - \partial_k A_\lambda(\lambda,k)
 \end{align}
- is the Berry curvature. The Berry curvature is fully gauge invariant and, therefore, the change in the Zak phase as defined in \eqref{eq:change_zak_phase} is defined along the full real line. The Zak phase itself, as defined above, can be shown to be proportional to the winding number for a certain gauge (see Appendix \ref{appendix:winding_ssh}), which means that it carries physical information beyond modulo $2\pi$. Note that other ways of computing the Zak phase rely on computing $e^{i\gamma}$ instead, such that the result is always defined only modulo $2\pi$.
+ is the Berry curvature. The Berry curvature is fully gauge invariant and, therefore, the change in the Zak phase \eqref{eq:change_zak_phase} is defined along the full real line. The Zak phase itself, as defined in Eq.~\eqref{eq:zak_phase}, can be shown to be proportional to the winding number for a certain gauge (see Appendix \ref{appendix:winding_ssh}), which means that it carries physical information beyond modulo $2\pi$. Note that other ways of computing the Zak phase rely on computing $e^{i\gamma}$ instead, such that the result is always defined only modulo $2\pi$.
 
 The derivative of the polarization with respect to some parameter $\lambda$ was obtained \cite{KingSmith1993} as
 \begin{equation}\label{eq:Bloch_polarization}
 \partial_\lambda \tilde{\mathcal{P}}^{\rm Bloch} = \int_{0}^{2\pi} \frac{dk}{2\pi} \, \Omega_{\lambda k},
 \end{equation}
-which allows us to make the identification $ \tilde{\mathcal{P}}^{\rm Bloch} = \gamma/2\pi$. As discussed above,  this polarization is defined as an absolute value only modulo 1, however its changes can be defined as a real number. This is no surprise as the derivative of the polarization is related to the current which is a physical observable, unlike $\tilde{\mathcal{P}}^{\rm Bloch}$. 
+which allows us to make the identification $ \tilde{\mathcal{P}}^{\rm Bloch} = \gamma/2\pi$. 
+As discussed above,  this polarization is defined only modulo 1.
+Its changes, however, can be defined as a real number. 
+This is not surprising,  as the derivative of the polarization is related to the current which is a physical observable, unlike $\tilde{\mathcal{P}}^{\rm Bloch}$. 
 
 One can also compute the geometric phase obtained by threading a $U(1)$ flux through the ring \cite{Watanabe2018}, which allows us to compute a polarization in the absence of translational invariance. If the flux is introduced homogeneously through a vector potential $A_x = \Phi/L$ an equivalent polarization can be defined as
 \begin{equation}
@@ -214,9 +225,10 @@ where the matrix $S$ is given by
 \begin{equation}
 S_{p\mu,q\nu} = \sum_{j\alpha} u_{p\mu}^{j \alpha \, \ast} e^{i\frac{2\pi}{L}j}u_{q\nu}^{j \alpha},
 \end{equation}
-\carlos{I have to check overall sign and sign of exponential.}and  ${\rm det }\!' $ indicates that the determinant is restricted to the space of \emph{occupied} single-particle states. Below we will employ this expression to compare our results with.
+\carlos{I have to check overall sign and sign of exponential.}and  ${\rm det }\!' $ indicates that the determinant is restricted to the space of \emph{occupied} single-particle states. Below we will employ this expression to compare our results with \mariac{XXX}.
 
-There is one last polarization we must consider and it is the one obtained when the flux is introduced in the bond between sites $i=1$ and $i=L$ via twisted boundary conditions. This is equivalent to performing the gauge transformation
+There is one last polarization we must consider. 
+It is obtained when the flux is introduced in the bond between sites $i=1$ and $i=L$ via twisted boundary conditions. This is equivalent to performing the gauge transformation
 \begin{align}\label{eq:Psi_tilde}
 \ket{\tilde{\Psi}^\Phi}=e^{i\Phi \hat{P}}\ket{\Psi^\Phi},
 \end{align}
@@ -233,7 +245,6 @@ where
 \begin{equation}
 \tilde {\mathcal{P}}_0= \int_0^{2\pi}\frac{d\Phi}{2\pi} \bra{\tilde{\Psi}^\Phi}\hat{P}\ket{\tilde{\Psi}^\Phi}.
 \end{equation} 
-\maria{Ref to Oshikawa paper?}
 %The previous discussion about the Zak phase being defined only modulo $2\pi$ although its changes can be defined as a real number applies in the same way to the polarization obtained in \eqref{eq:p_tilde}.
 Note that while $\tilde{\mathcal{P}}$ itself is only defined modulo 1, its changes are again well-defined on the full real axis, similar to the discussion about the Bloch polarization below Eq.~\eqref{eq:Bloch_polarization}. 
 In fact, for translationally invariant systems one finds that $\tilde{\mathcal{P}} = \tilde{\mathcal{P}}^{\rm Bloch}$ \cite{Watanabe2018}. 
@@ -246,7 +257,7 @@ An important quantity is the correlation matrix, which in position space is defi
 \begin{align}
 C_{ij}^{\alpha \beta} = \expval{c_{i\alpha}^\dagger c_{j\beta}}.
 \end{align}
-For a system where we occupy all single-particle eigenstates with energies $E<0$ the correlation matrix can be written  as
+For a system where all single-particle eigenstates with energies $E<0$ are occupied, the correlation matrix can be written  in terms of the Hamiltonian as
 \begin{align}\label{eq:corr_mat2}
 C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{-1/2} \right]_{ij, \alpha \beta}.
 \end{align}
@@ -268,7 +279,7 @@ Following Ref.~\cite{Peschel2003}, one can write the  reduced density matrix as
 \rho_A&=\mathcal{K} \exp(-\mathcal H),
 \end{align}
 where $\mathcal{K}$ is a normalization constant and $\mathcal{H}$ is a quadratic Hamiltonian, referred to as entanglement Hamiltonian. 
-The eigenvalues $\epsilon_j$ of $\mathcal{H}$, referred to as entanglement energies,  are related to the EOS by 
+The eigenvalues $\epsilon_j$ of $\mathcal{H}$, referred to as entanglement energies,  are related to those of the EOS by 
 \begin{align}\label{eq:xi_eps}
 \xi_j &=\left(e^{\epsilon_j}+1\right)^{-1}, 
 \end{align}
@@ -277,7 +288,7 @@ Eq.~\eqref{eq:xi_eps} implies that the full information of the \emph{many-partic
 The latter is much simpler to interpret. 
 Consequently, we will focus on the EOS in the remainder of the manuscript and only mention the ES when necessary. 
 
-One property of the subsystem correlation matrix we will make use of later is that, for sufficiently large systems, its eigenstates are found to be localize on either virtual edge if $\xi \neq 0,1$, or they are found to be bulk modes if the correspondent eigenvalues are exponentially close to $\xi = 0,1$ \cite{Peschel2008}.
+One property of the subsystem correlation matrix we will make use of later is that, for sufficiently large systems, its eigenstates are found to be localized on either virtual edge if $\xi \neq 0,1$, or they are found to be bulk modes if the correspondent eigenvalues are exponentially close to $\xi = 0,1$ \cite{Peschel2008}.
 
 %The single-particle entanglement spectrum (ES) is then obtained as the spectrum of the subsystem correlation function obtained after bisecting the system into two equal parts. 
 
@@ -287,43 +298,44 @@ One property of the subsystem correlation matrix we will make use of later is th
 
 A few comments are needed regarding  bipartition. 
 In the following sections, we show how the Zak phase can be recovered from the EOS.
-We also give a simple formula that is identical to the Zak phase in the thermodyamic limit.  
-However, for a generic, finite size system, there will be finite-size discrepancies between our formula and the Zak phase.
-In order to reduce these, we are going to choose $A$ as half the system in the remainder of the manuscript.
+We also provide a simple formula in terms of the EOS eigenvalues that is identical to the Zak phase in the thermodyamic limit.  
+However, for a generic, finite size system, there will be finite-size discrepancies between our formula and the Zak phase. \mariac{see scaling plot}
+In order to reduce these, we are going to choose subsystem $A$ as half the system in the remainder of the manuscript.
 The results (in the thermodynamic limit) do not depend on this choice. 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 \section{Zak phase in the EOS}
 
 Let us first review previous results on the relation between the entanglement spectrum and the Zak phase. 
 For symmetry-protected topological systems in one dimension, the quantized Zak phase is zero whenever there is an even number  of eigenvalues per edge at $\xi = 1/2$, and $\pi$ when the number is odd~\cite{Peschel2008}. 
+In the absence of symmetry-protection, much less is known. 
 Ryu and Hatsugai considered the fully dimerized SSH chain with broken chiral symmetry~\cite{Ryu2006}.  
-This model is rather special in that there is only a single pair of eigenvalues, related by symmetry, in the EOS that is not identical to $0$ or $1$. 
-In fact, the authors could show that the value of one of these `midgap states' is identical to the Zak phase divided by $2\pi$, or $\tilde{\mathcal{P}}^{\rm Bloch}$. 
+This model is rather special in that there is only a single pair of eigenvalues, related by symmetry \mariac{which symmetry?}, in the EOS that is not strictly identical to $0$ or $1$. 
+The authors could show that the value of one of these `midgap states' is identical to the Zak phase divided by $2\pi$ or, alternatively, $\tilde{\mathcal{P}}^{\rm Bloch}$. 
 Their result is a particular limit of Eq.~\eqref{eq:chi_integrable}. 
 %
 %Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. 
-Huang and Arovas considered a two-dimensional chern insulator and noted that the Zak phase qualitatively follows the `virtual edge mode' that connects the EOS values at 0 to those at 1~\cite{Huang2012,Huang2012-2}. 
+
+Huang and Arovas considered a two-dimensional Chern insulator and noted that the Zak phase qualitatively follows the `virtual edge mode' that connects the EOS values at 0 to those at 1~\cite{Huang2012,Huang2012-2}. 
 Interpreting this as a one-dimensional system with a parameter, we can explain this behavior by Eq.~\eqref{eq:chi_integrable}, noting that there is a single pair of eigenvalues that dominates the sum. 
-Note that the observation of Ref.s~\cite{Huang2012,Huang2012-2} is particular to a system with Chern number 0 or $\pm 1$, and it generically fails for systems with higher Chern numbers. 
-In the latter case, there are several terms in Eq.~\eqref{eq:chi_integrable} with comparably large contributions. 
+Note that the observation of Ref.s~\cite{Huang2012,Huang2012-2} is particular to systems with Chern number 0 or $\pm 1$, and it generically fails for systems with higher Chern numbers. 
+In the latter case, there are several terms in Eq.~\eqref{eq:chi_integrable} with comparably large contributions and, consequently, the Zak phase deviates considerably from the 'virtual edge modes'. 
 %For cases with more edge modes present in the ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. 
 
 
 \subsubsection{Systems with equidistant entanglement energies}
 \mariac{add scaling plot for $\chi$ versus $\gamma/(2\pi)$. }
 We first discuss systems, for which the entanglement energies of a \emph{single} virtual edge are equidistant. This is a feature of integrable systems \cite{Peschel1999} for e.g. nearest neighbor hopping models such as the SSH chain, and applies to the Hamiltonian~\eqref{bdi_model} when $t'=0$. 
-In this case, one can obtain the Zak phase in a very simple fashion: We reorder the eigenvalues of the ES by magnitude, $\xi_1 < \xi_2 < ...< \xi_{L_AM}$, and compute
+In this case, one can obtain the Zak phase in a very simple fashion: We reorder the eigenvalues of the EOS by magnitude, $\xi_1 < \xi_2 < ...< \xi_{L_AM}$, and compute
 \begin{equation}
 \chi = \sum_{j=1}^{L_A M/2} \xi_{2j-1} \, {\rm mod} \, 1.
 \label{eq:chi_integrable}
 \end{equation}
-In the thermodynamic limit, $\chi$ becomes identical to either $\tilde{\mathcal{P}}^{\rm Bloch}$ or $1-\tilde{\mathcal{P}}^{\rm Bloch}$
+In the thermodynamic limit, $\chi$ becomes identical to either $\tilde{\mathcal{P}}^{\rm Bloch}$ or $1-\tilde{\mathcal{P}}^{\rm Bloch}$: \mariac{comment on the ambiguity?}
 \begin{equation}
 \lim_{L \rightarrow \infty} \abs{\tilde{\mathcal{P}}^{\rm Bloch}} = \lim_{L \rightarrow \infty} \abs{\chi}.
 \end{equation}
-For translational invariant systems the EOS is symmetric such that a crossing of the eigenvalues $\xi$ results in $\chi$ changing sign. This is particularly irrelevant in the case of symmetry-protected states where the Zak phase is quantized to $0$ or $\pi$. 
-
-In the case where there is only one eigenvalue per edge that is $\neq 0,1$ in  the EOS, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase found in Ref.~\cite{Ryu2006}. 
+\mariac{I don't understand what we want to say here.} For translational invariant systems the EOS is symmetric such that a crossing of the eigenvalues $\xi$ results in $\chi$ changing sign. This is particularly irrelevant in the case of symmetry-protected states where the Zak phase is quantized to $0$ or $\pi$. 
+In the special case where there is only one eigenvalue per edge that is $\neq 0,1$ in  the EOS, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase found in Ref.~\cite{Ryu2006}. 
 
 In Fig.~\ref{huang} we show  the EOS along the dashed cut in the phase diagram of Fig.~\ref{fig:bdi_phase_diagram}. 
 Along this line, our model is equivalent to an SSH chain. 
