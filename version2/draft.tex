@@ -426,10 +426,11 @@ This relation between the Zak phase and the EOS is a consequence of an identity 
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 
+
 \section{Chern number and Winding number}
 
 
-In Appendix A we obtain that $\chi$ should be the sum of all the eigenvalues of eigenstates related to the cut between $i=1$ and $i=L$ that make a subspace $A_L$. The dimension of $A_L$ is however not well-defined as one can always include bulk modes into it. Since the bulk modes have $\xi = 0,1$ this makes $\chi$ well-defined only modulo 1. This can be avoided by computing instead
+In Appendix A we obtain that $\tilde{\mathcal{P}}$ is given by the sum of all the eigenvalues of $C_A$ with eigenstates related to the cut between $i=1$ and $i=L$ that make a subspace $A_L$. The dimension of $A_L$ is however not well-defined as one can always include bulk modes into it. Since the bulk modes have $\xi = 0,1$ this makes $\tilde{\mathcal{P}}$ well-defined only modulo 1. This can be avoided by computing instead
 \begin{equation}\label{eq:tpo}
 \tpo = \int_0^{2\pi}\frac{d\Phi}{2\pi} i\brapsio{\Phi}\partial_\Phi \ketpsio{\Phi}.
 \end{equation}
@@ -438,34 +439,33 @@ where $\ketpsio{{\Phi=0}}$ is the ground state of the chain opened between sites
 \ketpsio{\Phi} =e^{-i \Phi \hat{N}_A} \ketpsio{0}.
 \label{eq:gauge}
 \end{equation}
-The difference with the closed chain being that now there is no ambiguity on when an electron crosses the boundary with the twisted boundary condition. Note that since the chain is open, $\Phi$ is not a flux but should now be regarded as a parameter and therefore $\tpo$ does not need to be a physical polarization.  $\tpo$ can be obtained in an even simpler way than $\tilde{\mathcal{P}}$ as 
+There is now no ambiguity in how the flux is introduced, as oppossed to the case with PBC. Note that $\Phi$ is not a magnetic flux but should be treated as an additional parameter, and therefore $\tpo$ is not necessarily the physical polarization of the open chain. $\tpo$ can be obtained in an even simpler way than $\tilde{\mathcal{P}}$ as 
 \begin{align}\label{eq:phi_independence}
 \tpo =&  \int_0^{2\pi}\frac{d\Phi}{2\pi} \brapsio{0} \hat{N}_A \ketpsio{0} \nonumber \\
 =&\sum_{\alpha,j\in A}\brapsio{0} c_{j\alpha}^\dagger c_{j\alpha} \ketpsio{0} \nonumber\\
 =&\sum_{\alpha,j\in A} C_{\rm o,j\alpha,j\alpha}\nonumber \\
 =& {\rm Tr}[C_{A,\rm o}],
 \end{align}
-where we used Eq.~\eqref{eq:gauge} and $C_{\rm o}$($C_{A,\rm o}$) denotes the (reduced) density matrix of the open chain. 
-Note that Eq.~\eqref{eq:phi_independence} is nothing else than the generalization of $\chi$ to the open chain. 
-\maria{I am not entirely happy with the following argument, as it goes wrong in the topological phase. We mention this later, but we should already mention it here. }
-The idea is that in the process of opening the chain, which can be done adiabatically, all eigenvalues that are not in $A_L$ should get pushed to $\xi=0$ or $\xi=1$. 
-If for a given path in parameter space $\boldsymbol{\lambda}_i \rightarrow \boldsymbol{\lambda}_f$ their contribution remains constant, that is, there are no jumps between $\xi=0$ and $\xi=1$ and $\tpo (\boldsymbol{\lambda} )$ is smooth, then changes in $\tpo(\boldsymbol{\lambda}_i ) $ along the path will be defined as a real number and not only modulo 1. Since $\tilde{\mathcal{P}}$ is a local property of the bond between $i=1$ and $i=L$ one would expect it to not depend on what happens far from it such that $\tpo$ and $\tilde{\mathcal{P}}$ are equivalent. 
+where we used Eq.~\eqref{eq:gauge} and $C_{\rm o}$($C_{A,\rm o}$) denotes the (reduced) density matrix of the open chain.  
+
+The idea is that in the process of opening the chain, which can be done adiabatically, all eigenvalues that are not in $A_L$ should get pushed to $\xi=0$ or $\xi=1$, by getting rid of the subspace $A_R$ by this process we can finally obtain $\tpo$ by summing all eigenvalues of $C_{A,\rm o}$. The advantage of doing this is that, if for a given path in parameter space $\boldsymbol{\lambda}_i \rightarrow \boldsymbol{\lambda}_f$ their contribution remains constant, that is, there are no jumps between $\xi=0$ and $\xi=1$ such that $\tpo (\boldsymbol{\lambda} )$ is smooth, then changes in $\tpo(\boldsymbol{\lambda}_i ) $ along the path will be defined as a "real number" and not only modulo 1. There are, however, two caveats. When we open the chain, if the system is in a topological non-trivial state, zero-energy modes will appear. The ground state of the closed chain has several equivalent degenerate ground states for the open chain, so that $C_{A,\rm o}$ is not well-defined at these points. The second issue is that, even if we allow for symmetry-breaking terms so that we can compute $\tpo$, there might be integer jumps in $\tpo$ where the edge-modes cross zero-energy. However, as we will see below these jumps in $\tpo$ due to the zero modes are not simple jumps but branch cuts that provide the correct description of the closed system.
+
 
 \subsubsection{SSH chain}
 
-Consider the simple case of the SSH chain, with $t'=0$ in the model. In the chiral symmetric case, $\kappa = 0$, the open chain presents zero-energy modes for $m<t$ that seem problematic. $\tilde{\mathcal{P}}_{\rm open}$  will depend on the occupation of these zero modes although we just argued that $\tilde{\mathcal{P}}$ should not, since the zero-energy modes are localized far from the virtual cut at $i=1$. We can break the chiral symmetry in order to split the zero-energy modes so we do not have to make this choice, but the resulting $\tilde{\mathcal{P}}_{\rm open}$ will be discontinuous at $\kappa = 0$, suggesting that the limit does not exist. This can be seen from the fact that the Hamiltonian now has the symmetry
+Consider first the simple case of the SSH chain, with $t'=0$ in the model. When we include the chiral-symmetry braking parameter $\kappa$ the Hamiltonian now has the symmetry
 \begin{equation}
-SH(\kappa)S = -H(-\kappa), \quad S C_A(\kappa) S = \mathbb{I}-C_A(-\kappa)
+SH(\kappa)S = -H(-\kappa), \quad S C_A(\kappa) S = \mathbb{I}-C_A(-\kappa),
 \end{equation}
-so $\tpo(-\kappa) = L-\tpo(\kappa)$. Unless $\tpo(0) = L/2$, which only happens in the trivial case, the result will be discontinuous at $\kappa = 0$. We can see this in Fig.\ref{ssh_chern}.(a) where we show $\tpo$ in the space $(m,\kappa)$. This branch cut is in fact not an artifice of the open chain trick, but the result of the degenerate point at $(m=t,\kappa=0)$ having an associated Chern number $C=1$ \cite{Asboth2016}.
+so $\tpo(-\kappa) = L-\tpo(\kappa)$. Unless $\tpo(0) = L/2$, which is the result expected for a trivial insulator, the result will be discontinuous at $\kappa = 0$. We can see this in Fig.\ref{ssh_chern}.(a) where we show $\tpo$ in the parameter space $(m,\kappa)$. The presence of the zero-mode for $m<1$ appears in $\tpo$ as a branch cut. This branch cut is in fact not an artifice of the open chain trick, but the result of the degenerate point at $(m=1,\kappa=0)$ having an associated Chern number $C=1$ \cite{Asboth2016}.
 
-Consider a loop around the singularity at $(m=t,\kappa=0)$ parametrized by $\theta$. The Chern number is then defined as
+Consider a counterclockwise loop around the degenerate point at $(m=t,\kappa=0)$ parametrized by $\theta$, starting from the branch cut. The Chern number is then defined as
 \begin{equation}
 C = \int_0^{2\pi}d\theta\int_0^{2\pi}\frac{d\Phi}{2\pi} \Omega_{\theta\Phi},
 \label{eq:chern}
 \end{equation} 
-with the Berry curvature $\Omega_{\theta\Phi}$ defined in Eq.~\ref{eq:BerryCurvature}. 
-From  Eq.~\eqref{eq:tpo}, it follows that the Berry connection for the flux is simply $A_\Phi(\theta,\Phi,) = -i\tpo(\theta)$, so we only need to compute $A_\theta(\theta,\Phi)$. (\carlos{Please double check this calculation}) Expanding $\ketpsio{\Phi}$ in the eigenbasis of the number operator $\hat{N_A}$ -- denoted by $\{\ket{j}\}$ -- we can compute its derivative with respect to the parameter $\theta$ as
+with the Berry curvature $\Omega_{\theta\Phi}$ defined in equation~\eqref{eq:BerryCurvature}. 
+From  Eq.~\eqref{eq:tpo}, it follows that the Berry connection for the flux is simply $A_\Phi(\theta,\Phi,) = \tpo(\theta)$, so we now need to compute $A_\theta(\theta,\Phi)$. Expanding $\ketpsio{\Phi}$ in the eigenbasis of the number operator $\hat{N_A}$ -- denoted by $\{\ket{j}\}$ -- we can compute its derivative with respect to the parameter $\theta$ as
 \changed{changed}
 \begin{align}
 \partial_\theta \ketpsio{\Phi} =& \sum_j [\partial_\theta c_j (\theta)]e^{-i\Phi N_A^j}\ket{j}.
@@ -478,7 +478,7 @@ where $c_j(\theta) = \Big\langle j\ketpsio{0}$ does not depend on $\Phi$. The co
 \end{align}
 i.e. it is independent of $\Phi$. 
 
-The integral in \eqref{eq:chern} is performed on the surface of the torus defined by $(\theta,\Phi)$. Because the Berry connection $A_\Phi(\theta)$ is not smooth one cannot directly apply Stokes theorem. Instead, consider that we split the torus in two cylinders, $S_1$ with $\theta\in[\theta_0,2\pi-\theta_0]$ and  $S_2$ with $\theta\in[2\pi-\theta_0,2\pi+\theta_0]$ and we change the gauge in $\boldsymbol{A}(\theta)$ such that it is smooth in each cylinder. We can now apply Stokes theorem to the two cylinders independently
+The integral in \eqref{eq:chern} is performed on the surface of the torus defined by $(\theta,\Phi)$. Because of the branch cut the Berry connection $A_\Phi(\theta)$ cannot be made smooth for the whole torus and directly apply Stokes theorem. Instead, consider that we split the torus in two cylinders, $S_1$ with $\theta\in[\theta_0,2\pi-\theta_0]$ and  $S_2$ with $\theta\in[2\pi-\theta_0,2\pi+\theta_0]$ and we change the gauge in $\boldsymbol{A}(\theta)$ such that it is smooth in each cylinder. We can now apply Stokes theorem to the two cylinders independently \cite{Kohmoto1985}. For $S_1$ we have
 \begin{align}
 C_1 =& \int_{S_1} d\boldsymbol{S}\cdot (\nabla \times \boldsymbol{A}) \nonumber\\
 =& \int_{\partial S_1} d\boldsymbol{l}\cdot \boldsymbol{A}(\theta,\Phi) \nonumber\\
@@ -493,94 +493,158 @@ Similarly computing the integral for the other cylinder we obtain
 \begin{align}
 C_2 =& \int_0^{2\pi} \frac{d\Phi}{2\pi} [A'_\Phi (2\pi+a,\Phi) -A'_\Phi (2\pi-a,\Phi)].
 \end{align}
-The Chern number is then $C=C_1+C_2$. Noting again that $A'_\Phi(\theta)$ is continuous in $S_2$ taking the limit of $a\rightarrow 0^+$ makes $C_2$ vanish and the Chern number is given by
+The Chern number is then $C=C_1+C_2$. Noting again that $A'_\Phi(\theta)$ is continuous in $S_2$ taking the limit of $\theta_0\rightarrow 0^+$ makes $C_2$ vanish and the Chern number is given by
 \begin{align}
-C =& \int_0^{2\pi} \frac{d\Phi}{2\pi} [A_\Phi (2\pi^-,\Phi) -A_\Phi (0^+,\Phi)].
+C =& \int_0^{2\pi} \frac{d\Phi}{2\pi} [A_\Phi (2\pi^-,\Phi) -A_\Phi (0^+,\Phi)],
 \end{align}
-If we consider the loop starting at $\kappa = 0$ this is exactly the case shown in Fig.\ref{ssh_chern}.(a), where $A_\Phi (\theta,\Phi) = \tilde{\mathcal{P}}_{\rm open}(\theta)$ is smooth everywhere but in $\theta = 0$, and therefore we can compute the Chern number simply as 
+or
 \begin{align}
-C= \tpo(\kappa=0^+)-\tpo(\kappa=0^-).
+C(m)= \tpo(m,\kappa=0^+)-\tpo(m,\kappa=0^-),
 \end{align}
+where $C(m)$ is the Chern number of any loop around the degenerate point crossing $\kappa=0$ at $m$.
 Using the symmetry of the polarization described above this results in 
 \begin{align}
-C= 2\tpo(0^+)-L.
+C(m)= 2\tpo(m,\kappa=0^+)-L,
 \label{eq:Chern_number}
 \end{align}
-The discontinuity in $\tpo$ is therefore related to the Chern number.% and it is not merely continuous modulo 1. 
+which results in $+1$ when $m<1$ and $0$ when $m>1$, as it is known for the SSH chain. The discontinuity in $\tpo$ is therefore related to the Chern number.% and it is not merely continuous modulo 1. 
 
-One can also obtain a polarization continuous in $\kappa$ by doing a gauge transformation 
-\begin{align}
-\ket{\tilde{\psi}^{\prime \,\Phi}}=e^{ i \Phi \Theta(-\kappa)\Theta(t-m)}\ket{\tilde{\psi}^{\Phi}}
-\end{align}
-\maria{where $\Theta$ is the Heaviside theta function (?)}. 
-This gauge transformation places the branch cut at $m=t,\kappa < 0$, as can be seen in Fig.\ref{ssh_chern}(b)  (\carlos{need to double check signs}). 
-This is in fact the result one gets when using the gauge that allows one to compute the winding number from the Zak phase. \maria{???}
+%\changed{undo figure uncomment}
+\begin{figure}[t]
+	\centering
+	\makebox[0pt]{
+		\subfloat[$\tpo-L/2$]{
+			\includegraphics[width=50mm]{windingSSH1.pdf}
+		}
+		\subfloat[$\tpo-L/2$]{
+			\includegraphics[width=45mm]{windingtp1.pdf}
+		}
+	}
+	\caption{Polarization $\tpo$ computed for $t=1,\kappa'=0$ and system size $L=160$, for the SSH chain $t'=0$ in (a) and for $t'=-2$ in (b) }
+	\label{ssh_chern}
+\end{figure}
 
-\changed{undo figure uncomment}
-%\begin{figure}[t]
-%	\centering
-%	\makebox[0pt]{
-%		\subfloat[$\tilde{\mathcal{P}}_{\rm open}-L/2$]{
-%			\includegraphics[width=50mm]{windingSSH1.pdf}
-%		}
-%		\subfloat[$\tilde{\mathcal{P}}_{\rm open,+}-L/2$]{
-%			\includegraphics[width=45mm]{windingSSH2.pdf}
-%		}
-%	}\hspace{0mm}
-%	
-%	\makebox[0pt]{
-%		\subfloat[$\tilde{\mathcal{P}}_{\rm open}-L/2$]{
-%			\includegraphics[width=45mm]{windingtp1.pdf}
-%		}
-%		\subfloat[$\tilde{\mathcal{P}}_{\rm open,+}-L/2$]{
-%			\includegraphics[width=45mm]{windingtp2.pdf}
-%		}
-%	}
-%	\caption{Polarization $\tilde{\mathcal{P}}_{\rm open}$ computed for three different gauge choices, for $t=1,\kappa'=0$ and system size $L=160$. (a) and (b) with $t'=0$ and (c) and (d) for $t'=-2$. }
-%	\label{ssh_chern}
-%\end{figure}
+%\changed{undo figure uncomment}
 
-\changed{undo figure uncomment}
-%
-%\begin{figure}[t]
-%	\centering
-%	\makebox[0pt]{
-%		\subfloat[$\tilde{\mathcal{P}}_{\rm open}$]{
-%			\includegraphics[width=50mm]{windingtpdis.pdf}
-%		}
-%		\subfloat[$C $]{
-%			\includegraphics[width=45mm]{plotwinding.pdf}
-%		}		
-%	}\hspace{0mm}
-%	
-%	\makebox[0pt]{
-%		\subfloat[${\rm Log}_{10} (C \, {\rm mod} \, 1)$ ]{
-%			\includegraphics[width=45mm]{plotwindingerror.pdf}
-%		}
-%	}
-%	\caption{We compute (a)$\tilde{\mathcal{P}}_{\rm open}$, (b) $\nu$ and (c) error in the quantization of $\nu$ for the continuous line in the phase diagram, $t=1,t'=2$ and system size $L=400$. (a) is computed for $W=6$ showing that the branch cut is not affected by the disorder. (b) and (c) are computed for increasing disorder strength, showing a good quantization of the resulting winding number far from the transitions. }
-%	\label{winding}
-%\end{figure}
+\begin{figure}[t]
+	\centering
+	\makebox[0pt]{
+		\subfloat[$2\tilde{\mathcal{P}}_{\rm open}-L$($m$ should go from 0 to 3)]{
+			\includegraphics[width=45mm]{windingtpdis.pdf}
+		}
+		\subfloat[$C $]{
+			\includegraphics[width=45mm]{plotwinding.pdf}
+		}		
+	}\hspace{0mm}
+	
+	\makebox[0pt]{
+		\subfloat[${\rm Log}_{10} (C \, {\rm mod} \, 1)$ ]{
+			\includegraphics[width=45mm]{plotwindingerror.pdf}
+		}
+	}
+	\caption{We compute (a)$\tilde{\mathcal{P}}_{\rm open}$, (b) $\nu$ and (c) error in the quantization of $\nu$ for the continuous line in the phase diagram, $t=1,t'=2$ and system size $L=400$. (a) is computed for $W=6$ showing that the branch cut is not affected by the disorder. (b) and (c) are computed for increasing disorder strength, showing a good quantization of the resulting winding number far from the transitions. }
+	\label{winding}
+\end{figure}
 
 
 
 \subsubsection{$t' \neq 0$}
 
-The analysis we did above of $\tpo$ for the SSH chain seems rather trivial as $\tpo$ does not seem to have more information than $\tilde{\mathcal{P}}$ modulo 1. This is no longer true when $t' \neq 0$ allowing for a $\nu = 2$ phase. In Fig.\ref{ssh_chern}.(c) we see $\tpo$ for the dotted cut in the phase diagram with an added symmetry breaking $\kappa$. We see clearly that $\tpo$ distinguishes between the $\nu=0$ and $\nu = 2$ phases. Similar to before, there is a gauge choice that makes $\tpo$ continuous in $\kappa$.
-However, which gauge transformation does this is a priori not known, so in practice we can only compute the limit $\lim_{\kappa \rightarrow 0} \tpo$ in the original gauge.
+The analysis we did above of $\tpo$ for the SSH chain seems rather trivial as $\tpo$ does not seem to have more information than $\tilde{\mathcal{P}}$ modulo 1. This is no longer true when $t' \neq 0$ allowing for a $\nu = 2$ phase. In Fig.\ref{ssh_chern}.(b) we see $\tpo$ for the dotted cut in the phase diagram with an added symmetry breaking $\kappa$ term. We can see that a loop around the two degenerate points will have a Chern number of $C=2$. 
 
-Our expression for the Chern number \eqref{eq:Chern_number} is also valid without translational invariance. Consider now that we add disorder in the $t$ and $m$ parameters
+A Chern number C calculated for a gapped loop crossing the trivial phase and some point at $(m,\kappa=0)$ requires the presence of at least C zero-modes. In this case we can see that the equivalence between the Chern number and the number of zero-modes, or the winding number, is exact. It is also interesting to point out that even far away from the symmetric point $\tpo$ still shows plateaus that point to a nearby topological transition.
+Note , however, that there are many ways of breaking chiral symmetry and one can find terms where a loop crossing two points in the $\nu=0$ and $\nu=2$ has Chern number $C=0$ such that these two phases would appear equivalent. \carlos{write term}
+
+Since $\tpo$ is naturally described in position space we can also use this method for a disordered system. Consider now that we add disorder in the $t$ and $m$ parameters
 \begin{align}
 &t_i = t + \frac{W}{2} \omega_i \nonumber\\
 &m_i = m + W \omega'_i
 \end{align}
-where $\omega_i$ and $\omega_i$ are randomly selected from $[-1/2,1/2]$. For very strong disorder, where the gap fills with states, the limit $\lim_{\kappa \rightarrow 0} \tilde{\mathcal{P}}_{\rm open}$ might become problematic as bulk states can cross $E=0$ as we tune $\kappa$ down. In order to avoid it we break chiral symmetry locally in the edge of the open chain so it only affects the zero modes. If any of the other states cross $E=0$ they do it in pairs such that $\tilde{\mathcal{P}}_{\rm open}$ is not affected by it. We show $\tilde{\mathcal{P}}_{\rm open}$ in Fig.\ref{winding}.(a) using the local symmetry breaking term for a strong disorder, $W=6t$, where the gap is indeed filled with states. In Fig.\ref{winding}.(b) we show $C$ for the continuous line in the phase diagram and increasing disorder strength. The Chern number as defined in \eqref{eq:Chern_number} indeed provides a topological invariant which can be compared with the winding number obtained in reference \cite{Song2014} for the same system. Note that for large enough systems the spectrum of $C_A$ is not affected by the local chiral symmetry breaking term other than the occupation of the zero-energy modes such that $C$ is still quantized, however near the transitions it is smoothen by the disorder average We show the error in the quantization of $C$ in figure \ref{winding}.(c) . 
+where $\omega_i$ and $\omega_i$ are randomly selected from $[-1/2,1/2]$. For very strong disorder, where the gap fills with states, the limit $\lim_{\kappa \rightarrow 0} \tilde{\mathcal{P}}_{\rm open}$ might become problematic as bulk states can cross $E=0$ as we tune $\kappa$ down. In order to avoid it we break chiral symmetry locally in the edge of the open chain so it only affects the zero modes. If any of the other states cross $E=0$ they do it in pairs such that $\tpo$ is not affected by it. We show $\tpo$ in Fig.\ref{winding}.(a) using the local symmetry breaking term for a strong disorder, $W=6t$, where the gap is indeed filled with states. For the chain without disorder this local symmetry-breaking term would result in the same Chern number. The main difference being that since it only affects the zero-modes, $\tpo$ is quantized to multiples of $1/2$.
+
+In Fig.\ref{winding}.(b) we show $C$ for the continuous line in the phase diagram and increasing disorder strength. The Chern number as defined in \eqref{eq:Chern_number} indeed provides a topological invariant which can be compared with the winding number obtained in reference \cite{Song2014} for the same system. Note that for large enough systems the spectrum of $C_A$ is not affected by the local chiral symmetry breaking term other than the occupation of the zero-energy modes such that $C$ is still quantized, however near the transitions it is smoothen by the disorder average. We show the error in the quantization of $C$ in figure \ref{winding}.(c) . \carlos{Fig.6.a seems important to discuss how with local symmetry braking term the relation between the chern number and the number of zero modes still remains. Maybe it would be enough to show a cut of 6.b }
 
 \mariac{removed the paragraph about appendix D}
 %\carlos{In Appendix D I give an expression for the winding number for flux insertion. However this expression seems problematic with a filled gap (Prodan refers to this). If we found an inhomogeneous term that induce a topological transition without filling the gap we can use this formula instead of comparing with the Prodan results, so we dont have to worry about the filled gap. 
 %Furthermore I worked an expression for this winding number in terms of the correlation function, which I believe we might be able to relate to our $\chi$. However I can only do this on the open chain, where the winding number itself is not well-defined because the Hamiltonian is not invertible. We can do the trick of splitting the edge-modes and arguing that the winding number should not change by doing that because its a  bulk property, but I'm not too sure about that, so it would be better if we found a way of computing the winding number for open chains.   }
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
+
+\section{Chern Number in 2D}
+
+We have shown how $\tpo$ allows us to compute Chern numbers of 1D chains in a simpler way. This can be generalized to 2D systems. Consider the following Chern insulator
+\begin{align}
+H =& \sum_{im\alpha,jn\beta} c_{im\alpha}^\dagger H_{im\alpha,jn\beta} c_{jn\beta}, \\
+H_{im\alpha,jn\beta}=& \frac{1}{2}(i\sigma_x-\sigma_z)\delta_{i,j+1}\delta_{mn}+\frac{1}{2}(-i\sigma_x-\sigma_z)\delta_{i,j-1}\delta_{mn} \nonumber\\
++&\frac{1}{2}(i\sigma_y -\sigma_z)\delta_{ij}\delta_{m,n+1} +\frac{1}{2}(-i\sigma_y -\sigma_z)\delta_{ij}\delta_{m,n-1} \nonumber\\
++&(2-m)\sigma_z\delta_{ij}\delta_{mn},
+\end{align}
+where $i,j$ describe the $x$ direction and $m,n$ the $y$ direction. The system with periodic boundary conditions is defined on a torus. In order to apply the method of computing $\tpo$ described in the last section we will open the torus into a cylinder periodic in $y$. We then fourier transform only the $y$ direction to obtain
+\begin{align}
+H =& \sum_{i\alpha,j\beta}\sum_{k_y} c_{i\alpha}^\dagger(k_y) H_{i\alpha,j\beta}(k_y) c_{j\beta}(k_y), \\
+H_{i\alpha,j\beta}(k_y)=& \frac{1}{2}(i\sigma_x-\sigma_z)\delta_{i,j+1}+\frac{1}{2}(-i\sigma_x-\sigma_z)\delta_{i,j-1} \nonumber\\
++&\sin(k_y)\sigma_y+[2-m-\cos(k_y)]\sigma_z.
+\end{align}
+We can treat the Hamiltonian with elements $H_{i\alpha,j\beta}(k_y)$ as a 1D Hamiltonian with an extra parameter $k_y$ and compute $\tpo$, or equivalently $A_\Phi(\Phi,k_y)$, as in last section. But first lets analyze the entanglement occupancy spectrum of this system, shown in Fig.\ref{chern_insulator}(a) and (b) for $m=1,3$ respectively. For $0<m<2$ the EOS presents two edge modes that connect the occupied and empty bands that cross $\xi=1/2$ at $k_y=0$, in this region the system has a Chern number $C=+1$. For $2<m<4$ there are also edge modes but they cross $\xi=1/2$ at $k_y=\pi$ and the system has $C=-1$. For $m>4$ the system is a trivial insulator with $C=0$. When we open the chain one of the edge modes will be pushed to the bulk and will present a jump between $\xi=1,0$ whenever the edge-modes crossed zero energy. In this model, due to the symmetries, this is only possible at $k_y=0,\pi$. 
+
+We can now take a look at $\tpo$ in the parameter space $(m,k_y)$, shown in figure \ref{chern_insulator}.(c). We see, again, that $\tpo$ remains continous except for the branch cuts that appear at the points where the physical edge-modes cross zero energy. The Chern number can be obtained as
+\begin{equation}
+C(m) = \int_{-\pi}^{\pi}\frac{dk_y}{2\pi} \partial_{k_y} \tpo(m,k_y),
+\label{eq:Zaletel_chern}
+\end{equation}
+However, since we know the position of the branch cuts we can integrate avoiding them and obtain
+\begin{align}
+C(m) =& [\tpo(m,k_y=0^-)-\tpo(m,k_y=-\pi^+)]\\
+&+[\tpo(m,k_y=\pi^-)-\tpo(m,k_y=0^+)].
+\end{align}
+
+
+\begin{figure}[t]
+	\centering
+	\makebox[0pt]{
+		\subfloat[Spectrum of $C_{A}$ for $m=1$]{
+			\includegraphics[width=45mm]{chernES0.pdf}
+		}
+		\subfloat[Spectrum of $C_{A}$ for $m=3$]{
+			\includegraphics[width=45mm]{chernESpi.pdf}
+		}
+	}\hspace{0mm}
+	
+	\makebox[0pt]{
+		\subfloat[$\tpo-L/2$]{
+			\includegraphics[width=45mm]{cherntpo.pdf}
+		}
+		\subfloat[$\tilde{\mathcal{P}}$ mod 1]{
+			\includegraphics[width=45mm]{cherntp.pdf}
+		}
+	}\hspace{0mm}
+	
+	\makebox[0pt]{
+		\subfloat[$\tpo-L/2$]{
+			\includegraphics[width=45mm]{cherntpo4.pdf}
+		}
+		\subfloat[$\tilde{\mathcal{P}}$ mod 1]{
+			\includegraphics[width=45mm]{cherntp4.pdf}
+		}
+	}
+	
+	\caption{Polarization $\tpo$ computed for $t=1,\kappa'=0$ and system size $L=160$, for the SSH chain $t'=0$ in (a) and for $t'=-2$ in (b) CHANGE}
+	\label{chern_insulator}
+\end{figure}
+
+
+To ilustrate the advantage of using $\tpo$ instead of $\tilde{\mathcal{P}}$ we also show the latter in the same parameter space. In order to obtain the Chern number there is no way of avoiding having to compute the derivative and subsequent integration of
+\begin{align}
+C(m) =& [\tpo(m,k_y=0^-)-\tilde{\mathcal{P}}(m,k_y=-\pi^+)]\\
+&+[\tpo(m,k_y=\pi^-)-\tpo(m,k_y=0^+)],
+\end{align}
+as we no longer know in advance where the branch cuts will appear, due to it being defined modulo 1. This example seems a bit trivial as the Chern number is also easy to identify from the plot of $\tilde{\mathcal{P}}$ as well but in systems with higher Chern numbers $\tilde{\mathcal{P}}$ will wind around the circle several times which will make this more difficult. \carlos{Figures 7.e and f are computed for the same system where instead of nearest-neighbor hopping in the x direction we use a 4th neighbor hopping ($\delta_{i,j+1} \rightarrow \delta_{i,j+4}$), to illustrate the challenges of computing the Chern number when the integrand is only defined modulo 1. This is similar to the issues we had when doing the cut-average. One needs to identify whenever $\tilde{\mathcal{P}}$ (or $\chi$) crosses 1 or 0 to compute the derivative and integral properly.
+
+Note also that we are computing the Chern number in the torus defined by $(\Phi,k_y)$. It seems a bit weird to mix both flux and momentum but it works in the end. If we were to introduce another flux in the other direction the system would no longer be effectively 1D so I don't know if everything we do would still apply in the same way or if it would provide any advantage.´ }
+
+
+% - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
+
 
 
 \section{Conclusion}
@@ -826,6 +890,5 @@ Consider now that we parametrize a loop in parameter space as $m=1-\cos(\theta),
 %\end{align}
 %where in the last step we use one of the properties of the correlation function stemming from $C^2 = C$. (\carlos{So far this expression gives the correct result for translationally invariant systems however one needs to do the trick of breaking chiral symmetry slightly. However, unlike with $\tilde{\mathcal{P}}$ this expression is not discontinuous at $\kappa = 0$. })
 %
-
 
 \end{document}
