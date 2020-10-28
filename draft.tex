@@ -9,15 +9,19 @@
 \usepackage{bm}
 \usepackage{caption}
 \usepackage{amsmath} 
+\usepackage{mathtools}
 
 \newcommand{\carlos}[1]{{\color{red} #1}}
 \newcommand{\maria}[1]{{\color{blue} #1}}
 \newcommand{\mariac}[1]{{\it\color{cyan}#1}}
-
+\newcommand{\changed}[1]{{\color{orange}#1}}
+\newcommand{\tpo}{\tilde{\mathcal{P}}_{\rm o}}
+\newcommand{\brapsio}[1]{\bra{\tilde{\Psi}_{{\rm o}}^#1}}
+\newcommand{\ketpsio}[1]{\ket{\tilde{\Psi}_{{\rm o}}^#1}}
 	
 \begin{document}
 		
-\title{On the relation of the entanglement spectrum to the Zak-phase}
+\title{On the relation of the entanglement spectrum to the bulk polarization \\ DRAFT}
 \author{Carlos Ortega Taberner}
 \affiliation{Department of Physics, Stockholm University, AlbaNova University Center, SE-106 91 Stockholm, Sweden}
 \affiliation{Nordita, KTH Royal Institute of Technology and Stockholm University, SE-106 91 Stockholm, Sweden}
@@ -26,7 +30,10 @@
 \affiliation{Department of Physics, Stockholm University, AlbaNova University Center, SE-106 91 Stockholm, Sweden}
 \affiliation{Nordita, KTH Royal Institute of Technology and Stockholm University, SE-106 91 Stockholm, Sweden}
 \date{\today}
-		
+\begin{abstract}
+The bulk polarization is a $\mathbb{Z}_2$ topological invariant for systems in one dimension with chiral or particle-hole symmetries. It is therefore related to the number of topological edge modes by the bulk-boundary correspondence. We show that the bulk polarization can always be decoded from the single-particle entanglement spectrum, even in the absence of symmetries that quantize it. From this relation the bulk-boundary correspondence can be derived in the presence of chiral and particle-hole symmetries. We use the bulk polarization to compute Chern numbers in 1D and 2D systems and show their relation to the entanglement spectrum. Furthermore we propose an alternative bulk polarization that can carry more information about the surface spectrum than the conventional one and can simplify the calculation of Chern numbers. 
+\end{abstract}
+
 \maketitle
 	
 
@@ -41,48 +48,47 @@ Symmetries are often necessary to protect these topological phases, and determin
 There are few tools to identify topological phases. 
 A very efficient one is the entanglement entropy~\cite{Kitaev2006topological, Levin2006detecting}, which allows one to identify the total quantum dimension of the underlying topological quantum field theory. 
 As such, the entanglement entropy can only be used for interacting systems. 
-Its main drawback is the fact that it can only provide one of the pertinent quantum numbers that characterizes the system, and is, thus,  not able to uniquely determine the topologically ordered phase at hand. 
+Its main drawback is the fact that it can only provide one of the pertinent quantum numbers that characterizes the system, and is, in general,  not able to uniquely determine the topologically ordered phase at hand. 
 In addition, it requires a careful scaling analysis, which can be challenging for strongly correlated systems. 
 Another, closely related tool, is the entanglement spectrum (ES), originally introduced for fractional quantum Hall systems~\cite{Li2008entanglement}. 
 It was conjectured to provide information about the edge spectrum, which was later shown to be a general feature of ground states with an effective topological quantum field theory description~\cite{Qi2012general}. 
-It also proved to be an effective tool for fractional Chern insulators~\cite{Regnault2011fractional} and certain quantum spin liquids~\cite{yao2010entanglement}. \mariac{Others?}
+It also proved to be an effective tool for fractional Chern insulators~\cite{Regnault2011fractional} and certain quantum spin liquids~\cite{yao2010entanglement}. %\mariac{Others?}
 
 Generically, any of the proposed tools provides some information about the phase naturally, while others seem inaccessible. 
-It is not known, whether there exists a method to obtain the full topological data from the ground state. 
+It is not known, whether there exists a method to obtain the full topological content from the ground state. 
 For the simplest quantum Hall states, the Laughlin states,  it was shown that the ES does, in fact, contain the full information about the topological phase~\cite{hermanns2011haldane}.
 However, it is far from clear if this holds for more complicated, in particular nonabelian, states as well.  
 
-Here, we address a much simpler question: what information can be extracted from the ES of \emph{non-interacting} systems?
-The latter can be computed very efficiently, using methods developed by Peschel and others~\cite{Peschel2003}. 
-It was subsequently shown for topological insulators/superconductors that the ES for (gapped) periodic systems is equivalent to the flat-band energy spectrum of the corresponding system with open boundaries~\cite{Fidkowski2010entanglement}. 
-The same correspondence was also found for closely related gapless systems~\cite{Matern2018entanglement}
-However, even for non-interacting systems, it is unclear which information (beyond the  `edge' spectrum) is encoded in the spectrum. 
 
-In this manuscript, we show that the information about the Zak phase can be completely recovered from the entanglement spectrum and provide a simple formula to do so. 
+For \emph{non-interacting} topological insulators/superconductors the ES for (gapped) periodic systems can be computed very efficiently, using methods developed by Peschel and others~\cite{Peschel2003}. The ES in these systems is equivalent to the band-flattened energy spectrum of the corresponding system with open boundaries~\cite{Fidkowski2010entanglement}. The same correspondence was also found for closely related gapless systems~\cite{Matern2018entanglement}. However, even for non-interacting systems, it is unclear which information (beyond the  `edge' spectrum) is encoded in the entanglement spectrum. In this manuscript, we show that the information about the Zak phase, or the bulk polarization, can be completely decoded from the entanglement spectrum and provide a simple formula to do so. 
+We also show how to extend this method to compute the Chern number directly from the entanglement spectrum. In obtaining these topological invariants, the Zak phase and the Chern number, directly from the entanglement spectrum the \emph{bulk-boundary correspondence} is seen in an explicit way.
+
 The relation between the entanglement spectrum and various topological invariants has already been studied in the literature. 
 In Ref.~\cite{Zaletel2014}, the authors show that the Zak phase can be computed from the Schmidt decomposition of a translation invariant, infinite chain. 
-This demonstrates that there should be a direct relation between the single-particle entanglement energies and the Zak phase, although deriving that relation turned out to be non-trivial. 
-An added benefit of our approach is that it can be generalized to systems that are not translationally invariant in a numerically efficient way. 
-A particular limit of our result for homogeneous systems~\ref{eqplusminus} was derived by Ryu and Hatsugai for a fully dimerized SSH chain~\cite{Ryu2006}. 
-The similarity between the behavior of the Zak phase and the 'virtual edge modes' in the entanglement spectrum of a Chern insulator, which was observed in Ref.~\cite{Huang2012,Huang2012-2}, can also be explained by our results. 
+This demonstrates that there should be a direct relation between the single-particle entanglement energies and the Zak phase, although deriving that relation turned out to be non-trivial. A particular limit of our result for homogeneous (translationally invariant) systems~\eqref{eq:chi_integrable} was derived by Ryu and Hatsugai for a fully dimerized SSH chain~\cite{Ryu2006}. 
+The similarity between the behavior of the Zak phase and the 'virtual edge modes' in the entanglement spectrum of certain Chern insulators, which was observed in Ref.~\cite{Huang2012,Huang2012-2}, can also be explained by our results. 
+The bulk polarization is defined in $\mathbb{R}$ mod 1, which presents challenges when computing changes in the polarization, which are defined  in $\mathbb{R}$. We show how, using our method, one can define an alternative bulk polarization computed in the equivalent open chain that is defined in $\mathbb{R}$. The bulk polarization obtained this way can give more information about the edge spectrum than the usual one, and can be used to simplify the computation of Chern numbers. We also discuss the relation between this alternative bulk polarization and another topological invariant known as the trace index \cite{Alexandrinata2011}.
 
-
-\emph{Outline of the paper}: In section II we introduce the model used throughout the paper and we discuss its phase diagram. In section III we introduce the Zak phase and the entanglement spectrum and set up the notation that will be used. In section IV and V we show our results for homogeneous and inhomogeneous systems, respectively. In section VI we will discuss how our results also generalize to the case of models with pairing terms and finally in section VII we present the conclusions and possible outlook.
+\emph{Outline of the paper}: In section II we introduce the model used throughout the paper and we discuss its phase diagram. In section III we introduce the polarization, the different ways one can define it and its relation to the Zak phase. In section IV we introduce the entanglement spectrum and set the notation that will be used. In section V we introduce the method and show how it reproduces the Zak phase for both systems with and without translational invariance. In section VI we explain how the method applied to the opened chain allows us to compute Chern numbers for systems both in 1D and 2D.%and winding numbers 
+and finally in section VII we present the conclusions and possible outlook.
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
-\section{Model.}
-To showcase our results we consider as a starting point the model in the BDI class used in reference~\cite{Song2014}. 
-This is a very simple model which nevertheless supports a rich phase diagram containing topological phases with winding numbers up to $\nu =2$. 
-In order to show that our results are not limited to any symmetry class~\cite{ryu2010topological}, we also include two symmetry breaking terms. 
-The Hamiltonian is  given by
+\section{Model}
+To showcase our results we consider as a starting point a model in the BDI class~\cite{Song2014}. 
+This is a simple model which nevertheless supports a rich phase diagram containing topological phases with winding numbers up to $\nu =2$. 
+In order to show that our results are not limited to any particular symmetry class~\cite{ryu2010topological}, we also include two symmetry breaking terms. 
+The Hamiltonian is then given by
 \begin{align}
-H =& \sum_{i\alpha,j\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta} c_{j\beta} \\
+H =& \sum_{i\alpha,j\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta} c_{j\beta},
+\end{align}
+where $H_{ij} $ is given by 
+\begin{align}
 H_{ij} =& (m \sigma_x + \kappa \sigma_z)\delta_{ij}  + \frac{1}{2i}\kappa'\sigma_z (\delta_{i-j,1}-\delta_{i-j,-1})\nonumber\\
 &+ \frac{1}{2} t \left[(\sigma_x + i \sigma_y)\delta_{i,j+1} + (\sigma_x - i \sigma_y) \delta_{i,j-1} \right] \nonumber\\
 &+  \frac{1}{2} t' \left[(\sigma_x + i \sigma_y)\delta_{i,j+2} + (\sigma_x - i \sigma_y) \delta_{i,j-2} \right],
 \label{bdi_model}
 \end{align}
-with the corresponding Bloch Hamiltonian being
+and the corresponding Bloch Hamiltonian is given by
 \begin{align}
 H(k)=&\mqty( \kappa + \kappa' \sin(k) & t' e^{i2k} + t e^{ik}+m \nonumber\\t' e^{-i2k} + t e^{-ik}+m & -\kappa-\kappa' \sin(k)  )\nonumber \\
 =& (t' \cos(2k)+t\cos(k)+m)\sigma_x \\
@@ -95,147 +101,210 @@ For $\kappa = \kappa' = 0$ this Hamiltonian is in the BDI class, i.e. it has tim
 &C = \sigma_z\mathcal{K} ; \quad &&C H(-k) C^{-1} = -H(k) \nonumber\\
 &S = \sigma_z ; \quad &&S H(k)S^{-1} = -H(k) .
 \end{alignat}
-Using the results of Ref.~\cite{Song2014}, the corresponding phase diagram can be calculated and is shown in Fig.\ref{fig:bdi_phase_diagram} for $t=1$. 
+The corresponding phase diagram \cite{Song2014} is shown in Fig.\ref{fig:bdi_phase_diagram} for $t=1$. 
 \begin{figure}[t]
 	\centering
-	\makebox[0pt]{
-	\subfloat[$t = 1,\kappa =\kappa'=0$]{
-	  \includegraphics[width=45mm]{phase_diagram2.pdf}
-	}}\hspace{0mm}
-\caption{\mariac{ Get rid of (a).}Phase diagram for the system in the $BDI$ class showing the winding number of each region.}
+	\includegraphics[width=66mm]{fig1.pdf}
+	\caption{Phase diagram for the system in the $BDI$ class showing the winding number of each region. Plotted for parameters $t = 1,\kappa =\kappa'=0$. Three cuts of the phase diagram are shown with continuous, dashed and dotted lines which will be used in the rest of the figures.}
 \label{fig:bdi_phase_diagram}
 \end{figure}
 The BDI class  is characterized by a $\mathbb{Z}$ invariant, the winding number,  in one spatial dimension.
-When imposing open boundary conditions on the system, the number of symmetry-protected zero energy edge modes is equal to the winding number. 
+When open boundary conditions are imposed on the system, the number of symmetry-protected zero energy edge modes is equal to the winding number. 
 The behavior of the  edge modes  is  shown in Fig.~\ref{fig:zero_E_modes}, using the dotted path ($t=1,t'=-2$) marked in the phase diagram. 
-Subfigure (a) shows the edge spectrum in the BDI class, with 4 (resp. 2) symmetry-protected zero modes for winding number 2 (1). 
+Figure~\ref{fig:zero_E_modes}.a shows the edge spectrum in the BDI class, with 4 (resp. 2) symmetry-protected zero modes for winding number 2 (1). 
 %We also a cut through the three phases (dotted line in the phase diagram) for different values of $\kappa,\kappa'$.  
 
-For $\kappa' \neq 0$ only particle-hole symmetry $C$ is preserved and the system belongs to symmetry class $D$. 
+For $\kappa' \neq 0$, only particle-hole symmetry $C$ is preserved and the system belongs to symmetry class $D$. 
 In one spatial dimension, the latter is characterized by a $\mathbb{Z}_2$ invariant.  
 Consequently, adding such a term causes the zero modes in the $\nu=2$ phase to split  pairwise and the $\nu = 2$ and $\nu=0$ phases become equivalent. 
-This is shown in subfigure (c), where one clearly sees that the zero modes below $m=1$ are split. 
+This is shown in figure~\ref{fig:zero_E_modes}.b, where one clearly sees that the zero modes below $m=1$ are split. 
 
 For $\kappa \neq 0$ only time-reversal $T$ is preserved and the system is in the AI class. 
 In one dimensions, this class is trivial and, thus,  all zero-energy modes split. 
-With both $\kappa \neq 0$ and $\kappa' \neq0$ the system has no symmetry, thus belonging to the $A$ class.  
+With both $\kappa \neq 0$ and $\kappa' \neq0$ the system has no local symmetry, thus belonging to the $A$ class.  
 Also this symmetry class is topologically trivial in one dimension. 
-Subfigures (b) and (d) show the edge spectrum for class AI and A, respectively. In both cases, the edge modes are split from zero for all values of $m$.
+Figure~\ref{fig:zero_E_modes}.c and d show the edge spectrum for class AI and A, respectively. In both cases, the edge modes are split from zero for all values of $m$.
 
-
-%
-%In subfigure (b) and (d), where the system is in a topologically trivial phase, all edge modes are gapped. 
-%Subfigure (c) shows the edge spectrum of the system being in class D, where the $\nu=2 $ phase becomes trivial. 
-%Consequently, symmetry-protected zero modes only exist for $1<m<2.5$\mariac{?} (corresponding to $\nu=1$ for $\kappa'=0$) , whereas the modes are split for $m<1$ (corresponding to $\nu=2$ for $\kappa'=0$).
-
+\iffalse
 \begin{figure}[h!]
 \centering
-%\makebox[0pt]{
-%\subfloat[$t = 1,\kappa =\kappa'=0$]{
-%  \includegraphics[width=45mm]{phase_diagram2.pdf}
-%}}\hspace{0mm}
-
 \makebox[0pt]{
 \subfloat[$\kappa =\kappa'=0$]{
-  \includegraphics[width=35mm]{2a.pdf}
+  \includegraphics[width=43mm]{fig21.pdf}
 }
-\subfloat[$\kappa = 0, \kappa'=0.3$]{\includegraphics[width=35mm]{2b.pdf}
+\subfloat[$\kappa = 0, \kappa'=0.3$]{\includegraphics[width=43mm]{fig22.pdf}
 }
 }\hspace{0mm}
 
 \makebox[0pt]{
-\subfloat[$\kappa = .3,\kappa'=0$]{
-  \includegraphics[width=35mm]{2c.pdf}
+\subfloat[$\kappa = 0.3,\kappa'=0$]{
+  \includegraphics[width=43mm]{fig23.pdf}
 }
-\subfloat[$\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=35mm]{2d.pdf}
+\subfloat[$\kappa = 0.3,\kappa'=0.3$]{\includegraphics[width=43mm]{fig24.pdf}
 }
 }
-\caption{\mariac{increase system size and colorcode edge modes.}Edge spectrum along the dotted path (i.e. $t=1,t'=-2$) of Fig.~\ref{fig:bdi_phase_diagram} for different values of $\kappa$ and $\kappa'$.\mariac{note on numerical system size}}
+\caption{Edge spectrum along the dotted path (i.e. $t=1,t'=-2$) of Fig.~\ref{fig:bdi_phase_diagram} for different values of $\kappa$ and $\kappa'$.}
+\label{fig:zero_E_modes}
+\end{figure}
+\fi
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=86mm]{fig2comp.pdf}
+\caption{Energy spectrum with open boundary conditions along the dotted path (i.e. $t=1,t'=-2$) of Fig.~\ref{fig:bdi_phase_diagram} plotted for different values of the symmetry-breaking terms (a) $\kappa =\kappa'=0$ , (b) $\kappa = 0, \kappa'=0.3$, (c) $\kappa = 0.3,\kappa'=0$ and (d) $\kappa = 0.3,\kappa'=0.3$}
 \label{fig:zero_E_modes}
 \end{figure}
 
+In Table \ref{fig:class_table} we summarize the different classes that are hosted by this model together with the correspondent symmetries and topological invariants in 1D. 
+
+
+\begin{table}[h]
+\centering % centering table
+\begin{tabular}{|c |rrr| c|c|} % creating eight columns
+\hline\hline %inserting double-line
+Model &  $T$ & $C$ & $S$ & Class & inv.  \\  [1ex] 
+\hline
+$\kappa =0,\kappa'=0$ &  1 & 1 & 1 & BDI  & $\mathbb{Z}$\\  [1ex] 
+$\kappa =0,\kappa' \neq0$ &  0 & 1 & 0 & D  & $\mathbb{Z}_2$ \\  [1ex] 
+$\kappa \neq 0,\kappa'=0$ &  1 & 0 & 0 & AI & 0 \\  [1ex] 
+$\kappa \neq 0,\kappa' \neq 0$ &  0 & 0 & 0 & A & 0  \\  [1ex] 
+\hline \hline%title of the table
+\end{tabular}
+\caption{Different Cartan classes hosted by the model in Eq.\ref{bdi_model}, with the correspondent symmetries and topological invariants in 1D.} 
+\label{fig:class_table}
+\end{table}
+
+
+
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
-\section{Zak phase and entanglement spectrum}
-In this section, we review some relevant information about firstly the Zak phase and secondly the entanglement spectrum in non-interacting systems. 
-We consider a generic, quadratic Hamiltonian in one dimension
+\section{Geometric phases and polarization}
+
+In this section we review some aspects of the modern theory of polarization, which gave a geometrical description of the polarization \cite{Resta1992,KingSmith1993,Vanderbilt1993,Resta1997}. 
+We also discuss the results of a recent article by Watanabe and Oshikawa \cite{Watanabe2018} that clarified the meanings of the different polarizations one can define this way, as well as the relations between them. 
+For clarity we will use the same notation they use. 
+
+Consider a generic, quadratic Hamiltonian in one dimension
 \begin{equation}\label{eq:quadr_Ham}
 \mathcal{H} = \sum_{ij,\alpha\beta} c_{i\alpha}^\dagger H_{ij,\alpha \beta}c_{j\beta}.
 \end{equation}
-We can obtain the single-particle eigenstates as
+We can obtain its single-particle eigenstates as
 \begin{align}
-\sum_{j\beta}H_{ij,\alpha\beta} u^{p\mu}_{j\beta} = E_{p\mu} u_{i\alpha}^{p\mu},
+\sum_{j\beta}H_{ij,\alpha\beta} u_{p\mu}^{j\beta} = E_{p\mu} u^{i\alpha}_{p\mu},
 \end{align}
-where $[U]_{j\beta,p\mu} = u^{p\mu}_{j\beta}$ is the unitary matrix that diagonalizes $H$. 
-
-In translational invariant systems the Zak phase is defined as the Berry phase acquired by a state $\ket{u_k}$ as it winds around the Brillouin zone,
+where $[U]_{j\beta,p\mu} = u_{p\mu}^{j\beta}$ is the unitary matrix that diagonalizes $H$. In translational invariant systems $u_{k\mu}^{j\beta} = e^{ikj}\tilde{u}_{k \mu}^{\beta}$, where $\tilde{u}_{k \mu}^{\beta}$ are the components of the eigenstates of the Bloch Hamiltonian, $\ket{\tilde{u}_{k\mu}}$ and $k$ is the momentum. One can now compute the Zak phase \cite{Zak1989}, which for a two-band  model is defined as the geometric phase acquired by the occupied state $\ket{\tilde{u}_k}$ as it winds around the Brillouin zone,
 \begin{equation}
-\gamma = \int_{-\pi}^\pi dk \, \bra{u_k}\partial_k \ket{u_k} \, {\rm mod}\, 2\pi.
+\gamma = \int_{0}^{2\pi} {\rm d}k\, i A_k, 
+\label{eq:zak_phase}
 \end{equation}
-The Zak phase is equal to $\pi$ times the parity of the winding number, and it is also related to the polarization \cite{Resta1997}. Since the latter has a position space formulation we will use  it in all calculations below to compute the Zak phase. 
+where $A_k = \bra{\tilde{u}_k}\partial_k \ket{\tilde{u}_k}$ is the Berry connection \cite{Berry1984}. 
+The generalization to higher-band models is straightforward. 
 
-The polarization can be obtained from the many-body average of the position operator of electrons and ions, but the position operator has to be regularized for periodic boundary conditions \cite{Resta1997}. 
-We can define a position operator for PBC as
+The Zak phase is typically regarded as just a phase because it is only gauge invariant modulo $2\pi$. However, for two different states defined by a parameter $\lambda$ --- assuming $A_k(\lambda)$ is smooth in the path connecting them --- the change in the Zak phase can be computed as
 \begin{equation}
-\hat{X}_{\rm PBC} = e^{-i\frac{2\pi}{L}\hat{X}},
+\Delta {\gamma_{\lambda_i \lambda_f}} = \int_{\lambda_i}^{\lambda_f} d\lambda\int_{0}^{2\pi} dk \, \Omega_{\lambda k},
+\label{eq:change_zak_phase}
 \end{equation}
-where $\hat{X}$ is the sum of all the single-particle position operators. 
-
-We can now consider then the many-body average of the position operator over the ground state, defined as
-\begin{align}
-\expval{\hat{X}_{\rm PBC}}_0 \equiv -\frac{L}{2\pi} \rm{ Im }\ln\bra{\Psi_0}\hat{X}_{\rm PBC}\ket{\Psi_0},
+where 
+\begin{align}\label{eq:BerryCurvature}
+\Omega_{\lambda k} = \partial_\lambda A_k(\lambda,k) - \partial_k A_\lambda(\lambda,k)
 \end{align}
-%\carlos{This is the notation used in the Resta paper, but I'm not sure if it's confusing.}
-where $\ket{\Psi_0}$ is the many-body ground state. 
-Using that the ground state is a Slater determinant of the occupied single-particle eigenstates, $\ket{u^{p\mu}}$, it can be rewritten as~\cite{Resta1997}
+ is the Berry curvature. The Berry curvature is fully gauge invariant and, therefore, the change in the Zak phase in Eq.\eqref{eq:change_zak_phase} is defined in $\mathbb{R}$. %?
+The Zak phase itself, as defined in Eq.~\eqref{eq:zak_phase}, can be shown to be proportional to the winding number for a certain gauge (see Appendix \ref{appendix:winding_ssh}), which means that it carries physical information beyond modulo $2\pi$. Note that other ways of computing the Zak phase rely on computing $e^{i\gamma}$ instead, such that the result is always defined only modulo $2\pi$.
+
+The derivative of the polarization with respect to $\lambda$ was obtained \cite{KingSmith1993} as
+\begin{equation}\label{eq:Bloch_polarization}
+\partial_\lambda \tilde{\mathcal{P}}^{\rm Bloch} = \int_{0}^{2\pi} \frac{dk}{2\pi} \, \Omega_{\lambda k},
+\end{equation}
+which allows us to make the identification $ \tilde{\mathcal{P}}^{\rm Bloch} = \gamma/2\pi$. 
+As discussed above,  this polarization is defined only modulo 1.
+Its changes, however, are defined in $\mathbb{R}$. The polarization itself is not a physical observable. Only its changes, related to the current flowing through the system, are.
+
+One can also compute the geometric phase obtained by threading a $U(1)$ flux through the ring \cite{Watanabe2018}, which allows us to compute a polarization in the absence of translational invariance. If the flux is introduced homogeneously through a vector potential $A_x = \Phi/L$ an equivalent polarization can be defined as
+\begin{equation}
+\mathcal{P} = \int_0^{2\pi}\frac{d\Phi}{2\pi} i\bra{\Psi^\Phi}\partial_\Phi \ket{\Psi^\Phi} + \frac{1}{2\pi}\Im\ln \bra{\Psi^0}e^{2\pi i \hat{P}} \ket{\Psi^{2\pi}}, 
+\end{equation}
+where $\ket{\Psi^{\Phi}}$ is the ground state in the presence of flux and $\hat{P}=\frac{1}{L}\sum_{j\alpha} j\hat{n}_{j\alpha}$ is the polarization operator, where $\hat{n}_{j\alpha}$ is the number operator. This is equivalent to the polarization obtained by Resta \cite{Resta1997} as
 \begin{align}
-\expval{\hat{X}_{\rm PBC}}_0 = -\frac{L}{2\pi} \rm{Im }\ln \, {\rm det }\!' \, S,
+\mathcal{P} = \frac{1}{2\pi} \Im \,\ln\bra{\Psi^{\Phi=0}}e^{2\pi i \hat{P}}\ket{\Psi^{\Phi=0}}.
+\end{align}
+This expression is particularly useful because it can be easily expressed in terms of single-particle eigenstates as
+\begin{align}
+\mathcal{P} = \frac{1}{2\pi}\Im \ln \, {\rm det }\!' \, S,
+\label{eq:polarization_resta}
 \end{align}
 where the matrix $S$ is given by
 \begin{equation}
-S_{p\mu,q\nu} = \sum_{j\alpha} u^{p\mu\, \ast}_{j \alpha} e^{-i\frac{2\pi}{L}j}u^{q\nu}_{j \alpha}
+S_{p\mu,q\nu} = \sum_{j\alpha} u_{p\mu}^{j \alpha \, \ast} e^{i\frac{2\pi}{L}j}u_{q\nu}^{j \alpha},
 \end{equation}
-and  ${\rm det }\!' $ indicates that the determinant is restricted to the space of \emph{occupied} single-particle states. Note that for an open chain the many-body average position of the ions will sit at a site when the chain length is odd and at a link when the length is even. The same result applies in the system with periodic boundary conditions, i.e. $\expval{\hat{X}_{PBC,+}}_{0}=(1+(-1)^{L})/4$.
-The Zak phase can then be obtained as
-\begin{align}
-\gamma =& \left( \expval{\hat{X}_{\rm PBC}}_0-\expval{\hat{X}_{\rm PBC,+}}_0 \right)\frac{2\pi}{L} \\
-=& \expval{\hat{X}_{\rm PBC}}_0\frac{2\pi}{L} -(1+(-1)^{L})/4.
+and  ${\rm det }\!' $ indicates that the determinant is restricted to the space of \emph{occupied} single-particle states. Below we will compare the bulk polarization obtained using our method to the one obtained using equation~\eqref{eq:polarization_resta}.
+
+There is one last polarization we must consider. 
+It is obtained when the flux is introduced in the bond between sites $j=1$ and $j=L$ via twisted boundary conditions. This is equivalent to performing the gauge transformation
+\begin{align}\label{eq:Psi_tilde}
+\ket{\tilde{\Psi}^\Phi}=e^{i\Phi \hat{P}}\ket{\Psi^\Phi},
 \end{align}
+which makes $\ket{\tilde{\Psi}^\Phi}$ fully periodic in $\Phi$. We can now define the polarization
+\begin{equation}
+\tilde{\mathcal{P}} = \int_0^{2\pi}\frac{d\Phi}{2\pi} i\bra{\tilde{\Psi}^\Phi}\partial_\Phi \ket{\tilde{\Psi}^\Phi},
+\label{eq:p_tilde}
+\end{equation}
+which is related to the current flowing through this bond \cite{Watanabe2018}. This polarization is related to the homogeneous polarization by 
+\begin{equation}
+\mathcal{P}= \tilde{\mathcal{P}}+\tilde{\mathcal{P}}_0,
+\end{equation} 
+where
+\begin{equation}
+\tilde {\mathcal{P}}_0= \int_0^{2\pi}\frac{d\Phi}{2\pi} \bra{\tilde{\Psi}^\Phi}\hat{P}\ket{\tilde{\Psi}^\Phi}.
+\end{equation} 
+%The previous discussion about the Zak phase being defined only modulo $2\pi$ although its changes can be defined as a real number applies in the same way to the polarization obtained in \eqref{eq:p_tilde}.
+Similar to the discussion about the Bloch polarization below Eq.~\eqref{eq:Bloch_polarization}, both $\mathcal{P}$ and $\tilde{\mathcal{P}}$ are defined modulo 1, while their changes are defiend in $\mathbb{R}$. For translationally invariant systems one finds that $\tilde{\mathcal{P}} = \tilde{\mathcal{P}}^{\rm Bloch}$ \cite{Watanabe2018}. 
+
+
+\section{Entanglement spectrum}
+\label{section:ES}
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=85mm]{chain.pdf}
+	\caption{Schematic of the chain with periodic boundary conditions considered, where the different sites are labeled by their position. The bipartition into regions $A$ and $B$ is shown. Other subregions of $A$ considered in the text are also shown. }
+\label{fig:chain}
+\end{figure}
+
 
 Let us now proceed to discuss the entanglement spectrum. 
 An important quantity is the correlation matrix, which in position space is defined by
 \begin{align}
 C_{ij}^{\alpha \beta} = \expval{c_{i\alpha}^\dagger c_{j\beta}}.
 \end{align}
-Using the results of appendix~\ref{app:CM}, it  can be written  as
+For a system where all single-particle eigenstates with energies $E<0$ are occupied, the correlation matrix can be written  in terms of the Hamiltonian as
 \begin{align}\label{eq:corr_mat2}
-C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{-1/2} \right]_{ij, \alpha \beta}.
+C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{1/2} \right]_{ij, \alpha \beta}.
 \end{align}
-This form is particularly useful for all our subsequent calculations, since it does not rely on translation symmetry. 
+This form is particularly useful for all our subsequent calculations, since it does not require diagonalizing the Hamiltonian.
 
 In this manuscript, we are mainly interested in the spectrum of the correlation matrix, when restricted to a spatial sub-region $A$ (its complement will be denoted by $B$ in the following). 
-Following Ref.s~\cite{Huang2012,Huang2012-2}, we refer to this spectrum as the entanglement occupancy spectrum (EOS). 
-The resulting eigenvalues  are denoted by $\xi_j$. 
-%We will differentiate between two types of eigenvalues: those (exponentially) close to $\xi_j=0 (1)$ correspond to ``bulk'' states, by which we mean that the corresponding eigenstates lie (up to exponentially small corrections) in  $A$ ($B$). 
-%Values $0<\xi_{l,r}<1$ indicate states that are located at the virtual boundaries -- labeled `left' and `right' in the following-- between $A$ and $B$~\cite{Peschel2008}. 
-%There is, of course, an ambiguity here on dividing eigenstates of the EOS into ``bulk'' and ``edge'' states and `how close' the eigenvalue has to be to $0,1$ in order to qualify as a bulk state. 
-%XXXX
-Topological phases are characterized by (symmetry-protected) zero-energy modes in the edge spectrum and $\xi=\frac 1 2$ modes in the OES~\cite{Fidkowski2010entanglement}.
+Following Ref.s~\cite{Huang2012,Huang2012-2}, we refer to this spectrum as the entanglement occupancy spectrum (EOS).
+We denote the eigenvalues of the EOS by $\xi_j$. 
+Topological phases are characterized by (symmetry-protected) zero-energy modes in the edge spectrum and $\xi=\frac 1 2$ modes in the EOS~\cite{Fidkowski2010entanglement}.
  
 
 The EOS is in one-to-one correspondence to the entanglement spectrum (ES). 
-Following Ref.~\cite{Peschel2008}, one can write the  reduced density matrix as 
+Following Ref.~\cite{Peschel2003}, one can write the  reduced density matrix as 
 \begin{align}\label{eq:red_dens_mat}
 \rho_A&=\mathcal{K} \exp(-\mathcal H),
 \end{align}
 where $\mathcal{K}$ is a normalization constant and $\mathcal{H}$ is a quadratic Hamiltonian, referred to as entanglement Hamiltonian. 
-The eigenvalues $\epsilon_j$ of $\mathcal{H}$, referred to as entanglement energies,  are related to the EOS by 
+The eigenvalues $\epsilon_j$ of $\mathcal{H}$, referred to as entanglement energies,  are related to those of the EOS by 
 \begin{align}\label{eq:xi_eps}
 \xi_j &=\left(e^{\epsilon_j}+1\right)^{-1}, 
 \end{align}
 the corresponding eigenstates are the same. 
-Eq.~\eqref{eq:xi_eps} implies that the full information of the \emph{many-particle} ES is contained in the single-particle spectrum of the reduced correlation matrix. 
+Eq.~\eqref{eq:xi_eps} implies that the full information of the \emph{many-body} ES (MBES) is contained in the single-particle spectrum of the reduced correlation matrix. 
 The latter is much simpler to interpret. 
 Consequently, we will focus on the EOS in the remainder of the manuscript and only mention the ES when necessary. 
+
+One property of the subsystem correlation matrix we will make use of later is that, for sufficiently large systems, its eigenstates are found to be localized on either virtual edge if $\xi$ is away from $0$ and $1$, or they are found to be bulk modes if the correspondent eigenvalues are exponentially close to $\xi = 0,1$ \cite{Peschel2008}.
+
 %The single-particle entanglement spectrum (ES) is then obtained as the spectrum of the subsystem correlation function obtained after bisecting the system into two equal parts. 
 
 %In the ES we can differentiate between two types of eigenvalues, which we denote by $\xi$. The ones at $\xi_b = 0,1$ correspond to bulk states while for the ones in between, $0<\xi_{l,r}<1$, we find their correspondent eigenstate localized in either the left, $\xi_l$, or right, $\xi_r$, virtual edge \cite{Peschel2008}. 
@@ -244,300 +313,348 @@ Consequently, we will focus on the EOS in the remainder of the manuscript and on
 
 A few comments are needed regarding  bipartition. 
 In the following sections, we show how the Zak phase can be recovered from the EOS.
-We also give a simple formula that is identical to the Zak phase in the thermodyamic limit.  
-However, for a generic, finite size system, there will be finite-size discrepancies between our formula and the Zak phase.
-In order to reduce these, we are going to choose $A$ as half the system in the remainder of the manuscript.
+We also provide a simple formula in terms of the EOS eigenvalues that is identical to the Zak phase in the thermodyamic limit.  
+However, for a generic, finite size system, there will be finite-size discrepancies between our formula and the Zak phase, see figure \ref{huang}.d. 
+In order to reduce these, we are going to choose subsystem $A$ as half the system in the remainder of the manuscript.
 The results (in the thermodynamic limit) do not depend on this choice. 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
-\section{Homogeneous system}
+\section{Zak phase in the EOS}
 
-Let us first review previous results on the relation between the entanglement spectrum and the Zak phase. 
-For symmetry-protected topological systems in one dimension, the quantized Zak phase is zero whenever there is an even number  of eigenvalues per edge at $\xi = 1/2$, and $\pi$ when the number is odd~\cite{Peschel2008}. 
+Let us first review previous results on the relation between the entanglement occupancy spectrum and the Zak phase. 
+For symmetry-protected topological systems in one dimension, the quantized Zak phase is zero whenever there is an even number  of eigenvalues per vitual edge at $\xi = 1/2$, and $\pi$ when the number is odd~\cite{Peschel2008}. 
+In the absence of symmetry-protection, much less is known. 
 Ryu and Hatsugai considered the fully dimerized SSH chain with broken chiral symmetry~\cite{Ryu2006}.  
-This model is rather special in that there is only a single pair of eigenvalues in the EOS that is not identical to $0$ or $1$. 
-In fact, the authors could show that the value of this `midgap state' is identical to the Zak phase divided by $2\pi$. 
-Their result is a particular limit of Eq.~\eqref{eqplusminus}. 
+This model is rather special in that there is only a single pair of eigenvalues in the EOS that is not strictly identical to $0$ or $1$, they are $\xi$ and $1-\xi$, related due to translational symmetry. 
+The authors could show that the value of one of these `midgap states' is identical to the Zak phase divided by $2\pi$ or, alternatively, $\tilde{\mathcal{P}}^{\rm Bloch}$. Although they do not specify to which of the two eigenvalues it corresponds. 
+Their result is a particular limit of Eq.~\eqref{eq:chi_integrable}. 
 %
 %Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. 
-Huang and Arovas considered a two-dimensional chern insulator and noted that the Zak phase qualitatively follows the `virtual edge mode' that connects the EOS values at 0 to those at 1~\cite{Huang2012,Huang2012-2}. 
-Interpreting this as a one-dimensional system with a parameter, we can explain this behavior by Eq.~\eqref{eqplusminus}, noting that there is a single pair of eigenvalues that dominates the sum. 
-Note that the observation of Ref.s~\cite{Huang2012,Huang2012-2} is particular to a system with Chern number 0 or $\pm 1$, and it generically fails for systems with higher Chern numbers.
-In the latter case, there are several terms in Eq.~\eqref{eqplusminus} with comparably large contributions. 
-%For cases with more edge modes present in the ES it has been shown that the Zak phase follows the midgap eigenvalues qualitatively \cite{Huang2012,Huang2012-2}. 
+
+Huang and Arovas considered a two-dimensional Chern insulator and noted that there was a similarity between the Wannier centers (and therefore the Zak phase) and the `virtual edge mode' that connects the EOS values at 0 to those at 1~\cite{Huang2012,Huang2012-2}. 
+Interpreting this as a one-dimensional system with a parameter, we can explain this behavior by Eq.~\eqref{eq:chi_integrable}, noting that there is a single pair of eigenvalues that dominates the sum. 
+Note that the observation of Ref.s~\cite{Huang2012,Huang2012-2} is particular to systems with Chern number 0 or $\pm 1$, and it generically fails for systems with higher Chern numbers. 
+In the latter case, there are several terms in Eq.~\eqref{eq:chi_integrable} with comparably large contributions and, consequently, the Zak phase deviates considerably from the 'virtual edge modes'. % This last sentece is not entirely ok. They observe flow in the zak phase that correspond s to flow in the EOS. 
 
 
-\subsubsection{Systems with equidistant entanglement energies}
-\mariac{add scaling plot for $\chi$ versus $\gamma/(2\pi)$. }
-We first discuss systems, for which the entanglement energies of a \emph{single} virtual edge are equidistant. 
-This is a common feature for e.g. nearest neighbor hopping models\mariac{ref to Peschel}, such as the SSH chain, and applies to the Hamiltonian~\eqref{bdi_model} when $t'=0$. 
-In this case, one can obtain the Zak phase in a very simple fashion: We reorder the eigenvalues of the ES by magnitude, $\xi_1 < \xi_2 < ...$, and compute
+\subsubsection{Systems with equispaced entanglement energies}
+
+We first discuss systems for which the entanglement energies of a \emph{single} virtual edge are equispaced. That is, they are given in the thermodynamic limit by $\varepsilon_{n\alpha} = \varepsilon_{0\alpha}+n\delta_\alpha$, where $\alpha = L,R$. This is a feature of integrable systems \cite{Peschel1999} for e.g. nearest neighbor hopping models such as the SSH chain, and applies to the Hamiltonian in Eq.~\eqref{bdi_model} when $t'=0$. 
+In this case, one can obtain the Zak phase in a very simple fashion: We reorder the eigenvalues of the EOS by magnitude, $\xi_1 < \xi_2 < ...< \xi_{L_AM}$, and compute
 \begin{equation}
-\chi = \frac{1}{2}\left(\sum_j (-1)^j \xi_j+N_A\right) \, {\rm mod} \, 1,
-\label{eqplusminus}
+\chi = \sum_{j=1}^{L_A M} \xi_{2j-1} \, {\rm mod} \, 1,
+\label{eq:chi_integrable}
 \end{equation}
-where $N_A$ is the number of electrons in the ground state in region A. 
-In the thermodynamic limit, $\chi$ becomes identical to the Zak phase divided by $2\pi$:
+where $L_A$ is the length of subsystem $A$ and $M$ is the number of orbitals per site. In the thermodynamic limit, $\chi$ becomes identical to either $\tilde{\mathcal{P}}^{\rm Bloch}$ or $1-\tilde{\mathcal{P}}^{\rm Bloch}$, 
 \begin{equation}
-\lim_{L \rightarrow \infty} \frac{\gamma}{2\pi} = \lim_{L \rightarrow \infty} \chi.
+\lim_{L \rightarrow \infty} \abs{\tilde{\mathcal{P}}^{\rm Bloch}} = \lim_{L \rightarrow \infty} \chi \, {\rm mod} \, 1.
 \end{equation}
-
-In the case where there is only one eigenvalue per edge that is $\neq 0,1$ in  the EOS, like in the fully dimerized limit of the SSH chain, we recover the equality between the midgap eigenvalue and the Zak phase~\cite{Ryu2006}. 
+This generalizes the observation made by Ryu and Hatsugai \cite{Ryu2006} beyond the fully dimerized limit, $m=0$, but the ambiguity remains. This issue will be resolved in the next section. 
+For translational invariant systems the EOS is symmetric such that a crossing of the eigenvalues $\xi$ results in $\chi$ changing sign. This is irrelevant in the case of symmetry-protected states where the Zak phase is quantized to $0$ or $\pi$. 
+In the special case where there is only one eigenvalue per edge that is $\neq 0,1$ in  the EOS, like in the fully dimerized limit of the SSH chain, we recover the equality between one of the two midgap eigenvalues and the Zak phase found in Ref.~\cite{Ryu2006}. 
 
 In Fig.~\ref{huang} we show  the EOS along the dashed cut in the phase diagram of Fig.~\ref{fig:bdi_phase_diagram}. 
 Along this line, our model is equivalent to an SSH chain. 
-In the presence of chiral and translation symmetry, all eigenvalues of the EOS are doubly degenerate --- one eigenvalue from each edge. 
-The difference of $\pi$ between the trivial and topological regime originates from the rearrangement of a few dominant eigenvalues in the EOS. 
-In the topological regime, there are a pair of eigenvalues at $\xi=1/2$, while the rest are close to $0$ and $1$. 
-At the phase transition, the two $\xi=1/2$ modes mix with one mode coming from $1$ and $0$ respectively, leading to a pair of modes close to $0$ and $1$, see Fig.~\ref{huang}(a). 
-Consequently, there is one less mode at $\xi=1$, which yields a difference of $\pi$ in the Zak phase. 
-Note that the full sum~\eqref{eqplusminus}  evaluates to zero in the trivial regime, up to finite-size corrections, despite the presence of modes with entanglement occupancy $0<\xi<1$. 
+In the presence of chiral and translation symmetry, all eigenvalues of the EOS are doubly degenerate --- one eigenvalue from each virtual edge, such that $\chi$ from Eq.\eqref{eq:chi_integrable} will pick up one eigenvalue from each pair. Because of chiral symmetry the sum of the two eigenvalues related by the symmetry gives always $1$ so they do not contribute to $\chi$. The only contribution to $\chi$ is the one from the eigenstates with $\xi=1/2$ that do not have a chiral partner, see figure~\ref{huang}.a. Here we see explicitely the known relation between the Zak phase and the number of $\xi = 1/2$ modes.
+
+Note that the full sum  in Eq.~\eqref{eq:chi_integrable}  evaluates to zero in the trivial regime %up to finite-size corrections% \carlos{It is actually exact due to symmetry}.
+despite the presence of modes with entanglement occupancy $0<\xi<1$. 
 
 When breaking chiral symmetry, the EOS will no longer be doubly degenerate. 
-For small $m$, there are two dominant midgap eigenvalues, and the Zak phase follows the lower of them very closely, see Fig.~\ref{huang}(b).
-When this midgap eigenvalue approaches  0, the contribution from the other modes becomes more relevant and the Zak phase starts to deviate from the midgap eigenvalue, \mariac{see inset}.
-\begin{figure}[h!]
+For small $m$, there are two dominant midgap eigenvalues, and the Zak phase follows the lower one very closely, see figure~\ref{huang}.b.
+When this midgap eigenvalue approaches  0, the contribution from the other modes becomes more relevant and the Zak phase starts to deviate from the midgap eigenvalue, see figure \ref{huang}.c.
+
+
+\begin{figure}[t]
 \centering
-\makebox[0pt]{
-\subfloat[$t = 1,t'=0$, \, \,$\kappa =\kappa'=0$]{
-  \includegraphics[width=35mm]{2_a.pdf}
-}
-\subfloat[$t=1,t'=0$, $\kappa = 0.3, \kappa'=0$]{\includegraphics[width=35mm]{2_b.pdf}
-}
-}
-\caption{\mariac{system size?}Entanglement spectrum (black), $\chi$ (green) and $\frac{\gamma}{2\pi}$ (red) for a cut in the phase diagram through the $\nu = 1 \rightarrow \nu = 0$ transition (dashed line in~\ref{fig:bdi_phase_diagram}
-	) for $t'=0$ and different values of $\kappa$.}
+\includegraphics[width=86mm]{fig3comp.pdf}
+\caption{In (a) and (b)  we show the EOS (black), $\chi$ (green) and $\tilde{\mathcal{P}}^{\rm Bloch}$(red) for a cut in the phase diagram through the $\nu = 1 \rightarrow \nu = 0$ transition (dashed line in~\ref{fig:bdi_phase_diagram}), $t = 1,t'=0$, for parameters  (a) $\kappa =\kappa'=0$ and (b) $\kappa = 0.3, \kappa'=0$. Computed for $L=40$. In (c) we zoom in a region of the plot in (b) to show the splitting between $\tilde{\mathcal{P}}^{\rm Bloch}$ and the eigenvalue closest to $\xi=1/2$. In (d) we show a scaling plot of the difference between $\chi$ and $\tilde{\mathcal{P}}^{\rm Bloch}$ for parameters $t=1,t'=0,m=1$, $\kappa = 0.3, \kappa'=0$ and increasing system size to show that the difference vanishes in the thermodynamic limit. }
 \label{huang}
 \end{figure}
 
 \subsubsection{General case}
 
-In expression~\eqref{eqplusminus} we assigned a `charge'  of $\pm1/2$ to each entanglement eigenstate depending on the eigenvalue ordering, see also appendix~\ref{app:pollmann} and the related discussion in Ref.~\cite{Zaletel2014}. 
-In order to generalize this to systems for which the ES is not equidistant  one needs to know how to properly assign this $\pm 1/2$ charge to each entanglement mode. We found that this is done according to their localization. 
-We separate the eigenstates of the entanglement Hamiltonian (or alternatively the reduced correlation matrix) into a \emph{right} and \emph{left} set depending on whether $\expval{\hat{X}}_i > L/4$ or $\expval{\hat{X}}_i < L/4$ (region $A$ ranges from $0$ to $L/2$) and we assign the charges $q_r = +1/2$ and $q_l = -1/2$, respectively.
- Expression \eqref{eqplusminus} then generalizes to
+In general we find that it is only the eigenstates that localize on the left edge that should contribute to $\chi$. The inclusion of bulk modes is irrelevant since they have $\xi = 0,1$. We can then compute
 \begin{equation}
-\chi = \frac{1}{2} \left( \sum_{i\in r}\xi_i-\sum_{i\in l}\xi_i+ N_A \right) \quad {\rm mod} \quad 1.
-\label{eq_loc}
+\chi = \sum_{\mu \in L} \xi_\mu \, {\rm mod} \, 1. 
+\label{eq:chi_left}
 \end{equation}
-
-In order for this expression to be well-defined however we need localized eigenstates. 
-Non-degenerate eigenstates of the EOS are automatically localized, but degenerate or nearly-degenerate eigenstates (i.e. those exponentially close to $\xi=0,1$) are not necessarily localized. 
-It turns out that we need not worry about the latter set of states, because changing their charge from say $1/2$ to $-1/2$ only changes $1/2(\sum_{i\in r} \xi_i - \sum_{i\in l}\xi_i)$ in Eq.~\eqref{eq_loc} by an integer, which is canceled \mariac{better expression?} by mod 1. 
-Also in the case where eigenstates are double degenerate we need not worry about localizing them, because computing the expectation value of the position operator will automatically assign the correct number of eigenstates to the left/right half of $A$. 
-This is no longer true for four-fold, or higher-fold, degenerate states.
-%In Fig.\ref{huang}.a the doubly-degenerate states have contributions from both edges. Performing the above classification will always lead to assigning one state as \emph{left} and the other one as \emph{right} so there is no issue, but this is no longer true for four-fold, or higher, degenerate states. 
-%The eigenstates close to $1$ and $0$ are also highly degenerate and thus delocalized over the whole chain. However in this case this is irrelevant since the difference in $\chi$ from changing the charge in one of these modes is either $0$ or $1$, which is cancelled anyway by taking the modulo $1$, so the expression \ref{loceq} is well-defined \carlos{up to exponentially small errors?}.
+the sum is performed over the subspace $L$ formed by the eigenstates with $\expval{\hat{x}}<L/4$, where $L/4$ is the middle point of region $A$. It does not matter how we choose the eigenvalues we sum over as long as we do not include the ones related to the right edge with $\xi$ away from $1$. In practice only a few eigenvalues give a significant contribution to $\chi$. 
 
 
-In order to ensure that we obtain localized entanglement eigenstates,  we diagonalize $C_A + \lambda C_A\hat{X}C_A$ instead of $C_A$.
-For the whole system, one way of obtaining localized eigenstates of the full correlation matrix is to diagonalize $C\hat{X}C$, which results in localized Wannier states. 
-$C$ commutes with this operator because it is a projector, but this is not necessarily the case for $C_A$ and $C_A\hat{X}C_A$. 
-Far from the edges, however, $C_A$ and $C$ are equivalent, so that the states at $\xi=1$ will localize into Wannier states by adding the $\lambda C_A\hat{X}C_A$ term.
-The rest of the eigenstates will also localize because this term, as it splits the degeneracies. 
-But as it does not commute with $C_A$ close to the virtual edges,  it will modify the eigenstates. 
-For that reason $\lambda$ must be a small parameter. \mariac{how to scale $\lambda$ with system size}. 
-%\mariac{do not commute 
-%	relation to wannier states
-%	how to choose lambda }
-%where $\lambda$ is a parameter that must be high enough to split all degenerate states into localized ones but small enough to not perturbe the EOS. 
+In the thermodynamic limit, it is $\tilde{\mathcal{P}}$ that we actually identify with $\chi$
+\begin{equation}
+\lim_{L \rightarrow \infty} \tilde{\mathcal{P}} = \lim_{L \rightarrow \infty} \chi.
+\label{eq:ptilde_eq_chi}
+\end{equation}
+Note that in order to compute $\chi$ correctly the eigenstates with $\xi \neq 0,1$ need to be localized in order for us to select the correct eigenvalues. It might be --- like in Fig.\ref{huang}(a) --- that the spectrum has degenerate pairs of left and right eigenstates and the numerical diagonalization mixes them. This case is trivial, as we know that there is one left and one right eigenstate but if the degeneracy is four-fold or higher one needs to obtain the localized eigenstates. Localizing the eigenstates that are exponentially close to $\xi = 0,1$ is more difficult but not doing so only results in an exponentially small error. 
 
-In Fig.\ref{2} we show two examples that highlight the importance of the localization structure of the ES. 
-In subfigures (a) and (b), we compute the EOS for varying $m$ at  $t=1$, $t'=2$, indicated by the solid line  in the phase-diagram~\ref{fig:bdi_phase_diagram}, in the presence of two different symmetry breaking terms: (i) $\kappa =0.3$, $\kappa'=0$ and (ii) $\kappa=0$, $\kappa'=0.3$.  
+Before proceeding lets review again the result in the previous section. First note that for translation invariant systems, the ES of the right and the left virtual edge are related by an overall '-' sign, i.e. for each eigenvalue $\epsilon$ on the right virutal edge, there is a corresponding value $-\varepsilon$ on the left one. 
+Since the spectra is equispaced, this implies that the two virtual edge spectra are merely shifted with respect to each other.
+If the shift is zero, e.g.  in presence of a symmetry, summing every other eigenvalue is equivalent, modulo 1, to summing all the left eigenvalues. With a finite shift summing all odd eigenvalues corresponds to either summing all left eigenvalues or all right eigenvalues. In general, it implies that $\chi$ as defined in Eq.~\eqref{eq:chi_integrable} only gives the Zak phase up to an overall sign. This issue can be fixed by determining the localization of a single eigenstate. 
+MinMax{]
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=86mm]{fig4comp.pdf}
+\caption{We show the Entanglement spectrum (black), $\chi$ (green) and $\tilde{\mathcal{P}}$ (red) computed for $L=40$ sites. (a) and (b) for the continuous line in the phase diagram, $t=1,t'=2$  with the symmetry-breaking parameters (a) $\kappa=0.3,\kappa'=0$ and (b) $\kappa=0,\kappa'=0.3$. (c) and (d) for the dotted line in the phase diagram, $t=1,t'=-2$  with the symmetry-breaking parameters (c) $\kappa=0.3,\kappa'=0$ and (d) $\kappa=0,\kappa'=0.3$. (d) is the same as (c) but with a position dependent $\kappa_i=(i+L/4 \, {\rm mod}\, L)/L$. We also plot $\mathcal{P}+1/2$ (blue) to showcase that $\chi$ is indeed equal to $\tilde{\mathcal{P}}$ and not $\mathcal{P}$. }
+	\label{2}
+\end{figure}
+
+In Fig.\ref{2} we show two examples that highlight the importance of the localization structure of the EOS. 
+In figures \ref{2}.a and \ref{2}.b, we compute the EOS for varying $m$ at  $t=1$, $t'=2$, indicated by the solid line  in the phase-diagram in Fig.~\ref{fig:bdi_phase_diagram}, in the presence of two different symmetry breaking terms: (a) $\kappa =0.3$, $\kappa'=0$ and (b) $\kappa=0$, $\kappa'=0.3$.  
 For $\kappa=\kappa'=0$, there is a phase transition $\nu = 2 \rightarrow 0 $ at $m=2$, whereas both choices of symmetry breaking render the system trivial  for all $m$.
 However, the two symmetry breaking terms split the four-fold degenerate $\xi=1/2$ midgap states very differently, thus resulting in completely different Zak phases despite the superficial resemblance of their respective EOS.  
-While $\kappa'$ splits the four-fold degenerate states into two two-fold degenerate pairs at opposite edges whose contribution cancels, $\kappa$ split them into two $left-left$ and $right-right$ pairs, with a finite contribution to the Zak phase. 
-In subfigures (c) and (d), we consider the same symmetry breaking terms, but now for $t=1$ and $t'=-2$, where the BDI systems shows a phase transition  $\nu=2\rightarrow 1\rightarrow 0$. 
-Note that the $\kappa'$ term does not render the $\nu=1$ phase trivial, and the Zak phase will remain quantized in that region, see Fig.~\ref{2}(d). 
-Also here, Eq.~\ref{eq_loc} correctly reproduces the Zak phase for all values of $m$. 
+While $\kappa'$ splits the four-fold degenerate states into two two-fold degenerate pairs at opposite edges whose contribution cancels (modulo 1), $\kappa$ split them into two $left-left$ and $right-right$ pairs, with a finite contribution to the Zak phase. 
+In figures \ref{2}.c and d, we consider the same symmetry breaking terms, but now for $t=1$ and $t'=-2$, where the BDI systems shows a phase transition  $\nu=2\rightarrow 1\rightarrow 0$. 
+Note that the $\kappa'$ term does not render the $\nu=1$ phase trivial, and the Zak phase will remain quantized in that region, see Fig.~\ref{2}.d. 
+Also here, Eq.~\ref{eq:chi_left} correctly reproduces the Zak phase for all values of $m$. 
 Note that in all examples shown in this subsection, the observations made in references \cite{Huang2012,Huang2012-2}, i.e. that the behavior of the Zak phase resembles that of the entanglement occupancy midgap states, do not apply anymore. 
 
-\begin{figure}[h!]
+Since $\chi$ is naturally defined in position space our results are also valid for systems without translationally invariance. We show this in Fig.\ref{2}.e where we show the EOS, $\chi$, $\mathcal{P}$ and $\tilde{\mathcal{P}}$ along the dotted cut in the phase diagram with an added position dependent symmetry breaking term $\kappa_i = (i+L/4 \, {\rm mod}\, L)/L$. We use this profile for $\kappa_i$ instead of simple disorder because with the disorder the difference between $\mathcal{P}$ and $\tilde{\mathcal{P}}$ is very small. We obtain that $\chi$ is indeed identified with $\tilde{\mathcal{P}}$ as we hinted at before, and not $\mathcal{P}$, although these two polarization only differ by $(L+1)/2$ in the translationally invariant case. 
+
+
+This relation between the Zak phase and the EOS is a consequence of an identity between the Zak phase and the many-body entanglement spectrum previously found for infinite chains \cite{Zaletel2014}. In Appendix A we modified this derivation to account for the periodic boundary conditions we use and show how their result simplifies greatly when expressing it in terms of the EOS, resulting in equation~\eqref{eq:ptilde_eq_chi}.
+
+
+
+% - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
+
+
+\section{Chern number and Winding number}
+
+As mentioned above the bulk polarization is only defined modulo 1. This is obvious when we express it in terms of a geometric phase, which is only defined modulo $2\pi$. In our formulation (See Eq.~\eqref{eq:ptilde_eq_chi}) this is reflected in an ambiguity in the number of bulk modes with $\xi = 1$ that are included in $\chi$. Being defined only modulo $1$, the bulk polarization cannot differentiate the phases $\nu=0$ and $\nu=2$, even though the EOS of both phases is distinct. Another issue due to it being defined in $\mathbb{R}$ mod $1$ appears when we try to follow its evolution over a path $C_\lambda$. Between any two points $\lambda$ and $\lambda'$ in this path it is not possible to tell if the bulk polarization has increased or decreased by only looking at $\tilde{\mathcal{P}}(\lambda)$, this becomes relevant when computing Chern numbers.
+
+In an attempt to solve this issues we introduce an alternative bulk polarization given by
+\begin{equation}\label{eq:tpo}
+\tpo = \int_0^{2\pi}\frac{d\Phi}{2\pi} i\brapsio{\Phi}\partial_\Phi \ketpsio{\Phi}.
+\end{equation}
+where $\ketpsio{{\Phi=0}}$ is the ground state of the periodic chain opened between sites $j=L/2$ and $j=L/2+1$ and 
+\begin{equation}
+\ketpsio{\Phi} =e^{-i \Phi \hat{N}_A} \ketpsio{0}.
+\label{eq:gauge}
+\end{equation}
+When introducing the flux in the system with PBC (See Eq.~\eqref{eq:Ground_state_flux}) there is an ambiguity due to the bulk modes. This ambiguity dissapears when we introduce the flux as above in the open chain. Note that $\Phi$ is not a magnetic flux but should be treated as an additional parameter, and therefore $\tpo$ is not necessarily the physical polarization of the open chain. $\tpo$ can be obtained in an even simpler way than $\tilde{\mathcal{P}}$ as 
+\begin{align}\label{eq:phi_independence}
+\tpo =&  \int_0^{2\pi}\frac{d\Phi}{2\pi} \brapsio{0} \hat{N}_A \ketpsio{0} \nonumber \\
+=&\sum_{\alpha,j\in A}\brapsio{0} c_{j\alpha}^\dagger c_{j\alpha} \ketpsio{0} \nonumber\\
+=&\sum_{\alpha,j\in A} C_{\rm o,j\alpha,j\alpha}\nonumber \\
+=& {\rm Tr}[C_{A,\rm o}],
+\end{align}
+where we used Eq.~\eqref{eq:gauge} and ($C_{A,\rm o}$)$C_{\rm o}$ denotes the (subsystem) correlation matrix of the open chain.  
+
+The idea is that in the process of opening the chain, which can be done adiabatically, all eigenvalues that are related to the right virtual edge should get pushed to $\xi=0,1$. As a result, the sum of all eigenvalues of $C_{A,o}$ is equal, modulo 1 and in the thermodynamic limit, to $\chi$ (See Eq.~\eqref{eq:chi_left}). The advantage of using $\tpo$ is that the contribution from the eigenvalues far from the virtual edge is always constant, as opposed to the case of $\chi$ where this is only true when taken modulo 1. The consequence is that for paths in parameter space, $C_\lambda$, which are gapped, i.e. no states cross the Fermi energy, $\tpo (\lambda)$ is defined in $\mathbb{R}$, such that the total change in $\tpo$ along this path can be obtained knowing $\tpo$ only in the initial and final states, $\Delta \tpo ({C_\lambda}) = \tpo(\lambda_f) - \tpo(\lambda_i)$. Note, however, that $\tpo$ is still gauge-invariant only when taken modulo 1. 
+
+There are, however, two caveats to this method. When we open the chain, if the system is in a topological non-trivial state, zero-energy modes will appear. The ground state of the closed chain has several equivalent degenerate ground states for the open chain, so that $C_{A,\rm o}$ is not well-defined at these points. The second issue is that, even if we allow for symmetry-breaking terms so that we can compute $\tpo$, there might be integer jumps in $\tpo$ where the edge-modes cross zero-energy. However, as we will see below these jumps in $\tpo$ due to the zero modes are branch cuts that provide the correct description of the system. 
+
+
+\subsubsection{SSH chain}
+
+Consider first the simple case of the SSH chain, with $t'=0$ in the model. When we include the chiral-symmetry braking parameter $\kappa$ the Hamiltonian now has the symmetry
+\begin{equation}
+SH(\kappa)S^\dagger = -H(-\kappa), \quad S C_A(\kappa) S^\dagger = \mathbb{I}-C_A(-\kappa),
+\end{equation}
+so $\tpo(-\kappa) = L-\tpo(\kappa)$. Unless $\tpo(0) = L/2$, which is the result expected for a trivial insulator, the result will be discontinuous at $\kappa = 0$. We can see this in Fig.\ref{ssh_chern}.a where we show $\tpo$ in the parameter space $(m,\kappa)$. The presence of the zero-mode for $m<1$ appears in $\tpo$ as a branch cut. The relation between the zero-modes and $\Tr[C_{A,o}]$ was already observed in the context of Chern insulators \cite{Alexandrinata2011}. This branch cut is in fact not an artifice of the open chain trick, but the result of the degenerate point at $(m=1,\kappa=0)$ having an associated Chern number $C=1$ \cite{Asboth2016}.
+
+Consider a counterclockwise loop around the degenerate point at $(m=t,\kappa=0)$ starting from the branch cut parametrized by $\theta$,
+\begin{align*}
+& m(\theta) = 1+\frac{1}{2}\sin(\theta-\frac{\pi}{2}) \\
+& \kappa(\theta) = -\sin(\theta).
+\end{align*}
+The Chern number is then defined as
+\begin{equation}
+C = \frac{1}{2\pi}\oint d\theta\oint d\Phi \, \Omega_{\theta\Phi},
+\label{eq:chern}
+\end{equation} 
+with the Berry curvature $\Omega_{\theta\Phi}$ defined in equation~\eqref{eq:BerryCurvature}. 
+From  Eq.~\eqref{eq:tpo}, it follows that the Berry connection for the flux is simply $A_\Phi(\theta,\Phi) = \tpo(\theta)$, so we now need to compute $A_\theta(\theta,\Phi)$. 
+
+We can expand $\ket{\tilde{\Psi}^{\Phi = 0}_o}$ in the eigenbasis of the number operator $\hat{N}_A$, denoted by $\{\ket{j}\}$, as
+\begin{equation}
+\ket{\tilde{\Psi}^{\Phi = 0}_o(\theta)} = \sum_j c_j(\theta)\ket{j},
+\end{equation}
+where $c_j(\theta) = \Big\langle j\ket{\tilde{\Psi}^{\Phi = 0}_o(\theta)}$. The flux can then be introduced as
+\begin{equation}
+\ket{\tilde{\Psi}^{\Phi }_o(\theta)} = \sum_j c_j(\theta)e^{-i \Phi N_A^j}\ket{j}.
+\end{equation}
+Computing the derivative of the ground state with respect to the parameter $\theta$ gives
+\begin{align}
+\partial_\theta \ketpsio{\Phi(\theta)} =& \sum_j [\partial_\theta c_j (\theta)]e^{-i\Phi N_A^j}\ket{j}.
+\end{align}
+The correspondent Berry connection then gives
+\begin{align}
+\brapsio{\Phi(\theta)}\partial_\theta \ketpsio{\Phi(\theta)} =& \sum_{lj} c^*_l(\theta) [\partial_\theta c_j(\theta)] \bra{l} e^{i\Phi (N_A^lN_A^j)}\ket{j}\nonumber\\
+=& \sum_j  c^*_j(\theta) \partial_\theta c_j(\theta) \nonumber\\
+=&\brapsio{0(\theta)}\partial_\theta \ketpsio{0(\theta)}, 
+\end{align}
+i.e. it is independent of $\Phi$. 
+
+The integral in Eq.\eqref{eq:chern} is performed on the surface of the torus defined by $(\theta,\Phi)$. Because of the branch cut the Berry connection $A_\Phi(\theta)$ cannot be made smooth for the whole torus and therefore we cannot directly apply Stokes theorem. Instead, we split the torus in two cylinders, $S_1$ with $\theta\in[\theta_0,2\pi-\theta_0]$ and  $S_2$ with $\theta\in[2\pi-\theta_0,2\pi+\theta_0]$ and we change the gauge in $\boldsymbol{A}(\theta)$ such that it is smooth in each cylinder. We can now apply Stokes theorem to the two cylinders independently \cite{Kohmoto1985}. For $S_1$ we have
+\begin{align}
+C_1 =& \frac{1}{2\pi} \int_{S_1} d\boldsymbol{S}\cdot (\nabla \times \boldsymbol{A}) \nonumber\\
+=&\frac{1}{2\pi} \int_{\partial S_1} d\boldsymbol{l}\cdot \boldsymbol{A}(\theta,\Phi) \nonumber\\
+=& \frac{1}{2\pi} \int_{\theta_0}^{2\pi-{\theta_0}} d\theta A_\theta(\theta,0) +\frac{1}{2\pi}\int_0^{2\pi} \frac{d\Phi}{2\pi} A_\Phi (2\pi-{\theta_0},\Phi) \nonumber\\
+&-\frac{1}{2\pi}\int_{\theta_0}^{2\pi-{\theta_0}} d\theta A_\theta(\theta,2\pi) -\frac{1}{2\pi}\int_0^{2\pi} \frac{d\Phi}{2\pi} A_\Phi ({\theta_0},\Phi).
+\end{align}
+In our case, $A_\theta$ is independent of $\Phi$ so the terms involving it cancel and we have
+\begin{align}
+C_1 =& \int_0^{2\pi} \frac{d\Phi}{2\pi} [A_\Phi (2\pi-{\theta_0},\Phi) -A_\Phi ({\theta_0},\Phi)].
+\end{align}
+Similarly computing the integral for the other cylinder we obtain
+\begin{align}
+C_2 =& \int_0^{2\pi} \frac{d\Phi}{2\pi} [A'_\Phi (2\pi+{\theta_0},\Phi) -A'_\Phi (2\pi-{\theta_0},\Phi)].
+\end{align}
+The Chern number is then $C=C_1+C_2$. Noting again that $A'_\Phi(\theta)$ is continuous in $S_2$ taking the limit of $\theta_0\rightarrow 0^+$ makes $C_2$ vanish and the Chern number is given by
+\begin{align}
+C =& \int_0^{2\pi} \frac{d\Phi}{2\pi} [A_\Phi (2\pi^-,\Phi) -A_\Phi (0^+,\Phi)],
+\end{align}
+or
+\begin{align}
+C(m)= \tpo(m,\kappa=0^+)-\tpo(m,\kappa=0^-),
+\end{align}
+where $C(m)$ is the Chern number of any loop around the degenerate point crossing $\kappa=0$ at $m$.
+Using the symmetry of the polarization described above this results in 
+\begin{align}
+C(m)= 2\tpo(m,\kappa=0^+)-L,
+\label{eq:Chern_number}
+\end{align}
+which results in $+1$ when $m<1$ and $0$ when $m>1$, as it is known for the SSH chain. The only contribution to the Chern number comes from the discontinuity of $\tpo$ at the branch cut. In general the Chern number over a loop is equal to the sum of the discontinuities of $\tpo$ across the branch cuts. 
+
+
+\begin{figure}[t]
+\includegraphics[width=86mm]{fig5comp.pdf}
+\caption{Polarization $\tpo-L/2$ computed for $t=1,\kappa'=0$. (a) and (b) are computed for $L=40$ sites and parameters $t'=0$ and $t'=-2$, respectively. $\tpo$ presents branch cuts that indicate the presence of zero-energy modes. $\tpo$ is able to differentiate between the phases $\nu=2$ and $\nu=0$. (c) is computed for $t'=2$, with an added disorder to $t$ and $m$ with strength $W=3$, and $\kappa$ is applied only at the edges. We compute it for $L=400$, as the disorder increases the correlation length. The disorder opens a region with $\nu=1$ as it has been observed in \cite{Song2014} }
+	\label{ssh_chern}
+\end{figure}
+
+% \begin{figure}[t]
+%	\centering
+%	\makebox[0pt]{
+%		\subfloat[$2\tilde{\mathcal{P}}_{\rm open}-L$($m$ should go from 0 to 3)]{
+%			\includegraphics[width=45mm]{fig61.pdf}
+%		}
+%		\subfloat[$C $]{
+%			\includegraphics[width=45mm]{fig62.pdf}
+%		}		
+%	}\hspace{0mm}
+%	
+%	\makebox[0pt]{
+%		\subfloat[${\rm Log}_{10} (C \, {\rm mod} \, 1)$ ]{
+%			\includegraphics[width=45mm]{fig63.pdf}
+%		}
+%	}
+%	\caption{We compute (a)$\tilde{\mathcal{P}}_{\rm open}$, (b) $\nu$ and (c) error in the quantization of $\nu$ for the continuous line in the phase diagram, $t=1,t'=2$ and system size $L=400$. (a) is computed for $W=6$ showing that the branch cut is not affected by the disorder. (b) and (c) are computed for increasing disorder strength, showing a good quantization of the resulting winding number far from the transitions. }
+%	\label{winding}
+%\end{figure}
+
+
+
+\subsubsection{Second neighbor hopping, $t' \neq 0$}
+
+The analysis we did above of $\tpo$ for the SSH chain seems rather trivial as $\tpo$ does not seem to have more information than $\tilde{\mathcal{P}}$ modulo 1. This is no longer true when $t' \neq 0$ allowing for a $\nu = 2$ phase. In Fig.\ref{ssh_chern}.b we see $\tpo$ for the dotted cut in the phase diagram with an added symmetry breaking $\kappa$ term. We can see that a loop around the two degenerate points will have a Chern number of $C=2$. 
+
+A jump of $n$ in $\tpo$ implies the existence of \emph{at least} $n$ zero-energy modes at that point. For this model this equivalence is exact and the jump of $\tpo$ at $\kappa = 0$ gives the number of topological zero-modes, or the winding number. It is also interesting to point out that even far away from the symmetric point $\tpo$ still shows plateaus that point to a possible nearby topological transition.
+Note , however, that there are many ways of breaking chiral symmetry. Replacing $\kappa$ in Eq.~\eqref{bdi_model} by $\kappa_i=\kappa (-1)^i$, the zero-energy modes split in such a way that $\tpo$ is continuous at $\kappa=0$. It cannot differenciate between the phases $\nu=0$ and $\nu=2$, and a loop like the one discussed above results in a Chern number $C=0$.
+
+Since $\tpo$ is naturally described in position space we can also use this method for a disordered system. Consider now that we add disorder in the $t$ and $m$ parameters
+\begin{align}
+&t_i = t + \frac{W}{2} \omega_i \nonumber\\
+&m_i = m + W \omega'_i
+\end{align}
+where $\omega_i$ and $\omega_i'$ are selected from a uniform distribution with range $[-1/2,1/2]$. For very strong disorder where the gap fills with states $\tpo$ will present many branch cuts as we approach the limit $\lim_{\kappa \rightarrow 0}$, which makes it unpractical. In order to avoid it we break chiral symmetry locally in the edge of the open chain so it only affects the edge modes. If any of the other states cross $E=0$ they do it in  chiral-symmetric pairs such that $\tpo$ is not affected by it. We show $\tpo$ in Fig.\ref{ssh_chern}.c using the local symmetry breaking term for a strong disorder, $W=3t$, where the gap is indeed filled with states. We see that it works just as in the case without disorder, where now due to the disorder a region of $\nu=1$ opens up \cite{Song2014}. The main difference is that since we break chiral symmetry only for the edge modes, $\tpo$ is quantized to multiples of $1/2$.
+
+%In Fig.\ref{winding}.(b) we show $C$ for the continuous line in the phase diagram and increasing disorder strength. The Chern number as defined in \eqref{eq:Chern_number} indeed provides a topological invariant which can be compared with the winding number obtained in reference \cite{Song2014} for the same system. Note that for large enough systems the spectrum of $C_A$ is not affected by the local chiral symmetry breaking term other than the occupation of the zero-energy modes such that $C$ is still quantized for each disorder configuration, however near the transitions it is smoothen by the disorder average. We show the error in the quantization of $C$ in figure \ref{winding}.(c) . \carlos{Fig.6.a seems important to discuss how with local symmetry braking term the relation between the chern number and the number of zero modes still remains. Maybe it would be enough to show a cut of 6.b }
+
+
+% - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
+
+\section{Chern Number in 2D}
+
+We have shown how $\tpo$ simplifies the computation of Chern numbers in 1D chains. This can be generalized to 2D systems. Consider the following model for a Chern insulator
+\begin{align}
+H =& \sum_{im\alpha,jn\beta} c_{im\alpha}^\dagger H_{im\alpha,jn\beta} c_{jn\beta}, \\
+H_{im\alpha,jn\beta}=& \frac{1}{2}(i\sigma_x-\sigma_z)\delta_{i,j+1}\delta_{mn}+\frac{1}{2}(-i\sigma_x-\sigma_z)\delta_{i,j-1}\delta_{mn} \nonumber\\
++&\frac{1}{2}(i\sigma_y -\sigma_z)\delta_{ij}\delta_{m,n+1} +\frac{1}{2}(-i\sigma_y -\sigma_z)\delta_{ij}\delta_{m,n-1} \nonumber\\
++&(2-m)\sigma_z\delta_{ij}\delta_{mn},
+\label{eq:chern_model}
+\end{align}
+where $i,j$ describe the $x$ direction and $m,n$ the $y$ direction. The system with periodic boundary conditions is defined on a torus. In order to apply the method of computing $\tpo$ described in the last section we will open the torus into a cylinder periodic in $y$. We then fourier transform only the $y$ direction to obtain
+\begin{align}
+H =& \sum_{i\alpha,j\beta}\sum_{k_y} c_{i\alpha}^\dagger(k_y) H_{i\alpha,j\beta}(k_y) c_{j\beta}(k_y), \\
+H_{i\alpha,j\beta}(k_y)=& \frac{1}{2}(i\sigma_x-\sigma_z)\delta_{i,j+1}+\frac{1}{2}(-i\sigma_x-\sigma_z)\delta_{i,j-1} \nonumber\\
++&(\sin(k_y)\sigma_y+[2-m-\cos(k_y)]\sigma_z) \delta_{ij}.
+\end{align}
+We can treat the Hamiltonian with elements $H_{i\alpha,j\beta}(k_y)$ as a 1D Hamiltonian with an extra parameter $k_y$ and compute $\tpo$, or equivalently $A_\Phi(\Phi,k_y)$, as in last section. But first lets analyze the entanglement occupancy spectrum of the system with PBC, shown in Fig.\ref{chern_insulator}.a and b for $m=1,3$ respectively. For $0<m<2$ the EOS presents two edge modes that connect the occupied and empty bands that cross $\xi=1/2$ at $k_y=0$, in this region the occupied bands have a Chern number $C=+1$. For $2<m<4$ there are also edge modes but they cross $\xi=1/2$ at $k_y=\pi$ and the system has $C=-1$. For $m>4$ the system is a trivial insulator with $C=0$. When we open the chain the eigenvalue of one of the virtual edge modes will be pushed to $\xi=1,0$ as seen in figure~\ref{chern_insulator}.a and b. It will have a jump whenever the correspondent edge-mode crossed zero energy, going between $\xi=1$ and $\xi=0$, i.e. the number of eigenvalues at $\xi = 1$ is not constant across $k$. In this model, due to the symmetries, this is only possible at $k_y=0,\pi$. 
+
+\begin{figure}[t]
 	\centering
 	\makebox[0pt]{
-		\subfloat[$t = 1, t' = 2,$   $\kappa =0.3, \kappa' = 0$]{
-			\includegraphics[width=35mm]{3_a.pdf}
+		\subfloat[EOS for $m=1$]{
+			\includegraphics[width=45mm]{fig71.pdf}
 		}
-		\subfloat[$t = 1, t' = 2,$ $\kappa = 0, \kappa' = 0.3$]{
-			\includegraphics[width=35mm]{3_b.pdf}
+		\subfloat[EOS for $m=3$]{
+			\includegraphics[width=45mm]{fig72.pdf}
 		}
 	}\hspace{0mm}
 	
 	\makebox[0pt]{
-		\subfloat[$t = 1, t' = -2,$ $\kappa = 0.3, \kappa' = 0$]{
-			\includegraphics[width=35mm]{3_c.pdf}
+		\subfloat[$\tpo-L/2$]{
+			\includegraphics[width=45mm]{fig73.pdf}
 		}
-		\subfloat[$t = 1, t' = -2,$ $\kappa = 0, \kappa' = 0.3$]{
-			\includegraphics[width=35mm]{3_d.pdf}
+		\subfloat[$\tilde{\mathcal{P}}$ mod 1]{
+			\includegraphics[width=45mm]{fig74.pdf}
 		}
 	}
-	\caption{Entanglement spectrum (black), $\chi$ (green) and $\gamma$ (red) for two different cuts,  continuous line for a,b, and dotted line for c,d plots, Showing a more diverse ES where more than one midgap state is present. }
-	\label{2}
+%	\hspace{0mm}
+%	
+%	\makebox[0pt]{
+%		\subfloat[$\tpo-L/2$]{
+%			\includegraphics[width=45mm]{fig75.pdf}
+%		}
+%		\subfloat[$\tilde{\mathcal{P}}$ mod 1]{
+%			\includegraphics[width=45mm]{fig76.pdf}
+%		}
+%	}
+%	
+	\caption{(a) and (b) EOS. The evolution of the edge state towards $\xi=1,0$ as the chain is opened adiabatically is shown in two intermediate points. (c) $\tpo$ and (d) $\tilde{\mathcal{P}}$. Computed for the Chern insulator given by the model in Eq.~\eqref{eq:chern_model}. }
+	\label{chern_insulator}
 \end{figure}
 
-\mariac{issue about  the ambiguity about right - left vs left - right, connect with discussion about Zaletel results and their convention?}
-This relation between the Zak phase and the EOS is a consequence of an identity between the Zak phase and the many-body entanglement spectrum previously found for infinite chains \cite{Zaletel2014}. In Appendix A we modified this derivation to account for the periodic boundary conditions we use and show how their result reduces to Eq.~\eqref{eq_loc} when expressing it in terms of the EOS.
-
-
-Let us also discuss an alternative way of computing Zak phase. 
-Using the fact that $N_A = \Tr C_A$, we can rewrite $\chi$ as
+We can now take a look at $\tpo$ in the parameter space $(m,k_y)$, shown in figure~\ref{chern_insulator}.c . We see, again, that $\tpo$ remains continous except for the branch cuts that appear at the points where the physical edge-modes cross zero energy. The Chern number can be obtained as
 \begin{equation}
-\chi = \left(\sum_{i\in r} \xi_i\right) \, {\rm mod} \, 1.
-\label{eq:chihom}
+C(m) = \int_{-\pi}^{\pi}\frac{dk_y}{2\pi} \partial_{k_y} \tpo(m,k_y),
+\label{eq:Zaletel_chern}
 \end{equation}
-A simpler way to compute this quantity is by obtaining $C_A$ for an open chain, labeled as $C_A^{ o}$. 
-For a sufficiently long  chain the right eigenvalues will remain the same, %as we still place a virtual cut in the middle of the chain 
-but the left eigenvalues will no longer be present. 
-This allows one to simply compute
+However, since we know the position of the branch cuts we can integrate avoiding them and obtain
+\begin{align}
+C(m) =& [\tpo(m,k_y=0^-)-\tpo(m,k_y=-\pi^+)]\\
+&+[\tpo(m,k_y=\pi^-)-\tpo(m,k_y=0^+)].
+\end{align}
+The expression in the right hand side is actually a known topological invariant, the trace index \cite{Alexandrinata2011}, defined in terms of the trace of $C_{A,o}$. In reference \cite{Alexandrinata2011} it is shown to be equal to the Chern number by relating it to the Hall current. By understanding $\Tr[C_{A,o}]$ as a geometric quantity the connection between the trace index and the Chern number is made more explicit.
+
+
+
+To ilustrate the advantage of using $\tpo$ over $\tilde{\mathcal{P}}$ we also show the latter in the same parameter space. In order to obtain the Chern number via $\tilde{\mathcal{P}}$ for PBC there is no way of avoiding having to compute the derivative and subsequent integration of
 \begin{equation}
-\chi = \Tr C_A^{o} \, {\rm mod} \, 1.
+C(m) = \int_{-\pi}^{\pi}\frac{dk_y}{2\pi} \partial_{k_y} \tilde{\mathcal{P}}(m,k_y),
 \end{equation}
-This method, however, will introduce a stronger finite size effect and requires substantially larger systems for the same accuracy. 
-In addition, it only works for homogeneous systems as explained below. 
+as we no longer know in advance where the branch cuts will appear, due to it being defined modulo 1.
 
 
-Before proceeding with the inhomogeneous systems, let us explain why the expression~\eqref{eqplusminus} simplifies so much for systems with an equidistant ES. 
-First note that for translation invariant systems, the ES of the right and the left edge are related by an overall '-' sign, i.e. for each eigenvalue $\epsilon$ on the right edge, there is a corresponding value $-\epsilon$ on the left edge. 
-Since the spectra are equidistant, this implies that the two edge spectra are merely shifted with respect to each other.
-Note that  the shift could be zero, e.g.  in presence of a symmetry. 
-Independent of the shift, the simple assignment of $ (...+-+-+-...)$ will automatically assign charges $\pm 1/2$ to each edge. 
-The only remaining issue is whether this simple recipe assigns charge $+1/2$ or $-1/2$ to the right edge.
-In presence of a symmetry, this question is irrelevant \mariac{better expression?} because of the degeneracy. 
-In general, it implies that $\chi$ as defined in Eq.~\eqref{eqplusminus} only gives the Zak phase up to an overall sign. 
-This issue can be fixed by determining the localization of a single eigenstate. 
+% This example might seem insufficient as the Chern number is also easy to identify from the plot of $\tilde{\mathcal{P}}$ as well but in systems with higher Chern numbers $\tilde{\mathcal{P}}$ will wind around the circle several times which will make this more difficult. We exemplify this in figures \ref{chern_insulator}.(e) and (f). To obtain these we change the nearest neighbor hoping in the $x$ direction into a third neighbor hopping, $\delta_{i,j+1} \rightarrow \delta_{i,j+3}$. This results in the same phase diagram with the Chern number, and the number of edge modes, multiplied by 3. As we see, while the plot of $\tpo$ remains simple, $\tilde{\mathcal{P}}$ becomes more complex, with the appearance of additional branch cuts. 
 
-%The reason is that, unless they are degenerate, the ordered eigenstates always come with alternating edge localization (...left-right-left-right...)\mariac{ref to peschel}, so that the signs assigned are always . 
-%\mariac{expand}
-%\mariac{issue about crossing spectra?}
-%If the eigenvalues cross each other this only adds a global minus sign, however this unlikely and usually only happens when all eigenvalues are close to $0$ and $1$ and $\chi$ is therefore small. 
+%
+%   \carlos{Figures 7.e and f are computed for the same system where instead of nearest-neighbor hopping in the x direction we use a 4th neighbor hopping ($\delta_{i,j+1} \rightarrow \delta_{i,j+4}$), to illustrate the challenges of computing the Chern number when the integrand is only defined modulo 1. This is similar to the issues we had when doing the cut-average. One needs to identify whenever $\tilde{\mathcal{P}}$ (or $\chi$) crosses 1 or 0 to compute the derivative and integral properly.
+%
+%Note also that we are computing the Chern number in the torus defined by $(\Phi,k_y)$. It seems a bit weird to mix both flux and momentum but it works in the end. If we were to introduce another flux in the other direction the system would no longer be effectively 1D so I don't know if everything we do would still apply in the same way or if it would provide any advantage. }
 
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 
-\section{Inhomogeneous systems}
 
-In reference \cite{Zaletel2014} translational invariance was used to derive the relation between the many-body entanglement spectrum and the Zak phase. If this symmetry is broken by adding, for example, weak disorder, this result is no longer true. However we found, as our main result, that one can still obtain the Zak phase as the cut-average of the relation derived for homogeneous systems. For some systems this can be written as (\carlos{not sure about this phrasing})
-\begin{align}
-\bar{\chi} =\left(\frac{1}{L}\sum_{s=1}^L (\chi_s \, \rm{mod} \, 1)\right)\, \rm{mod} \, 1,
-\label{eq:inh_simple}
-\end{align}
-where
-\begin{equation}
-\chi_s = \frac{1}{2} \left( \sum_{i\in r}\xi^s_i-\sum_{i\in l}\xi^s_i  + N_A \right)
-\end{equation}
-is obtained for cuts at sites $s$ and $s+L/2$. In Fig.\ref{fig:simple_inh}.b we show the same system as in Fig.\ref{2}.c with an added moderate disorder in the $\kappa$ parameter shown in \ref{fig:simple_inh}.a . We show the EOS of one cut with that particular $\chi_s$, which differs from the Zak phase. The Zak phase is shown to be recovered by the cut-average of $\chi$. Next we show the results for the same system with $m=-2$, and a continuous profile for $\kappa$ shown in \ref{fig:simple_inh}.c. In Fig. \ref{fig:simple_inh}.d is shown how the EOS and $\chi_s$ depends on the cuts, and how the Zak phase is again recovered by the cut-averaged $\chi$.
-
-\begin{figure}[h!]
-\centering
-\makebox[0pt]{
-\subfloat[$\kappa_i$]{
-  \includegraphics[width=35mm]{4cdisorderkap.pdf}
-}
-\subfloat[$t=1,t'=-2,s=0$]{\includegraphics[width=35mm]{4cdisorderES.pdf}
-}
-}\hspace{0mm}
-
-\makebox[0pt]{
-\subfloat[$\kappa_i$]{
-  \includegraphics[width=35mm]{simplecutkap.pdf}
-}
-\subfloat[$t=1,t'=-2,m=2$]{\includegraphics[width=35mm]{simplecutES.pdf}
-}
-}\hspace{0mm}
-
-\makebox[0pt]{
-\subfloat[$\kappa_i$]{
-  \includegraphics[width=35mm]{simplecutavgaround0kap.pdf}
-}
-\subfloat[$t=1,t'=-2,m=1$]{\includegraphics[width=35mm]{simplecutavgaround0.pdf}
-}
-}
-\caption{In a) and b) we show the system in Fig. 4.c with an added disorder. we show the ES (black) and $ \chi_s \, {\rm mod} \, 1$ (green) for one particular cut,$\gamma$ (red) and $\expval{\chi_s}_{\rm cuts}$ (blue dashed). In c) and d) we show the same system at $m=2$ and a continuous homogeneous profile for $\kappa_i$. In e) and f) we show a case where using \eqref{eq:inh_simple} fails. We show the ES and $\chi_s$ for all cuts. }
-\label{fig:simple_inh}
-\end{figure}
-
-We have shown two cases were using expression \ref{eq:inh_simple} leads to the correct result, but this is in fact not the general case, as we can see in Fig.\ref{fig:simple_inh}.f . The average of a circular quantity is not uniquely defined and the choice we made in Eq.\ref{eq:inh_simple}, which equates to averaging the values in $(0,1)$ around $1/2$ (\carlos{is this clear?}) turns out to work in certain cases. How to perform this circular average is a priory not known, we can only judge after we compute the Zak phase independetly if we used the correct choice or not. Therefore in order to proceed we need to get rid of the circular average which leaves us with
-\begin{align}
-\bar{\chi} =\left(\frac{1}{L}\sum_{s=1}^L \chi_s \right)\, \rm{mod} \, 1,
-\label{eq:inh_fixed}
-\end{align}
-but this however has to be done carefully. So far we have naively separated our eigenstates into \emph{left} and \emph{rigth} sectors, assigned the charges acordingly, and took the modulo 1 to eliminate the contribution of the bulk modes that localize at the center of A. The problem resides in the classification of these bulk modes. Even if the rest of the EOS remains constant, due to the inhomogeneity a bulk mode can cross the middle of region A, as shown in Fig.\ref{fig:wan1}.c, which will change $\chi$ by $1/L$, even though choosing $L/4$ as the separation between the \emph{left} and \emph{rigth} sectors is not physical. In order for Eq.\ref{eq:inh_fixed} to work properly the contribution from the bulk modes, which should vanish in the end, must remain constant across the different cuts. In order to achieve this we have to choose a cut-dependent threshold such that it is not crossed by the bulk modes, as shown in figure \ref{fig:wan1}.c. This is done in practice using the Wannier states.
-Note that in the thermodynamic limit it does not matter if the position of these eigenstates cross as they are degenerate, the only important thing is that the number of bulk modes at each sector remains constant.
-
-The reason Eq.\ref{eq:inh_simple} works in some cases is that if, assuming the correct constant bulk contribution, $\chi_s \in [n,n+1)$, wher $n$ is an integer, then taking the modulo 1 before or after averaging does not affect the final result. The same argument can be generalize for a $\chi_s \in [a+a,1)$, for any real $a$, given that we offset the modulo 1 in Eq.\ref{eq:inh_simple} appropiately.
-
-
-
-\begin{figure}[h!]
-\centering
-\makebox[0pt]{
-\subfloat[$\kappa_i$]{
-  \includegraphics[width=35mm]{wan2_kap.pdf}
-}
-\subfloat[EOS (black) and $\chi_s$ mod $1$ (green)]{\includegraphics[width=35mm]{wan2_EOS.pdf}
-}
-}\hspace{0mm}
-
-\makebox[0pt]{
-\subfloat[Average position of the EOS eigenstates (blue) and Wannier states (red) around the threshold that separates the left and right sector (black).]{
-  \includegraphics[width=35mm]{wan2_wan.pdf}
-}
-\subfloat[$\chi_s$ obtained using the appropiate left-right threshold (black), Zak phase (red) and $\bar{\chi}$ (dashed blue).]{\includegraphics[width=35mm]{wan2_essum.pdf}
-}
-}
-\caption{Parameters used are: $t=1,t'=-2,m=0,\kappa'=0$. With the profile of $\kappa_i$ shown in (a) the width of $\chi_s$ is larger than one and therefore Eq.\ref{eq:inh_fixed} cannot be employed.}
-\label{fig:wan1}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-\makebox[0pt]{
-\subfloat[$\kappa_i$]{
-  \includegraphics[width=35mm]{wan_kap.pdf}
-}
-\subfloat[EOS (black) and $\chi_s$ mod $1$ (green)]{\includegraphics[width=35mm]{wan_EOS.pdf}
-}
-}\hspace{0mm}
-
-\makebox[0pt]{
-\subfloat[Average position of the EOS eigenstates (blue) and Wannier states (red) around the threshold that separates the left and right sector (black).]{
-  \includegraphics[width=35mm]{wan_wan.pdf}
-}
-\subfloat[$\chi_s$ obtained using the appropiate left-right threshold (black), Zak phase (red) and $\bar{\chi}$ (dashed blue).]{\includegraphics[width=35mm]{wan_essum.pdf}
-}
-}
-\caption{Parameters used are: $t=1,t'=-2,m=0,\kappa'=0$. Adding disorder to an oscillating profile similar to the one in Fig.\ref{fig:wan1} shows that in general there is not enough information in $\chi_s$ mod $1$ to recover the Zak phase. }
-\label{fig:wan2}
-\end{figure}
-
-In Fig.\ref{fig:wan1} we have shown an example where an oscillating profile for $\kappa_i$ results in a $\chi_s$ with a width which is larger than one, meaning that using Eq.\ref{eq:inh_fixed} is not posible in any case. Since we have chosen a continuous profile one might argue that one can recover the correct contribution of $\chi_s$, shown in Fig.\ref{fig:wan1}.c from $\chi_s$ mod $1$, there is however not possible a priori to know if that is the correct result. Furthermore one cannot do this in general, as shown in figure \ref{fig:wan2}. In this example we have added disorder to a similar oscillating profile for $\kappa_i$ that there are cases in general where clearly there is not enough information in $\chi_s$ mod $1$ to recover the Zak phase. \carlos{The profile in Fig.\ref{fig:wan2} is a really good example where there is no way one can recover the Zak phase from $\chi_s$ mod $1$. However I think the plot of average positions is too messy to understand what I mean by the bulk modes crossing $L/4$ and understand how the threshold is chosen, that's why I added the example in Fig.\ref{fig:wan1} but I dont know if we want to keep both.}
-
-As the sign assigned to the bulk modes becomes relevant in the inhomogeneous case and leads to problems one might think that it is better to use the open chain, $\chi_s = \Tr C_A^{{\rm open},s}$, as one avoids the issue of having to assign any signs at all. Although this is true we find another issue. By adiabatically tuning down the coupling between the $L$ and $1$ sites we see that the eigenvalues of the $left$ modes flow to either $0$ or $1$. This can lead to discontinuities in the number of bulk modes at $\xi=1$ which again result in an incorrect cut-average. \carlos{Do we want to include is?}
-
-
-% - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
-
-\section{Superconducting systems}
-
-\carlos{I added this thinking it was generalizing on what Zaletel did but that was wrong, they also allow for interactions. Therefore I think it's too trivial for a section. It might be enough to mention that the above is valid for any quadratic Hamiltonian.}
-However, as we did for systems without translational invariance, one can extend this identity for systems with pairing terms as well. Since one computes the Zak phase from the single-particle Bogoliubov-de Gennes Hamiltonian, we can obtain the correspondent ES and everything discussed above should apply as well. Take for example the kitaev chain, with the following Hamiltonian
-\begin{align*}
-H =& -\mu \sum_{i} c_i^\dagger c_i - t \sum_{i}\left( c_{i+1}^\dagger c_i + {\rm h.c.}\right) \\
-&+  \sum_{i}\left( \Delta c_{i} c_{i+1} + {\rm h.c.}\right).
-\end{align*}
-Using the spinor $\phi_i^\dagger = (c_i^\dagger, c_i)$, we can rewrite the Hamiltonian as
-\begin{align*}
-&H = \frac{1}{2}\sum_i \phi^\dagger_i H_{BdG,ij} \phi_j,\\
-&H_{BdG,ij} = -\mu \tau_z \delta_{ij} - (t \tau_z + i\Delta \tau_y )\delta_{i,j+1}- (t \tau_z - i\Delta \tau_y)\delta_{i,j-1}.
-\end{align*}
-Note that by taking $t' = \kappa = \kappa = 0$ in the BDI model, Eq. \ref{bdi_model}, we obtain
-\begin{align*}
-H_{ij} =& m \sigma_x\delta_{ij} + \frac{1}{2} t \left[(\sigma_x + i \sigma_y)\delta_{i,j+1} + (\sigma_x - i \sigma_y) \delta_{i,j-1} \right],
-\end{align*}
-which is just the Bogoliubov-de Gennes Hamiltonian of the Kitaev chain by rotating $x$ into $z$ and identifying $\mu = -m, t_{\rm Kit} = -t_{BDI}/2, \Delta = -t_{BDI}/2 $. From Fig.\ref{bdi_phase_diagram} we see that the $BDI$ model transitions from $\nu = 1$ to the trivial phase at $t=0, m=\pm t_{BDI}$, or alternatively, when $\mu = \pm 2 t_{Kit}$, which is the known result for the Kitaev chain. Therefore the results already shown for the BDI model studied here are also applicable to the Kitaev chain.  
 
 \section{Conclusion}
 
-It was previously known that the Zak phase was encoded in the many-body entanglement spectrum. Here we have shown how it is encoded in the single-body entanglement spectrum. This relation is simpler than the one involving the MBES and it provides more insight into the ES. We have furthermore shown how this relation generalizes to inhomogeneous and superconducting systems, where it was not previously shown to be present. Our result also provides a new way of computing the Zak phase for inhomogeneous systems where instead of diagonalizing a $2L\times 2L$ matrix one has to diagonalize $L$ matrices of size $L\times L$, which in some cases might be computationally favorable. (\carlos{can we get insight on this?}). 
+It was previously known that the Zak phase, or the geometric phase for $U(1)$ flux insertion, was encoded in the many-body entanglement spectrum. Here we have shown how it is encoded in the single-body entanglement spectrum. This relation is simpler than the one involving the MBES and it provides more insight into the ES and EOS, as well as it provides another simple method for computing the Zak phase for systems without translational invariance. Based on this method we show that one can obtain a polarization that is defined in the real axis. Although it is not gauge invariant it provides additional information and also simplifies the method for computing Chern numbers for systems in 1D without translational invariance or systems in 2D with translational invariance in only one direction.
 
 \bibliography{references}	
 
@@ -547,88 +664,75 @@ It was previously known that the Zak phase was encoded in the many-body entangle
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
 
 \section{Computing the Zak phase from the Schmidt decomposition}\label{app:pollmann}
-\maria{In this appendix, we review  how to compute the Zak phase from the Schmidt decomposition~\cite{Zaletel2014}and relate it to our own results of Eq.s~\eqref{eqplusminus} and \eqref{eq_loc}.}
 
-\mariac{notation ES/EOS consistent with main text?}
+In this appendix, we review  how to compute the Zak phase from the Schmidt decomposition~\cite{Zaletel2014}and relate it to our own results.
 
-\mariac{add some explanatory sentences?}
+Consider a closed chain of length $L$ and a bipartition into regions $A$, for $i\in [1,L/2]$, and $B$, for $i \in [L/2+1,L]$. Using a Schmidt decomposition the ground state gives
+\begin{equation}
+\ket{\Psi^0} = \sum_{p,q} s_p s'_q \ket{p,q}_A \ket{q,p}_B,
+\end{equation}
+The Schmidt indeces $p$ and $q$ label the fluctuations at the cuts in $i=1$ and $i=L/2$, respectively. The convention used for the states $\ket{p,q}_{R}$ is that the first (second) index labels the state near the left-most (right-most) region of $R$, where $R$ can be $A$ or $B$. Assuming the system is large enough compared with the correlation length the fluctuations across the two cuts are independent of each other. The reduced density matrix can be computed as
+\begin{equation}
+\rho_A = \sum_{p,q} s_p^2 s^{\prime \, 2}_q \ket{p,q}_{A}\bra{p,q}_A .
+\end{equation}
+As mentioned in section \ref{section:ES} it is fully determined by the correlation matrix $C_A$. In the state $\ket{p,q}_A$, the Schmidt index $p$ ($q$) labels a set of occupation numbers of the eigenstates of $C_A$ related to the cut at $i=1$ ($i=L/2$). we will refer to these subspaces of the Hilbert space as $A_L$ ($A_R$). Note that the remaining subspace $A_{\rm bulk}$ is composed of eigenstates that have eigenvalues $\xi = 0,1$. The eigenvalues of $\rho_A$, $\lambda_{pq}=s_p^2 s_q^{\prime \, 2}$ can be obtained as
+\begin{align}
+\lambda_{pq} =& \prod_{\mu \in A} (1-\xi_\mu)\left(\frac{\xi_\mu}{1-\xi_\mu}\right)^{n_\mu^{pq}} \\
+=&\left(\prod_{\mu\in A_L} (1-\xi_\mu)\left(\frac{\xi_\mu}{1-\xi_\mu}\right)^{n_\mu^{p}} \right) \\
+&\cross \left(\prod_{\nu \in A_R} (1-\xi_\nu)\left(\frac{\xi_\nu}{1-\xi_\nu}\right)^{n_\nu^{q}} \right) ,
+\label{eq:Alexandrinata}
+\end{align}
+from which we identify 
+\begin{align*}
+&s_p^2 = \prod_{\mu\in A_L} (1-\xi_\mu)\left(\frac{\xi_\mu}{1-\xi_\mu}\right)^{n_\mu^{p}} \\
+&s_q^{\prime 2} = \prod_{\nu \in A_R} (1-\xi_\nu)\left(\frac{\xi_\nu}{1-\xi_\nu}\right)^{n_\nu^{q}}.
+\label{eq:spsq_A}
+\end{align*}
 
-Consider a chain with periodic boundary conditions. A Schmidt decomposition for two bipartite cuts gives the ground state
+We are now in position to introduce the $U(1)$ flux via a twisted boundary condition as
 \begin{equation}
-\ket{\psi} = \sum_{p,q} \ket{p,q}_A s_p \ket{p,q}_B s_q,
+\ket{\Psi^\Phi} = \sum_{pq} s_p s_q' e^{-i\Phi N_{A_L}^p} \ket{p,q}_A \ket{q,p}_B,
+\label{eq:Ground_state_flux}
 \end{equation}
-where we assume that the size of each subsystem is big enough so that the cuts can be considered independent of each other. We can now take subsystem B and glue its ends together to obtain the ground state of a ring with a single cut. If we include a flux threading inside the ring we obtain
-\begin{equation}
-\ket{\psi^\phi} = \sum_p s_p \ket{p,p}_B e^{i\phi Q_p},
-\end{equation}
-The many-body states $\ket{p,p}_B$ can be built by occupying the different ES eigenstates and are therefore characterized by a set of occupying numbers $\{n\}_p$. The many-body entanglement spectrum can also be expressed in terms of the single-particle one \cite{Alexandrinata2011} as
-\begin{align}
-s_p^2 =& \prod_{i \in {\rm occ}} \xi_i \prod_{i \in {\rm empty}}(1-\xi_i) \\
-=& \prod_i (1-\xi_i)\left(\frac{\xi_i}{1-\xi_i} \right)^{n_i}
-\end{align}
-And the charge can be assigned so that $Q_p = \sum_{\alpha = l,r} q_\alpha\sum_{i \in \alpha} n_i$ with the constrain that $q_r= q_l-1$ \textcolor{red}{Why?}. As the main result of \cite{Zaletel2014} the Zak phase is then found to be
-\begin{align}
-e^{i\gamma} = e^{2\pi i \sum_p s_p^2 Q_p}  \bra{\psi^0}\ket{\psi^{2\pi}},
-\label{zaletel}
-\end{align}
-where the monodromy is given by
-\begin{align}
-\bra{\psi^0}\ket{\psi^{2\pi}} =& \sum_p s_p^2 e^{2\pi i Q_p}.
-\end{align}
-Consider the exponential term
-\begin{align*}
-e^{2\pi i (q_L N^p_l + (1-q_l)(N^p_r+N^p_b))} =& e^{2\pi i (q_l N^p_l + (1-q_l)(N-N^p_l))} \\
-=& e^{4\pi i q_l N^p_l}e^{2 \pi i (N-N^p_l)}e^{-2\pi i q_l N },
-\end{align*}
-where $N^p_\alpha = \sum_{i \in \alpha} n_i$ and the total number of electrons, $N = \sum_{\alpha = b,l,r} N^p_\alpha$, is independent of $p$. We will consider two natural choices, $q_l = 1,1/2$, for which we have
-\begin{align}
-\bra{\psi^0}\ket{\psi^{2\pi}} =& 
-\begin{cases}
-1 & \text{for} \quad q_l = 1 \\
-e^{N\pi i} & \text{for} \quad q_l = 1/2,
-\end{cases}
-\end{align}
-where we used that $\sum_p s_p^2 = 1$. The change in the monodromy between both choices is accompanied by a change in the exponential term in Eq.\ref{zaletel}, so that both charge choices are equivalent.
+where $N_{A_L}^p = \sum_{\mu \in A_L}n_\mu^p$. As mentioned above, the label $p$ describes the set of occupation numbers $\{n_\mu^p\}$. Equation \eqref{eq:Ground_state_flux} means that an electron crossing the virtual cut at $i=1$ between region $B$ and $A_L$ will acquire a phase $-\Phi$, the convention on the sign is the same as the one used in reference \cite{Watanabe2018}. 
 
-Expressing the contribution of the many-body entanglement spectrum to the Zak phase in terms of the ES, we have
-\begin{align*}
-\gamma' = 2\pi \sum_{n_i = 0,1} \left(\sum_{i } n_i q_i\right) \left(\prod_m (1- \xi_m)\left(\frac{\xi_m}{1-\xi_m} \right)^{n_m} \right) ,
-\end{align*} 
-Consider now its derivative with respect to a particular entanglement eigenvalue
+The polarization can be now computed as
 \begin{align}
-\frac{1}{2\pi}\frac{\partial \gamma'}{\partial \xi_p} =& \sum_{\{n_k\}=0,1}\left(\sum_{i } n_i q_i\right)\frac{n_p - \xi_p}{\xi_p^{1-n_p}(1-\xi_p)^{n_p}}\\
-&\times \left(\prod_{m\neq p} (1- \xi_m)\left(\frac{\xi_m}{1-\xi_m} \right)^{n_m} \right)
+\tilde{\mathcal{P}} =& \int_0^{2\pi} \frac{d\Phi}{2\pi}i\bra{\Psi^\Phi}\partial_\Phi\ket{\Psi^\Phi} \\
+=& \int_0^{2\pi} \frac{d\Phi}{2\pi}i\sum_{p,q} s_p^2 s_q^{\prime \, 2} e^{i\Phi N_{A_L}^p}\partial_{\Phi}e^{-i\Phi  N_{A_L}^p}\\
+=&\int_0^{2\pi} \frac{d\Phi}{2\pi}\sum_{p,q} s_p^2 s_q^{\prime \, 2}  N_{A_L}^p\\
+=&\sum_{p} s_p^2 \sum_{\mu \in A_L}n^p_\mu,
 \end{align}
-where
+where we used that $\sum_q s_q^{\prime \,2} = 1$. Inserting now the expression for $s_p^2$ we obtain
+\begin{align}
+\tilde{\mathcal{P}}=&\sum_{\{n_{i \in A_L}\} = 0,1} \left(\sum_{j\in A_{L}} n_j \right) \left(\prod_{k\in A_L} \lambda_k \right),
+\end{align} 
+where we defined
 \begin{equation}
- \frac{n_p - \xi_p}{\xi_p^{1-n_p}(1-\xi_p)^{n_p}} = 
-  \begin{cases}
-    -1, & \text{for } n_p=0 \\
-    1, & \text{for } n_p = 1 \\
-  \end{cases}	
+\lambda_k = (1- \xi_k)\left(\frac{\xi_k}{1-\xi_k} \right)^{n_k}.
 \end{equation}
-Therefore we have
-\begin{align*}
-\frac{1}{2\pi}\frac{\partial \gamma'}{\partial \xi_p} =& -\sum_{\substack{\{n_{k\neq p}\}=0,1 \\ n_p = 0}}\left(\sum_{i \neq p} n_i q_i\right)\prod_{m\neq p} (1-\xi_m)\left( \frac{\xi_m}{1-\xi_m} \right)^{n_m} \\
-&+ \sum_{\substack{\{n_{k\neq p}\}=0,1 \\ n_p = 1}}\left(\sum_{i \neq p} n_i q_i +q_p\right) \prod_{m\neq p} (1-\xi_m)\left( \frac{\xi_m}{1-\xi_m} \right)^{n_m} \\
-=&q_p\sum_{\{n_{k\neq p}\}=0,1} \prod_{k\neq p} (1-\xi_k)\left( \frac{\xi_k}{1-\xi_k} \right)^{n_k} \\
-\end{align*}
-Expand now the sum  for another occupation number $n_{p'} = 0,1$ 
-\begin{align*}
-\frac{1}{2\pi}\frac{\partial \gamma'}{\partial \xi_p} =& q_p\sum_{\substack{n_{k \neq p \neq p'}=0,1\\ n_{p'}= 0}} (1-\xi_{p'})\prod_{k\neq p,p'} (1-\xi_k)\left( \frac{\xi_k}{1-\xi_k} \right)^{n_k} \\
-&+ q_p\sum_{\substack{n_{k \neq p \neq p'}=0,1\\ n_{p'}= 1}} \xi_{p'}\prod_{k\neq p,p'} (1-\xi_k)\left( \frac{\xi_k}{1-\xi_k} \right)^{n_k} \\
- &=q_p\sum_{\substack{n_{k \neq p \neq p'}=0,1}} \prod_{k\neq p,p'} (1-\xi_k)\left( \frac{\xi_k}{1-\xi_k} \right)^{n_k} 
-\end{align*}
-doing this for the rest of the occupation numbers we obtain 
-\begin{equation}
-\frac{1}{2\pi}\frac{\partial \gamma'}{\partial \xi_p} = q_p,
-\end{equation}
-so that 
-\begin{align*}
-\gamma =& \gamma' - i\log(\bra{\psi^0}\ket{\psi^{2\pi}})\\
-=& \sum_{i}q_i \xi_i - i\log(\bra{\psi^0}\ket{\psi^{2\pi}})\\
-\end{align*}
-and we have recovered equation \ref{mainl}. 
+
+If we expand the sum for one particular occupation number $n_p$ we have
+\begin{align}
+\tilde{\mathcal{P}} =& \sum_{\substack{\{n_{i \neq p \in A_L}\} = 0,1 \\ n_p=0}} \left(\sum_{j\neq p \in A_{L}} n_j \right) (1-\xi_p)\left(\prod_{k \neq p\in A_L} \lambda_k \right) \\
+&+ \sum_{\substack{\{n_{i \neq p \in A_L}\} = 0,1 \\ n_p=0}} \left(\sum_{j\neq p \in A_{L}} n_j+1 \right)\xi_p \left(\prod_{k \neq p\in A_L} \lambda_k \right) \\
+=& \sum_{\substack{\{n_{i \neq p \in A_L}\} = 0,1 }} \left(\sum_{j\neq p \in A_{L}} n_j \right) \left(\prod_{k \neq p\in A_L} \lambda_k \right) \\
+&+ \xi_p \sum_{\substack{\{n_{i \neq p \in A_L}\} = 0,1 }} \left(\prod_{k \neq p\in A_L} \lambda_k \right) 
+\end{align}
+If we continue expanding the sum in the first term we will get terms like the second one for all the other $k\neq p$ eigenvalues. If we further expand the sum in the factor accompanying $\xi_p$ we have
+\begin{align}
+&(1-\xi_{p'})\sum_{\substack{\{n_{i \neq p,p' \in A_L}\} = 0,1 \\ n_{p'}=0}} \left(\prod_{k \neq p,p'\in A_L} \lambda_k\right) \\
+&+ \xi_{p'}\sum_{\substack{\{n_{i \neq p,p' \in A_L}\} = 0,1 \\ n_{p'}=1}} \left(\prod_{k \neq p,p'\in A_L}\lambda_k\right) =1,
+\end{align}
+which we can see is $1$ if we continue this procedure for all other occupation numbers. Therefore in terms of the spectrum of $C_A$ the first term of the polarization greatly simplifies to 
+\begin{align}
+\tilde{\mathcal{P}} =& \sum_{p\in A_L}\xi_p  \quad {\rm mod}\, 1.
+\end{align}
+The subspace $A_L$ is not well-defined, as one can always include bulk modes. As a result the polarization obtained this way is defined only modulo 1. In practice we extend $A_L$ to include all eigenstates whose average position lies in the left half of $A$ and we finally get
+\begin{align}
+\tilde{\mathcal{P}} =& \sum_{i\in L}\xi_i \quad {\rm mod}\, 1.
+\label{eq:polarization_left}
+\end{align}
 
 \section{Alternative expression for the correlation matrix}\label{app:CM}
 In this appendix, we show how to express the correlation matrix in terms of the Hamiltonian, used in Eq.~\eqref{eq:corr_mat2}. 
@@ -671,166 +775,124 @@ UD(\abs{D})^{-1}U^\dagger =& UDU^\dagger(U D^2 U^\dagger)^{-1/2} \nonumber\\
 \end{align}
 Combining Eq.s~\eqref{eq:corr_mat},  and \eqref{eq:UDDU}, we arrive at the final expression of the correlation matrix in Eq.~\eqref{eq:corr_mat2}. 
 
+\section{Winding number in the SSH chain}
+\label{appendix:winding_ssh}
 
-\section{$\lambda$ term}
 
-
-In order to ensure that we obtain localized entanglement eigenstates,  we diagonalize $C_A^\lambda = C_A + \lambda/L^2 C_A\hat{X}C_A$ instead of $C_A$, where $\lambda$ is our small parameter and the reason we include the $L^2$ scaling will be explained below.
-For the whole system one way of obtaining localized eigenstates of the full correlation function (\carlos{also the Hamiltonian?}) is to diagonalize $C\hat{X}C$, which results in localized Wannier states. $C$ commutes with this operator because it is a projector, but this is no longer the case for $C_A$. Far from the edges however, $C_A$ and $C$ are equivalent, so that the states close to $\xi=1$ will perfectly localize into Wannier states by adding the $\lambda$ term. Note that in the thermodynamic limit the operator $\hat{X}$ acts as proportional to an identity for localized states. Therefore in this limit the localized eigenstates of $C_A$ far from $\xi = 0,1$ are also eigenstates of $C_A^\lambda$ while their mixture is not. Threfore this operator breaks all degeneracies of $C_A$ and results in localized eigenstates.
-
-One has to be careful when choosing the correct $\lambda$. A parameter $\lambda$ which is too small will fail to break the degeneracies and localize the eigenstates. On the other hand the $\lambda$ term will  modify the eigenvalues and introduce an additional error to $\chi$. Assuming localized eigenstates we have $\expval{\hat{X}}_{i\alpha} \simeq i$. Therefore the error it introduces in $\chi$ is roughly
+Consider the Bloch Hamiltonian of the Rice-Mele model
 \begin{equation}
-\frac{\lambda}{L^2} \sum_{\alpha=1,2}\left( \sum_{i=L/4+1}^{L/2}i-\sum_{i=1}^{L/4}i \right) = \frac{\lambda }{8},
+H=\mqty(\kappa & f(k) \\ f^\dagger(k) & -\kappa),
 \end{equation}
-it is proportional to $\lambda$ and independent on system size. In Fig.\ref{lambdaL} we show this error in $\chi$ together with the maximum width of the eigenstates in the top half of the spectrum (\carlos{as we only care about the midgap states and the bulk modes at 1}), for different system sizes. We see that indeed the error remains constant with system size. In this case most of the bulk modes are above $\xi = 1-10^{-10}$, so that the error coming from the $\lambda$ term is bigger than the one we make by failing to localize the bulk modes. However, by looking at the maximum width of the eigenstates we see three different regions. One region at low system size where the width increases linearly. A second region where the system localizes and the width seems constant, and finally for large systems a third region where the width increases again because the $\lambda$ term is too small to break the degeneracies and localize the eigenstates.
-
-
-\begin{figure*}[h!]
-\centering
-\makebox[0pt]{
-\subfloat[${\rm Log}_{10}(\chi - \gamma)$ (\carlos{There are errors at $-5,-9,-12$ because that's the order of the eigenvalue of the bulk modes that should cancel pairwise but dont due to failure of localization. Furthermore, the error in yellow around $L=150$ is due to a mode close  to $\xi = 0$ so that it does not appear in Fig. b.})]{
-  \includegraphics[width=55mm]{lambdaL1.pdf}
-}
-\subfloat[${\rm Max}\bra{\psi_i}\sigma_x\ket{\psi_i}$ for $\xi_i >1/2$. \carlos{I don't know why the green line localizes so bad. I have to look further into it}]{\includegraphics[width=55mm]{lambdaL2.pdf}
-}
-}
-\caption{$t = 1, t'= 2, m=0$ for $-{\rm Log}_{10}[\lambda] = 4,5,6,7,8,9,10$.}
-\label{lambdaL}
-\end{figure*}
-
-In Fig.\ref{linearRegion} we take a closer look into the first region with a maximum width proportional to the system size. What happens in this region is that due to finite size the midgap modes that localize in the edges overlap so the resulting eigenstates are not localized and are split from $\xi = 1/2$. The boundary where this region ends changes with $\lambda$ and coincides with the point where the splitting from the $\lambda$ term is bigger than the splitting due to finite size. The gap between these midgap modes that mix starts decreasing with larger system size up to a point, where the system starts to localize, where this splitting is roughly constant with system size and proportional to $\lambda$. In the $\nu = 1$ region the two midgap states are degenerate and we do not observe this first linear region, the eigenstates localize for any finite $\lambda$.
-
-
-\begin{figure*}[h!]
-\centering
-\makebox[0pt]{
-\subfloat[Width of the eigenstate closest to $\xi=1/2$]{
-  \includegraphics[width=55mm]{linearBoundary.pdf}
-}
-\subfloat[Gap between the two eigenstates closest to $\xi = 1/2$]{\includegraphics[width=55mm]{linearBoundarysplit.pdf}
-}
-}
-\caption{$t = 1, t'= 2, m=0, \nu=0 , -{\rm Log}_{10}[\gamma] = 4,5,6,7,8,9,10$ for the different colors. Vertical lines are addded to better show how the features of both plots match.}
-\label{linearRegion}
-\end{figure*}
-
-
-
-For inhomogeneous systems the story is slightly different. Due to the cut-average a wrong assignment of the bulk modes leads to an error of order $\mathcal{O}(1/L)$. In Fig. \ref{lambdainh} we have the error made in $\chi$ and the maximum width of the eigenstates for different values of system size $L$. The disorder does not change anything discussed above and we observe the same behavior in the localization as in the homogeneous case.
-
-
-\begin{figure*}[h!]
-\centering
-\makebox[0pt]{
-\subfloat[${\rm Log}_{10}(\chi - \gamma)$ ]{
-  \includegraphics[width=55mm]{lambdaLinherr.pdf}
-}
-\subfloat[${\rm Max}\bra{\psi_i}\sigma_x\ket{\psi_i}$ for $\xi_i >1/2$.]{\includegraphics[width=55mm]{lambdaLinhloc.pdf}
-}
-}
-\caption{$t = 1, t'= 2, m=0, \nu=2$. }
-\label{lambdainh}
-\end{figure*}
-
-
-\begin{figure*}[h!]
-\centering
-\makebox[0pt]{
-\subfloat[${\rm Max}\bra{\psi_i}\sigma_x\ket{\psi_i}$ for $\xi_i >1/2$.]{
-  \includegraphics[width=55mm]{bigsystemloc.pdf}
-}
-\subfloat[${\rm Log}_{10}(\chi - \gamma)$ ]{\includegraphics[width=55mm]{bigsystemerr.pdf}
-}
-}
-\caption{$t = 1, t'= 2, m=0, \nu=2$. }
-\label{lambdainh}
-\end{figure*}
-
-
-\begin{figure*}[h!]
-\centering
-\makebox[0pt]{
-\subfloat[ ${\rm Max}\bra{\psi_i}\sigma_x\ket{\psi_i}$ for $\xi_i >1/2$]{
-  \includegraphics[width=55mm]{smallsystemloc.pdf}
-}
-\subfloat[${\rm Log}_{10}(\chi - \gamma)$.]{\includegraphics[width=55mm]{smallsystemerr.pdf}
-}
-}
-\caption{$t = 1, t'= 2, m=0, \nu=2$. }
-\label{lambdainh}
-\end{figure*}
-
-
-\begin{figure*}[h!]
-\centering
-\makebox[0pt]{
-\subfloat[${\rm Max}\bra{\psi_i}\sigma_x\ket{\psi_i}$ for $\xi_i >1/2$. ]{
-  \includegraphics[width=55mm]{lambdaloc.pdf}
-}
-\subfloat[spectrum of $H_{ent}$]{\includegraphics[width=55mm]{lambdalocES.pdf}
-}
-}
-\caption{$t = 1, t'= 2, m=0, \nu=2$. }
-\label{lambdainh}
-\end{figure*}
-
-
-
-\begin{figure*}[h!]
-\centering
-\makebox[0pt]{
-\subfloat[$\gamma$ (red) and $\chi$ (blue) ]{
-  \includegraphics[width=55mm]{nonquanterror2.pdf}
-}
-\subfloat[${\rm Log}_{10}(\chi - \gamma)$]{\includegraphics[width=55mm]{nonquanterror3.pdf}
-}
-}
-\caption{$t = 1, t'= 2, m=2, \kappa = 0.2 $. }
-\label{lambdainh}
-\end{figure*}
-
-
- 
-\section{Resta's formula} 
- 
-Consider a 1D chain with L unit cells. For a half-filled two-orbital system the many-body ground-state is given by
-\begin{equation}
-\Psi_0(\vec{x}) = A\prod_{\mu} \psi_\mu (x_\mu),
-\end{equation}
-where $A$ is an antisymmetrizer and $\mu$ is restricted to the occupied states. The polarization is give by the expectation value of the operator
-\begin{equation}
-\hat{P}=\frac{-e}{L}\left(\sum_j X_j - \sum_j  x_j\right),
-\end{equation}
-where $X_j$ stands for the position operator of the nuclei, and $x_j$ the one for the electrons. Assuming a tight-binding approximation $X_j$ corresponds simply to the lattice positions.
-
-Given periodic boundary conditions the polarization is obtained as
+which can also be written as $H = \boldsymbol{h}\cdot \boldsymbol{\sigma}$
+where 
 \begin{align*}
-P =& \frac{-e}{2\pi}{\rm Im}\,{\rm Ln}\bra{\Psi_0}e^{i\frac{2\pi}{L} \left(\sum_j X_j - \sum_j  x_j\right)}\ket{\Psi_0} \\
-=&\frac{-e}{2\pi}{\rm Im}\,{\rm Ln}\bra{\Psi_0}e^{-i\frac{2\pi}{L} \sum_j  x_j}\ket{\Psi_0}+\frac{-e(1+L)}{2}.
+\boldsymbol{h}=& ({\rm Re}[f(k)],-{\rm Im}[f(k)],\kappa) \\
+=& \sqrt{\abs{f(k)}^2 +\kappa^2}(\sin(\theta)\cos(\phi),\sin(\theta)\sin(\phi),\cos(\theta))
 \end{align*}
-Note that it is very important to include the contribution from the nuclei whenever we are working with periodic boundary conditions, as a new term dependent on system size appears. This can now be expressed as
-\begin{align*}
-P =& \frac{-e}{2\pi}{\rm Im}\,{\rm Ln} \, {\rm det}[S]+\frac{-e(1+L)}{2},
-\end{align*}
+In the gauge where the second component of the eigenstates remains real they are given by
+\begin{align}
+&\ket{+}  = \frac{1}{N_+}\mqty(\cot(\theta/2)e^{-i\phi}\\ 1 )\\
+&\ket{-}  =\frac{1}{N_-} \mqty(-\tan(\theta/2)e^{-i\phi}\\ 1),
+\end{align}
 where
-\begin{equation}
-S_{\mu \nu} = \int_0^L dx \, \psi^*_{\mu}(x)e^{i\frac{2\pi}{L}x}\psi_\nu(x).
-\end{equation}
-Consider now an spetial case where the system is translational invariant with only one occupied band. The indeces $\mu,\nu$ are now given by the momentum on the occupied band and we have
-\begin{equation}
-S_{q,q+1} = \int_0^L dx \, \psi^*_{q}(x)e^{i\frac{2\pi}{L}x}\psi_{q+1}(x),
-\end{equation}
-since all other elements of $S$ will vanish due to orthogonality proeprties of the Bloch functions. Now the determinant can be obtained as
-\begin{equation}
-{\rm det[S]} = \varepsilon_{2,3,...L,1}\prod_q S(q,q+1)
-\end{equation}
-Permuting two by two the $1$ back to the first position gives for the antisymmetric tensor $+1$ for odd $L$ and $-1$ for even $L$. The polarization is given therefore by
 \begin{align*}
-P =& \frac{-e}{2\pi}{\rm Im}\,{\rm Ln} \, \left\{e^{-i \pi (L+1)}\prod_q S(q,q+1)\right\}+\frac{-e(1+L)}{2} \\
-=& \frac{-e}{2\pi}{\rm Im}\,{\rm Ln} \, \left\{\prod_q S(q,q+1)\right\}
-\end{align*} 
-which coincides with the known result for the discretized Zak phase. Both the term due to the nuclei and this sign coming from the antisymmetric tensor are missing from the Resta paper, but since they cancel each other its final result was ok. It's only when you compute things without translational invariance that the issue arised. 
+&N_+ = \sqrt{1+\cot^2(\theta/2)} \\
+&N_- = \sqrt{1+\tan^2(\theta/2)} .
+\end{align*}
+The Berry connections of the occupied state, $A_\lambda = \bra{-}\partial_\lambda \ket{-}$, can be obtained as
+\begin{align*}
+A_{\lambda}=& i\frac{\cos(\theta)-1}{2}\partial_q \phi \\
+=&i\frac{\cos(\theta)-1}{2} \cos(\phi)^2 \partial_q  \tan(\phi) \\
+=&\frac{i}{2}\left(\frac{\kappa}{\sqrt{\abs{f(k)}^2+\kappa^2}}-1\right) \left( \frac{\Re [f(k)]}{\abs{f(k)}}\right)^2 \partial_\lambda  \left( -\frac{\Im [f(k)]}{\Re [f(k)]} \right) \\
+=&\frac{-1}{2}\left(\frac{\kappa}{\sqrt{\abs{f(k)}^2+\kappa^2}}-1\right) \frac{f(k)^\dagger \partial_\lambda f(k)-f(k)\partial_\lambda f(k)^\dagger}{2\abs{f(k)}^2}
+\end{align*}
+The Berry connection with respect to momentum gives
+\begin{equation}
+A_k = \frac{it [t+m \cos(k)][\kappa - \sqrt{\kappa^2+m^2+t^2+2mt \cos(k)}]}{2[m^2+t^2+2mt\cos(k)]\sqrt{\kappa^2+m^2+t^2+2mt \cos(k)}},
+\end{equation}
+and the resulting Zak phase can be seen in Fig.\ref{fig:ssh_zak}, which presents a branch cut for $m=0,\kappa<0$ for this particular gauge.
 
 
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=50mm]{sshwindinganalytical.pdf}
+	\caption{$\gamma/2\pi$ obtained in the smooth gauge that provides the winding number in the chiral symmetric limit.}
+	\label{fig:ssh_zak}
+\end{figure}
+
+Note that in the chiral symmetric case, for $\kappa = 0$, the Zak phase is
+\begin{align*}
+\gamma =& \int_0^{2\pi} dk\,\frac{1}{2}\frac{f(k)^\dagger \partial_k f(k)-f(k)\partial_k f(k)^\dagger}{2\abs{f(k)}^2} \\
+=& \int_0^{2\pi} dk\,\frac{1}{2}q(k)^\dagger \partial_k q(k),
+\end{align*}
+where $q(k) = f(k)/\abs{f(k)}$. This is nothing else than the winding number \cite{ryu2010topological}. 
+
+
+\iffalse
+\mariac{removed appendix D}
+\section{Twisted boundary condition Winding number}
+\carlos{Work in progress}
+For a system with chiral symmetry the Hamiltonian can be written in some basis as
+\begin{equation}
+H = \mqty(0 & h \\ h^\dagger & 0),
+\end{equation}
+where $h$ is in general a matrix. In translationally invariant systems the winding number is defined as 
+\begin{equation}
+\nu = -i\int_0^{2\pi} \frac{dk}{2\pi} {\rm Tr}[h(k)^{-1} \partial_k h(k)],
+\label{eq:winding_k}
+\end{equation}
+where $h(k)$ is the off-diagonal block of the Bloch Hamiltonian. In systems without translational invariance, one can similarly define the winding number
+\begin{equation}
+\nu = -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[h(\Phi)^{-1} \partial_\Phi h(\Phi)],
+\label{eq:winding_flux}
+\end{equation}
+for a $U(1)$ flux introduced (\carlos{I have only found a similar expression in the context of non-hermitian systems \cite{Gong2018}, but I assume this is the expression Prodan refers to. It gives the correct results in translationally invariant systems, however it is very unpractical.}). Note that a generalization of \eqref{eq:winding_k} to position space has also been developed which not necesseraly gives the same results as \eqref{eq:winding_flux} (\carlos{The only comparison is in the Prodan paper where they talk about practical numerical implementations but don't adress if both formulations are equivalent.}) Both formulations however reduce to \eqref{eq:winding_k} for translationally invariant systems \cite{Gong2018}.  In the following we will omit the flux parameter for simplicity.
+
+Note that the winding number can also be expressed in terms of the flat-band Hamiltonian
+\begin{align*}
+Q =& H (H^2)^{-1/2} \\
+=& \mqty(0 & q \\ q^\dagger & 0).
+\end{align*}
+Note that since $Q$ only has eigenvalues $\pm 1 $ , $Q^2 = \mathbb{I}$ and therefore $q^\dagger = q^{-1}$. We can therefore write
+\begin{equation}
+\nu = -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[q^\dagger \partial_\Phi q].
+\end{equation}
+In this basis the chiral symmetry operator is given by $S = \sigma_z \otimes \mathbb{I}$ such that the winding number can be expressed in terms of the full flat-band Hamiltonian as
+\begin{align}
+\nu =& \frac{i}{2}\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S Q^\dagger \partial_\Phi Q] \\
+=& \frac{i}{2}\int_0^{2\pi} \frac{d\Phi}{2\pi} \left({\rm Tr}[q \partial_\Phi q^\dagger]-{\rm Tr}[q^\dagger \partial_\Phi q] \right)\\
+=& -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[q^\dagger \partial_\Phi q] 
+\end{align}
+where in the last step we use the fact that the winding number is a real number. We can now write the winding number in terms of the correlation matrix
+\begin{align}
+\nu =& \frac{i}{2}\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S (1-2C) \partial_\Phi (1-2C)] \\
+=& -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S (1-2C) \partial_\Phi C] .
+\end{align}
+Introducing the flux via twisted boundary conditions allows us to easily construct the ground state with flux in the case of the open chain \eqref{eq:gauge}, therefore we will employ this gauge to compute the correlation matrix. The correlation matrix can be written in position space as
+\begin{equation}
+C = \mqty(C_A & C_{AB} \\ C_{AB}^\dagger & C_B),
+\end{equation}
+where in this basis, assuming $S$ is a local symmetry it is also diagonal. Note that the flux will only appear in the off-diagonal blocks $C_{AB}$ and therefore the first term in the trace above will vanish, leaving the winding number as
+\begin{align}
+\nu =&  -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S C \partial_\Phi C] \\
+=&  -i\int_0^{2\pi} \frac{d\Phi}{2\pi} \left( {\rm Tr}[S C_{AB} \partial_\Phi C_{AB}^\dagger]+{\rm Tr}[S C_{AB}^\dagger \partial_\Phi C_{AB}] \right)
+\end{align}
+We can not explicitely construct the correlation matrix with flux as
+\begin{align*}
+C_{ij}^\Phi =& \bra{\tilde{\Psi}_{0,{\rm open}}^\Phi}c_i^\dagger c_j \ket{\tilde{\Psi}_{0,{\rm open}}^\Phi} \\
+=&\bra{\tilde{\Psi}_{0,{\rm open}}^0}e^{i\Phi \hat{N}_A} c_i^\dagger c_j e^{-i\Phi \hat{N}_A}\ket{\tilde{\Psi}_{0,{\rm open}}^0} .
+\end{align*}
+Depending on if $i,j$ belong to $A$ or not, commuting the exponentials will leave additional factors or not, resulting in
+\begin{align*}
+C^\Phi = \mqty(C_A^0 & e^{i\Phi} C_{AB}^0 \\e^{-i\Phi} C_{AB}^{0\,\dagger} &C_B^{0}),
+\end{align*}
+where we have made explicit the flux dependence. The winding number is then
+\begin{align}
+\nu =&  -i\int_0^{2\pi} \frac{d\Phi}{2\pi} {\rm Tr}[S C^\Phi \partial_\Phi C^\Phi] \\
+=&  -i\int_0^{2\pi} \frac{d\Phi}{2\pi} \left( {\rm Tr}[-iS C_{AB}^0 C_{AB}^{0\,\dagger}]+{\rm Tr}[iS C_{AB}^{0\,^\dagger} C_{AB}^0] \right) \\
+=&  {\rm Tr}[S C_B^0(1-C_B^0)]-{\rm Tr}[S C_A^0(1-C_A^0)] 
+\end{align}
+where in the last step we use one of the properties of the correlation function stemming from $C^2 = C$. (\carlos{So far this expression gives the correct result for translationally invariant systems however one needs to do the trick of breaking chiral symmetry slightly. However, unlike with $\tilde{\mathcal{P}}$ this expression is not discontinuous at $\kappa = 0$. })
+\fi
 
 \end{document}
