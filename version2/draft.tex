@@ -15,6 +15,7 @@
 \newcommand{\maria}[1]{{\color{blue} #1}}
 \newcommand{\mariac}[1]{{\it\color{cyan}#1}}
 \newcommand{\changed}[1]{{\color{orange}#1}}
+
 \newcommand{\tpo}{\tilde{\mathcal{P}}_{\rm o}}
 \newcommand{\brapsio}[1]{\bra{\tilde{\Psi}_{{\rm o}}^#1}}
 \newcommand{\ketpsio}[1]{\ket{\tilde{\Psi}_{{\rm o}}^#1}}
@@ -504,51 +505,51 @@ One can also obtain a polarization continuous in $\kappa$ by doing a gauge trans
 This gauge transformation places the branch cut at $m=t,\kappa < 0$, as can be seen in Fig.\ref{ssh_chern}(b)  (\carlos{need to double check signs}). 
 This is in fact the result one gets when using the gauge that allows one to compute the winding number from the Zak phase. \maria{???}
 
-\changed{undo figure uncomment}
-%\begin{figure}[t]
-%	\centering
-%	\makebox[0pt]{
-%		\subfloat[$\tilde{\mathcal{P}}_{\rm open}-L/2$]{
-%			\includegraphics[width=50mm]{windingSSH1.pdf}
-%		}
-%		\subfloat[$\tilde{\mathcal{P}}_{\rm open,+}-L/2$]{
-%			\includegraphics[width=45mm]{windingSSH2.pdf}
-%		}
-%	}\hspace{0mm}
-%	
-%	\makebox[0pt]{
-%		\subfloat[$\tilde{\mathcal{P}}_{\rm open}-L/2$]{
-%			\includegraphics[width=45mm]{windingtp1.pdf}
-%		}
-%		\subfloat[$\tilde{\mathcal{P}}_{\rm open,+}-L/2$]{
-%			\includegraphics[width=45mm]{windingtp2.pdf}
-%		}
-%	}
-%	\caption{Polarization $\tilde{\mathcal{P}}_{\rm open}$ computed for three different gauge choices, for $t=1,\kappa'=0$ and system size $L=160$. (a) and (b) with $t'=0$ and (c) and (d) for $t'=-2$. }
-%	\label{ssh_chern}
-%\end{figure}
+%\changed{undo figure uncomment}
+\begin{figure}[t]
+	\centering
+	\makebox[0pt]{
+		\subfloat[$\tilde{\mathcal{P}}_{\rm open}-L/2$]{
+			\includegraphics[width=50mm]{windingSSH1.pdf}
+		}
+		\subfloat[$\tilde{\mathcal{P}}_{\rm open,+}-L/2$]{
+			\includegraphics[width=45mm]{windingSSH2.pdf}
+		}
+	}\hspace{0mm}
+	
+	\makebox[0pt]{
+		\subfloat[$\tilde{\mathcal{P}}_{\rm open}-L/2$]{
+			\includegraphics[width=45mm]{windingtp1.pdf}
+		}
+		\subfloat[$\tilde{\mathcal{P}}_{\rm open,+}-L/2$]{
+			\includegraphics[width=45mm]{windingtp2.pdf}
+		}
+	}
+	\caption{Polarization $\tilde{\mathcal{P}}_{\rm open}$ computed for three different gauge choices, for $t=1,\kappa'=0$ and system size $L=160$. (a) and (b) with $t'=0$ and (c) and (d) for $t'=-2$. }
+	\label{ssh_chern}
+\end{figure}
 
-\changed{undo figure uncomment}
-%
-%\begin{figure}[t]
-%	\centering
-%	\makebox[0pt]{
-%		\subfloat[$\tilde{\mathcal{P}}_{\rm open}$]{
-%			\includegraphics[width=50mm]{windingtpdis.pdf}
-%		}
-%		\subfloat[$C $]{
-%			\includegraphics[width=45mm]{plotwinding.pdf}
-%		}		
-%	}\hspace{0mm}
-%	
-%	\makebox[0pt]{
-%		\subfloat[${\rm Log}_{10} (C \, {\rm mod} \, 1)$ ]{
-%			\includegraphics[width=45mm]{plotwindingerror.pdf}
-%		}
-%	}
-%	\caption{We compute (a)$\tilde{\mathcal{P}}_{\rm open}$, (b) $\nu$ and (c) error in the quantization of $\nu$ for the continuous line in the phase diagram, $t=1,t'=2$ and system size $L=400$. (a) is computed for $W=6$ showing that the branch cut is not affected by the disorder. (b) and (c) are computed for increasing disorder strength, showing a good quantization of the resulting winding number far from the transitions. }
-%	\label{winding}
-%\end{figure}
+%\changed{undo figure uncomment}
+
+\begin{figure}[t]
+	\centering
+	\makebox[0pt]{
+		\subfloat[$\tilde{\mathcal{P}}_{\rm open}$]{
+			\includegraphics[width=50mm]{windingtpdis.pdf}
+		}
+		\subfloat[$C $]{
+			\includegraphics[width=45mm]{plotwinding.pdf}
+		}		
+	}\hspace{0mm}
+	
+	\makebox[0pt]{
+		\subfloat[${\rm Log}_{10} (C \, {\rm mod} \, 1)$ ]{
+			\includegraphics[width=45mm]{plotwindingerror.pdf}
+		}
+	}
+	\caption{We compute (a)$\tilde{\mathcal{P}}_{\rm open}$, (b) $\nu$ and (c) error in the quantization of $\nu$ for the continuous line in the phase diagram, $t=1,t'=2$ and system size $L=400$. (a) is computed for $W=6$ showing that the branch cut is not affected by the disorder. (b) and (c) are computed for increasing disorder strength, showing a good quantization of the resulting winding number far from the transitions. }
+	\label{winding}
+\end{figure}
 
 
 
