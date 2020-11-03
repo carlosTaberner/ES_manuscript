@@ -190,14 +190,14 @@ Consider a generic, quadratic Hamiltonian in one dimension
 \end{equation}
 We can obtain its single-particle eigenstates as
 \begin{align}
-\sum_{j\beta}H_{ij,\alpha\beta} u_{p\mu}^{j\beta} = E_{p\mu} u^{i\alpha}_{p\mu},
+\sum_{j\beta}H_{ij,\alpha\beta} \psi_{p\mu}^{j\beta} = E_{p\mu} \psi^{i\alpha}_{p\mu},
 \end{align}
-where $[U]_{j\beta,p\mu} = u_{p\mu}^{j\beta}$ is the unitary matrix that diagonalizes $H$. In translational invariant systems $u_{k\mu}^{j\beta} = e^{ikj}\tilde{u}_{k \mu}^{\beta}$, where $\tilde{u}_{k \mu}^{\beta}$ are the components of the eigenstates of the Bloch Hamiltonian, $\ket{\tilde{u}_{k\mu}}$ and $k$ is the momentum. One can now compute the Zak phase \cite{Zak1989}, which for a two-band  model is defined as the geometric phase acquired by the occupied state $\ket{\tilde{u}_k}$ as it winds around the Brillouin zone,
+where $[U]_{j\beta,p\mu} = \psi_{p\mu}^{j\beta}$ is the unitary matrix that diagonalizes $H$. In translational invariant systems $\psi_{k\mu}^{j\beta} = e^{ikj}u_{k \mu}^{\beta}$, where $u_{k \mu}^{\beta}$ are the components of the eigenstates of the Bloch Hamiltonian, $\ket{u_{k\mu}}$ and $k$ is the momentum. For simplicity we consider a unit cell with a single site. One can now compute the Zak phase \cite{Zak1989}, which for a two-band  model is defined as the geometric phase acquired by the occupied state $\ket{u_k}$ as it winds around the Brillouin zone,
 \begin{equation}
 \gamma = \int_{0}^{2\pi} {\rm d}k\, i A_k, 
 \label{eq:zak_phase}
 \end{equation}
-where $A_k = \bra{\tilde{u}_k}\partial_k \ket{\tilde{u}_k}$ is the Berry connection \cite{Berry1984}. 
+where $A_k = \bra{u_k}\partial_k \ket{u_k}$ is the Berry connection \cite{Berry1984}. 
 The generalization to higher-band models is straightforward. 
 
 The Zak phase is only gauge invariant modulo $2\pi$. However, for two different states defined by a parameter $\lambda$ --- assuming $A_k(\lambda)$ is smooth in the path connecting them --- the change in the Zak phase can be computed as
@@ -214,9 +214,9 @@ The Zak phase itself, as defined in Eq.~\eqref{eq:zak_phase}, can be shown to be
 
 The derivative of the polarization with respect to $\lambda$ was obtained \cite{KingSmith1993} as
 \begin{equation}\label{eq:Bloch_polarization}
-\partial_\lambda \tilde{\mathcal{P}}^{\rm Bloch} = \int_{0}^{2\pi} \frac{dk}{2\pi} \, \Omega_{\lambda k},
+\partial_\lambda \mathcal{P}^{\rm Bloch} = \int_{0}^{2\pi} \frac{dk}{2\pi} \, \Omega_{\lambda k},
 \end{equation}
-which allows us to make the identification $ \tilde{\mathcal{P}}^{\rm Bloch} = \gamma/2\pi$. 
+which allows us to make the identification $ \mathcal{P}^{\rm Bloch} = \gamma/2\pi$. 
 As discussed above,  this polarization is defined only modulo 1.
 Its changes, however, are defined in $\mathbb{R}$. The polarization itself is not a physical observable. Only its changes, related to the current flowing through the system, are.
 
@@ -235,7 +235,7 @@ This expression is particularly useful because it can be easily expressed in ter
 \end{align}
 where the matrix $S$ is given by
 \begin{equation}
-S_{p\mu,q\nu} = \sum_{j\alpha} u_{p\mu}^{j \alpha \, \ast} e^{i\frac{2\pi}{L}j}u_{q\nu}^{j \alpha},
+S_{p\mu,q\nu} = \sum_{j\alpha} \psi_{p\mu}^{j \alpha \, \ast} e^{i\frac{2\pi}{L}j}\psi_{q\nu}^{j \alpha},
 \end{equation}
 and  ${\rm det }\!' $ indicates that the determinant is restricted to the space of \emph{occupied} single-particle states. Below we will compare the bulk polarization obtained using our method to the one obtained using equation~\eqref{eq:polarization_resta}.
 
@@ -258,7 +258,7 @@ where
 \tilde {\mathcal{P}}_0= \int_0^{2\pi}\frac{d\Phi}{2\pi} \bra{\tilde{\Psi}^\Phi}\hat{P}\ket{\tilde{\Psi}^\Phi}.
 \end{equation} 
 %The previous discussion about the Zak phase being defined only modulo $2\pi$ although its changes can be defined as a real number applies in the same way to the polarization obtained in \eqref{eq:p_tilde}.
-Similar to the discussion about the Bloch polarization below Eq.~\eqref{eq:Bloch_polarization}, both $\mathcal{P}$ and $\tilde{\mathcal{P}}$ are defined modulo 1, while their changes are defined in $\mathbb{R}$. For translationally invariant systems one finds that $\tilde{\mathcal{P}} = \tilde{\mathcal{P}}^{\rm Bloch}$ \cite{Watanabe2018}. 
+Similar to the discussion about the Bloch polarization below Eq.~\eqref{eq:Bloch_polarization}, both $\mathcal{P}$ and $\tilde{\mathcal{P}}$ are defined modulo 1, while their changes are defined in $\mathbb{R}$. For translationally invariant systems one finds that $\mathcal{P} = \mathcal{P}^{\rm Bloch}+\frac{L-1}{2}\nu$, here $\nu$ is the number of occupied bands \cite{Watanabe2018}. 
 
 
 \section{Entanglement spectrum}
@@ -705,14 +705,14 @@ We consider the generic, quadratic Hamiltonian in one dimension of Eq.~\eqref{eq
 	\end{align} 
 In terms of the fermionic operators that diagonalize the Hamiltonian, 
 \begin{align}
-& \gamma_{i\alpha} = \sum_{j\beta}u_{j\beta}^{i\alpha \, \ast} c_{j\beta},
-%& c_{i\alpha} = \sum_{j\beta} u^{j\beta}_{i\alpha} \gamma_{j\beta}
+& \gamma_{i\alpha} = \sum_{j\beta}\psi_{j\beta}^{i\alpha \, \ast} c_{j\beta},
+%& c_{i\alpha} = \sum_{j\beta} \psi^{j\beta}_{i\alpha} \gamma_{j\beta}
 \end{align}
 we find that the correlation matrix can be written as 
 \begin{align}\label{eq:corr_mat}
-C_{ij}^{\alpha \beta} =& \sum_{pq,\mu\nu} u^{q\nu }_{j\beta} u^{p\mu \, \ast}_{i\alpha} \expval{\gamma^\dagger_{p\mu} \gamma_{q\nu} }\nonumber \\
-=&  \sum_{p\mu} u^{p\mu }_{j\beta} u^{p\mu \, \ast}_{i\alpha} \expval{\gamma^\dagger_{p\mu} \gamma_{p\mu} }\nonumber \\
-=&  \sum_{p\mu} u^{p\mu }_{j\beta} u^{p\mu \, \ast}_{i\alpha} [1-{\rm sign}(E_{p\mu})]/2.
+C_{ij}^{\alpha \beta} =& \sum_{pq,\mu\nu} \psi^{q\nu }_{j\beta} \psi^{p\mu \, \ast}_{i\alpha} \expval{\gamma^\dagger_{p\mu} \gamma_{q\nu} }\nonumber \\
+=&  \sum_{p\mu} \psi^{p\mu }_{j\beta} \psi^{p\mu \, \ast}_{i\alpha} \expval{\gamma^\dagger_{p\mu} \gamma_{p\mu} }\nonumber \\
+=&  \sum_{p\mu} \psi^{p\mu }_{j\beta} \psi^{p\mu \, \ast}_{i\alpha} [1-{\rm sign}(E_{p\mu})]/2.
 \end{align}
 The first term of the last line is simply a kronecker delta between both sets of indices. The second term can be rewritten, using Eq.~\eqref{eq:D}, as
 \begin{align}
