@@ -68,7 +68,7 @@ This demonstrates that there should be a direct relation between the single-part
 for a fully dimerized SSH chain~\cite{Ryu2006}. 
 The similarity between the behavior of the Zak phase and the virtual topological edge states in the entanglement spectrum of certain Chern insulators, which was observed in Ref.~\cite{Huang2012,Huang2012-2}, can also be explained by our results. 
 
-The bulk polarization is defined in $\mathbb{R}$ mod 1, which might present challenges when computing changes in the polarization, which are defined  in $\mathbb{R}$. We show how, using our method, one can define an alternative bulk polarization \mariac{REF?} computed in the equivalent open chain that is continuous in $\mathbb{R}$ for gapped paths. The bulk polarization obtained this way can give more information about the edge spectrum than the usual one, and can be used to simplify the computation of Chern numbers. We also discuss the relation between this alternative bulk polarization and another topological invariant known as the trace index \cite{Alexandrinata2011}.
+The bulk polarization is defined in $\mathbb{R}$ mod 1, which might present challenges when computing changes in the polarization, which are defined  in $\mathbb{R}$. We show how, using our method, one can define an alternative bulk polarization computed in the equivalent open chain that is continuous in $\mathbb{R}$ for gapped paths. The bulk polarization obtained this way can give more information about the edge spectrum than the usual one, and can be used to simplify the computation of Chern numbers. We also discuss the relation between this alternative bulk polarization and another topological invariant known as the trace index \cite{Alexandrinata2011}.
 
 \emph{Outline of the paper}: In section II we introduce the 1D model used throughout the paper and we examine its phase diagram. In section III we discuss the bulk polarization, the different ways one can define it and its relation to the Zak phase. The ES is introduced in section IV, where we set the notation that will be used. In section V we present our method and show how we can reproduce the bulk polarization for both systems with and without translational invariance. In section VI we introduce an alternative bulk polarization constructed from the ES and use it to compute Chern numbers in 1D and 2D. Finally in section VII we conclude and discuss the possible outlook.
 
@@ -351,12 +351,14 @@ where $L_A$ is the length of subsystem $A$ and $M$ is the number of orbitals per
 \begin{equation}
 \lim_{L \rightarrow \infty} \abs{\tilde{\mathcal{P}}^{\rm Bloch}} = \lim_{L \rightarrow \infty} \chi \, {\rm mod} \, 1.
 \end{equation}
-This generalizes the observation made by Ryu and Hatsugai \cite{Ryu2006} beyond the fully dimerized limit, $m=0$. 
-
-\mariac{Rewrite paragraph}
-The issue concerning the ambiguity will be discussed and resolved in the next section. 
-For translational invariant systems the EOS is symmetric such that a crossing of the eigenvalues $\xi$ results in $\chi$ changing sign. This is irrelevant in the case of symmetry-protected states where the Zak phase is quantized to $0$ or $\pi$. 
+%This generalizes the observation made by Ryu and Hatsugai \cite{Ryu2006} beyond the fully dimerized limit, $m=0$. 
 In the special case where there is only one eigenvalue per edge that is $\neq 0,1$ in  the EOS, like in the fully dimerized limit of the SSH chain, we recover the equality between one of the two midgap eigenvalues and the Zak phase found in reference ~\cite{Ryu2006}. 
+
+The issue concerning the sign ambiguity will be discussed and resolved in the next section. 
+The origin of this ambiguity can be traced back to certain properties of the EOS. 
+In particular, for translational invariant systems the EOS is symmetric such that a crossing of the eigenvalues $\xi$ results in $\chi$ changing sign. 
+This sign is irrelevant in the case of symmetry-protected states where the Zak phase is quantized to $0$ or $\pi$. 
+
 
 In Fig.~\ref{huang} we show  the EOS along the dashed cut in the phase diagram of Fig.~\ref{fig:bdi_phase_diagram}, for $t'=0$. 
 Along this line, our model is equivalent to an SSH chain. 
@@ -401,7 +403,7 @@ If the shift is zero, e.g.  in presence of a symmetry, summing every other eigen
 \begin{figure}[t]
 \centering
 \includegraphics[width=86mm]{fig4comp.pdf}
-\caption{We show the Entanglement spectrum (black), $\chi$ (green) and $\tilde{\mathcal{P}}$ (red) computed for $L=40$ sites. (a) and (b) for the continuous line in the phase diagram, $t=1,t'=2$  with the symmetry-breaking parameters (a) $\kappa=0.3,\kappa'=0$ and (b) $\kappa=0,\kappa'=0.3$. (c) and (d) for the dotted line in the phase diagram, $t=1,t'=-2$  with the symmetry-breaking parameters (c) $\kappa=0.3,\kappa'=0$ and (d) $\kappa=0,\kappa'=0.3$. (d) is the same as (c) but with a position dependent $\kappa_i=(i+L/4 \, {\rm mod}\, L)/L$. We also plot $\mathcal{P}+1/2$ (blue) to showcase that $\chi$ is indeed equal to $\tilde{\mathcal{P}}$ and not $\mathcal{P}$. }
+\caption{We show the Entanglement spectrum (black), $\chi$ (green) and $\tilde{\mathcal{P}}$ (red) computed for $L=40$ sites. (a) and (b) for the continuous line in the phase diagram, $t=1,t'=2$  with the symmetry-breaking parameters (a) $\kappa=0.3,\kappa'=0$ and (b) $\kappa=0,\kappa'=0.3$. (c) and (d) for the dotted line in the phase diagram, $t=1,t'=-2$  with the symmetry-breaking parameters (c) $\kappa=0.3,\kappa'=0$ and (d) $\kappa=0,\kappa'=0.3$. (e) is the same as (c) but with a position dependent $\kappa_i=(i+L/4 \, {\rm mod}\, L)/L$. We also plot $\mathcal{P}+1/2$ (blue) to showcase that $\chi$ is indeed equal to $\tilde{\mathcal{P}}$ and not $\mathcal{P}$. }
 	\label{2}
 \end{figure}
 
@@ -414,6 +416,7 @@ In figures~\ref{2}(c) and (d), we consider the same symmetry breaking terms, but
 Note that the $\kappa'$ term does not render the $\nu=1$ phase trivial, and the Zak phase will remain quantized in that region, see figure~\ref{2}(d). 
 Also here, Eq.~\eqref{eq:chi_left} correctly reproduces the Zak phase for all values of $m$. 
 Note that in the $\nu=2$ phase the observation made in Ref. \cite{Huang2012}, i.e. that the there is a similarity between the Zak phase and the entanglement occupancy, does not apply anymore. 
+\mariac{It is also interesting to point out that even far away from the symmetric point, $\tpo$ still shows plateaus that point to a possible nearby topological transition.}
 
 Since $\chi$ is naturally defined in position space our results are also valid for systems without translationally invariance. We show this in Fig.~\ref{2}(e) where we show the EOS, $\chi$, $\mathcal{P}$ and $\tilde{\mathcal{P}}$ along the dotted cut in the phase diagram with an added position dependent symmetry breaking term $\kappa_i = (i+L/4 \, {\rm mod}\, L)/L$. We use this profile for $\kappa_i$ instead of simple disorder because with the disorder the difference between $\mathcal{P}$ and $\tilde{\mathcal{P}}$ is very small. We obtain that $\chi$ is indeed identified with $\tilde{\mathcal{P}}$ as we hinted at before, and not $\mathcal{P}$, although these two polarization only differ by $(L+1)/2$ in the translationally invariant case for this model. 
 
@@ -440,7 +443,7 @@ where $\ketpsio{{\Phi=0}}$ is the ground state when the (previously periodic) ch
 \label{eq:gauge}
 \end{equation}
 When introducing the flux in the system with PBC (See Eq.~\eqref{eq:Ground_state_flux}) there is an ambiguity due to the bulk modes. 
-\mariac{Correct?} This ambiguity dissapears when we introduce the flux as above in the open chain --- we simply include all the modes. 
+This ambiguity dissapears when we introduce the flux as above in the open chain --- we simply include all the bulk modes. 
 Note that $\Phi$ is not a magnetic flux but should be treated as an additional parameter, and therefore $\tpo$ is not necessarily the physical polarization of the open chain. $\tpo$ can be obtained in an even simpler way than $\tilde{\mathcal{P}}$ as 
 \begin{align}\label{eq:phi_independence}
 \tpo =&  \int_0^{2\pi}\frac{d\Phi}{2\pi} \brapsio{0} \hat{N}_A \ketpsio{0} \nonumber \\
@@ -472,13 +475,14 @@ As we will see below these jumps in $\tpo$are branch cuts that provide the corre
 \subsection{SSH chain}
 
 Consider first the simple case of the SSH chain. When we include the chiral-symmetry breaking parameter $\kappa$ the Hamiltonian now has the symmetry
-\begin{equation}
+\begin{equation}\label{eq:sym}
 SH(\kappa)S^\dagger = -H(-\kappa), \quad S C_A(\kappa) S^\dagger = \mathbb{I}-C_A(-\kappa),
 \end{equation}
 so $\tpo(-\kappa) = L-\tpo(\kappa)$. Unless $\tpo(0) = L/2$, which is the result expected for a trivial insulator, the result will be discontinuous at $\kappa = 0$. We can see this in Fig.~\ref{ssh_chern}(a) where we show $\tpo$ in the parameter space $(m,\kappa)$. The presence of the zero-mode for $m<1$ appears in $\tpo$ as a branch cut. The appearance of a branch cut in the $(m,\kappa)$ parameter space is natural but its position depends on the choice of gauge (see Appendix~\ref{appendix:winding_ssh}).
 
 The relation between the zero-modes and discontinuities in $\Tr[C_{A,o}]$ was already observed in the context of Chern insulators \cite{Alexandrinata2011}. This branch cut is in fact not an artifice of the open chain trick, but the result of the degenerate point at $(m=1,\kappa=0)$ having an associated Chern number $C=1$ \cite{Asboth2016}.
 
+For simplicity's sake, assume that there is a single branch cut along $\kappa=0$, such as depicted in Fig.s~\ref{ssh_chern} (a) or (b). The generalization to more complicated scenarios is straightforward. 
 Consider a counterclockwise loop around the degenerate point at $(m=t,\kappa=0)$ starting from the branch cut parametrized by $\theta$,
 \begin{align*}
 & m(\theta) = 1+\frac{1}{2}\sin(\theta-\frac{\pi}{2}) \\
@@ -536,7 +540,7 @@ or
 C(m)= \tpo(m,\kappa=0^+)-\tpo(m,\kappa=0^-),
 \end{align}
 where $C(m)$ is the Chern number of any loop around the degenerate point crossing $\kappa=0$ at $m$ and another point in the trivial region ($m>1$).
-Using the symmetry of the polarization described above \mariac{make 'above' more concrete?}  gives
+Using the symmetry of the polarization described above (see the discussion below Eq.~\eqref{eq:sym}) gives
 \begin{align}
 C(m)= 2\tpo(m,\kappa=0^+)-L,
 \label{eq:Chern_number}
@@ -557,8 +561,11 @@ which results in $+1$ when $m<1$ and $0$ when $m>1$, as it is known for the SSH 
 
 The analysis we did above of $\tpo$ for the SSH chain seems rather trivial as $\tpo$ does not seem to have more information than $\tilde{\mathcal{P}}$ modulo 1. This is no longer true when $t' \neq 0$ allowing for a $\nu = 2$ phase. In Fig.~\ref{ssh_chern}(b) we see $\tpo$ for the dotted cut in the phase diagram with an added symmetry breaking $\kappa$ term. We can see that $\tpo$ is continuous for any path avoiding the branch cut even though the range of values for $\tpo$ is larger than 1. We can see that a loop around the two degenerate points will have a Chern number of $C=2$. 
 
-A jump of $n$ in $\tpo$ implies the existence of \emph{at least} $n$ zero-energy modes at that point. For this model this equivalence is exact and the jump of $\tpo$ at $\kappa = 0$ gives the number of topological zero-modes, or the winding number. It is also interesting to point out that even far away from the symmetric point, $\tpo$ still shows plateaus that point to a possible nearby topological transition.
-Note, however, that there are many ways of breaking the chiral symmetry and for some of them, $\top$ may undercount the zero-energy modes. 
+Jumps in $\tpo$ originate from zero modes changing their occupation. 
+Thus, a jump of $n$ in $\tpo$ implies the existence of \emph{at least} $n$ zero-energy modes at that point. 
+For this model this equivalence is exact and the jump of $\tpo$ at $\kappa = 0$ gives the number of topological zero-modes, i.e. the winding number. 
+%It is also interesting to point out that even far away from the symmetric point, $\tpo$ still shows plateaus that point to a possible nearby topological transition.
+Note, however, that there are many ways of breaking the chiral symmetry and for some of them, $\tpo$ may not be related to the winding number any longer. 
 For instance, replacing $\kappa$ in Eq.~\eqref{bdi_model} by $\kappa_i=\kappa (-1)^i$, the zero-energy modes split in such a way that $\tpo$ is continuous at $\kappa=0$. It cannot differentiate between the phases $\nu=0$ and $\nu=2$, and a loop like the one discussed above results in a Chern number $C=0$. 
 
 
