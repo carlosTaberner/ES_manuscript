@@ -31,7 +31,7 @@
 \affiliation{Nordita, KTH Royal Institute of Technology and Stockholm University, SE-106 91 Stockholm, Sweden}
 \date{\today}
 \begin{abstract}
-The bulk polarization is a $\mathbb{Z}_2$ topological invariant characterizing non-interacting systems in one dimension with chiral or particle-hole symmetries. We show that the bulk polarization can always be decoded from the single-particle entanglement spectrum, even in the absence of symmetries that quantize it. In the symmetric case, the known relation between the bulk polarization and the number of topological edge modes is recovered. We use the bulk polarization to compute Chern numbers in 1D and 2D, wcich illuminates their known relation to the entanglement spectrum  in a new way. Furthermore we discuss an alternative bulk polarization that can carry more information about the surface spectrum than the conventional one and, thus, can simplify the calculation of Chern numbers. 
+The bulk polarization is a $\mathbb{Z}_2$ topological invariant characterizing non-interacting systems in one dimension with chiral or particle-hole symmetries. We show that the bulk polarization can always be decoded from the single-particle entanglement spectrum, even in the absence of symmetries that quantize it. In the symmetric case, the known relation between the bulk polarization and the number of topological edge modes is recovered. We use the bulk polarization to compute Chern numbers in 1D and 2D, which illuminates their known relation to the entanglement spectrum  in a new way. Furthermore we discuss an alternative bulk polarization that can carry more information about the surface spectrum than the conventional one and, thus, can simplify the calculation of Chern numbers. 
 \end{abstract}
 
 \maketitle
@@ -275,7 +275,7 @@ Similar to the discussion about the Bloch polarization below Eq.~\eqref{eq:Bloch
 
 
 Let us now proceed to discuss the entanglement spectrum. 
-An important quantity to consider is the correlation matrix, which in position space is defined by the groujd state expectation value
+An important quantity to consider is the correlation matrix, which in position space is defined by the ground state expectation value
 \begin{align}
 C_{ij}^{\alpha \beta} = \expval{c_{i\alpha}^\dagger c_{j\beta}}.
 \end{align}
@@ -367,7 +367,7 @@ In the presence of chiral and translation symmetry, all eigenvalues of the EOS a
 Note that the full sum  in Eq.~\eqref{eq:chi_integrable}  evaluates to zero in the trivial regime %up to finite-size corrections% \carlos{It is actually exact due to symmetry}.
 despite the presence of modes with entanglement occupancy $0<\xi<1$. 
 
-When breaking chiral symmetry, the EOS will no longer be doubly degenerate. 
+When breaking chiral symmetry, the EOS will no longer be doubly degenerate. Note that even far away from the symmetric point the polarization shows plateaus that point to a possible nearby topological transition.
 For small $m$, there are two dominant midgap eigenvalues, and the bulk polarization follows the lower one very closely, see figure~\ref{huang}(b).
 When this midgap eigenvalue approaches  0, the contribution from the other modes becomes more relevant and the bulk polarization starts to deviate from the dominant eigenvalue, see figure~\ref{huang}(c). In Fig.~\ref{huang}(d) we show how the difference between $\chi$ and the bulk polarization decreases with system size, showing that they are equal in the thermodynamic limit. Note that their discrepancy is very small already for small system sizes. Even when the chiral symmetry is broken the polarization displays two different plateaus that point to a possible topological phase transition nearby in parameter space. 
 
@@ -416,7 +416,6 @@ In figures~\ref{2}(c) and (d), we consider the same symmetry breaking terms, but
 Note that the $\kappa'$ term does not render the $\nu=1$ phase trivial, and the Zak phase will remain quantized in that region, see figure~\ref{2}(d). 
 Also here, Eq.~\eqref{eq:chi_left} correctly reproduces the Zak phase for all values of $m$. 
 Note that in the $\nu=2$ phase the observation made in Ref. \cite{Huang2012}, i.e. that the there is a similarity between the Zak phase and the entanglement occupancy, does not apply anymore. 
-\mariac{It is also interesting to point out that even far away from the symmetric point, $\tpo$ still shows plateaus that point to a possible nearby topological transition.}
 
 Since $\chi$ is naturally defined in position space our results are also valid for systems without translationally invariance. We show this in Fig.~\ref{2}(e) where we show the EOS, $\chi$, $\mathcal{P}$ and $\tilde{\mathcal{P}}$ along the dotted cut in the phase diagram with an added position dependent symmetry breaking term $\kappa_i = (i+L/4 \, {\rm mod}\, L)/L$. We use this profile for $\kappa_i$ instead of simple disorder because with the disorder the difference between $\mathcal{P}$ and $\tilde{\mathcal{P}}$ is very small. We obtain that $\chi$ is indeed identified with $\tilde{\mathcal{P}}$ as we hinted at before, and not $\mathcal{P}$, although these two polarization only differ by $(L+1)/2$ in the translationally invariant case for this model. 
 
@@ -603,7 +602,7 @@ H =& \sum_{i\alpha,j\beta}\sum_{k_y} c_{i\alpha}^\dagger(k_y) H_{i\alpha,j\beta}
 H_{i\alpha,j\beta}(k_y)=& \frac{1}{2}(i\sigma_x-\sigma_z)\delta_{i,j+1}+\frac{1}{2}(-i\sigma_x-\sigma_z)\delta_{i,j-1} \nonumber\\
 +&(\sin(k_y)\sigma_y+[2-m-\cos(k_y)]\sigma_z) \delta_{ij}.
 \end{align}
-We can treat the Hamiltonian with elements $H_{i\alpha,j\beta}(k_y)$ as a 1D Hamiltonian with an extra parameter $k_y$ and compute $\tpo$, or equivalently $A_\Phi(\Phi,k_y)$, as in last section. But first lets analyze the EOS of the system with PBC, shown in Fig.~\ref{chern_insulator}(a) and (b) for $m=1$ and $3$, respectively. For $0<m<2$ the EOS presents two edge modes that connect the occupied and empty bands that cross $\xi=1/2$ at $k_y=0$. In this region the occupied bands have a Chern number $C=+1$. For $2<m<4$ there are also edge modes but they cross $\xi=1/2$ at $k_y=\pi$ and the system has $C=-1$. For $m<0$ or $m>4$ the system is a trivial insulator with $C=0$. When we open the chain the eigenvalue of the right virtual topological edge mode will be pushed to $\xi=1,0$. This is seen in figure~\ref{chern_insulator}(a) and (b) for intermediate points in the process of opening the chain. This eigenvalue has a jump whenever the correspondent edge-mode crosses zero energy, going between $\xi=1$ and $\xi=0$, i.e. the number of eigenvalues at $\xi = 1$ is not constant across $k_y$. In this model, due to inversion symmetry, this is only possible at $k_y=0,\pi$. 
+We can treat the Hamiltonian with elements $H_{i\alpha,j\beta}(k_y)$ as a 1D Hamiltonian with an extra parameter $k_y$ and compute $\tpo$, or equivalently $A_\Phi(\Phi,k_y)$, as in last section. But first lets analyze the EOS of the system with PBC, shown in Fig.~\ref{chern_insulator}(a) and (b) for $m=1$ and $3$, respectively. For $0<m<2$ the EOS presents two edge modes that connect the occupied and empty bands that cross $\xi=1/2$ at $k_y=0$. In this region the occupied bands have a Chern number $C=+1$. For $2<m<4$ there are also edge modes but they cross $\xi=1/2$ at $k_y=\pi$ and the system has $C=-1$. For $m<0$ or $m>4$ the system is a trivial insulator with $C=0$. When we open the chain, the eigenvalue of the right virtual topological edge mode will be pushed to $\xi=0$ or $1$. This is seen in figure~\ref{chern_insulator}(a) and (b) for intermediate points in the process of opening the chain. This eigenvalue presents a jump whenever the correspondent edge-mode crosses zero energy, going between $\xi=1$ and $\xi=0$, i.e. the number of eigenvalues at $\xi = 1$ is not constant across $k_y$. In this model, due to inversion symmetry, this is only possible at $k_y=0,\pi$. 
 
 \begin{figure}[t]
 \centering
@@ -645,7 +644,8 @@ Based on this method we show that one can obtain an alternative bulk polarizatio
 
 \emph{Outlook:} In the application of our results to topological systems in 1D we have focused on systems with translational invariance even though our results do not require it. For general spatially inhomogeneous systems the same bulk can present different boundaries such that the relation between bulk and boundary is not as straightforward as in the translational invariant case. Our results might be able to give more insight into this relation. 
 
-In the field of higher-order topological insulators some systems can be characterized by a physical generalization of the bulk polarization to higher dimensions \cite{Benalcazar2017,Kang2019}. There is an open question whether a formulation in terms of twisted boundary conditions can be obtained, in which case one might be able to generalize the results of this paper to higher dimensions. \mariac{I am not sure what you want to say in the last section}
+In the field of higher-order topological insulators some systems can be characterized by a physical generalization of the bulk polarization to two dimensions, the quadrupole moment \cite{Benalcazar2017,Kang2019}. This quadrupole moment is defined with the position operator and there is an open question whether a formulation in terms of twisted boundary conditions can be obtained. In this case, one might be able to construct this quadrupole moment using the entanglement spectrum, as we do here for the bulk polarization.
+
 \acknowledgments
 {\em Acknowledgments.--} 
 FUNDING
