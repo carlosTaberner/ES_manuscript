@@ -227,9 +227,10 @@ One can also compute the geometric phase obtained by threading a $U(1)$ flux thr
 where $\ket{\Psi^{\Phi}}$ is the ground state in the presence of flux and $\hat{P}=\frac{1}{L}\sum_{j\alpha} j\hat{n}_{j\alpha}$ is the polarization operator, with $\hat{n}_{j\alpha}$ being the number operator. This is equivalent to the polarization obtained by Resta \cite{Resta1997} as
 \begin{align}
 \mathcal{P} = \frac{1}{2\pi} \Im \,\ln\bra{\Psi^{\Phi=0}}e^{2\pi i \hat{P}}\ket{\Psi^{\Phi=0}}.
+\label{eq:p_resta}
 \end{align}
 
-Expression \eqref{polarization_inhom} is particularly useful because it can be easily expressed in terms of single-particle eigenstates as
+Expression \eqref{eq:p_resta} is particularly useful because it can be easily expressed in terms of single-particle eigenstates as
 \begin{align}
 \mathcal{P} = \frac{1}{2\pi}\Im \ln \, {\rm det }\!' \, S,
 \label{eq:polarization_resta}
@@ -368,8 +369,7 @@ despite the presence of modes with entanglement occupancy $0<\xi<1$.
 
 When breaking chiral symmetry, the EOS will no longer be doubly degenerate. 
 For small $m$, there are two dominant midgap eigenvalues, and the bulk polarization follows the lower one very closely, see figure~\ref{huang}(b).
-When this midgap eigenvalue approaches  0, the contribution from the other modes becomes more relevant and the bulk polarization starts to deviate from the dominant eigenvalue, see figure~\ref{huang}(c). In Fig.~\ref{huang}(d) we show how the difference between $\chi$ and the bulk polarization decreases with system size, showing that they are equal in the thermodynamic limit. Note that their discrepancy is very small already for small system sizes.
-
+When this midgap eigenvalue approaches  0, the contribution from the other modes becomes more relevant and the bulk polarization starts to deviate from the dominant eigenvalue, see figure~\ref{huang}(c). In Fig.~\ref{huang}(d) we show how the difference between $\chi$ and the bulk polarization decreases with system size, showing that they are equal in the thermodynamic limit. Note that their discrepancy is very small already for small system sizes. Even when the chiral symmetry is broken the polarization displays two different plateaus that point to a possible topological phase transition nearby in parameter space. 
 
 \begin{figure}[t]
 \centering
@@ -603,7 +603,7 @@ H =& \sum_{i\alpha,j\beta}\sum_{k_y} c_{i\alpha}^\dagger(k_y) H_{i\alpha,j\beta}
 H_{i\alpha,j\beta}(k_y)=& \frac{1}{2}(i\sigma_x-\sigma_z)\delta_{i,j+1}+\frac{1}{2}(-i\sigma_x-\sigma_z)\delta_{i,j-1} \nonumber\\
 +&(\sin(k_y)\sigma_y+[2-m-\cos(k_y)]\sigma_z) \delta_{ij}.
 \end{align}
-We can treat the Hamiltonian with elements $H_{i\alpha,j\beta}(k_y)$ as a 1D Hamiltonian with an extra parameter $k_y$ and compute $\tpo$, or equivalently $A_\Phi(\Phi,k_y)$, as in last section. But first lets analyze the EOS of the system with PBC, shown in Fig.~\ref{chern_insulator}(a) and (b) for $m=1$ and $3$, respectively. For $0<m<2$ the EOS presents two edge modes that connect the occupied and empty bands that cross $\xi=1/2$ at $k_y=0$. In this region the occupied bands have a Chern number $C=+1$. For $2<m<4$ there are also edge modes but they cross $\xi=1/2$ at $k_y=\pi$ and the system has $C=-1$. For $m<0$ or $m>4$ the system is a trivial insulator with $C=0$. When we open the chain the eigenvalue of the right virtual topological edge mode will be pushed to $\xi=1,0$ as seen in figure~\ref{chern_insulator}(a) and (b). It \mariac{what does 'it' refer to here?} will have a jump whenever the correspondent edge-mode crossed zero energy, going between $\xi=1$ and $\xi=0$, i.e. the number of eigenvalues at $\xi = 1$ is not constant across $k_y$. In this model, due to inversion symmetry, this is only possible at $k_y=0,\pi$. 
+We can treat the Hamiltonian with elements $H_{i\alpha,j\beta}(k_y)$ as a 1D Hamiltonian with an extra parameter $k_y$ and compute $\tpo$, or equivalently $A_\Phi(\Phi,k_y)$, as in last section. But first lets analyze the EOS of the system with PBC, shown in Fig.~\ref{chern_insulator}(a) and (b) for $m=1$ and $3$, respectively. For $0<m<2$ the EOS presents two edge modes that connect the occupied and empty bands that cross $\xi=1/2$ at $k_y=0$. In this region the occupied bands have a Chern number $C=+1$. For $2<m<4$ there are also edge modes but they cross $\xi=1/2$ at $k_y=\pi$ and the system has $C=-1$. For $m<0$ or $m>4$ the system is a trivial insulator with $C=0$. When we open the chain the eigenvalue of the right virtual topological edge mode will be pushed to $\xi=1,0$. This is seen in figure~\ref{chern_insulator}(a) and (b) for intermediate points in the process of opening the chain. This eigenvalue has a jump whenever the correspondent edge-mode crosses zero energy, going between $\xi=1$ and $\xi=0$, i.e. the number of eigenvalues at $\xi = 1$ is not constant across $k_y$. In this model, due to inversion symmetry, this is only possible at $k_y=0,\pi$. 
 
 \begin{figure}[t]
 \centering
