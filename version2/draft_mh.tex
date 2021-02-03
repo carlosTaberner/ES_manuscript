@@ -31,7 +31,7 @@
 \affiliation{Nordita, KTH Royal Institute of Technology and Stockholm University, SE-106 91 Stockholm, Sweden}
 \date{\today}
 \begin{abstract}
-The bulk polarization is a $\mathbb{Z}_2$ topological invariant characterizing non-interacting systems in one dimension with chiral or particle-hole symmetries. We show that the bulk polarization can always be determined from the single-particle entanglement spectrum, even in the absence of symmetries that quantize it. In the symmetric case, the known relation between the bulk polarization and the number of topological edge modes is recovered. We use the bulk polarization to compute Chern numbers in 1D and 2D, which illuminates their known relation to the entanglement spectrum. Furthermore we discuss an alternative bulk polarization that can carry more information about the surface spectrum than the conventional one and can simplify the calculation of Chern numbers. 
+The bulk polarization is a $\mathbb{Z}_2$ topological invariant characterizing non-interacting systems in one dimension with chiral or particle-hole symmetries. We show that the bulk polarization can always be determined from the single-particle entanglement spectrum, even in the absence of symmetries that quantize it. In the symmetric case, the known relation between the bulk polarization and the number of virtual topological edge modes is recovered. We use the bulk polarization to compute Chern numbers in 1D and 2D, which illuminates their known relation to the entanglement spectrum. Furthermore we discuss an alternative bulk polarization that can carry more information about the surface spectrum than the conventional one and can simplify the calculation of Chern numbers. 
 \end{abstract}
 
 \maketitle
@@ -52,16 +52,16 @@ Another, closely related, tool is the entanglement spectrum (ES), originally int
 
 For \emph{non-interacting} topological insulators  and superconductors the ES for (gapped) periodic systems can be computed very efficiently, using methods developed by Peschel and others~\cite{Peschel2003}. The ES in these systems is equivalent to the flat-band energy spectrum of the corresponding system with open boundaries~\cite{Fidkowski2010entanglement}. The same correspondence was also found for closely related gapless systems~\cite{Matern2018entanglement}. However, even for non-interacting systems, it is unclear which information (beyond the protected `edge' spectrum) is encoded in the ES. The aim of this paper is to show that other physical properties are also encoded in the entanglement spectrum, in particular the bulk polarization.
 
-The bulk, or macroscopic, polarization is a fundamental concept in physics, primarily used to describe the response of matter to electric fields. The modern theory of polarization \cite{Resta1992,KingSmith1993,Vanderbilt1993,Resta1997} related the bulk polarization to a geometric phase (Zak phase for translationally invariant systems).  Due to this, it has also found its way into topological physics and in topological charge pumping. In certain symmetry classes the bulk polarization is quantized and serves as a $\mathbb{Z}_2$ topological invariant, where it is known to be related to the number of protected topological edge state in the ES \cite{Ryu2006}. Because of its relation to a geometric phase, the bulk polarization is also related to other topological invariants in higher dimensions such as the Chern number.
+The bulk, or macroscopic, polarization is a fundamental concept in physics, primarily used to describe the response of matter to electric fields. The modern theory of polarization \cite{Resta1992,KingSmith1993,Vanderbilt1993,Resta1997} related the bulk polarization to a geometric phase, which is nothing but the Zak phase for translationally invariant systems.  Due to this, it has also found its way into topological physics and in topological charge pumping. In certain symmetry classes the bulk polarization is quantized and serves as a $\mathbb{Z}_2$ topological invariant, where it is known to be related to certain feature of the ES \cite{Ryu2006}. Because of its relation to a geometric phase, the bulk polarization is also related to other topological invariants in higher dimensions such as the Chern number.
 
-We show how the bulk polarization can be decoded from the ES. This is a general property of non-interacting 1D gapped systems, which in the topological case reduces to the known relation between the bulk polarization and the ES described above \cite{Ryu2006}. We also apply this method to compute Chern numbers directly from the entanglement spectrum. The differences in the bulk polarization, which can be any real number, are the relevant quantities to study. They can, however, be difficult to compute from the bulk polarization itself, as it is only defined modulo $1$. We show how, using our method, one can define an alternative bulk polarization computed by using open boundary conditions which is continuous in $\mathbb{R}$ for gapped paths, simplifying the calculation of polarization differences. The bulk polarization defined this way can give more information about the edge spectrum than the usual one, and can be used to simplify the computation of Chern numbers. We also discuss the relation between this alternative bulk polarization and another topological invariant known as the trace index \cite{Alexandrinata2011}. 
+We show that there is much more information encoded in the \emph{single-particle} ES than was previously known. In particular, we show how the bulk polarization can be decoded from the single-particle ES, even when it is not quantized by the symmetries. This is a general property of non-interacting 1D gapped systems. We also apply this method to compute Chern numbers directly from the entanglement spectrum. The differences in the bulk polarization, which can be any real number, are the relevant quantities to study. They can, however, be difficult to compute from the bulk polarization itself, as it is only defined modulo $1$. We show how, using our method, one can define an alternative bulk polarization computed by using open boundary conditions which is continuous in $\mathbb{R}$ for gapped paths, simplifying the calculation of polarization differences. The bulk polarization defined this way can give more information about the edge spectrum than the usual one, and can be used to simplify the computation of Chern numbers. We also discuss the relation between this alternative bulk polarization and another topological invariant known as the trace index \cite{Alexandrinata2011}. 
 
 The relation between the entanglement spectrum and the bulk polarization has already been studied. 
-In Ref.~\cite{Zaletel2014}, the authors show that the Zak phase can be computed from the Schmidt decomposition of a translation invariant, infinite chain. 
-This suggests that there should be a direct relation between the single-particle entanglement energies and the Zak phase for non-interacting systems. A particular limit of our result for homogeneous (translationally invariant) systems~\eqref{eq:chi_integrable} was derived 
+In Ref.~\cite{Zaletel2014}, the authors show that the Zak phase can be computed from the Schmidt decomposition of a translation invariant, infinite chain. The latter is related to the many-particle entanglement spectrum.
+This suggests that, for non-interacting systems, there should be a direct relation between the Zak phase and the single-particle entanglement spectrum, which is substantially easier to compute than the many-body entanglement spectrum. A particular limit of our result for homogeneous (translationally invariant) systems~\eqref{eq:chi_integrable} was derived 
 %by Ryu and Hatsugai 
 for a fully dimerized SSH chain~\cite{Ryu2006}. 
-The similarity between the behavior of the Zak phase and the protected topological edge states in the entanglement spectrum of certain Chern insulators, which was observed in Ref.~\cite{Huang2012,Huang2012-2}, is also explained by our results. 
+The similarity between the behavior of the Zak phase and the entanglement spectrum of certain Chern insulators, which was observed in Ref.~\cite{Huang2012,Huang2012-2}, is also explained by our results. 
 
 
 \emph{Outline of the paper}: In section II we introduce the 1D model used throughout the paper and we examine its phase diagram. In section III we discuss the bulk polarization; the different ways one can define it and its relation to the Zak phase. The ES is introduced in section IV, where we also set our notation. In section V we present our method and show how we can reproduce the bulk polarization for systems with and without translational invariance. In section VI we introduce an alternative bulk polarization constructed from the ES and use it to compute Chern numbers in 1D and 2D. Finally in section VII we conclude and discuss possible extensions of our work.
@@ -194,7 +194,7 @@ where $[U]_{j\beta,p\mu} = \psi_{p\mu}^{j\beta}$ is the unitary matrix that diag
 where $A_k = \bra{u_k}\partial_k \ket{u_k}$ is the Berry connection \cite{Berry1984}. 
 The generalization to multi-band models is straightforward. 
 
-The Zak phase is only gauge invariant modulo $2\pi$. However, for two different states defined by a parameter $\lambda$ --- assuming $A_k(\lambda)$ is smooth in the path connecting them --- the change in the Zak phase can be computed as
+Since the Berry connection is not necessarily continuous, the Zak phase is only gauge invariant modulo $2\pi$. However, for two different states defined by a parameter $\lambda$ --- assuming $A_k(\lambda)$ is smooth in the path connecting them --- the change in the Zak phase can be computed as
 \begin{equation}
 \Delta {\gamma_{\lambda_i \lambda_f}} = \int_{\lambda_i}^{\lambda_f} d\lambda\int_{0}^{2\pi} dk \, \Omega_{\lambda k},
 \label{eq:change_zak_phase}
@@ -213,9 +213,6 @@ The derivative of the polarization with respect to $\lambda$ was obtained in Ref
 which allows us to make the identification $ \mathcal{P}^{\rm Bloch} = \gamma/2\pi$. The polarization itself is however not an observable. The relevant quantities are the derivatives or changes in the polarization with respect to external parameters. These result in currents and charge transport, which are the only measurable quantities. Similar to how only difference in the Zak phases between two states can be measured \cite{Atala2013}. 
 
 Considering a system with periodic boundary conditions, one can also compute the geometric phase obtained by threading a $U(1)$ flux through the ring. This allows us to define a polarization in the absence of translational invariance. Depending on how the flux is introduced we obtain different polarizations with different physical meanings. These different polarizations, their relations and physical interpretations were studied in a recent article by Watanabe and Oshikawa \cite{Watanabe2018}. We focus on two polarizations, $\mathcal{P}$ and $\tilde{\mathcal{P}}$, obtained by introducing the flux in two different ways.
-
-
-whose derivatives give the average current along the chain and the current at the seam (where the PBC are implemented), respectively. 
 
 If the flux is introduced homogeneously through a vector potential $A_x = \Phi/L$ we can define the polarization
 \begin{equation}\label{polarization_inhom}
@@ -239,7 +236,7 @@ S_{p\mu,q\nu} = \sum_{j\alpha} \psi_{p\mu}^{j \alpha \, \ast} e^{i\frac{2\pi}{L}
 \end{equation}
 and  ${\rm det }\!' $ indicates that the determinant is restricted to the space of \emph{occupied} single-particle states. Below we will compare the bulk polarization obtained using our method to the one obtained using equation~\eqref{eq:polarization_resta}.
 
-If the flux is introduced via twisted boundary conditions at the seam, in the bond between sites $j=1$ and $j=L$, this is equivalent to performing the gauge transformation
+If the flux is introduced via twisted boundary conditions at the seam, i.e. in the bond between sites $j=1$ and $j=L$, this is equivalent to performing the gauge transformation
 \begin{align}\label{eq:Psi_tilde}
 \ket{\tilde{\Psi}^\Phi}=e^{i\Phi \hat{P}}\ket{\Psi^\Phi},
 \end{align}
@@ -288,8 +285,8 @@ C_{ij}^{\alpha \beta} =& \frac{1}{2}\left[I - H/ (H^2)^{1/2} \right]_{ij, \alpha
 
 In this paper, we are mainly interested in the spectrum of the correlation matrix when restricted to a spatial sub-region $A$ (its complement will be denoted by $B$ in the following), see Fig.~\ref{fig:chain}. 
 Following Ref.s~\cite{Huang2012,Huang2012-2}, we refer to this spectrum as the entanglement occupancy spectrum (EOS).
-We denote the eigenvalues of the EOS by $\xi_j$. 
-Topological phases are characterized by (symmetry-protected) zero-energy modes in the edge spectrum and $\xi=\frac 1 2$ modes in the EOS. 
+We denote the eigenvalues of the EOS by $\xi_j$. When restricted to sub-region A, the boundaries of A act as virtual boundaries to the system.
+Topological phases are characterized by (symmetry-protected) zero-energy modes in the edge spectrum and $\xi=\frac 1 2$ virtual edge modes in the EOS. 
 Consequently, the EOS is in one-to-one correspondence to the entanglement spectrum (ES)~\cite{Fidkowski2010entanglement}. 
 
 
@@ -303,11 +300,11 @@ The single-particle eigenvalues $\epsilon_j$ of $\mathcal{H}$, referred to as en
 \xi_j &=\left(e^{\epsilon_j}+1\right)^{-1}, 
 \end{align}
 the corresponding eigenstates are the same. 
-Eq.~\eqref{eq:xi_eps} implies that, for non-interacting systems, the full information of the \emph{many-body} ES (MBES) is contained in the single-particle spectrum of the reduced correlation matrix. 
+Eq.~\eqref{eq:xi_eps} implies that, for non-interacting systems, the full information of the many-body ES is contained in the single-particle spectrum of the reduced correlation matrix. 
 The latter is much simpler to interpret. 
 Consequently, we will focus on the EOS in the remainder of the paper and only mention the ES when necessary. 
 
-One property of the subsystem correlation matrix we will make use of later is that, for sufficiently large systems, its eigenstates are found to be exponentially localized on either virtual edge (edges of sub-region A) if $\xi$ is away from $0$ and $1$, or they are found to be bulk modes if the correspondent eigenvalues are exponentially close to $\xi = 0,1$ \cite{Peschel2008}.
+One property of the subsystem correlation matrix we will make use of later is that, for sufficiently large systems, its eigenstates are found to be exponentially localized on either virtual edge if $\xi$ is away from $0$ and $1$, or they are found to be bulk modes if the correspondent eigenvalues are exponentially close to $\xi = 0,1$ \cite{Peschel2008}.
 
 %The single-particle entanglement spectrum (ES) is then obtained as the spectrum of the subsystem correlation function obtained after bisecting the system into two equal parts. 
 
@@ -330,7 +327,7 @@ In the absence of symmetry-protection, much less is known.
 Ryu and Hatsugai considered the fully dimerized SSH chain with broken chiral symmetry~\cite{Ryu2006}.  
 This model is rather special in that there is only a single pair of eigenvalues in the EOS that is not strictly identical to $0$ or $1$: these are $\xi$ and $1-\xi$, related due to translational symmetry. 
 The authors could show that the value of one of these `midgap states' is identical to the Zak phase divided by $2\pi$ --- or alternatively $\tilde{\mathcal{P}}^{\rm Bloch}$ --- although they do not specify to which of the two eigenvalues it corresponds. 
-Their result is a particular limit of equation~\eqref{eq:chi_integrable}. 
+Their result is a particular limit of equation~\eqref{eq:chi_integrable}, which we discuss in the next section. 
 %
 %Beyond symmetry protected systems, there was observed that in the fully dimerized SSH chain, with only a single mode present in the ES, the Zak phase is equal to the midgap eigenvalue \cite{Ryu2006}. 
 
@@ -441,7 +438,7 @@ where $\ketpsio{{\Phi=0}}$ is the ground state when the (previously periodic) ch
 \ketpsio{\Phi} =e^{-i \Phi \hat{N}_A} \ketpsio{0}.
 \label{eq:gauge}
 \end{equation}
-When introducing the flux in the system with PBC (See Eq.~\eqref{eq:Ground_state_flux}) there is an ambiguity due to the bulk modes. 
+When introducing the flux in the system with periodic boundary conditions (See Eq.~\eqref{eq:Ground_state_flux}) there is an ambiguity due to the bulk modes. 
 This ambiguity dissapears when we introduce the flux as above in the open chain --- we simply include all the bulk modes. 
 Note that $\Phi$ is not a magnetic flux but should be treated as an additional parameter, and therefore $\tpo$ is not the polarization of the open chain. $\tpo$ can be obtained in an even simpler way than $\tilde{\mathcal{P}}$ as 
 \begin{align}\label{eq:phi_independence}
@@ -604,7 +601,7 @@ H_{i\alpha,j\beta}(k_y)=& \frac{1}{2}(i\sigma_x-\sigma_z)\delta_{i,j+1}+\frac{1}
 \label{eq:chern_model}
 \end{align}
 
-We can treat the Hamiltonian with elements $H_{i\alpha,j\beta}(k_y)$ as a 1D Hamiltonian with an extra parameter $k_y$ and compute $\tpo$, or equivalently $A_\Phi(\Phi,k_y)$, as in last section. But first lets analyze the EOS of the system with PBC, shown in Fig.~\ref{chern_insulator}(a) and (b) for $m=1$ and $3$, respectively. For $0<m<2$ the EOS presents two edge modes that connect the occupied and empty bands that cross $\xi=1/2$ at $k_y=0$. In this region the occupied bands have a Chern number $C=+1$. For $2<m<4$ there are also edge modes but they cross $\xi=1/2$ at $k_y=\pi$ and the system has $C=-1$. For $m<0$ or $m>4$ the system is a trivial insulator with $C=0$. When we open the chain, the eigenvalue of the right virtual topological edge mode will be pushed to $\xi=0$ or $1$. This is seen in figure~\ref{chern_insulator}(a) and (b) for intermediate points in the process of opening the chain. This eigenvalue presents a jump whenever the correspondent edge-mode crosses zero energy, going between $\xi=1$ and $\xi=0$, i.e. the number of eigenvalues at $\xi = 1$ is not constant across $k_y$. In this model, due to inversion symmetry, this is only possible at $k_y=0,\pi$. 
+We can treat the Hamiltonian with elements $H_{i\alpha,j\beta}(k_y)$ as a 1D Hamiltonian with an extra parameter $k_y$ and compute $\tpo$, or equivalently $A_\Phi(\Phi,k_y)$, as in last section. But first lets analyze the EOS of the system with periodic boundary conditions, shown in Fig.~\ref{chern_insulator}(a) and (b) for $m=1$ and $3$, respectively. For $0<m<2$ the EOS presents two edge modes that connect the occupied and empty bands that cross $\xi=1/2$ at $k_y=0$. In this region the occupied bands have a Chern number $C=+1$. For $2<m<4$ there are also edge modes but they cross $\xi=1/2$ at $k_y=\pi$ and the system has $C=-1$. For $m<0$ or $m>4$ the system is a trivial insulator with $C=0$. When we open the chain, the eigenvalue of the right virtual topological edge mode will be pushed to $\xi=0$ or $1$. This is seen in figure~\ref{chern_insulator}(a) and (b) for intermediate points in the process of opening the chain. This eigenvalue presents a jump whenever the correspondent edge-mode crosses zero energy, going between $\xi=1$ and $\xi=0$, i.e. the number of eigenvalues at $\xi = 1$ is not constant across $k_y$. In this model, due to inversion symmetry, this is only possible at $k_y=0,\pi$. 
 
 \begin{figure}[t]
 \centering
@@ -640,11 +637,13 @@ The expression in the right hand side is actually a known topological invariant,
 
 \section{Conclusion}
 
-It was previously known that the bulk polarization (Zak phase, or geometric phase for $U(1)$ flux insertion) was encoded in the many-body entanglement spectrum. Here we have shown how it can be obtained from the single-particle entanglement spectrum of a non-interacting gapped system. This relation is simpler than the one involving the many-body entanglement spectrum and it provides more insight into the ES and EOS. In particular in the topological case, the relation between the quantized bulk polarization (or the Chern number in 2D) and the number of virtual topological edge states is demonstrated in a particularly transparent way. It also provides a new simple method for computing the bulk polarization for systems without translational invariance. 
+It was previously known that the bulk polarization (Zak phase, or geometric phase for $U(1)$ flux insertion) was encoded in the many-body ES. Here we have shown how it can be obtained from the single-particle entanglement spectrum of a non-interacting gapped system, showing that there is substantially more information in the single-particle ES than previously realized. This relation is simpler than the one involving the many-body ES, which is much more difficult to compute, and it provides more insight into the ES and EOS. In particular in the topological case, the relation between the quantized bulk polarization (or the Chern number in 2D) and the number of virtual topological edge states is demonstrated in a particularly transparent way. It also provides a new simple method for computing the bulk polarization for systems without translational invariance. 
 
 We also define a novel bulk polarization that is continuous in $\mathbb{R}$ for gapped paths. This provides additional information about the edge spectrum, similar to how the Zak phase is equal to the winding number when computed in a particular gauge. Our new bulk polarization simplifies the calculation of changes in the bulk polarization, and provides a new route to the computation of Chern numbers.
 
 \emph{Outlook:} In the application of our results to topological systems in 1D we have focused on systems with translational invariance even though our results do not require it. For general spatially inhomogeneous systems the same bulk can support different boundaries so the relation between bulk and boundary is not as straightforward as in the translational invariant case. Our results might give more insight into this relation. 
+
+As it stands, the relation derived in this paper only works for non-interacting systems. With interactions, the correlation matrix does not have the full information of the ground state. However, there might be certain systems, perhaps for weakly interacting systems, where the correlation matrix encodes the topological information. This would be worth exploring since, even for interacting systems, the correlation matrix is much easier to compute than the density matrix.
 
 In the field of higher-order topological insulators some systems can be characterized by a physical generalization of the bulk polarization to two dimensions, the quadrupole moment \cite{Benalcazar2017,Kang2019}. This quadrupole moment is defined via the position operator and it is an open question whether there is a formulation in terms of twisted boundary conditions. In this case, one might be able to construct this quadrupole moment using the entanglement spectrum, as we did
  here for the bulk polarization.
