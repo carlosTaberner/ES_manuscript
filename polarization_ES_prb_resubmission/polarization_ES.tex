@@ -350,7 +350,7 @@ In the thermodynamic limit we obtain
 \lim_{L \rightarrow \infty} \tilde{\mathcal{P}} = \lim_{L \rightarrow \infty} \chi \, {\rm mod } \, 1.
 \label{eq:ptilde_eq_chi}
 \end{equation}
-Note that in order to compute $\chi$ correctly the eigenstates with $\xi \neq 0,1$ need to be localized in order for us to select the correct eigenvalues. It might be --- like in Fig.\ref{huang}(a) --- that the spectrum has degenerate pairs of left and right eigenstates and the numerical diagonalization mixes them. This case is trivial, since we know that there is one left and one right eigenstate, but if the degeneracy is four-fold or higher we must obtain the localized eigenstates. One way of counting how many left eigenstates are in a degenerate subspace is discussed in Appendix \ref{app:loc}. Note that this is not necessary for the bulk eigenstates, exponentially close to $\chi=0,1$, as the error we make is also exponentially small once we take the result modulo 1.  
+Note that in order to compute $\chi$ correctly the eigenstates with $\xi \neq 0,1$ need to be localized in order for us to select the correct eigenvalues. It might be --- like in Fig.\ref{huang}(a) --- that the spectrum has degenerate pairs of left and right eigenstates and the numerical diagonalization mixes them. This case is trivial, since we know that there is one left and one right eigenstate, but if the degeneracy is four-fold or higher we must obtain the localized eigenstates. One way of counting how many left eigenstates are in a degenerate subspace is discussed in Appendix \ref{app:loc}. Note that this is not necessary for the bulk eigenstates, exponentially close to $\xi=0,1$, as the error we make is also exponentially small once we take the result modulo 1.  
 
 Before proceeding, lets review again the result so far. First note that for translation invariant systems, the ES of the right and the left virtual edge are related by an overall '-' sign, i.e. for each eigenvalue $\epsilon$ on the right virtual edge, there is a corresponding value $-\varepsilon$ on the left one. 
 Since the spectra are equispaced, this implies that the two virtual edge spectra are merely shifted with respect to each other.
@@ -409,7 +409,7 @@ $\tpo$ can be obtained in an even simpler way than $\tilde{\mathcal{P}}$ as
 \end{align}
 where we used Eq.~\eqref{eq:gauge} and ($C_{A,\rm o}$)$C_{\rm o}$ denotes the (subsystem) correlation matrix of the open chain.  
 
-Note that the result is very easy to interpret as well. Changes in the polarization $\tilde{\mathcal{P}}$ on the periodic chain give the current across the seam. In the open chain, this is simply given by $J = \partial_t N_A(t)$. Therefore the equivalent polarization in the open chain is simply the number of particles in region $A$, $N_A$. It is, however, useful to define it in terms of the flux, as we are interested in studying the polarization as a geometric quantity. This description is more subtle when states cross the chemical potential, where $N_A$ will have a discontinuity without an associated current. Discontinuities in the trace of $C_A$ for open chains was already observed in the context of Chern insulators \cite{Alexandrinata2011}, where it was related to the appearance of gapless modes. Below we will employ similar arguments to study the topology of 1D chains. 
+Note that the result is very easy to interpret as well. Changes in the polarization $\tilde{\mathcal{P}}$ on the periodic chain give the current across the seam. In the open chain, this is simply given by $J = \partial_t N_A(t)$. Therefore the equivalent polarization in the open chain is simply the number of particles in region $A$, $N_A$. It is, however, useful to define it in terms of the flux, as we are interested in studying the polarization as a geometric quantity. This description is more subtle when states cross the chemical potential, where $N_A$ will have a discontinuity without an associated current. Discontinuities in the trace of $C_A$ for open chains was already observed in the context of Chern insulators \cite{Alexandrinata2011}, where it was related to the appearance of gapless modes. Below we will employ similar arguments to study topology and topological charge pumping on 1D chains.
 
 The key idea to understand the connection of the EOS for open and periodic chains is that in the process of opening the chain, which can be done adiabatically, all eigenvalues that are related to the right virtual edge ($A_R$ in Fig.~\ref{fig:chain}) are pushed to $\xi=0,1$. 
 As a result, the sum of all eigenvalues of $C_{A,o}$ (modulo 1) is equal to $\chi$ \eqref{eq:chi_left}. \footnote{ This is strictly speaking only true in the thermodynamic limit, where we avoid the finite size effects due to opening the chain.} Therefore, in the thermodynamic limit, we have
@@ -571,7 +571,7 @@ However, since we know the position of the branch cuts we can integrate avoiding
 C(m) =& [\tpo(m,k_y=0^-)-\tpo(m,k_y=-\pi^+)] \nonumber \\ 
 &+[\tpo(m,k_y=\pi^-)-\tpo(m,k_y=0^+)]. 
 \end{align}
-The expression in the right hand side is actually a known topological invariant, the trace index \cite{Alexandrinata2011}, defined in terms of the trace of $C_{A,o}$. In reference \cite{Alexandrinata2011} it is shown to be equal to the Chern number by relating it to the Hall current. Here, the connection between the trace index and the Chern number is seen by framing $\Tr[C_{A,o}]$ as a geometric quantity 
+The expression in the right hand side is actually a known topological invariant, the trace index \cite{Alexandrinata2011}, defined in terms of the trace of $C_{A,o}$. In reference \cite{Alexandrinata2011} it is shown to be equal to the Chern number by relating it to the Hall current. In this section we have shown numerically how the EOS from the closed and open chain are related for a Chern insulator. Applying the methods from last section we recover the connection between the trace index and the Chern number, seen here by framing $\Tr[C_{A,o}]$ as a geometric quantity 
 
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
@@ -726,6 +726,9 @@ We want to count the number of these localized eigenstates in region $L$. This c
 \Tr_L [P_{deg} ]=&  \Tr_L[ \sum_{\nu \in L} \ket{\tilde{\psi}_\mu}\bra{\tilde{\psi}_{\mu}}]+ \Tr_L[ \sum_{\nu \in R} \ket{\tilde{\psi}_\mu}\bra{\tilde{\psi}_{\mu}} ] \\
 =&  \sum_{\nu \in L} \bra{\tilde{\psi}_{\mu}} \ket{\tilde{\psi}_\mu} .
 \end{align}
+
+As long as the states considered are exponentially localized on the edges, $\Tr_L [P_{deg} ]$ will be exponentially close to an integer. 
+
 \section{Winding number in the SSH chain}
 \label{appendix:winding_ssh}
 
