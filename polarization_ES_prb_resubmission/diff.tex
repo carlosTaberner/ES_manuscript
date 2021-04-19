@@ -1,7 +1,7 @@
 \pdfoutput=1
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL polarization_ES_prb_submission/polarization_ES.tex     Fri Apr 16 21:32:56 2021
-%DIF ADD polarization_ES_prb_resubmission/polarization_ES.tex   Fri Apr 16 21:32:56 2021
+%DIF DEL polarization_ES_prb_submission/polarization_ES.tex     Mon Apr 19 11:21:54 2021
+%DIF ADD polarization_ES_prb_resubmission/polarization_ES.tex   Mon Apr 19 11:21:54 2021
 \documentclass[twocolumn,amsmath,longbibliography,amssymb,superscriptaddress]{revtex4-1}
 \usepackage[pdftex]{graphics}
 \usepackage{graphicx}
@@ -437,7 +437,7 @@ In the thermodynamic limit we obtain
 \label{eq:ptilde_eq_chi}
 \end{equation}
 Note that in order to compute $\chi$ correctly the eigenstates with $\xi \neq 0,1$ need to be localized in order for us to select the correct eigenvalues. It might be --- like in Fig.\ref{huang}(a) --- that the spectrum has degenerate pairs of left and right eigenstates and the numerical diagonalization mixes them. This case is trivial, since we know that there is one left and one right eigenstate, but if the degeneracy is four-fold or higher we must obtain the localized eigenstates. \DIFdelbegin \DIFdel{Localizing }\DIFdelend \DIFaddbegin \DIFadd{One way of counting how many left eigenstates are in a degenerate subspace is discussed in Appendix \ref{app:loc}. Note that this is not necessary for }\DIFaddend the bulk eigenstates\DIFdelbegin \DIFdel{that are }\DIFdelend \DIFaddbegin \DIFadd{, }\DIFaddend exponentially close to \DIFdelbegin \DIFdel{$\xi = 0,1$ is more difficult but not doing so only results in an exponentially small error. 
-}\DIFdelend \DIFaddbegin \DIFadd{$\chi=0,1$, as the error we make is also exponentially small once we take the result modulo 1.  
+}\DIFdelend \DIFaddbegin \DIFadd{$\xi=0,1$, as the error we make is also exponentially small once we take the result modulo 1.  
 }\DIFaddend 
 
 Before proceeding, lets review again the result so far. First note that for translation invariant systems, the ES of the right and the left virtual edge are related by an overall '-' sign, i.e. for each eigenvalue $\epsilon$ on the right virtual edge, there is a corresponding value $-\varepsilon$ on the left one. 
@@ -501,7 +501,7 @@ where we used Eq.~\eqref{eq:gauge} and ($C_{A,\rm o}$)$C_{\rm o}$ denotes the (s
 
 \DIFdelbegin \DIFdel{The idea }\DIFdelend \DIFaddbegin \DIFadd{Note that the result is very easy to interpret as well. Changes in the polarization $\tilde{\mathcal{P}}$ on the periodic chain give the current across the seam. In the open chain, this is simply given by $J = \partial_t N_A(t)$. Therefore the equivalent polarization in the open chain is simply the number of particles in region $A$, $N_A$. It is, however, useful to define it in terms of the flux, as we are interested in studying the polarization as a geometric quantity. This description is more subtle when states cross the chemical potential, where $N_A$ will have a discontinuity without an associated current. Discontinuities in the trace of $C_A$ for open chains was already observed in the context of Chern insulators \mbox{%DIFAUXCMD
 \cite{Alexandrinata2011}}\hspace{0pt}%DIFAUXCMD
-, where it was related to the appearance of gapless modes. Below we will employ similar arguments to study the topology of 1D chains. 
+, where it was related to the appearance of gapless modes. Below we will employ similar arguments to study topology and topological charge pumping on 1D chains.
 }
 
 \DIFadd{The key idea to understand the connection of the EOS for open and periodic chains }\DIFaddend is that in the process of opening the chain, which can be done adiabatically, all eigenvalues that are related to the right virtual edge ($A_R$ in Fig.~\ref{fig:chain}) are pushed to $\xi=0,1$. 
@@ -668,7 +668,7 @@ However, since we know the position of the branch cuts we can integrate avoiding
 C(m) =& [\tpo(m,k_y=0^-)-\tpo(m,k_y=-\pi^+)] \nonumber \\ 
 &+[\tpo(m,k_y=\pi^-)-\tpo(m,k_y=0^+)]. 
 \end{align}
-The expression in the right hand side is actually a known topological invariant, the trace index \cite{Alexandrinata2011}, defined in terms of the trace of $C_{A,o}$. In reference \cite{Alexandrinata2011} it is shown to be equal to the Chern number by relating it to the Hall current. Here, the connection between the trace index and the Chern number is seen by framing $\Tr[C_{A,o}]$ as a geometric quantity 
+The expression in the right hand side is actually a known topological invariant, the trace index \cite{Alexandrinata2011}, defined in terms of the trace of $C_{A,o}$. In reference \cite{Alexandrinata2011} it is shown to be equal to the Chern number by relating it to the Hall current. \DIFdelbegin \DIFdel{Here, }\DIFdelend \DIFaddbegin \DIFadd{In this section we have shown numerically how the EOS from the closed and open chain are related for a Chern insulator. Applying the methods from last section we recover }\DIFaddend the connection between the trace index and the Chern number\DIFdelbegin \DIFdel{is seen }\DIFdelend \DIFaddbegin \DIFadd{, seen here }\DIFaddend by framing $\Tr[C_{A,o}]$ as a geometric quantity 
 
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
@@ -809,9 +809,10 @@ and we conclude that
 UD(\abs{D})^{-1}U^\dagger =& UDU^\dagger(U D^2 U^\dagger)^{-1/2} \nonumber\\ 
 =& H(H^2)^{-1/2}.
 \end{align}
-Combining Eq.s~\eqref{eq:corr_mat},  and \eqref{eq:UDDU}, we arrive at the final expression of the correlation matrix in Eq.~\eqref{eq:corr_mat2}. 
+Combining Eq.s~\eqref{eq:corr_mat},  and \eqref{eq:UDDU}, we arrive at the final expression of the correlation matrix in Eq.~\eqref{eq:corr_mat2}\DIFaddbegin \DIFadd{. 
+}
 
-\DIFaddbegin \section{\DIFadd{Degenerate EOS}}\label{app:loc}
+\section{\DIFadd{Degenerate EOS}}\label{app:loc}
 
 \DIFadd{In order apply Eq.}\eqref{eq:chi_left} \DIFadd{one needs to identify to which virtual cut each eigenstate belongs to. In the case where the EOS is degenerate, eigenstates from the two different virtual cuts might mix, making this identification not straightforward . One solution to this problem is as follows. Consider the subspace spanned by the degenerate eigenstates $\ket{\psi_\mu}$. These are a mixture of states $\ket{\tilde{\psi}_\nu}$ that are localized either on the left or on the right half of region $A$. Consider the projector onto this subspace,
 }\begin{align}
@@ -823,7 +824,10 @@ Combining Eq.s~\eqref{eq:corr_mat},  and \eqref{eq:UDDU}, we arrive at the final
 \DIFadd{\Tr_L }[\DIFadd{P_{deg} }]\DIFadd{=}&  \DIFadd{\Tr_L[ \sum_{\nu \in L} \ket{\tilde{\psi}_\mu}\bra{\tilde{\psi}_{\mu}}]+ \Tr_L[ \sum_{\nu \in R} \ket{\tilde{\psi}_\mu}\bra{\tilde{\psi}_{\mu}} ] }\\
 \DIFadd{=}&  \DIFadd{\sum_{\nu \in L} \bra{\tilde{\psi}_{\mu}} \ket{\tilde{\psi}_\mu} .
 }\end{align}
-\DIFaddend \section{Winding number in the SSH chain}
+
+\DIFadd{As long as the states considered are exponentially localized on the edges, $\Tr_L [P_{deg} ]$ will be exponentially close to an integer}\DIFaddend . 
+
+\section{Winding number in the SSH chain}
 \label{appendix:winding_ssh}
 
 
