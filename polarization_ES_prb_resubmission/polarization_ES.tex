@@ -543,7 +543,7 @@ In contrast, the topological edge states in the energy spectrum are completely m
 
 \subsection{Chern Number in 2D}
 
-We now discuss the computation of Chern numbers in 2D systems with $\tpo$ by using the same method we described for 1D systems. A similar (related?) discussion can be found in ref.\cite{Alexandrinata2011}.
+We now discuss the computation of Chern numbers in 2D systems with $\tpo$ by using the same method we described for 1D systems. A similar  discussion can be found in ref.\cite{Alexandrinata2011}.
  Consider the Chern insulator with inversion symmetry given by the Hamiltonian
 \begin{align}
 H =& \sum_{i\alpha,j\beta}\sum_{k_y} c_{i\alpha}^\dagger(k_y) H_{i\alpha,j\beta}(k_y) c_{j\beta}(k_y), \\ \nonumber
@@ -571,7 +571,7 @@ However, since we know the position of the branch cuts we can integrate avoiding
 C(m) =& [\tpo(m,k_y=0^-)-\tpo(m,k_y=-\pi^+)] \nonumber \\ 
 &+[\tpo(m,k_y=\pi^-)-\tpo(m,k_y=0^+)]. 
 \end{align}
-The expression in the right hand side is actually a known topological invariant, the trace index \cite{Alexandrinata2011}, defined in terms of the trace of $C_{A,o}$. In reference \cite{Alexandrinata2011} it is shown to be equal to the Chern number by relating it to the Hall current. In this section we have shown numerically how the EOS from the closed and open chain are related for a Chern insulator. Applying the methods from last section we recover the connection between the trace index and the Chern number, seen here by framing $\Tr[C_{A,o}]$ as a geometric quantity 
+The expression in the right hand side is actually a known topological invariant, the trace index \cite{Alexandrinata2011}, defined in terms of the trace of $C_{A,o}$. In reference \cite{Alexandrinata2011} it is shown to be equal to the Chern number by relating it to the Hall current. In this section we have shown numerically how the EOS from the closed and open chain are related for a Chern insulator. Applying the methods from the last section we recover the connection between the trace index and the Chern number, seen here by framing $\Tr[C_{A,o}]$ as a geometric quantity 
 
 
 % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % - % 
@@ -716,7 +716,7 @@ Combining Eq.s~\eqref{eq:corr_mat},  and \eqref{eq:UDDU}, we arrive at the final
 
 \section{Degenerate EOS}\label{app:loc}
 
-In order apply Eq.\eqref{eq:chi_left} one needs to identify to which virtual cut each eigenstate belongs to. In the case where the EOS is degenerate, eigenstates from the two different virtual cuts might mix, making this identification not straightforward . One solution to this problem is as follows. Consider the subspace spanned by the degenerate eigenstates $\ket{\psi_\mu}$. These are a mixture of states $\ket{\tilde{\psi}_\nu}$ that are localized either on the left or on the right half of region $A$. Consider the projector onto this subspace,
+In order apply Eq.\eqref{eq:chi_left} one needs to identify  which virtual cut each eigenstate belongs to. In the case where the EOS is degenerate, eigenstates from the two different virtual cuts might mix, making this identification not straightforward. One solution to this problem is as follows: Consider the subspace spanned by the degenerate eigenstates $\ket{\psi_\mu}$. These are a mixture of states $\ket{\tilde{\psi}_\nu}$ that are localized either on the left or on the right half of region $A$. Consider the projector onto this subspace,
 \begin{align}
 P_{deg} =& \sum_\mu \ket{\psi_\mu}\bra{\psi_{\mu}} \nonumber \\
 =&  \sum_{\nu \in L} \ket{\tilde{\psi}_\mu}\bra{\tilde{\psi}_{\mu}}+ \sum_{\nu \in R} \ket{\tilde{\psi}_\mu}\bra{\tilde{\psi}_{\mu}} 
@@ -726,7 +726,6 @@ We want to count the number of these localized eigenstates in region $L$. This c
 \Tr_L [P_{deg} ]=&  \Tr_L[ \sum_{\nu \in L} \ket{\tilde{\psi}_\mu}\bra{\tilde{\psi}_{\mu}}]+ \Tr_L[ \sum_{\nu \in R} \ket{\tilde{\psi}_\mu}\bra{\tilde{\psi}_{\mu}} ] \\
 =&  \sum_{\nu \in L} \bra{\tilde{\psi}_{\mu}} \ket{\tilde{\psi}_\mu} .
 \end{align}
-
 As long as the states considered are exponentially localized on the edges, $\Tr_L [P_{deg} ]$ will be exponentially close to an integer. 
 
 \section{Winding number in the SSH chain}
